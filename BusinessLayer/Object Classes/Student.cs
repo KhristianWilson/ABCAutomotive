@@ -4,7 +4,7 @@ using System.Data;
 
 namespace ABCAutomotive.BusinessLayer
 {
-    public class Student
+    public class Student : IStudent
     {
 
         #region Constructor
@@ -30,6 +30,7 @@ namespace ABCAutomotive.BusinessLayer
         internal StudentStatus _status;
         internal DateTime _startDate;
         internal DateTime _endDate;
+        internal object _timeStamp;
 
         internal Boolean _trusted = false;
 
@@ -70,7 +71,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Cannot Change an Student ID");
                 }
-                if (value == 0)
+                if (!Validation.checkLength(value.ToString(), 8, SizeOperator.MustBeEqualTo)) 
                 {
                     throw new ArgumentException("Student ID cannot be empty");
                 }
@@ -112,7 +113,7 @@ namespace ABCAutomotive.BusinessLayer
                 }
                 if (string.IsNullOrEmpty(value) || Validation.checkLength(value, 3, SizeOperator.CanBeLessThan))
                 {
-                    throw new ConstraintException("Student last must be less than 20 charaters");
+                    throw new ConstraintException("Student last name must be less than 20 charaters");
                 }
                 _lastName = value;
             }
@@ -283,6 +284,18 @@ namespace ABCAutomotive.BusinessLayer
                     return;
                 }
                 _endDate = value;
+            }
+        }
+
+        object IStudent.TimeStamp
+        {
+            get
+            {
+                return _timeStamp;
+            }
+            set
+            {
+                value = _timeStamp;
             }
         }
 

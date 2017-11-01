@@ -1,7 +1,46 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Drawing;
 
 namespace ABCAutomotive.Types
 {
+
+    #region Interface
+
+    public interface IStudent
+    {
+
+        int studentid { get; set; }
+        string firstName { get; set; }
+        string lastName { get; set; }
+        string address { get; set; }
+        string postalCode { get; set; }
+        string city { get; set; }
+        string phone { get; set; }
+        ProgramType programType { get; set; }
+        StudentStatus status { get; set; }
+        DateTime startDate { get; set; }
+        DateTime endDate { get; set; }
+        object TimeStamp { get; set; }
+
+    }
+
+    public interface IResource
+    {
+        int resourceid { get; set; }
+        string description { get; set; }
+        string title { get; set; }
+        string publisher { get; set; }
+        string referenceNumber { get; set; }
+        Image image { get; set; }
+        ResourceStatus resourceStatus { get; set; }
+        ResourceType resourceType { get; set; }
+        DateTime purchaseDate { get; set; }
+        double price { get; set; }
+        object TimeStamp { get; set; }
+    }
+
+    #endregion
 
     #region Structures
 

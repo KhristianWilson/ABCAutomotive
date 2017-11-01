@@ -17,7 +17,7 @@ namespace ABCAutomotive.BusinessLayer
 
         public static Student Create(int studentid)
         {
-            if (studentid == 0 || Validation.checkStudentIdStuct(studentid))
+            if (studentid == 0 || Validation.checkLength(studentid.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
                 throw new ArgumentException("Invalid Student ID");
             }
@@ -40,7 +40,19 @@ namespace ABCAutomotive.BusinessLayer
         private static Student Repackage(DataRow myRow)
         {
             Student myStudent = new Student();
-
+            myStudent._studentid = Convert.ToInt16(myRow["StudentID"]);
+            myStudent._firstName = myRow["FirstName"].ToString();
+            myStudent._lastName = myRow["LastName"].ToString();
+            myStudent._address = myRow["Address"].ToString();
+            myStudent._city = myRow["City"].ToString();
+            myStudent._phone = myRow["Phone"].ToString();
+            myStudent._postalCode = myRow["PostalCode"].ToString();
+            myStudent._balancedue = Convert.ToDouble(myRow["BalanceDue"]);
+            myStudent._programType = (ProgramType)myRow["Program"];
+            myStudent.status = (StudentStatus)myRow["Status"];
+            myStudent._startDate = Convert.ToDateTime(myRow["StartDate"]);
+            myStudent._endDate = Convert.ToDateTime(myRow["EndDate"]);
+            myStudent._timeStamp = myRow["TimeStamp"];
             myStudent._trusted = true;
 
             return myStudent;
@@ -60,9 +72,9 @@ namespace ABCAutomotive.BusinessLayer
 
         public static Resource Create(int resourceid)
         {
-            if (resourceid == 0 || Validation.checkStudentIdStuct(resourceid))
+            if (resourceid == 0 || Validation.checkLength(resourceid.ToString(), 8, SizeOperator.MustBeEqualTo)) 
             {
-                throw new ArgumentException("Invalid Student ID");
+                throw new ArgumentException("Invalid Resource ID");
             }
 
             DataTable ResouceTable = ResouceSQL.Retrieve(resourceid);

@@ -37,21 +37,5 @@ namespace ABCAutomotive.BusinessLayer
             var matches = Regex.Match(phone, "^[0-9]{10,12}$");
             return matches.Success;
         }
-
-        public static bool checkStudentIdStuct(int id)
-        {
-            string studentid = id.ToString();
-            DateTime now = DateTime.Now;
-            if(studentid.Substring(0,4) != now.Year.ToString())
-            {
-                return false;
-            }
-            int x;
-            if(!Int32.TryParse(studentid, out x))
-            {
-                return false;
-            }
-            return true;
-        }
     }
 }
