@@ -18,6 +18,7 @@ namespace ABCAutomotive.DAL
             DataTable dt = new DataTable();
             da.SelectCommand = cmd;
             da.Fill(dt);
+            UnloadParms(cmd, parmlist);
             return dt;
         }
 
@@ -28,6 +29,7 @@ namespace ABCAutomotive.DAL
             DataSet ds = new DataSet();
             da.SelectCommand = cmd;
             da.Fill(ds);
+            UnloadParms(cmd, parmlist);
             return ds;
         }
 

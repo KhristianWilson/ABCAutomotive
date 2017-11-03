@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "ABCAutomotive\Types.csproj", "{3331DE0E-C862-490A-9FA9-17F5CA57EADB}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{01983813-89CD-4124-9C4C-F765AA08A057}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLLayer", "SQLLayer\SQLLayer.csproj", "{D4011549-21E4-42A3-BB81-3AC0A4812CFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{67F0C56A-D5BF-4078-BF35-613A017ED809}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D4011549-21E4-42A3-BB81-3AC0A4812CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4011549-21E4-42A3-BB81-3AC0A4812CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4011549-21E4-42A3-BB81-3AC0A4812CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F0C56A-D5BF-4078-BF35-613A017ED809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F0C56A-D5BF-4078-BF35-613A017ED809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F0C56A-D5BF-4078-BF35-613A017ED809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F0C56A-D5BF-4078-BF35-613A017ED809}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
