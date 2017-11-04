@@ -6,6 +6,42 @@ using System.Data;
 namespace ABCAutomotive.BusinessLayer
 {
 
+    #region AuthenticationFactory
+
+    public static class AuthenticationFactory
+    {
+        public static Authentication Create()
+        {
+            return new Authentication();
+        }
+
+        public static Authentication Create(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username) || !Validation.checkLength(username, 30, SizeOperator.CanBeLessThan))
+            {
+                throw new ConstraintException("Username must be less than 30 characters");
+            }
+            if (string.IsNullOrEmpty(password) || !Validation.checkLength(password, 20, SizeOperator.CanBeLessThan))
+            {
+                throw new ConstraintException("Password must be less than 20 characters");
+            }
+
+            int AccessLevel = AuthenticationSQL.Retrieve(username, password);
+            return Repackage(AccessLevel);
+        }
+
+        private static Authentication Repackage(int AccessLevel)
+        {
+            Authentication user = new Authentication();
+            user._accessLevel = AccessLevel;
+            return user;
+        }
+
+    }
+    
+
+    #endregion
+
     #region StudentFactory
 
     public static class StudentFactory

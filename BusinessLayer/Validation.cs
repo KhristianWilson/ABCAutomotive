@@ -7,6 +7,8 @@ namespace ABCAutomotive.BusinessLayer
     public static class Validation
     {
 
+        #region Input Validating
+
         public static bool checkLength(string s, int length, SizeOperator sizechoice)
         {
             if (sizechoice == SizeOperator.CanBeLessThan)
@@ -37,5 +39,8 @@ namespace ABCAutomotive.BusinessLayer
             var matches = Regex.Match(phone, "^[0-9]{10,12}$");
             return matches.Success;
         }
+
+        #endregion
+
     }
 }

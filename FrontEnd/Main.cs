@@ -8,13 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrontEnd
+namespace ABCAutomotive.FrontEnd
 {
     public partial class Main : Form
     {
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            StartUpForms.Splash Splash = new StartUpForms.Splash();
+            Splash.ShowDialog();
+
+
+            StartUpForms.Login login = new StartUpForms.Login();
+            login.ShowDialog();
+            if (login.DialogResult == DialogResult.Cancel)
+            {
+                this.Close();
+            }
+            this.Text = Application.ProductName;
+
         }
     }
 }

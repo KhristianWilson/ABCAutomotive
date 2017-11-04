@@ -1,10 +1,29 @@
 ﻿using ABCAutomotive.DAL;
 using ABCAutomotive.Types;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace ABCAutomotive.SQLLayer
 {
+
+    #region AuthSQL
+
+    public class AuthenticationSQL
+    {
+        public static int Retrieve(string username, string password)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@userId", username, ParameterDirection.Input, SqlDbType.VarChar, 30));
+            parmlist.Add(new ParmStruct("@password", password, ParameterDirection.Input, SqlDbType.VarChar, 20));
+            parmlist.Add(new ParmStruct("@accessLevel", 0, ParameterDirection.Output, SqlDbType.Int));
+            DataAccess.GetDataTable("spauthenticate", parmlist);
+            return Convert.ToInt16(parmlist[2].parmValue);
+        }
+
+    }
+
+    #endregion
 
     #region StudentSQL
 

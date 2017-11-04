@@ -109,7 +109,14 @@ namespace ABCAutomotive.Types
         OnLoan,
         Returned,
         ReturnedDamaged,
-        NotReturned,
+        NotReturned
+    }
+
+    public enum LookupTypes
+    {
+        StudentLookup,
+        LoansLookup,
+        ResourceLookup
     }
 
     #endregion

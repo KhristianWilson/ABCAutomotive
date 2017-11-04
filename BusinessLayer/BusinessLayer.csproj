@@ -41,11 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\ListFactories.cs" />
+    <Compile Include="Object Classes\List.cs" />
+    <Compile Include="Object Classes\Authentication.cs" />
     <Compile Include="Factories\MainFactories.cs" />
     <Compile Include="Object Classes\Loan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Object Classes\Resource.cs" />
     <Compile Include="Object Classes\Student.cs" />
+    <Compile Include="ResourceBorrowing.cs" />
     <Compile Include="Validation.cs" />
   </ItemGroup>
   <ItemGroup>
