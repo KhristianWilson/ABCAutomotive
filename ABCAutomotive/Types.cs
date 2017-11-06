@@ -74,7 +74,7 @@ namespace ABCAutomotive.Types
 
     public enum StudentStatus
     {
-        NotActive,
+        Inactive,
         Active
     }
 

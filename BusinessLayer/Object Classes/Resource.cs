@@ -25,7 +25,7 @@ namespace ABCAutomotive.BusinessLayer
         internal string _publisher;
 
         internal ResourceType _type;
-        internal ReserveStatus _reserceStatus;
+        internal ReserveStatus _reserveStatus;
         internal ResourceStatus _status;
 
         internal DateTime _dateOfPurchase;
@@ -188,15 +188,15 @@ namespace ABCAutomotive.BusinessLayer
         {
             get
             {
-                return _reserceStatus;
+                return _reserveStatus;
             }
             set
             {
-                if (value == _reserceStatus)
+                if (value == _reserveStatus)
                 {
                     return;
                 }
-                _reserceStatus = value;
+                _reserveStatus = value;
             }
         }
 

@@ -18,7 +18,7 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
             this.AcceptButton = btnLogin;
             this.CancelButton = btnCancel;
             this.Text = Application.ProductName;
-            txtUsername.Text = "Khristian";
+            txtUsername.Text = Environment.UserName;
             txtPassword.Text = Properties.Settings.Default.password;
             if (txtPassword.Text != String.Empty)
             { chkRemember.Checked = true; }
@@ -31,6 +31,7 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
             try
             {
                 user = AuthenticationFactory.Create(txtUsername.Text, txtPassword.Text);
+                SavePassword();
                 if(user.AccessLevel != 0)
                 {
                     DialogResult = DialogResult.OK;
@@ -74,5 +75,6 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
         }
 
        #endregion
+
     }
 }

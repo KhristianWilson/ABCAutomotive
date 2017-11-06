@@ -2,6 +2,7 @@
 using ABCAutomotive.Types;
 using System;
 using System.Data;
+using System.Drawing;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -53,7 +54,7 @@ namespace ABCAutomotive.BusinessLayer
 
         public static Student Create(int studentid)
         {
-            if (studentid == 0 || Validation.checkLength(studentid.ToString(), 8, SizeOperator.MustBeEqualTo))
+            if (studentid == 0 || !Validation.checkLength(studentid.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
                 throw new ArgumentException("Invalid Student ID");
             }
@@ -64,7 +65,7 @@ namespace ABCAutomotive.BusinessLayer
 
         public static Student Create(string name)
         {
-            if (string.IsNullOrEmpty(name) || Validation.checkLength(name, 30, SizeOperator.CanBeLessThan))
+            if (string.IsNullOrEmpty(name) || !Validation.checkLength(name, 30, SizeOperator.CanBeLessThan))
             {
                 throw new ArgumentException("Invalid Student Name");
             }
@@ -76,7 +77,7 @@ namespace ABCAutomotive.BusinessLayer
         private static Student Repackage(DataRow myRow)
         {
             Student myStudent = new Student();
-            myStudent._studentid = Convert.ToInt16(myRow["StudentID"]);
+            myStudent._studentid = Convert.ToInt32(myRow["StudentID"]);
             myStudent._firstName = myRow["FirstName"].ToString();
             myStudent._lastName = myRow["LastName"].ToString();
             myStudent._address = myRow["Address"].ToString();
@@ -84,8 +85,8 @@ namespace ABCAutomotive.BusinessLayer
             myStudent._phone = myRow["Phone"].ToString();
             myStudent._postalCode = myRow["PostalCode"].ToString();
             myStudent._balancedue = Convert.ToDouble(myRow["BalanceDue"]);
-            myStudent._programType = (ProgramType)myRow["Program"];
-            myStudent.status = (StudentStatus)myRow["Status"];
+            myStudent._programType = (ProgramType)(Convert.ToInt32(myRow["Program"]));
+            myStudent.status = (StudentStatus)(Convert.ToInt32(myRow["Status"]));
             myStudent._startDate = Convert.ToDateTime(myRow["StartDate"]);
             myStudent._endDate = Convert.ToDateTime(myRow["EndDate"]);
             myStudent._timeStamp = myRow["TimeStamp"];
@@ -108,7 +109,7 @@ namespace ABCAutomotive.BusinessLayer
 
         public static Resource Create(int resourceid)
         {
-            if (resourceid == 0 || Validation.checkLength(resourceid.ToString(), 8, SizeOperator.MustBeEqualTo)) 
+            if (resourceid == 0 || !Validation.checkLength(resourceid.ToString(), 8, SizeOperator.MustBeEqualTo)) 
             {
                 throw new ArgumentException("Invalid Resource ID");
             }
@@ -120,7 +121,26 @@ namespace ABCAutomotive.BusinessLayer
         private static Resource Repackage(DataRow myRow)
         {
             Resource myResource = new Resource();
-
+            myResource._resourceId = Convert.ToInt32(myRow["ResourceID"]);
+            myResource._description = myRow["Description"].ToString();
+            myResource._title = myRow["Title"].ToString();
+            myResource._type = (ResourceType)(Convert.ToInt32(myRow["Type"]));
+            myResource._publisher = myRow["Publisher"].ToString();
+            myResource._dateOfPurchase = Convert.ToDateTime(myRow["DateOfPurchase"]);
+            myResource._price = Convert.ToDouble(myRow["Price"]);
+            myResource._referenceNumber = myRow["ReferenceNumber"].ToString();
+            //myResource._image = (Image)(myRow["Image"]);
+            myResource._status = (ResourceStatus)(Convert.ToInt32(myRow["Status"]));
+            myResource._reserveStatus = (ReserveStatus)(Convert.ToInt32(myRow["ReserveStatus"]));
+            if(myRow["StudentReserving"].ToString() != string.Empty)
+            {
+                myResource._reserveingStudent = Convert.ToInt32(myRow["StudentReserving"]);
+            }
+            if (myRow["DateOfRemoval"].ToString() != string.Empty)
+            {
+                myResource._removealDate = Convert.ToDateTime(myRow["DateOfRemoval"]);
+            }
+            myResource._timestamp = myRow["TimeStamp"];
             myResource._trusted = true;
 
             return myResource;

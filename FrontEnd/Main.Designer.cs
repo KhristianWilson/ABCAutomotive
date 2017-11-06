@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,16 +60,20 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
+            this.btnLoans = new System.Windows.Forms.ToolStripButton();
+            this.btnReturns = new System.Windows.Forms.ToolStripButton();
+            this.statusMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
-            this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.timerDisplay = new System.Windows.Forms.Timer(this.components);
+            this.menuStripMain.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
+            this.statusMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,18 +81,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(743, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip";
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(997, 24);
+            this.menuStripMain.TabIndex = 0;
+            this.menuStripMain.Text = "menuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -311,25 +316,48 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
-            // toolStrip1
+            // toolStripMain
             // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(743, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip";
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnLoans,
+            this.btnReturns});
+            this.toolStripMain.Location = new System.Drawing.Point(0, 24);
+            this.toolStripMain.Name = "toolStripMain";
+            this.toolStripMain.Size = new System.Drawing.Size(997, 25);
+            this.toolStripMain.TabIndex = 1;
+            this.toolStripMain.Text = "toolStrip";
             // 
-            // statusStrip1
+            // btnLoans
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnLoans.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnLoans.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.loans;
+            this.btnLoans.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLoans.Name = "btnLoans";
+            this.btnLoans.Size = new System.Drawing.Size(23, 22);
+            this.btnLoans.Text = "Loans";
+            this.btnLoans.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // btnReturns
+            // 
+            this.btnReturns.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnReturns.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.returns;
+            this.btnReturns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReturns.Name = "btnReturns";
+            this.btnReturns.Size = new System.Drawing.Size(23, 22);
+            this.btnReturns.Text = "Returns";
+            this.btnReturns.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // statusMain
+            // 
+            this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblDateTime,
             this.lblUser});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 437);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(743, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip";
+            this.statusMain.Location = new System.Drawing.Point(0, 521);
+            this.statusMain.Name = "statusMain";
+            this.statusMain.Size = new System.Drawing.Size(997, 22);
+            this.statusMain.TabIndex = 2;
+            this.statusMain.Text = "statusStrip";
             // 
             // toolStripStatusLabel1
             // 
@@ -355,20 +383,23 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(176)))), ((int)(((byte)(84)))));
             this.splitContainer1.Panel1.Controls.Add(this.pbLogo);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControlMain);
-            this.splitContainer1.Size = new System.Drawing.Size(743, 388);
-            this.splitContainer1.SplitterDistance = 247;
+            this.splitContainer1.Size = new System.Drawing.Size(997, 472);
+            this.splitContainer1.SplitterDistance = 331;
             this.splitContainer1.TabIndex = 3;
             // 
             // pbLogo
             // 
-            this.pbLogo.Location = new System.Drawing.Point(12, 13);
+            this.pbLogo.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.ABCLogo;
+            this.pbLogo.Location = new System.Drawing.Point(46, 13);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(223, 151);
+            this.pbLogo.Size = new System.Drawing.Size(236, 193);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
@@ -378,30 +409,39 @@
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.MenuRenderer = null;
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.Size = new System.Drawing.Size(492, 388);
+            this.tabControlMain.Size = new System.Drawing.Size(662, 472);
             this.tabControlMain.TabCloseButtonImage = null;
             this.tabControlMain.TabCloseButtonImageDisabled = null;
             this.tabControlMain.TabCloseButtonImageHot = null;
             this.tabControlMain.TabIndex = 0;
+            // 
+            // timerDisplay
+            // 
+            this.timerDisplay.Enabled = true;
+            this.timerDisplay.Interval = 1;
+            this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(743, 459);
+            this.ClientSize = new System.Drawing.Size(997, 543);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.statusMain);
+            this.Controls.Add(this.toolStripMain);
+            this.Controls.Add(this.menuStripMain);
+            this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
+            this.statusMain.ResumeLayout(false);
+            this.statusMain.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -414,7 +454,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -444,13 +484,16 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStrip toolStripMain;
+        private System.Windows.Forms.StatusStrip statusMain;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox pbLogo;
         private MdiTabControl.TabControl tabControlMain;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblDateTime;
         private System.Windows.Forms.ToolStripStatusLabel lblUser;
+        private System.Windows.Forms.Timer timerDisplay;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripButton btnLoans;
+        private System.Windows.Forms.ToolStripButton btnReturns;
     }
 }

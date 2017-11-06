@@ -14,13 +14,13 @@ namespace ABCAutomotive.BusinessLayer
 
         }
 
-        public string firstName { get; internal set; }
-        public string lastName { get; internal set; }
-        public double balance { get; internal set; }
-        public ProgramType programType { get; internal set; }
-        public DateTime startDate { get; internal set; }
+        public string FirstName { get; internal set; }
+        public string LastName { get; internal set; }
+        public double Balance { get; internal set; }
+        public ProgramType ProgramType { get; internal set; }
+        public DateTime StartDate { get; internal set; }
         public DateTime EndDate { get; internal set; }
-        public StudentStatus status { get; internal set; }
+        public StudentStatus Status { get; internal set; }
     }
 
     #endregion

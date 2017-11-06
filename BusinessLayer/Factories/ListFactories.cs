@@ -74,13 +74,13 @@ namespace ABCAutomotive.BusinessLayer
             foreach (DataRow Row in myTable.Rows)
             {
                 StudentLookup studentLookup = new StudentLookup();
-                studentLookup.firstName = Row["FirstName"].ToString();
-                studentLookup.firstName = Row["LastName"].ToString();
-                studentLookup.balance = Convert.ToDouble(Row["BalanceDue"]);
-                studentLookup.programType = (ProgramType)Row["Program"];
-                studentLookup.status= (StudentStatus)Row["Status"];
+                studentLookup.FirstName = Row["FirstName"].ToString();
+                studentLookup.LastName= Row["LastName"].ToString();
+                studentLookup.Balance = Convert.ToDouble(Row["BalanceDue"]);
+                studentLookup.ProgramType = (ProgramType)(Convert.ToInt32(Row["Program"]));
+                studentLookup.Status= (StudentStatus)(Convert.ToInt32(Row["Status"]));
                 studentLookup.EndDate = Convert.ToDateTime(Row["EndDate"]);
-                studentLookup.startDate = Convert.ToDateTime(Row["StartDate"]);
+                studentLookup.StartDate = Convert.ToDateTime(Row["StartDate"]);
                 StudentsList.Add(studentLookup);
             }
 
@@ -96,11 +96,11 @@ namespace ABCAutomotive.BusinessLayer
     {
         public static List<ResourceLookup> Create(int resourceId)
         {
-            DataTable tmpTable = ListsSQL.RetrieveLoansLookup(resourceId);
-            List<ResourceLookup> newLoansList = new List<ResourceLookup>();
+            DataTable tmpTable = ListsSQL.RetrieveResourceLookup(resourceId);
+            List<ResourceLookup> newResourceList = new List<ResourceLookup>();
 
-            newLoansList = RepackageResourceLookup(tmpTable);
-            return newLoansList;
+            newResourceList = RepackageResourceLookup(tmpTable);
+            return newResourceList;
         }
 
         private static List<ResourceLookup> RepackageResourceLookup(DataTable myTable)
@@ -111,9 +111,9 @@ namespace ABCAutomotive.BusinessLayer
             {
                 ResourceLookup resourceLookup = new ResourceLookup();
                 resourceLookup.title = Row["Title"].ToString();
-                resourceLookup.resourceType = (ResourceType)Row["Type"];
-                resourceLookup.reserveStatus= (ReserveStatus)Row["ReserveStatus"];
-                resourceLookup.resourceStatus = (ResourceStatus)Row["Status"];
+                resourceLookup.resourceType = (ResourceType)(Convert.ToInt32(Row["Type"]));
+                resourceLookup.reserveStatus= (ReserveStatus)(Convert.ToInt32(Row["ReserveStatus"]));
+                resourceLookup.resourceStatus = (ResourceStatus)(Convert.ToInt32(Row["Status"]));
                 resourceList.Add(resourceLookup);
             }
 

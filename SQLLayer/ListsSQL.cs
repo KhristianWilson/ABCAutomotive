@@ -13,7 +13,7 @@ namespace ABCAutomotive.SQLLayer
         public static DataTable RetrieveResourceLookup(int resourceId)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@resourceId", resourceId, ParameterDirection.Input, SqlDbType.SmallInt));
+            parmlist.Add(new ParmStruct("@resourceId", resourceId, ParameterDirection.Input, SqlDbType.Int));
             return DataAccess.GetDataTable("spgetResource", parmlist);
         }
 

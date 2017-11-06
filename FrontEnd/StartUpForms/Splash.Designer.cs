@@ -89,9 +89,13 @@
             // 
             // pbLogo
             // 
+            this.pbLogo.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbLogo.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.ABCLogo;
             this.pbLogo.Location = new System.Drawing.Point(12, 12);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(186, 190);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 41;
             this.pbLogo.TabStop = false;
             // 
@@ -115,13 +119,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 214);
+            this.ControlBox = false;
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.lblCompanyName);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Splash";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splash";
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
