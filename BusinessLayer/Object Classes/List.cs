@@ -14,6 +14,7 @@ namespace ABCAutomotive.BusinessLayer
 
         }
 
+        public int StudentID { get; internal set; }
         public string FirstName { get; internal set; }
         public string LastName { get; internal set; }
         public double Balance { get; internal set; }
@@ -21,7 +22,10 @@ namespace ABCAutomotive.BusinessLayer
         public DateTime StartDate { get; internal set; }
         public DateTime EndDate { get; internal set; }
         public StudentStatus Status { get; internal set; }
+        public string FullName { get { return string.Format("{0},{1}", this.FirstName, this.LastName); } }
+
     }
+
 
     #endregion
 
@@ -53,6 +57,7 @@ namespace ABCAutomotive.BusinessLayer
 
         }
 
+        public int resourceID { get; internal set; }
         public string title { get; internal set; }
         public ResourceType resourceType { get; internal set; }
         public ReserveStatus reserveStatus { get; internal set; }

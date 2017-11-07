@@ -87,6 +87,9 @@
     <EmbeddedResource Include="MainForms\Loans.resx">
       <DependentUpon>Loans.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\Returns.resx">
+      <DependentUpon>Returns.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -117,6 +120,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ABCAutomotive\Types.csproj">
+      <Project>{3331DE0E-C862-490A-9FA9-17F5CA57EADB}</Project>
+      <Name>Types</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{01983813-89cd-4124-9c4c-f765aa08a057}</Project>
       <Name>BusinessLayer</Name>

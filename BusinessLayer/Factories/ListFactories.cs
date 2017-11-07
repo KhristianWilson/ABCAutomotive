@@ -74,6 +74,7 @@ namespace ABCAutomotive.BusinessLayer
             foreach (DataRow Row in myTable.Rows)
             {
                 StudentLookup studentLookup = new StudentLookup();
+                studentLookup.StudentID = Convert.ToInt32(Row["StudentID"]);
                 studentLookup.FirstName = Row["FirstName"].ToString();
                 studentLookup.LastName= Row["LastName"].ToString();
                 studentLookup.Balance = Convert.ToDouble(Row["BalanceDue"]);
@@ -110,6 +111,7 @@ namespace ABCAutomotive.BusinessLayer
             foreach (DataRow Row in myTable.Rows)
             {
                 ResourceLookup resourceLookup = new ResourceLookup();
+                resourceLookup.resourceID = Convert.ToInt32(Row["ResourceID"]);
                 resourceLookup.title = Row["Title"].ToString();
                 resourceLookup.resourceType = (ResourceType)(Convert.ToInt32(Row["Type"]));
                 resourceLookup.reserveStatus= (ReserveStatus)(Convert.ToInt32(Row["ReserveStatus"]));
