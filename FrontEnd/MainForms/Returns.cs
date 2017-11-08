@@ -18,25 +18,36 @@ namespace ABCAutomotive.FrontEnd.MainForms
             InitializeComponent();
         }
 
+        #region Start Up
+
         List<LoansLookup> LoansList;
         List<StudentLookup> StudentList;
 
         private void Returns_Load(object sender, EventArgs e)
         {
-            txtsearchResource.MaxLength = 50;
-            dgvLoans.Visible = false;
+            txtsearchResource.MaxLength = 8;
+            gbStudentLoans.Visible = false;
             gbStudentsInfo.Visible = false;
-            btnReturn.Visible = false;
-            rdoDamged.Visible = false;
-            rdoLost.Visible = false;
+            gbReturn.Visible = false;
         }
+
+        #endregion
+
+        #region Search Resource
 
         private void btnSearchResource_Click(object sender, EventArgs e)
         {
             try
             {
-                LoansList = LoansLookupFactory.Create(Convert.ToInt32(txtsearchResource.Text));
-                loadResourceInfo(LoansList);
+                int resourceID;
+
+                if (int.TryParse(txtsearchResource.Text, out resourceID))
+                {
+                    StudentList = StudentsLookupFactory.CreateByResouce(resourceID);
+                    loadStudentInfo(StudentList);
+                    loadLoanInfo(StudentList[0].StudentID);
+                    returnMode();
+                }
             }
             catch (Exception ex)
             {
@@ -44,14 +55,62 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
         }
 
-        private void loadResourceInfo(List<LoansLookup> loansList)
+        #endregion
+
+        #region Load Info
+
+        private void loadLoanInfo(int studentID)
         {
-            throw new NotImplementedException();
+            LoansList = LoansLookupFactory.Create(studentID);
+            dgvLoans.DataSource = LoansList;
         }
 
-        private void loadStudentInfo()
+        private void loadStudentInfo(List<StudentLookup> studentList)
         {
-            throw new NotImplementedException();
+            txtfirstName.Text = studentList[0].FirstName;
+            txtlastName.Text = studentList[0].LastName;
+            txtbalance.Text = studentList[0].Balance.ToString();
+            txtprogram.Text = studentList[0].ProgramType.ToString();
+            txtstartDate.Text = studentList[0].StartDate.ToShortDateString();
+            txtendDate.Text = studentList[0].EndDate.ToShortDateString();
+            txtstatus.Text = studentList[0].Status.ToString();
         }
+
+        #endregion
+
+        #region House Keeping 
+
+        private void returnMode()
+        {
+            gbStudentLoans.Visible = true;
+            gbStudentsInfo.Visible = true;
+            gbReturn.Visible = true;
+        }
+
+        private void txtsearchResource_Enter(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+        }
+
+        #endregion
+
+        #region Return Action
+
+        private void dgvLoans_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvLoans.Focused)
+            {
+                if (dgvLoans.SelectedCells.Count > 0)
+                {
+                    int rowindex = dgvLoans.CurrentCell.RowIndex;
+                    int columnindex = dgvLoans.CurrentCell.ColumnIndex;
+
+                    txtResourceID.Text = dgvLoans.Rows[rowindex].Cells[columnindex].Value.ToString();
+                }
+            }
+        }
+
+        #endregion
+
     }
 }

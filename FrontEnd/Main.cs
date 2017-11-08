@@ -28,7 +28,6 @@ namespace ABCAutomotive.FrontEnd
             StartUpForms.Splash Splash = new StartUpForms.Splash();
             Splash.ShowDialog();
 
-
             StartUpForms.Login login = new StartUpForms.Login();
             login.ShowDialog();
             if (login.DialogResult == DialogResult.Cancel)
@@ -37,7 +36,6 @@ namespace ABCAutomotive.FrontEnd
             }
             this.Text = Application.ProductName;
             SetupStatasStrip();
-
         }
 
         #endregion

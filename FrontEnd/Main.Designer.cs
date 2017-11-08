@@ -353,7 +353,7 @@
             this.toolStripStatusLabel1,
             this.lblDateTime,
             this.lblUser});
-            this.statusMain.Location = new System.Drawing.Point(0, 603);
+            this.statusMain.Location = new System.Drawing.Point(0, 646);
             this.statusMain.Name = "statusMain";
             this.statusMain.Size = new System.Drawing.Size(1246, 22);
             this.statusMain.TabIndex = 2;
@@ -389,14 +389,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControlMain);
-            this.splitContainer1.Size = new System.Drawing.Size(1246, 554);
-            this.splitContainer1.SplitterDistance = 412;
+            this.splitContainer1.Size = new System.Drawing.Size(1246, 597);
+            this.splitContainer1.SplitterDistance = 411;
             this.splitContainer1.TabIndex = 3;
             // 
             // pbLogo
             // 
             this.pbLogo.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.ABCLogo;
-            this.pbLogo.Location = new System.Drawing.Point(79, 16);
+            this.pbLogo.Location = new System.Drawing.Point(71, 22);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(260, 216);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -409,7 +409,7 @@
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.MenuRenderer = null;
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.Size = new System.Drawing.Size(830, 554);
+            this.tabControlMain.Size = new System.Drawing.Size(831, 597);
             this.tabControlMain.TabCloseButtonImage = null;
             this.tabControlMain.TabCloseButtonImageDisabled = null;
             this.tabControlMain.TabCloseButtonImageHot = null;
@@ -426,7 +426,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1246, 625);
+            this.ClientSize = new System.Drawing.Size(1246, 668);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusMain);
             this.Controls.Add(this.toolStripMain);
@@ -436,6 +436,7 @@
             this.KeyPreview = true;
             this.Name = "Main";
             this.Text = "Main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();

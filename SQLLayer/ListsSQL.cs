@@ -35,6 +35,13 @@ namespace ABCAutomotive.SQLLayer
             return DataAccess.GetDataTable("spgetStudentById", parmlist);
         }
 
+        public static DataTable RetrieveOwningStudent(int resourceId)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@resourceID", resourceId, ParameterDirection.Input, SqlDbType.Int));
+            return DataAccess.GetDataTable("spgetStudentByResource", parmlist);
+        }
+
         #endregion
 
         #region Loan Lookup
@@ -42,7 +49,7 @@ namespace ABCAutomotive.SQLLayer
         public static DataTable RetrieveLoansLookup(int studentId)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@studentId", studentId, ParameterDirection.Input, SqlDbType.SmallInt));
+            parmlist.Add(new ParmStruct("@studentId", studentId, ParameterDirection.Input, SqlDbType.Int));
             return DataAccess.GetDataTable("spgetLoansByStudentID", parmlist);
         }
 

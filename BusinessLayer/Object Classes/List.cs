@@ -38,12 +38,14 @@ namespace ABCAutomotive.BusinessLayer
 
         }
 
-        public int resourceId { get; internal set; }
-        public string title { get; internal set; }
-        public ResourceType resourceType { get; internal set; }
-        public DateTime checkOutDate { get; internal set; }
-        public Image image { get; internal set; }
-        public DateTime dueDate { get; internal set; }
+        [System.ComponentModel.Browsable(false)]
+        public int StudentID { get; internal set; }
+        public int ResourceID { get; internal set; }
+        public string Title { get; internal set; }
+        public ResourceType ResourceType { get; internal set; }
+        public DateTime CheckOutDate { get; internal set; }
+        public Image Image { get; internal set; }
+        public DateTime DueDate { get; internal set; }
     }
 
     #endregion

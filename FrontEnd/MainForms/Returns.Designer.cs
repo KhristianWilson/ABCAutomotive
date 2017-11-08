@@ -53,11 +53,14 @@
             this.dgvLoans = new System.Windows.Forms.DataGridView();
             this.rdoDamged = new System.Windows.Forms.RadioButton();
             this.rdoLost = new System.Windows.Forms.RadioButton();
+            this.gbReturn = new System.Windows.Forms.GroupBox();
+            this.txtResourceID = new System.Windows.Forms.TextBox();
             this.gbSearchResource.SuspendLayout();
             this.gbStudentsInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbStudentLoans.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).BeginInit();
+            this.gbReturn.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSearchResource
@@ -78,6 +81,7 @@
             this.txtsearchResource.Name = "txtsearchResource";
             this.txtsearchResource.Size = new System.Drawing.Size(144, 20);
             this.txtsearchResource.TabIndex = 4;
+            this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearchResource
             // 
@@ -107,7 +111,7 @@
             this.gbStudentsInfo.Controls.Add(this.lblFname);
             this.gbStudentsInfo.Location = new System.Drawing.Point(11, 78);
             this.gbStudentsInfo.Name = "gbStudentsInfo";
-            this.gbStudentsInfo.Size = new System.Drawing.Size(533, 197);
+            this.gbStudentsInfo.Size = new System.Drawing.Size(533, 175);
             this.gbStudentsInfo.TabIndex = 5;
             this.gbStudentsInfo.TabStop = false;
             this.gbStudentsInfo.Text = "Student Info";
@@ -252,7 +256,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(12, 456);
+            this.btnReturn.Location = new System.Drawing.Point(17, 59);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(102, 23);
             this.btnReturn.TabIndex = 7;
@@ -262,7 +266,7 @@
             // gbStudentLoans
             // 
             this.gbStudentLoans.Controls.Add(this.dgvLoans);
-            this.gbStudentLoans.Location = new System.Drawing.Point(11, 281);
+            this.gbStudentLoans.Location = new System.Drawing.Point(12, 259);
             this.gbStudentLoans.Name = "gbStudentLoans";
             this.gbStudentLoans.Size = new System.Drawing.Size(533, 169);
             this.gbStudentLoans.TabIndex = 8;
@@ -277,11 +281,12 @@
             this.dgvLoans.Name = "dgvLoans";
             this.dgvLoans.Size = new System.Drawing.Size(503, 126);
             this.dgvLoans.TabIndex = 0;
+            this.dgvLoans.SelectionChanged += new System.EventHandler(this.dgvLoans_SelectionChanged);
             // 
             // rdoDamged
             // 
             this.rdoDamged.AutoSize = true;
-            this.rdoDamged.Location = new System.Drawing.Point(121, 461);
+            this.rdoDamged.Location = new System.Drawing.Point(125, 59);
             this.rdoDamged.Name = "rdoDamged";
             this.rdoDamged.Size = new System.Drawing.Size(74, 17);
             this.rdoDamged.TabIndex = 9;
@@ -292,7 +297,7 @@
             // rdoLost
             // 
             this.rdoLost.AutoSize = true;
-            this.rdoLost.Location = new System.Drawing.Point(194, 461);
+            this.rdoLost.Location = new System.Drawing.Point(125, 36);
             this.rdoLost.Name = "rdoLost";
             this.rdoLost.Size = new System.Drawing.Size(45, 17);
             this.rdoLost.TabIndex = 10;
@@ -300,15 +305,34 @@
             this.rdoLost.Text = "Lost";
             this.rdoLost.UseVisualStyleBackColor = true;
             // 
+            // gbReturn
+            // 
+            this.gbReturn.Controls.Add(this.txtResourceID);
+            this.gbReturn.Controls.Add(this.btnReturn);
+            this.gbReturn.Controls.Add(this.rdoLost);
+            this.gbReturn.Controls.Add(this.rdoDamged);
+            this.gbReturn.Location = new System.Drawing.Point(12, 434);
+            this.gbReturn.Name = "gbReturn";
+            this.gbReturn.Size = new System.Drawing.Size(533, 93);
+            this.gbReturn.TabIndex = 11;
+            this.gbReturn.TabStop = false;
+            this.gbReturn.Text = "Return Resource";
+            // 
+            // txtResourceID
+            // 
+            this.txtResourceID.Enabled = false;
+            this.txtResourceID.Location = new System.Drawing.Point(18, 33);
+            this.txtResourceID.Name = "txtResourceID";
+            this.txtResourceID.Size = new System.Drawing.Size(102, 20);
+            this.txtResourceID.TabIndex = 11;
+            // 
             // Returns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 493);
-            this.Controls.Add(this.rdoLost);
-            this.Controls.Add(this.rdoDamged);
+            this.ClientSize = new System.Drawing.Size(588, 528);
+            this.Controls.Add(this.gbReturn);
             this.Controls.Add(this.gbStudentLoans);
-            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbSearchResource);
             this.Name = "Returns";
@@ -321,8 +345,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbStudentLoans.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).EndInit();
+            this.gbReturn.ResumeLayout(false);
+            this.gbReturn.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -352,5 +377,7 @@
         private System.Windows.Forms.DataGridView dgvLoans;
         private System.Windows.Forms.RadioButton rdoLost;
         private System.Windows.Forms.RadioButton rdoDamged;
+        private System.Windows.Forms.GroupBox gbReturn;
+        private System.Windows.Forms.TextBox txtResourceID;
     }
 }

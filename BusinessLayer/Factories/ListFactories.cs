@@ -28,12 +28,13 @@ namespace ABCAutomotive.BusinessLayer
             foreach (DataRow Row in myTable.Rows)
             {
                 LoansLookup loansLookup = new LoansLookup();
-                loansLookup.resourceId = Convert.ToInt32(Row["ResourceID"]);
-                loansLookup.title = Row["Title"].ToString();
-                loansLookup.checkOutDate = Convert.ToDateTime(Row["CheckOutDate"]);
-                loansLookup.dueDate = Convert.ToDateTime(Row["DueDate"]);
-                loansLookup.resourceType = (ResourceType)(Row["Type"]);
-                loansLookup.image = (Image)Row["Image"];
+                loansLookup.StudentID = Convert.ToInt32(Row["StudentID"].ToString());
+                loansLookup.ResourceID = Convert.ToInt32(Row["ResourceID"]);
+                loansLookup.Title = Row["Title"].ToString();
+                loansLookup.CheckOutDate = Convert.ToDateTime(Row["CheckOutDate"]);
+                loansLookup.DueDate = Convert.ToDateTime(Row["DueDate"]);
+                loansLookup.ResourceType = (ResourceType)Convert.ToInt32((Row["Type"]));
+                //loansLookup.Image = (Image)Row["Image"];
                 LoansList.Add(loansLookup);
             }
 
@@ -57,9 +58,18 @@ namespace ABCAutomotive.BusinessLayer
 
         }
 
-        public static List<StudentLookup> Create(int studentid)
+        public static List<StudentLookup> Create(int studentID)
         {
-            DataTable tmpTable = ListsSQL.RetrieveStudentLookup(studentid);
+            DataTable tmpTable = ListsSQL.RetrieveStudentLookup(studentID);
+            List<StudentLookup> newStudentsList = new List<StudentLookup>();
+
+            newStudentsList = RepackageStudentLookup(tmpTable);
+            return newStudentsList;
+
+        }
+        public static List<StudentLookup> CreateByResouce(int resourceID)
+        {
+            DataTable tmpTable = ListsSQL.RetrieveOwningStudent(resourceID);
             List<StudentLookup> newStudentsList = new List<StudentLookup>();
 
             newStudentsList = RepackageStudentLookup(tmpTable);

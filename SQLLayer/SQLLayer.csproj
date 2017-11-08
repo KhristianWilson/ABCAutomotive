@@ -43,6 +43,7 @@
     <Compile Include="ListsSQL.cs" />
     <Compile Include="MainSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceActionsSQL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABCAutomotive\Types.csproj">

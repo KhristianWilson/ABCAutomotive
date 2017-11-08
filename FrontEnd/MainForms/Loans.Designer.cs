@@ -50,26 +50,28 @@
             this.lblLname = new System.Windows.Forms.Label();
             this.lblFname = new System.Windows.Forms.Label();
             this.gbStudentLoans = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLoans = new System.Windows.Forms.DataGridView();
             this.gbSearchResource = new System.Windows.Forms.GroupBox();
             this.txtsearchResource = new System.Windows.Forms.TextBox();
             this.btnSearchResource = new System.Windows.Forms.Button();
             this.gbResource = new System.Windows.Forms.GroupBox();
+            this.btnAddtoCart = new System.Windows.Forms.Button();
             this.txtresourceStatus = new System.Windows.Forms.TextBox();
+            this.lbltitle = new System.Windows.Forms.Label();
             this.txtreserveStatus = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txttype = new System.Windows.Forms.TextBox();
+            this.lblreserveStatus = new System.Windows.Forms.Label();
             this.txttitle = new System.Windows.Forms.TextBox();
             this.lblresourceStatus = new System.Windows.Forms.Label();
-            this.lblreserveStatus = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbltitle = new System.Windows.Forms.Label();
             this.btncancel = new System.Windows.Forms.Button();
             this.btncheckOut = new System.Windows.Forms.Button();
+            this.lstCart = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbSearch.SuspendLayout();
             this.gbStudentsInfo.SuspendLayout();
             this.gbStudentLoans.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).BeginInit();
             this.gbSearchResource.SuspendLayout();
             this.gbResource.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +83,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(144, 20);
             this.txtSearch.TabIndex = 0;
+            this.txtSearch.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearch
             // 
@@ -275,7 +278,7 @@
             // 
             // gbStudentLoans
             // 
-            this.gbStudentLoans.Controls.Add(this.dataGridView1);
+            this.gbStudentLoans.Controls.Add(this.dgvLoans);
             this.gbStudentLoans.Location = new System.Drawing.Point(288, 197);
             this.gbStudentLoans.Name = "gbStudentLoans";
             this.gbStudentLoans.Size = new System.Drawing.Size(533, 169);
@@ -284,19 +287,19 @@
             this.gbStudentLoans.Text = "Student Loans";
             this.gbStudentLoans.Visible = false;
             // 
-            // dataGridView1
+            // dgvLoans
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(503, 126);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoans.Location = new System.Drawing.Point(12, 19);
+            this.dgvLoans.Name = "dgvLoans";
+            this.dgvLoans.Size = new System.Drawing.Size(503, 126);
+            this.dgvLoans.TabIndex = 0;
             // 
             // gbSearchResource
             // 
             this.gbSearchResource.Controls.Add(this.txtsearchResource);
             this.gbSearchResource.Controls.Add(this.btnSearchResource);
-            this.gbSearchResource.Location = new System.Drawing.Point(12, 197);
+            this.gbSearchResource.Location = new System.Drawing.Point(12, 272);
             this.gbSearchResource.Name = "gbSearchResource";
             this.gbSearchResource.Size = new System.Drawing.Size(270, 60);
             this.gbSearchResource.TabIndex = 3;
@@ -310,6 +313,7 @@
             this.txtsearchResource.Name = "txtsearchResource";
             this.txtsearchResource.Size = new System.Drawing.Size(144, 20);
             this.txtsearchResource.TabIndex = 4;
+            this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearchResource
             // 
@@ -323,6 +327,7 @@
             // 
             // gbResource
             // 
+            this.gbResource.Controls.Add(this.btnAddtoCart);
             this.gbResource.Controls.Add(this.txtresourceStatus);
             this.gbResource.Controls.Add(this.lbltitle);
             this.gbResource.Controls.Add(this.txtreserveStatus);
@@ -331,12 +336,22 @@
             this.gbResource.Controls.Add(this.lblreserveStatus);
             this.gbResource.Controls.Add(this.txttitle);
             this.gbResource.Controls.Add(this.lblresourceStatus);
-            this.gbResource.Location = new System.Drawing.Point(12, 277);
+            this.gbResource.Location = new System.Drawing.Point(12, 338);
             this.gbResource.Name = "gbResource";
-            this.gbResource.Size = new System.Drawing.Size(270, 197);
+            this.gbResource.Size = new System.Drawing.Size(270, 205);
             this.gbResource.TabIndex = 5;
             this.gbResource.TabStop = false;
             this.gbResource.Text = "Resource Info";
+            // 
+            // btnAddtoCart
+            // 
+            this.btnAddtoCart.Location = new System.Drawing.Point(113, 170);
+            this.btnAddtoCart.Name = "btnAddtoCart";
+            this.btnAddtoCart.Size = new System.Drawing.Size(92, 29);
+            this.btnAddtoCart.TabIndex = 8;
+            this.btnAddtoCart.Text = "&Add To Cart";
+            this.btnAddtoCart.UseVisualStyleBackColor = true;
+            this.btnAddtoCart.Click += new System.EventHandler(this.btnAddtoCart_Click);
             // 
             // txtresourceStatus
             // 
@@ -347,6 +362,16 @@
             this.txtresourceStatus.Size = new System.Drawing.Size(140, 27);
             this.txtresourceStatus.TabIndex = 21;
             // 
+            // lbltitle
+            // 
+            this.lbltitle.AutoSize = true;
+            this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitle.Location = new System.Drawing.Point(57, 41);
+            this.lbltitle.Name = "lbltitle";
+            this.lbltitle.Size = new System.Drawing.Size(50, 24);
+            this.lbltitle.TabIndex = 14;
+            this.lbltitle.Text = "Title:";
+            // 
             // txtreserveStatus
             // 
             this.txtreserveStatus.Enabled = false;
@@ -356,6 +381,16 @@
             this.txtreserveStatus.Size = new System.Drawing.Size(140, 27);
             this.txtreserveStatus.TabIndex = 20;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(49, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 24);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Type:";
+            // 
             // txttype
             // 
             this.txttype.Enabled = false;
@@ -364,6 +399,16 @@
             this.txttype.Name = "txttype";
             this.txttype.Size = new System.Drawing.Size(140, 27);
             this.txttype.TabIndex = 19;
+            // 
+            // lblreserveStatus
+            // 
+            this.lblreserveStatus.AutoSize = true;
+            this.lblreserveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblreserveStatus.Location = new System.Drawing.Point(14, 107);
+            this.lblreserveStatus.Name = "lblreserveStatus";
+            this.lblreserveStatus.Size = new System.Drawing.Size(96, 24);
+            this.lblreserveStatus.TabIndex = 16;
+            this.lblreserveStatus.Text = "Reserved:";
             // 
             // txttitle
             // 
@@ -384,41 +429,11 @@
             this.lblresourceStatus.TabIndex = 17;
             this.lblresourceStatus.Text = "Status:";
             // 
-            // lblreserveStatus
-            // 
-            this.lblreserveStatus.AutoSize = true;
-            this.lblreserveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblreserveStatus.Location = new System.Drawing.Point(14, 107);
-            this.lblreserveStatus.Name = "lblreserveStatus";
-            this.lblreserveStatus.Size = new System.Drawing.Size(96, 24);
-            this.lblreserveStatus.TabIndex = 16;
-            this.lblreserveStatus.Text = "Reserved:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(49, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 24);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Type:";
-            // 
-            // lbltitle
-            // 
-            this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(57, 41);
-            this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(50, 24);
-            this.lbltitle.TabIndex = 14;
-            this.lbltitle.Text = "Title:";
-            // 
             // btncancel
             // 
-            this.btncancel.Location = new System.Drawing.Point(622, 420);
+            this.btncancel.Location = new System.Drawing.Point(530, 440);
             this.btncancel.Name = "btncancel";
-            this.btncancel.Size = new System.Drawing.Size(75, 23);
+            this.btncancel.Size = new System.Drawing.Size(193, 29);
             this.btncancel.TabIndex = 6;
             this.btncancel.Text = "&Cancel";
             this.btncancel.UseVisualStyleBackColor = true;
@@ -426,18 +441,28 @@
             // 
             // btncheckOut
             // 
-            this.btncheckOut.Location = new System.Drawing.Point(728, 420);
+            this.btncheckOut.Location = new System.Drawing.Point(530, 407);
             this.btncheckOut.Name = "btncheckOut";
-            this.btncheckOut.Size = new System.Drawing.Size(75, 23);
+            this.btncheckOut.Size = new System.Drawing.Size(193, 29);
             this.btncheckOut.TabIndex = 7;
             this.btncheckOut.Text = "Check &Out";
             this.btncheckOut.UseVisualStyleBackColor = true;
+            this.btncheckOut.Click += new System.EventHandler(this.btncheckOut_Click);
+            // 
+            // lstCart
+            // 
+            this.lstCart.FormattingEnabled = true;
+            this.lstCart.Location = new System.Drawing.Point(300, 370);
+            this.lstCart.Name = "lstCart";
+            this.lstCart.Size = new System.Drawing.Size(173, 173);
+            this.lstCart.TabIndex = 4;
             // 
             // Loans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 480);
+            this.ClientSize = new System.Drawing.Size(833, 555);
+            this.Controls.Add(this.lstCart);
             this.Controls.Add(this.btncheckOut);
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.gbResource);
@@ -454,7 +479,7 @@
             this.gbStudentsInfo.ResumeLayout(false);
             this.gbStudentsInfo.PerformLayout();
             this.gbStudentLoans.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).EndInit();
             this.gbSearchResource.ResumeLayout(false);
             this.gbSearchResource.PerformLayout();
             this.gbResource.ResumeLayout(false);
@@ -486,7 +511,7 @@
         private System.Windows.Forms.Label lblLname;
         private System.Windows.Forms.Label lblFname;
         private System.Windows.Forms.GroupBox gbStudentLoans;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLoans;
         private System.Windows.Forms.GroupBox gbSearchResource;
         private System.Windows.Forms.TextBox txtsearchResource;
         private System.Windows.Forms.Button btnSearchResource;
@@ -501,5 +526,7 @@
         private System.Windows.Forms.Label lblresourceStatus;
         private System.Windows.Forms.Button btncheckOut;
         private System.Windows.Forms.Button btncancel;
+        private System.Windows.Forms.ListBox lstCart;
+        private System.Windows.Forms.Button btnAddtoCart;
     }
 }

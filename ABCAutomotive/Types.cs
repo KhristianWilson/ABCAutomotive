@@ -62,6 +62,18 @@ namespace ABCAutomotive.Types
         }
     }
 
+    public struct LoanItem
+    {
+        public int resourceID { get; internal set; }
+        public string titleDueDate { get; internal set; }
+
+        public LoanItem(int resourceID, string title, DateTime dueDate)
+        {
+            this.resourceID = resourceID;
+            this.titleDueDate = title + "Due: " + dueDate.ToShortDateString();
+        }
+    }
+
     #endregion
 
     #region Enumerations
@@ -74,8 +86,8 @@ namespace ABCAutomotive.Types
 
     public enum StudentStatus
     {
-        Inactive,
-        Active
+        Active,
+        Inactive
     }
 
     public enum ProgramType
