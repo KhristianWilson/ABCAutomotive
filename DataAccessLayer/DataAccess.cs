@@ -1,7 +1,7 @@
-﻿using ABCAutomotive.Types;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using ABCAutomotive.Types;
 
 namespace ABCAutomotive.DAL
 {

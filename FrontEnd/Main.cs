@@ -1,12 +1,6 @@
 ﻿using ABCAutomotive.FrontEnd.MainForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd
@@ -22,6 +16,7 @@ namespace ABCAutomotive.FrontEnd
 
         Loans loans;
         Returns returns;
+        public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -34,13 +29,15 @@ namespace ABCAutomotive.FrontEnd
             {
                 this.Close();
             }
+
             this.Text = Application.ProductName;
             SetupStatasStrip();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         #endregion
 
-        #region HouseKeeping
+        #region House Keeping
 
         private void SetupStatasStrip()
         {
@@ -51,6 +48,11 @@ namespace ABCAutomotive.FrontEnd
             lblUser.Text = Environment.UserName;
             lblUser.TextAlign = ContentAlignment.MiddleLeft;
             lblUser.BorderSides = ToolStripStatusLabelBorderSides.Right;
+
+            lblStatus.ForeColor = Color.Red;
+            lblStatus.TextAlign = ContentAlignment.MiddleLeft;
+            lblStatus.BorderSides = ToolStripStatusLabelBorderSides.Right;
+
         }
 
         private void timerDisplay_Tick(object sender, EventArgs e)
@@ -68,17 +70,17 @@ namespace ABCAutomotive.FrontEnd
             {
                 if (loans == null || loans.IsDisposed)
                 {
-                    loans = new Loans();
-                    DisplayForm(loans);
+                    loans = new Loans(this);
                 }
+                DisplayForm(loans);
             }
             if (sender == btnReturns)
             {
                 if (returns == null || returns.IsDisposed)
                 {
-                    returns = new Returns();
-                    DisplayForm(returns);
+                    returns = new Returns(this);
                 }
+                DisplayForm(returns);
             }
 
         }

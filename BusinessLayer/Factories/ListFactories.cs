@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -34,11 +36,24 @@ namespace ABCAutomotive.BusinessLayer
                 loansLookup.CheckOutDate = Convert.ToDateTime(Row["CheckOutDate"]);
                 loansLookup.DueDate = Convert.ToDateTime(Row["DueDate"]);
                 loansLookup.ResourceType = (ResourceType)Convert.ToInt32((Row["Type"]));
-                //loansLookup.Image = (Image)Row["Image"];
+                loansLookup.Image = getImage((byte[])Row["Image"]);
                 LoansList.Add(loansLookup);
             }
-
             return LoansList;
+        }
+
+        private static Image getImage(byte[] ImageData)
+        {
+            Image Image;
+            if (ImageData == null)
+            {
+                return null;
+            }    
+            using (MemoryStream ms = new MemoryStream(ImageData))
+            {
+                Image = Image.FromStream(ms);
+            }
+            return Image;
         }
     }
 

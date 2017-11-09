@@ -9,8 +9,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
 {
     public partial class Loans : Form
     {
-        public Loans()
+        private Main parent;
+        public Loans(Main p)
         {
+            this.parent = p;
             InitializeComponent();
         }
 
@@ -23,10 +25,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void Loans_Load(object sender, System.EventArgs e)
         {
-            lstSearchResults.Visible = false;
             txtSearch.MaxLength = 50;
             txtsearchResource.MaxLength = 8;
             gbSearch.Visible = true;
+            lstCart.Enabled = false;
+            dgvLoans.Enabled = false;
+            lstSearchResults.Visible = false;
             gbStudentsInfo.Visible = false;
             gbStudentLoans.Visible = false;
             gbSearchResource.Visible = false;
@@ -88,6 +92,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             loansLookup = LoansLookupFactory.Create(studentID);
             dgvLoans.DataSource = loansLookup;
+            (dgvLoans.Columns[4] as DataGridViewImageColumn).ImageLayout = DataGridViewImageCellLayout.Zoom;
         }
 
         private void loadStudentInfo(List<StudentLookup> studentList)
@@ -111,7 +116,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 ResourceLookup = ResourceLookupFactory.Create(Convert.ToInt32(txtsearchResource.Text));
                 loadResourceInfo(ResourceLookup);
-                errorProvider1.Clear();
             }
             catch (Exception ex)
             {
@@ -204,24 +208,27 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
-                if(lstCart.Items.Count == 0)
+                if(lstCart.Items.Count != 0)
+                {
+                    errorProvider1.Clear();
+                    for (int i = 0; i < lstCart.Items.Count; i++)
+                    {
+                        lstCart.SelectedIndex = i;
+
+                        int resourceID = Convert.ToInt32(lstCart.SelectedValue);
+                        ResourceMethods.CheckOutResource(StudentList[0].StudentID, resourceID);
+                    }
+                    loadStudentLoans(StudentList[0].StudentID);
+                    parent.StatusLabel.Text = "Items Added To Loan";
+                }
+                else
                 {
                     errorProvider1.SetError(btncheckOut, "Please Select A Resource");
-                    return;
-                }
-                errorProvider1.Clear();
-                for (int i = 0; i < lstCart.Items.Count; i++)
-                {
-                    lstCart.SelectedIndex = i;
-
-                    int resourceID = Convert.ToInt32(lstCart.SelectedValue);
-                    ResourceMethods.CheckOutResource(StudentList[0].StudentID, resourceID);
-                }
-                btnCancel_Click(null, null);
+                }            
             }
             catch (Exception ex)
             {
-                errorProvider1.SetError(btncheckOut, ex.Message);
+                MessageBox.Show("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

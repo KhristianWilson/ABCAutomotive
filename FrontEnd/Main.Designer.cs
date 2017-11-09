@@ -64,7 +64,7 @@
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
             this.statusMain = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -350,19 +350,19 @@
             // statusMain
             // 
             this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
             this.lblDateTime,
-            this.lblUser});
+            this.lblUser,
+            this.lblStatus});
             this.statusMain.Location = new System.Drawing.Point(0, 646);
             this.statusMain.Name = "statusMain";
             this.statusMain.Size = new System.Drawing.Size(1246, 22);
             this.statusMain.TabIndex = 2;
             this.statusMain.Text = "statusStrip";
             // 
-            // toolStripStatusLabel1
+            // lblStatus
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // lblDateTime
             // 
@@ -390,15 +390,16 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControlMain);
             this.splitContainer1.Size = new System.Drawing.Size(1246, 597);
-            this.splitContainer1.SplitterDistance = 411;
+            this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 3;
             // 
             // pbLogo
             // 
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbLogo.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.ABCLogo;
-            this.pbLogo.Location = new System.Drawing.Point(71, 22);
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(260, 216);
+            this.pbLogo.Size = new System.Drawing.Size(294, 258);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
@@ -409,7 +410,7 @@
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.MenuRenderer = null;
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.Size = new System.Drawing.Size(831, 597);
+            this.tabControlMain.Size = new System.Drawing.Size(948, 597);
             this.tabControlMain.TabCloseButtonImage = null;
             this.tabControlMain.TabCloseButtonImageDisabled = null;
             this.tabControlMain.TabCloseButtonImageHot = null;
@@ -436,7 +437,6 @@
             this.KeyPreview = true;
             this.Name = "Main";
             this.Text = "Main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
@@ -494,7 +494,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblDateTime;
         private System.Windows.Forms.ToolStripStatusLabel lblUser;
         private System.Windows.Forms.Timer timerDisplay;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripButton btnLoans;
         private System.Windows.Forms.ToolStripButton btnReturns;
     }

@@ -256,7 +256,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(17, 59);
+            this.btnReturn.Location = new System.Drawing.Point(11, 57);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(102, 23);
             this.btnReturn.TabIndex = 7;
@@ -286,7 +286,7 @@
             // rdoDamged
             // 
             this.rdoDamged.AutoSize = true;
-            this.rdoDamged.Location = new System.Drawing.Point(125, 59);
+            this.rdoDamged.Location = new System.Drawing.Point(119, 57);
             this.rdoDamged.Name = "rdoDamged";
             this.rdoDamged.Size = new System.Drawing.Size(74, 17);
             this.rdoDamged.TabIndex = 9;
@@ -297,7 +297,7 @@
             // rdoLost
             // 
             this.rdoLost.AutoSize = true;
-            this.rdoLost.Location = new System.Drawing.Point(125, 36);
+            this.rdoLost.Location = new System.Drawing.Point(119, 34);
             this.rdoLost.Name = "rdoLost";
             this.rdoLost.Size = new System.Drawing.Size(45, 17);
             this.rdoLost.TabIndex = 10;
@@ -321,7 +321,7 @@
             // txtResourceID
             // 
             this.txtResourceID.Enabled = false;
-            this.txtResourceID.Location = new System.Drawing.Point(18, 33);
+            this.txtResourceID.Location = new System.Drawing.Point(12, 31);
             this.txtResourceID.Name = "txtResourceID";
             this.txtResourceID.Size = new System.Drawing.Size(102, 20);
             this.txtResourceID.TabIndex = 11;

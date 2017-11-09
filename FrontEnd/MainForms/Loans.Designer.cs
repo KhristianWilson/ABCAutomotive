@@ -137,7 +137,7 @@
             this.gbStudentsInfo.Controls.Add(this.lblFname);
             this.gbStudentsInfo.Location = new System.Drawing.Point(288, 12);
             this.gbStudentsInfo.Name = "gbStudentsInfo";
-            this.gbStudentsInfo.Size = new System.Drawing.Size(533, 169);
+            this.gbStudentsInfo.Size = new System.Drawing.Size(621, 169);
             this.gbStudentsInfo.TabIndex = 3;
             this.gbStudentsInfo.TabStop = false;
             this.gbStudentsInfo.Text = "Student Info";
@@ -281,7 +281,7 @@
             this.gbStudentLoans.Controls.Add(this.dgvLoans);
             this.gbStudentLoans.Location = new System.Drawing.Point(288, 197);
             this.gbStudentLoans.Name = "gbStudentLoans";
-            this.gbStudentLoans.Size = new System.Drawing.Size(533, 169);
+            this.gbStudentLoans.Size = new System.Drawing.Size(621, 169);
             this.gbStudentLoans.TabIndex = 4;
             this.gbStudentLoans.TabStop = false;
             this.gbStudentLoans.Text = "Student Loans";
@@ -292,7 +292,8 @@
             this.dgvLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoans.Location = new System.Drawing.Point(12, 19);
             this.dgvLoans.Name = "dgvLoans";
-            this.dgvLoans.Size = new System.Drawing.Size(503, 126);
+            this.dgvLoans.RowTemplate.Height = 70;
+            this.dgvLoans.Size = new System.Drawing.Size(603, 126);
             this.dgvLoans.TabIndex = 0;
             // 
             // gbSearchResource
@@ -347,9 +348,9 @@
             // 
             this.btnAddtoCart.Location = new System.Drawing.Point(113, 170);
             this.btnAddtoCart.Name = "btnAddtoCart";
-            this.btnAddtoCart.Size = new System.Drawing.Size(92, 29);
+            this.btnAddtoCart.Size = new System.Drawing.Size(140, 29);
             this.btnAddtoCart.TabIndex = 8;
-            this.btnAddtoCart.Text = "&Add To Cart";
+            this.btnAddtoCart.Text = "&Add To Borrowings";
             this.btnAddtoCart.UseVisualStyleBackColor = true;
             this.btnAddtoCart.Click += new System.EventHandler(this.btnAddtoCart_Click);
             // 
@@ -461,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 555);
+            this.ClientSize = new System.Drawing.Size(921, 555);
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.btncheckOut);
             this.Controls.Add(this.btncancel);

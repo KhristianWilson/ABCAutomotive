@@ -13,8 +13,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
 {
     public partial class Returns : Form
     {
-        public Returns()
+        private Main parent;
+        public Returns(Main p)
         {
+            this.parent = p;
             InitializeComponent();
         }
 
@@ -29,6 +31,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbStudentLoans.Visible = false;
             gbStudentsInfo.Visible = false;
             gbReturn.Visible = false;
+            dgvLoans.Enabled = false;
         }
 
         #endregion
