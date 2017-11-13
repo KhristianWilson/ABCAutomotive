@@ -1,12 +1,6 @@
 ﻿using ABCAutomotive.BusinessLayer;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd.MainForms
@@ -31,7 +25,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbStudentLoans.Visible = false;
             gbStudentsInfo.Visible = false;
             gbReturn.Visible = false;
-            dgvLoans.Enabled = false;
+            dgvLoans.ReadOnly = true;
+            parent.StatusLabel.Text = "";
         }
 
         #endregion
@@ -44,12 +39,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 int resourceID;
 
-                if (int.TryParse(txtsearchResource.Text, out resourceID))
+                if (int.TryParse(txtsearchResource.Text, out resourceID) || txtsearchResource.Text.Length == 8)
                 {
                     StudentList = StudentsLookupFactory.CreateByResouce(resourceID);
-                    loadStudentInfo(StudentList);
-                    loadLoanInfo(StudentList[0].StudentID);
+                    loadStudentInfo();
+                    loadLoanInfo();
                     returnMode();
+                }
+                else
+                {
+                    errorProvider1.SetError(txtsearchResource, "Invalid ResourceID");
                 }
             }
             catch (Exception ex)
@@ -62,21 +61,22 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region Load Info
 
-        private void loadLoanInfo(int studentID)
+        private void loadLoanInfo()
         {
-            LoansList = LoansLookupFactory.Create(studentID);
+            LoansList = LoansLookupFactory.Create(StudentList[0].StudentID);
             dgvLoans.DataSource = LoansList;
+            (dgvLoans.Columns[4] as DataGridViewImageColumn).ImageLayout = DataGridViewImageCellLayout.Zoom;
         }
 
-        private void loadStudentInfo(List<StudentLookup> studentList)
+        private void loadStudentInfo()
         {
-            txtfirstName.Text = studentList[0].FirstName;
-            txtlastName.Text = studentList[0].LastName;
-            txtbalance.Text = studentList[0].Balance.ToString();
-            txtprogram.Text = studentList[0].ProgramType.ToString();
-            txtstartDate.Text = studentList[0].StartDate.ToShortDateString();
-            txtendDate.Text = studentList[0].EndDate.ToShortDateString();
-            txtstatus.Text = studentList[0].Status.ToString();
+            txtfirstName.Text = StudentList[0].FirstName;
+            txtlastName.Text = StudentList[0].LastName;
+            txtbalance.Text = StudentList[0].Balance.ToString("c");
+            txtprogram.Text = StudentList[0].ProgramType.ToString();
+            txtstartDate.Text = StudentList[0].StartDate.ToShortDateString();
+            txtendDate.Text = StudentList[0].EndDate.ToShortDateString();
+            txtstatus.Text = StudentList[0].Status.ToString();
         }
 
         #endregion
@@ -95,6 +95,22 @@ namespace ABCAutomotive.FrontEnd.MainForms
             errorProvider1.Clear();
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Returns_Load(null, null);
+            txtsearchResource.ResetText();
+            StudentList.Clear();
+            parent.StatusLabel.Text = "";
+        }
+
+        private void refreshStudentInfo()
+        {
+            int studentID = StudentList[0].StudentID;
+            StudentList = StudentsLookupFactory.Create(studentID);
+            loadStudentInfo();
+            loadLoanInfo();
+        }
+
         #endregion
 
         #region Return Action
@@ -106,10 +122,37 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (dgvLoans.SelectedCells.Count > 0)
                 {
                     int rowindex = dgvLoans.CurrentCell.RowIndex;
-                    int columnindex = dgvLoans.CurrentCell.ColumnIndex;
+                    int columnindex = 0;
 
                     txtResourceID.Text = dgvLoans.Rows[rowindex].Cells[columnindex].Value.ToString();
                 }
+            }
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int returnStatus = 0;
+                int resourceID;
+                Int32.TryParse(txtResourceID.Text, out resourceID);
+                if (rdoDamged.Checked)
+                {
+                    returnStatus = 1;
+                }
+                if (rdoLost.Checked)
+                {
+                    returnStatus = 2;
+                }
+                ResourceMethods.CheckInResource(returnStatus, resourceID, chkLate.Checked);
+                refreshStudentInfo();
+                txtResourceID.ResetText();
+                chkLate.Checked = false;
+                rdoNormal.Checked = true;
+            }
+            catch (Exception ex)
+            {
+                errorProvider1.SetError(btnReturn, ex.Message);
             }
         }
 

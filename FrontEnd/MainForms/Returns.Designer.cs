@@ -54,19 +54,25 @@
             this.rdoDamged = new System.Windows.Forms.RadioButton();
             this.rdoLost = new System.Windows.Forms.RadioButton();
             this.gbReturn = new System.Windows.Forms.GroupBox();
+            this.chkLate = new System.Windows.Forms.CheckBox();
             this.txtResourceID = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.rdoNormal = new System.Windows.Forms.RadioButton();
+            this.gbStatus = new System.Windows.Forms.GroupBox();
             this.gbSearchResource.SuspendLayout();
             this.gbStudentsInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbStudentLoans.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).BeginInit();
             this.gbReturn.SuspendLayout();
+            this.gbStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSearchResource
             // 
             this.gbSearchResource.Controls.Add(this.txtsearchResource);
             this.gbSearchResource.Controls.Add(this.btnSearchResource);
+            this.gbSearchResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSearchResource.Location = new System.Drawing.Point(12, 12);
             this.gbSearchResource.Name = "gbSearchResource";
             this.gbSearchResource.Size = new System.Drawing.Size(270, 60);
@@ -79,7 +85,7 @@
             this.txtsearchResource.Location = new System.Drawing.Point(15, 19);
             this.txtsearchResource.MaxLength = 50;
             this.txtsearchResource.Name = "txtsearchResource";
-            this.txtsearchResource.Size = new System.Drawing.Size(144, 20);
+            this.txtsearchResource.Size = new System.Drawing.Size(144, 22);
             this.txtsearchResource.TabIndex = 4;
             this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
@@ -109,9 +115,10 @@
             this.gbStudentsInfo.Controls.Add(this.lblBalance);
             this.gbStudentsInfo.Controls.Add(this.lblLname);
             this.gbStudentsInfo.Controls.Add(this.lblFname);
+            this.gbStudentsInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStudentsInfo.Location = new System.Drawing.Point(11, 78);
             this.gbStudentsInfo.Name = "gbStudentsInfo";
-            this.gbStudentsInfo.Size = new System.Drawing.Size(533, 175);
+            this.gbStudentsInfo.Size = new System.Drawing.Size(674, 175);
             this.gbStudentsInfo.TabIndex = 5;
             this.gbStudentsInfo.TabStop = false;
             this.gbStudentsInfo.Text = "Student Info";
@@ -121,7 +128,7 @@
             // 
             this.txtstatus.Enabled = false;
             this.txtstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstatus.Location = new System.Drawing.Point(377, 131);
+            this.txtstatus.Location = new System.Drawing.Point(464, 131);
             this.txtstatus.Name = "txtstatus";
             this.txtstatus.Size = new System.Drawing.Size(140, 27);
             this.txtstatus.TabIndex = 13;
@@ -130,7 +137,7 @@
             // 
             this.txtendDate.Enabled = false;
             this.txtendDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtendDate.Location = new System.Drawing.Point(377, 98);
+            this.txtendDate.Location = new System.Drawing.Point(464, 98);
             this.txtendDate.Name = "txtendDate";
             this.txtendDate.Size = new System.Drawing.Size(140, 27);
             this.txtendDate.TabIndex = 12;
@@ -139,7 +146,7 @@
             // 
             this.txtstartDate.Enabled = false;
             this.txtstartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstartDate.Location = new System.Drawing.Point(377, 65);
+            this.txtstartDate.Location = new System.Drawing.Point(464, 65);
             this.txtstartDate.Name = "txtstartDate";
             this.txtstartDate.Size = new System.Drawing.Size(140, 27);
             this.txtstartDate.TabIndex = 11;
@@ -148,7 +155,7 @@
             // 
             this.txtprogram.Enabled = false;
             this.txtprogram.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprogram.Location = new System.Drawing.Point(377, 32);
+            this.txtprogram.Location = new System.Drawing.Point(464, 32);
             this.txtprogram.Name = "txtprogram";
             this.txtprogram.Size = new System.Drawing.Size(140, 27);
             this.txtprogram.TabIndex = 10;
@@ -184,7 +191,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(307, 134);
+            this.lblStatus.Location = new System.Drawing.Point(394, 134);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(65, 24);
             this.lblStatus.TabIndex = 6;
@@ -194,7 +201,7 @@
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(278, 101);
+            this.lblEndDate.Location = new System.Drawing.Point(365, 101);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(93, 24);
             this.lblEndDate.TabIndex = 5;
@@ -204,7 +211,7 @@
             // 
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartDate.Location = new System.Drawing.Point(278, 68);
+            this.lblStartDate.Location = new System.Drawing.Point(365, 68);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(94, 24);
             this.lblStartDate.TabIndex = 4;
@@ -214,7 +221,7 @@
             // 
             this.lblProgram.AutoSize = true;
             this.lblProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgram.Location = new System.Drawing.Point(284, 35);
+            this.lblProgram.Location = new System.Drawing.Point(371, 35);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(87, 24);
             this.lblProgram.TabIndex = 3;
@@ -256,19 +263,21 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(11, 57);
+            this.btnReturn.Location = new System.Drawing.Point(12, 82);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(102, 23);
             this.btnReturn.TabIndex = 7;
             this.btnReturn.Text = "&Return Resource";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // gbStudentLoans
             // 
             this.gbStudentLoans.Controls.Add(this.dgvLoans);
+            this.gbStudentLoans.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStudentLoans.Location = new System.Drawing.Point(12, 259);
             this.gbStudentLoans.Name = "gbStudentLoans";
-            this.gbStudentLoans.Size = new System.Drawing.Size(533, 169);
+            this.gbStudentLoans.Size = new System.Drawing.Size(679, 199);
             this.gbStudentLoans.TabIndex = 8;
             this.gbStudentLoans.TabStop = false;
             this.gbStudentLoans.Text = "Student Loans";
@@ -279,16 +288,17 @@
             this.dgvLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoans.Location = new System.Drawing.Point(12, 19);
             this.dgvLoans.Name = "dgvLoans";
-            this.dgvLoans.Size = new System.Drawing.Size(503, 126);
+            this.dgvLoans.RowTemplate.Height = 70;
+            this.dgvLoans.Size = new System.Drawing.Size(661, 174);
             this.dgvLoans.TabIndex = 0;
             this.dgvLoans.SelectionChanged += new System.EventHandler(this.dgvLoans_SelectionChanged);
             // 
             // rdoDamged
             // 
             this.rdoDamged.AutoSize = true;
-            this.rdoDamged.Location = new System.Drawing.Point(119, 57);
+            this.rdoDamged.Location = new System.Drawing.Point(17, 67);
             this.rdoDamged.Name = "rdoDamged";
-            this.rdoDamged.Size = new System.Drawing.Size(74, 17);
+            this.rdoDamged.Size = new System.Drawing.Size(77, 17);
             this.rdoDamged.TabIndex = 9;
             this.rdoDamged.TabStop = true;
             this.rdoDamged.Text = "Damaged ";
@@ -297,9 +307,9 @@
             // rdoLost
             // 
             this.rdoLost.AutoSize = true;
-            this.rdoLost.Location = new System.Drawing.Point(119, 34);
+            this.rdoLost.Location = new System.Drawing.Point(17, 44);
             this.rdoLost.Name = "rdoLost";
-            this.rdoLost.Size = new System.Drawing.Size(45, 17);
+            this.rdoLost.Size = new System.Drawing.Size(46, 17);
             this.rdoLost.TabIndex = 10;
             this.rdoLost.TabStop = true;
             this.rdoLost.Text = "Lost";
@@ -307,30 +317,75 @@
             // 
             // gbReturn
             // 
+            this.gbReturn.Controls.Add(this.btnClear);
+            this.gbReturn.Controls.Add(this.gbStatus);
+            this.gbReturn.Controls.Add(this.chkLate);
             this.gbReturn.Controls.Add(this.txtResourceID);
             this.gbReturn.Controls.Add(this.btnReturn);
-            this.gbReturn.Controls.Add(this.rdoLost);
-            this.gbReturn.Controls.Add(this.rdoDamged);
-            this.gbReturn.Location = new System.Drawing.Point(12, 434);
+            this.gbReturn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbReturn.Location = new System.Drawing.Point(24, 464);
             this.gbReturn.Name = "gbReturn";
-            this.gbReturn.Size = new System.Drawing.Size(533, 93);
+            this.gbReturn.Size = new System.Drawing.Size(533, 145);
             this.gbReturn.TabIndex = 11;
             this.gbReturn.TabStop = false;
             this.gbReturn.Text = "Return Resource";
             // 
+            // chkLate
+            // 
+            this.chkLate.AutoSize = true;
+            this.chkLate.Location = new System.Drawing.Point(137, 42);
+            this.chkLate.Name = "chkLate";
+            this.chkLate.Size = new System.Drawing.Size(47, 17);
+            this.chkLate.TabIndex = 12;
+            this.chkLate.Text = "Late";
+            this.chkLate.UseVisualStyleBackColor = true;
+            // 
             // txtResourceID
             // 
             this.txtResourceID.Enabled = false;
-            this.txtResourceID.Location = new System.Drawing.Point(12, 31);
+            this.txtResourceID.Location = new System.Drawing.Point(12, 37);
             this.txtResourceID.Name = "txtResourceID";
-            this.txtResourceID.Size = new System.Drawing.Size(102, 20);
+            this.txtResourceID.Size = new System.Drawing.Size(102, 22);
             this.txtResourceID.TabIndex = 11;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(385, 82);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(115, 23);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "&Cancel";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // rdoNormal
+            // 
+            this.rdoNormal.AutoSize = true;
+            this.rdoNormal.Location = new System.Drawing.Point(17, 21);
+            this.rdoNormal.Name = "rdoNormal";
+            this.rdoNormal.Size = new System.Drawing.Size(62, 17);
+            this.rdoNormal.TabIndex = 14;
+            this.rdoNormal.TabStop = true;
+            this.rdoNormal.Text = "Normal";
+            this.rdoNormal.UseVisualStyleBackColor = true;
+            // 
+            // gbStatus
+            // 
+            this.gbStatus.Controls.Add(this.rdoLost);
+            this.gbStatus.Controls.Add(this.rdoDamged);
+            this.gbStatus.Controls.Add(this.rdoNormal);
+            this.gbStatus.Location = new System.Drawing.Point(190, 21);
+            this.gbStatus.Name = "gbStatus";
+            this.gbStatus.Size = new System.Drawing.Size(133, 100);
+            this.gbStatus.TabIndex = 13;
+            this.gbStatus.TabStop = false;
+            this.gbStatus.Text = "Status";
             // 
             // Returns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 528);
+            this.ClientSize = new System.Drawing.Size(983, 621);
             this.Controls.Add(this.gbReturn);
             this.Controls.Add(this.gbStudentLoans);
             this.Controls.Add(this.gbStudentsInfo);
@@ -347,6 +402,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).EndInit();
             this.gbReturn.ResumeLayout(false);
             this.gbReturn.PerformLayout();
+            this.gbStatus.ResumeLayout(false);
+            this.gbStatus.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -379,5 +436,9 @@
         private System.Windows.Forms.RadioButton rdoDamged;
         private System.Windows.Forms.GroupBox gbReturn;
         private System.Windows.Forms.TextBox txtResourceID;
+        private System.Windows.Forms.CheckBox chkLate;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.RadioButton rdoNormal;
+        private System.Windows.Forms.GroupBox gbStatus;
     }
 }

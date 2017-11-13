@@ -2,7 +2,6 @@
 using ABCAutomotive.Types;
 using System;
 using System.Data;
-using System.Drawing;
 
 namespace ABCAutomotive.BusinessLayer
 {

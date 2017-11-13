@@ -70,7 +70,7 @@ namespace ABCAutomotive.Types
         public LoanItem(int resourceID, string title, DateTime dueDate)
         {
             this.resourceID = resourceID;
-            this.titleDueDate = title + "Due: " + dueDate.ToShortDateString();
+            this.titleDueDate = title + " Due: " + dueDate.ToShortDateString();
         }
     }
 

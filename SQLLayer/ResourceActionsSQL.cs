@@ -15,11 +15,15 @@ namespace ABCAutomotive.SQLLayer
             DataAccess.SendData("spcheckOutResource", parmlist);
         }
 
-        public static void checkInResource(int returnStatus, int resourceID)
+        public static void checkInResource(int returnStatus, int resourceID, bool lateflag)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@resourceid", resourceID, ParameterDirection.Input, SqlDbType.Int));
-            parmlist.Add(new ParmStruct("@returnedstatus", returnStatus, ParameterDirection.Input, SqlDbType.Int));
+            parmlist.Add(new ParmStruct("@lateFlag", lateflag, ParameterDirection.Input, SqlDbType.Bit));
+            if(returnStatus != 0)
+            {
+                parmlist.Add(new ParmStruct("@returnedstatus", returnStatus, ParameterDirection.Input, SqlDbType.Int));
+            }
             DataAccess.SendData("spcheckInResource", parmlist);
         }
     }

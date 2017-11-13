@@ -28,16 +28,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtSearch.MaxLength = 50;
             txtsearchResource.MaxLength = 8;
             gbSearch.Visible = true;
-            lstCart.Enabled = false;
-            dgvLoans.Enabled = false;
-            lstSearchResults.Visible = false;
+            dgvLoans.ReadOnly = true;
             gbStudentsInfo.Visible = false;
             gbStudentLoans.Visible = false;
             gbSearchResource.Visible = false;
             gbResource.Visible = false;
             btncancel.Visible = false;
             btncheckOut.Visible = false;
+            btnRemoveItem.Visible = false;
             lstCart.Visible = false;
+            parent.StatusLabel.Text = "";
         }
 
         #endregion
@@ -49,16 +49,23 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 int x;
-
                 if (int.TryParse(txtSearch.Text, out x))
                 {
-                    StudentList = StudentsLookupFactory.Create(x);
+                    if (x.ToString().Length != 8)
+                    {
+                        errorProvider1.SetError(txtSearch, "Invalid StudentID");
+                    }
+                    else
+                    {
+                        StudentList = StudentsLookupFactory.Create(x);
+                    }
                 }
                 else
                 {
                     StudentList = StudentsLookupFactory.Create(txtSearch.Text);
                 }
 
+                lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
                 lstSearchResults.ValueMember = "StudentID";
                 lstSearchResults.DisplayMember = "FullName";
                 lstSearchResults.DataSource = StudentList;
@@ -80,7 +87,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 loadStudentInfo(StudentList);
                 loadStudentLoans(studentID);
                 CheckOutMode();
-                errorProvider1.Clear();
             }
             catch (Exception ex)
             {
@@ -99,7 +105,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             txtfirstName.Text = studentList[0].FirstName;
             txtlastName.Text = studentList[0].LastName;
-            txtbalance.Text = studentList[0].Balance.ToString();
+            txtbalance.Text = studentList[0].Balance.ToString("c2");
             txtprogram.Text = studentList[0].ProgramType.ToString();
             txtstartDate.Text = studentList[0].StartDate.ToShortDateString();
             txtendDate.Text = studentList[0].EndDate.ToShortDateString();
@@ -114,8 +120,17 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
-                ResourceLookup = ResourceLookupFactory.Create(Convert.ToInt32(txtsearchResource.Text));
-                loadResourceInfo(ResourceLookup);
+                int resouceID = 0;
+                if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
+                {
+                    ResourceLookup = ResourceLookupFactory.Create(resouceID);
+                    loadResourceInfo(ResourceLookup);
+                    btnAddtoCart.Enabled = true;
+                }
+                else
+                {
+                    errorProvider1.SetError(txtsearchResource, "Invalid ResourceID");
+                }
             }
             catch (Exception ex)
             {
@@ -139,11 +154,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Loans_Load(null, null);
+            parent.StatusLabel.Text = "";
             txtsearchResource.ResetText();
             txtreserveStatus.ResetText();
             txtresourceStatus.ResetText();
             txttitle.ResetText();
             txttype.ResetText();
+            loanItems.Clear();
+            StudentList.Clear();
+            loansLookup.Clear();
+            lstSearchResults.DataSource = null;
             lstCart.DataSource = null;
         }
 
@@ -156,12 +176,24 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbResource.Visible = true;
             btncancel.Visible = true;
             btncheckOut.Visible = true;
+            btnRemoveItem.Visible = true;
             lstCart.Visible = true;
+            btnAddtoCart.Enabled = false;
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
         }
 
         private void txtsearchResource_Enter(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+            parent.StatusLabel.Text = "";
+        }
+
+        private void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            if (lstCart.SelectedIndex >= 0)
+            {
+                loanItems.Remove((LoanItem)lstCart.SelectedItem);
+            }
             errorProvider1.Clear();
         }
 
@@ -171,19 +203,47 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void btnAddtoCart_Click(object sender, EventArgs e)
         {
-            foreach(LoanItem item in loanItems)
+            errorProvider1.Clear();
+            DialogResult result = DialogResult.None;
+            if (ResourceLookup[0].reserveStatus == ReserveStatus.Reserved)
             {
-                if(item.resourceID == ResourceLookup[0].resourceID)
-                {
-                    errorProvider1.SetError(btnAddtoCart, "Resource In Cart");
-                    return;
-                }
+                List<StudentLookup> ReserveingStudent = StudentsLookupFactory.RetrieveReservingStudent(ResourceLookup[0].resourceID);
+                string message = "Resource is reserved \n" + "Is The Student \n" + "Student ID: " + ReserveingStudent[0].StudentID + "\nStudent Name: " + ReserveingStudent[0].FullName;
+                result = MessageBox.Show(message, "Reserved", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }
 
-            loanItems.Add(new LoanItem(ResourceLookup[0].resourceID, txttitle.Text, GetDueDate()));
-            lstCart.ValueMember = "resourceID";
-            lstCart.DisplayMember = "titleDueDate";
-            lstCart.DataSource = loanItems;
+            if (result == DialogResult.Yes || result == DialogResult.None)
+            {
+                addItem();
+            }
+            else
+            {
+                parent.StatusLabel.Text = "Unable to Checkout Resource";
+            }
+        }
+
+        private void addItem()
+        {
+            if (CheckResource())
+            {
+                loanItems.Add(new LoanItem(ResourceLookup[0].resourceID, txttitle.Text, GetDueDate()));
+                lstCart.ValueMember = "resourceID";
+                lstCart.DisplayMember = "titleDueDate";
+                lstCart.DataSource = loanItems;
+            }
+        }
+
+        private bool CheckResource()
+        {
+            foreach (LoanItem item in loanItems)
+            {
+                if (item.resourceID == ResourceLookup[0].resourceID)
+                {
+                    errorProvider1.SetError(btnAddtoCart, "Resource In Cart");
+                    return false;
+                }
+            }
+            return true;
         }
 
         private DateTime GetDueDate()
@@ -192,7 +252,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             DateTime dueDate;
             DayOfWeek day = now.DayOfWeek;
 
-            if(Convert.ToInt32(day) == 4 || Convert.ToInt32(day) == 5)
+            if (Convert.ToInt32(day) == 4 || Convert.ToInt32(day) == 5)
             {
                 dueDate = now.AddDays(4);
             }
@@ -208,7 +268,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
-                if(lstCart.Items.Count != 0)
+                if (lstCart.Items.Count != 0)
                 {
                     errorProvider1.Clear();
                     for (int i = 0; i < lstCart.Items.Count; i++)
@@ -219,16 +279,17 @@ namespace ABCAutomotive.FrontEnd.MainForms
                         ResourceMethods.CheckOutResource(StudentList[0].StudentID, resourceID);
                     }
                     loadStudentLoans(StudentList[0].StudentID);
-                    parent.StatusLabel.Text = "Items Added To Loan";
+                    loanItems.Clear();
+                    parent.StatusLabel.Text = "Items Added To Student Loans";
                 }
                 else
                 {
                     errorProvider1.SetError(btncheckOut, "Please Select A Resource");
-                }            
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

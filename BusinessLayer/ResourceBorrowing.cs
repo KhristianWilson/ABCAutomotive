@@ -1,9 +1,6 @@
 ﻿using ABCAutomotive.SQLLayer;
 using ABCAutomotive.Types;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -19,19 +16,19 @@ namespace ABCAutomotive.BusinessLayer
             }
             if (!Validation.checkLength(resourceID.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
-                throw new ArgumentNullException("Resource StudentID");
+                throw new ArgumentNullException("Invalid ResourceID");
             }
             ResourceActionsSQL.checkOutResource(studentID, resourceID);
 
         }
 
-        public static void CheckInResource(int returnStatus, int resourceID)
+        public static void CheckInResource(int returnStatus, int resourceID, bool lateflag)
         {
             if (!Validation.checkLength(resourceID.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
-                throw new ArgumentNullException("Resource StudentID");
+                throw new ArgumentNullException("Invalid ResourceID");
             }
-
+            ResourceActionsSQL.checkInResource(returnStatus, resourceID, lateflag);
         }
     }
 

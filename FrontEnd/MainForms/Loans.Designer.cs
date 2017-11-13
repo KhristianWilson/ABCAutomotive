@@ -67,6 +67,7 @@
             this.btncancel = new System.Windows.Forms.Button();
             this.btncheckOut = new System.Windows.Forms.Button();
             this.lstCart = new System.Windows.Forms.ListBox();
+            this.btnRemoveItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbSearch.SuspendLayout();
             this.gbStudentsInfo.SuspendLayout();
@@ -81,7 +82,7 @@
             this.txtSearch.Location = new System.Drawing.Point(15, 19);
             this.txtSearch.MaxLength = 50;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(144, 20);
+            this.txtSearch.Size = new System.Drawing.Size(144, 22);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
@@ -104,6 +105,7 @@
             this.gbSearch.Controls.Add(this.lstSearchResults);
             this.gbSearch.Controls.Add(this.txtSearch);
             this.gbSearch.Controls.Add(this.btnSearch);
+            this.gbSearch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSearch.Location = new System.Drawing.Point(12, 12);
             this.gbSearch.Name = "gbSearch";
             this.gbSearch.Size = new System.Drawing.Size(270, 169);
@@ -135,7 +137,8 @@
             this.gbStudentsInfo.Controls.Add(this.lblBalance);
             this.gbStudentsInfo.Controls.Add(this.lblLname);
             this.gbStudentsInfo.Controls.Add(this.lblFname);
-            this.gbStudentsInfo.Location = new System.Drawing.Point(288, 12);
+            this.gbStudentsInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStudentsInfo.Location = new System.Drawing.Point(303, 12);
             this.gbStudentsInfo.Name = "gbStudentsInfo";
             this.gbStudentsInfo.Size = new System.Drawing.Size(621, 169);
             this.gbStudentsInfo.TabIndex = 3;
@@ -147,7 +150,7 @@
             // 
             this.txtstatus.Enabled = false;
             this.txtstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstatus.Location = new System.Drawing.Point(375, 110);
+            this.txtstatus.Location = new System.Drawing.Point(419, 126);
             this.txtstatus.Name = "txtstatus";
             this.txtstatus.Size = new System.Drawing.Size(140, 27);
             this.txtstatus.TabIndex = 13;
@@ -156,7 +159,7 @@
             // 
             this.txtendDate.Enabled = false;
             this.txtendDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtendDate.Location = new System.Drawing.Point(375, 77);
+            this.txtendDate.Location = new System.Drawing.Point(419, 93);
             this.txtendDate.Name = "txtendDate";
             this.txtendDate.Size = new System.Drawing.Size(140, 27);
             this.txtendDate.TabIndex = 12;
@@ -165,7 +168,7 @@
             // 
             this.txtstartDate.Enabled = false;
             this.txtstartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstartDate.Location = new System.Drawing.Point(375, 44);
+            this.txtstartDate.Location = new System.Drawing.Point(419, 60);
             this.txtstartDate.Name = "txtstartDate";
             this.txtstartDate.Size = new System.Drawing.Size(140, 27);
             this.txtstartDate.TabIndex = 11;
@@ -174,7 +177,7 @@
             // 
             this.txtprogram.Enabled = false;
             this.txtprogram.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprogram.Location = new System.Drawing.Point(375, 11);
+            this.txtprogram.Location = new System.Drawing.Point(419, 27);
             this.txtprogram.Name = "txtprogram";
             this.txtprogram.Size = new System.Drawing.Size(140, 27);
             this.txtprogram.TabIndex = 10;
@@ -183,7 +186,7 @@
             // 
             this.txtbalance.Enabled = false;
             this.txtbalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbalance.Location = new System.Drawing.Point(129, 93);
+            this.txtbalance.Location = new System.Drawing.Point(157, 90);
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(140, 27);
             this.txtbalance.TabIndex = 9;
@@ -192,7 +195,7 @@
             // 
             this.txtlastName.Enabled = false;
             this.txtlastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlastName.Location = new System.Drawing.Point(129, 60);
+            this.txtlastName.Location = new System.Drawing.Point(157, 57);
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(140, 27);
             this.txtlastName.TabIndex = 8;
@@ -201,7 +204,7 @@
             // 
             this.txtfirstName.Enabled = false;
             this.txtfirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfirstName.Location = new System.Drawing.Point(129, 27);
+            this.txtfirstName.Location = new System.Drawing.Point(157, 24);
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(140, 27);
             this.txtfirstName.TabIndex = 7;
@@ -210,7 +213,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(305, 113);
+            this.lblStatus.Location = new System.Drawing.Point(349, 129);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(65, 24);
             this.lblStatus.TabIndex = 6;
@@ -220,7 +223,7 @@
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(276, 80);
+            this.lblEndDate.Location = new System.Drawing.Point(320, 96);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(93, 24);
             this.lblEndDate.TabIndex = 5;
@@ -230,7 +233,7 @@
             // 
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartDate.Location = new System.Drawing.Point(276, 47);
+            this.lblStartDate.Location = new System.Drawing.Point(320, 63);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(94, 24);
             this.lblStartDate.TabIndex = 4;
@@ -240,7 +243,7 @@
             // 
             this.lblProgram.AutoSize = true;
             this.lblProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgram.Location = new System.Drawing.Point(282, 14);
+            this.lblProgram.Location = new System.Drawing.Point(326, 30);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(87, 24);
             this.lblProgram.TabIndex = 3;
@@ -250,7 +253,7 @@
             // 
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.Location = new System.Drawing.Point(40, 96);
+            this.lblBalance.Location = new System.Drawing.Point(68, 93);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(83, 24);
             this.lblBalance.TabIndex = 2;
@@ -260,7 +263,7 @@
             // 
             this.lblLname.AutoSize = true;
             this.lblLname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLname.Location = new System.Drawing.Point(20, 63);
+            this.lblLname.Location = new System.Drawing.Point(48, 60);
             this.lblLname.Name = "lblLname";
             this.lblLname.Size = new System.Drawing.Size(104, 24);
             this.lblLname.TabIndex = 1;
@@ -270,7 +273,7 @@
             // 
             this.lblFname.AutoSize = true;
             this.lblFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFname.Location = new System.Drawing.Point(18, 30);
+            this.lblFname.Location = new System.Drawing.Point(46, 27);
             this.lblFname.Name = "lblFname";
             this.lblFname.Size = new System.Drawing.Size(106, 24);
             this.lblFname.TabIndex = 0;
@@ -279,9 +282,10 @@
             // gbStudentLoans
             // 
             this.gbStudentLoans.Controls.Add(this.dgvLoans);
-            this.gbStudentLoans.Location = new System.Drawing.Point(288, 197);
+            this.gbStudentLoans.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbStudentLoans.Location = new System.Drawing.Point(303, 187);
             this.gbStudentLoans.Name = "gbStudentLoans";
-            this.gbStudentLoans.Size = new System.Drawing.Size(621, 169);
+            this.gbStudentLoans.Size = new System.Drawing.Size(668, 214);
             this.gbStudentLoans.TabIndex = 4;
             this.gbStudentLoans.TabStop = false;
             this.gbStudentLoans.Text = "Student Loans";
@@ -293,14 +297,15 @@
             this.dgvLoans.Location = new System.Drawing.Point(12, 19);
             this.dgvLoans.Name = "dgvLoans";
             this.dgvLoans.RowTemplate.Height = 70;
-            this.dgvLoans.Size = new System.Drawing.Size(603, 126);
+            this.dgvLoans.Size = new System.Drawing.Size(650, 195);
             this.dgvLoans.TabIndex = 0;
             // 
             // gbSearchResource
             // 
             this.gbSearchResource.Controls.Add(this.txtsearchResource);
             this.gbSearchResource.Controls.Add(this.btnSearchResource);
-            this.gbSearchResource.Location = new System.Drawing.Point(12, 272);
+            this.gbSearchResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSearchResource.Location = new System.Drawing.Point(27, 308);
             this.gbSearchResource.Name = "gbSearchResource";
             this.gbSearchResource.Size = new System.Drawing.Size(270, 60);
             this.gbSearchResource.TabIndex = 3;
@@ -309,16 +314,16 @@
             // 
             // txtsearchResource
             // 
-            this.txtsearchResource.Location = new System.Drawing.Point(15, 19);
+            this.txtsearchResource.Location = new System.Drawing.Point(6, 19);
             this.txtsearchResource.MaxLength = 50;
             this.txtsearchResource.Name = "txtsearchResource";
-            this.txtsearchResource.Size = new System.Drawing.Size(144, 20);
+            this.txtsearchResource.Size = new System.Drawing.Size(144, 22);
             this.txtsearchResource.TabIndex = 4;
             this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearchResource
             // 
-            this.btnSearchResource.Location = new System.Drawing.Point(181, 19);
+            this.btnSearchResource.Location = new System.Drawing.Point(166, 18);
             this.btnSearchResource.Name = "btnSearchResource";
             this.btnSearchResource.Size = new System.Drawing.Size(75, 23);
             this.btnSearchResource.TabIndex = 5;
@@ -337,7 +342,8 @@
             this.gbResource.Controls.Add(this.lblreserveStatus);
             this.gbResource.Controls.Add(this.txttitle);
             this.gbResource.Controls.Add(this.lblresourceStatus);
-            this.gbResource.Location = new System.Drawing.Point(12, 338);
+            this.gbResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbResource.Location = new System.Drawing.Point(27, 374);
             this.gbResource.Name = "gbResource";
             this.gbResource.Size = new System.Drawing.Size(270, 205);
             this.gbResource.TabIndex = 5;
@@ -432,7 +438,8 @@
             // 
             // btncancel
             // 
-            this.btncancel.Location = new System.Drawing.Point(530, 440);
+            this.btncancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancel.Location = new System.Drawing.Point(523, 547);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(193, 29);
             this.btncancel.TabIndex = 6;
@@ -442,7 +449,8 @@
             // 
             // btncheckOut
             // 
-            this.btncheckOut.Location = new System.Drawing.Point(530, 407);
+            this.btncheckOut.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncheckOut.Location = new System.Drawing.Point(523, 512);
             this.btncheckOut.Name = "btncheckOut";
             this.btncheckOut.Size = new System.Drawing.Size(193, 29);
             this.btncheckOut.TabIndex = 7;
@@ -452,17 +460,29 @@
             // 
             // lstCart
             // 
+            this.lstCart.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstCart.FormattingEnabled = true;
-            this.lstCart.Location = new System.Drawing.Point(300, 370);
+            this.lstCart.Location = new System.Drawing.Point(315, 407);
             this.lstCart.Name = "lstCart";
-            this.lstCart.Size = new System.Drawing.Size(173, 173);
+            this.lstCart.Size = new System.Drawing.Size(173, 134);
             this.lstCart.TabIndex = 4;
+            // 
+            // btnRemoveItem
+            // 
+            this.btnRemoveItem.Location = new System.Drawing.Point(315, 550);
+            this.btnRemoveItem.Name = "btnRemoveItem";
+            this.btnRemoveItem.Size = new System.Drawing.Size(173, 29);
+            this.btnRemoveItem.TabIndex = 22;
+            this.btnRemoveItem.Text = "&Remove Item";
+            this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
             // 
             // Loans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 555);
+            this.ClientSize = new System.Drawing.Size(983, 621);
+            this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.btncheckOut);
             this.Controls.Add(this.btncancel);
@@ -529,5 +549,6 @@
         private System.Windows.Forms.Button btncancel;
         private System.Windows.Forms.ListBox lstCart;
         private System.Windows.Forms.Button btnAddtoCart;
+        private System.Windows.Forms.Button btnRemoveItem;
     }
 }

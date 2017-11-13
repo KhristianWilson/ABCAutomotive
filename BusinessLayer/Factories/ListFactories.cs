@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -89,7 +88,15 @@ namespace ABCAutomotive.BusinessLayer
 
             newStudentsList = RepackageStudentLookup(tmpTable);
             return newStudentsList;
+        }
 
+        public static List<StudentLookup> RetrieveReservingStudent(int resourceID)
+        {
+            DataTable tmpTable = ListsSQL.RetrieveReservingStudent(resourceID);
+            List<StudentLookup> newStudentsList = new List<StudentLookup>();
+
+            newStudentsList = RepackageStudentLookup(tmpTable);
+            return newStudentsList;
         }
 
         private static List<StudentLookup> RepackageStudentLookup(DataTable myTable)
