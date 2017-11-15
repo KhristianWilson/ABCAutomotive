@@ -23,12 +23,12 @@ namespace ABCAutomotive.FrontEnd
             StartUpForms.Splash Splash = new StartUpForms.Splash();
             Splash.ShowDialog();
 
-            StartUpForms.Login login = new StartUpForms.Login();
-            login.ShowDialog();
-            if (login.DialogResult == DialogResult.Cancel)
-            {
-                this.Close();
-            }
+            //StartUpForms.Login login = new StartUpForms.Login();
+            //login.ShowDialog();
+            //if (login.DialogResult == DialogResult.Cancel)
+            //{
+            //    this.Close();
+            //}
 
             this.Text = Application.ProductName;
             SetupStatasStrip();

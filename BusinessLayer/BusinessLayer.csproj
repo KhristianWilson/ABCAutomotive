@@ -50,6 +50,7 @@
     <Compile Include="Object Classes\Resource.cs" />
     <Compile Include="Object Classes\Student.cs" />
     <Compile Include="ResourceBorrowing.cs" />
+    <Compile Include="StudentCUD.cs" />
     <Compile Include="Validation.cs" />
   </ItemGroup>
   <ItemGroup>
