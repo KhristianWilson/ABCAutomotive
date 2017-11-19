@@ -1,4 +1,5 @@
 ﻿using ABCAutomotive.Types;
+using System.Data;
 using System.Text.RegularExpressions;
 
 namespace ABCAutomotive.BusinessLayer
@@ -37,6 +38,28 @@ namespace ABCAutomotive.BusinessLayer
         {
             var matches = Regex.Match(phone, "^[0-9]{10,12}$");
             return matches.Success;
+        }
+
+        public static bool validStudent(StudentLookup student)
+        {
+            if(student.Balance > 0)
+            {
+                throw new ConstraintException("Student Maintains A Balance Higher Then $0.00");
+            }
+            if(student.Status == StudentStatus.Inactive)
+            {
+                throw new ConstraintException("Student Is Inactive");
+            }
+            return true;
+        }
+
+        public static bool validResource(ResourceLookup resource)
+        {
+            if(resource.resourceStatus == ResourceStatus.NotAvailable)
+            {
+                throw new ConstraintException("Resource Is Not Available");
+            }
+            return true;
         }
 
         #endregion

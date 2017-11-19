@@ -1,7 +1,9 @@
 ﻿using ABCAutomotive.SQLLayer;
 using ABCAutomotive.Types;
+using System.Drawing;
 using System;
 using System.Data;
+using System.IO;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -128,7 +130,7 @@ namespace ABCAutomotive.BusinessLayer
             myResource._dateOfPurchase = Convert.ToDateTime(myRow["DateOfPurchase"]);
             myResource._price = Convert.ToDouble(myRow["Price"]);
             myResource._referenceNumber = myRow["ReferenceNumber"].ToString();
-            //myResource._image = (Image)(myRow["Image"]);
+            myResource._image = getImage((byte[])myRow["Image"]);
             myResource._status = (ResourceStatus)(Convert.ToInt32(myRow["Status"]));
             myResource._reserveStatus = (ReserveStatus)(Convert.ToInt32(myRow["ReserveStatus"]));
             if(myRow["StudentReserving"].ToString() != string.Empty)
@@ -139,11 +141,30 @@ namespace ABCAutomotive.BusinessLayer
             {
                 myResource._removealDate = Convert.ToDateTime(myRow["DateOfRemoval"]);
             }
+            else
+            {
+                myResource._removealDate = DateTime.Now;
+            }
             myResource._timestamp = myRow["TimeStamp"];
             myResource._trusted = true;
 
             return myResource;
         }
+
+        private static Image getImage(byte[] ImageData)
+        {
+            Image Image;
+            if (ImageData == null)
+            {
+                return null;
+            }
+            using (MemoryStream ms = new MemoryStream(ImageData))
+            {
+                Image = Image.FromStream(ms);
+            }
+            return Image;
+        }
+
     }
 
     #endregion

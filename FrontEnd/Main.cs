@@ -16,6 +16,10 @@ namespace ABCAutomotive.FrontEnd
 
         Loans loans;
         Returns returns;
+        Reserve reserves;
+        Student student;
+        ModifyResourceStatus modifyResourceStatus;
+
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
         private void Main_Load(object sender, EventArgs e)
@@ -23,12 +27,12 @@ namespace ABCAutomotive.FrontEnd
             StartUpForms.Splash Splash = new StartUpForms.Splash();
             Splash.ShowDialog();
 
-            //StartUpForms.Login login = new StartUpForms.Login();
-            //login.ShowDialog();
-            //if (login.DialogResult == DialogResult.Cancel)
-            //{
-            //    this.Close();
-            //}
+            StartUpForms.Login login = new StartUpForms.Login();
+            login.ShowDialog();
+            if (login.DialogResult == DialogResult.Cancel)
+            {
+                this.Close();
+            }
 
             this.Text = Application.ProductName;
             SetupStatasStrip();
@@ -66,7 +70,7 @@ namespace ABCAutomotive.FrontEnd
 
         private void MenuClick(object sender, EventArgs e)
         {
-            if (sender == btnLoans)
+            if (sender == btnLoans || sender == checkOutToolStrip)
             {
                 if (loans == null || loans.IsDisposed)
                 {
@@ -74,13 +78,31 @@ namespace ABCAutomotive.FrontEnd
                 }
                 DisplayForm(loans);
             }
-            if (sender == btnReturns)
+            if (sender == btnReturns || sender == returnsToolStrip)
             {
                 if (returns == null || returns.IsDisposed)
                 {
                     returns = new Returns(this);
                 }
                 DisplayForm(returns);
+            }
+
+            if (sender == btnReserves || sender == reserveToolStrip)
+            {
+                if (reserves == null || reserves.IsDisposed)
+                {
+                    reserves = new Reserve(this);
+                }
+                DisplayForm(reserves);
+            }
+
+            if (sender == updateResourceToolStrip)
+            {
+                if (modifyResourceStatus == null || modifyResourceStatus.IsDisposed)
+                {
+                    modifyResourceStatus = new ModifyResourceStatus(this);
+                }
+                DisplayForm(modifyResourceStatus);
             }
 
         }

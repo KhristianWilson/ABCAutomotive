@@ -7,15 +7,16 @@ namespace ABCAutomotive.SQLLayer
 {
     public static class ResourceActionsSQL
     {
-        public static void checkOutResource(int resourceID, int studentID)
+        public static bool checkOutResource(int resourceID, int studentID)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@studentId", resourceID, ParameterDirection.Input, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@resourceId", studentID, ParameterDirection.Input, SqlDbType.Int));
             DataAccess.SendData("spcheckOutResource", parmlist);
+            return true;
         }
 
-        public static void checkInResource(int returnStatus, int resourceID, bool lateflag)
+        public static bool checkInResource(int returnStatus, int resourceID, bool lateflag)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@resourceid", resourceID, ParameterDirection.Input, SqlDbType.Int));
@@ -25,6 +26,16 @@ namespace ABCAutomotive.SQLLayer
                 parmlist.Add(new ParmStruct("@returnedstatus", returnStatus, ParameterDirection.Input, SqlDbType.Int));
             }
             DataAccess.SendData("spcheckInResource", parmlist);
+            return true;
+        }
+
+        public static bool reserveResource(int studentID, int resourceID)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@studentId", resourceID, ParameterDirection.Input, SqlDbType.Int));
+            parmlist.Add(new ParmStruct("@resourceId", studentID, ParameterDirection.Input, SqlDbType.Int));
+            DataAccess.SendData("spreserveResource", parmlist);
+            return true;
         }
     }
 }

@@ -33,14 +33,15 @@ namespace ABCAutomotive.DAL
             return ds;
         }
 
-        public static int SendData(string SQLStatement, List<ParmStruct> parmlist = null)
+        public static bool SendData(string SQLStatement, List<ParmStruct> parmlist = null)
         {
             SqlCommand cmd = CreateCommandObject(SQLStatement, parmlist);
             using (cmd.Connection)
             {
                 cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
                 UnloadParms(cmd, parmlist);
-                return cmd.ExecuteNonQuery();
+                return true;
             }
         }
 

@@ -63,14 +63,21 @@
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
+            this.btnReserves = new System.Windows.Forms.ToolStripButton();
             this.statusMain = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
+            this.resourceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkOutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.reserveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -87,7 +94,9 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.resourceInfoToolStripMenuItem,
+            this.studentInfoToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1246, 24);
@@ -320,7 +329,8 @@
             // 
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnLoans,
-            this.btnReturns});
+            this.btnReturns,
+            this.btnReserves});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(1246, 25);
@@ -347,6 +357,16 @@
             this.btnReturns.Text = "Returns";
             this.btnReturns.Click += new System.EventHandler(this.MenuClick);
             // 
+            // btnReserves
+            // 
+            this.btnReserves.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnReserves.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.reserve;
+            this.btnReserves.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReserves.Name = "btnReserves";
+            this.btnReserves.Size = new System.Drawing.Size(23, 22);
+            this.btnReserves.Text = "Reserves";
+            this.btnReserves.Click += new System.EventHandler(this.MenuClick);
+            // 
             // statusMain
             // 
             this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -359,11 +379,6 @@
             this.statusMain.TabIndex = 2;
             this.statusMain.Text = "statusStrip";
             // 
-            // lblStatus
-            // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 17);
-            // 
             // lblDateTime
             // 
             this.lblDateTime.Name = "lblDateTime";
@@ -373,6 +388,11 @@
             // 
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // splitContainer1
             // 
@@ -421,6 +441,51 @@
             this.timerDisplay.Enabled = true;
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
+            // 
+            // resourceInfoToolStripMenuItem
+            // 
+            this.resourceInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkOutToolStrip,
+            this.returnsToolStrip,
+            this.reserveToolStrip,
+            this.updateResourceToolStrip});
+            this.resourceInfoToolStripMenuItem.Name = "resourceInfoToolStripMenuItem";
+            this.resourceInfoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.resourceInfoToolStripMenuItem.Text = "&Resource Info";
+            // 
+            // studentInfoToolStripMenuItem
+            // 
+            this.studentInfoToolStripMenuItem.Name = "studentInfoToolStripMenuItem";
+            this.studentInfoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.studentInfoToolStripMenuItem.Text = "&Student Info";
+            // 
+            // checkOutToolStrip
+            // 
+            this.checkOutToolStrip.Name = "checkOutToolStrip";
+            this.checkOutToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.checkOutToolStrip.Text = "Check Out";
+            this.checkOutToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // returnsToolStrip
+            // 
+            this.returnsToolStrip.Name = "returnsToolStrip";
+            this.returnsToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.returnsToolStrip.Text = "Return";
+            this.returnsToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // reserveToolStrip
+            // 
+            this.reserveToolStrip.Name = "reserveToolStrip";
+            this.reserveToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.reserveToolStrip.Text = "Reserve";
+            this.reserveToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // updateResourceToolStrip
+            // 
+            this.updateResourceToolStrip.Name = "updateResourceToolStrip";
+            this.updateResourceToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.updateResourceToolStrip.Text = "Update Resource";
+            this.updateResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // Main
             // 
@@ -497,5 +562,12 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripButton btnLoans;
         private System.Windows.Forms.ToolStripButton btnReturns;
+        private System.Windows.Forms.ToolStripButton btnReserves;
+        private System.Windows.Forms.ToolStripMenuItem resourceInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkOutToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem returnsToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem reserveToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem studentInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateResourceToolStrip;
     }
 }

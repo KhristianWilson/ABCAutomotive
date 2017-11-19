@@ -4,8 +4,6 @@ using System;
 
 namespace ABCAutomotive.BusinessLayer
 {
-    #region CheckIn
-
     public static class ResourceMethods
     {
         public static void CheckOutResource(int studentID, int resourceID)
@@ -30,7 +28,18 @@ namespace ABCAutomotive.BusinessLayer
             }
             ResourceActionsSQL.checkInResource(returnStatus, resourceID, lateflag);
         }
-    }
 
-    #endregion
+        public static void ReserveResource(int studentID, int resourceID)
+        {
+            if (!Validation.checkLength(studentID.ToString(), 8, SizeOperator.MustBeEqualTo))
+            {
+                throw new ArgumentNullException("Invalid StudentID");
+            }
+            if (!Validation.checkLength(resourceID.ToString(), 8, SizeOperator.MustBeEqualTo))
+            {
+                throw new ArgumentNullException("Invalid ResourceID");
+            }
+            ResourceActionsSQL.reserveResource(studentID, resourceID);
+        }
+    }
 }
