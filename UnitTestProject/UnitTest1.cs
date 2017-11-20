@@ -88,7 +88,7 @@ namespace UnitTestProject
         [TestMethod]
         public void Positive_Publisher_List()
         {
-            List<StudentLookup> StudentList = StudentsLookupFactory.Create("J");
+            List<StudentLookup> StudentList = StudentsFactory.Create("J");
 
             Assert.IsTrue(StudentList[0].FirstName.ToString() == "Josh");
             Assert.IsTrue(StudentList[0].LastName.ToString() == "Sal");

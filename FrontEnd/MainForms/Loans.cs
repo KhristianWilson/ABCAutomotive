@@ -57,12 +57,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     }
                     else
                     {
-                        StudentList = StudentsLookupFactory.Create(x);
+                        StudentList = StudentsFactory.Create(x);
                     }
                 }
                 else
                 {
-                    StudentList = StudentsLookupFactory.Create(txtSearch.Text);
+                    StudentList = StudentsFactory.Create(txtSearch.Text);
                 }
 
                 lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
@@ -83,7 +83,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
-                StudentList = StudentsLookupFactory.Create(studentID);
+                StudentList = StudentsFactory.Create(studentID);
                 loadStudentInfo(StudentList);
                 loadStudentLoans(studentID);
                 CheckOutMode();
@@ -207,7 +207,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             DialogResult result = DialogResult.None;
             if (ResourceLookup[0].reserveStatus == ReserveStatus.Reserved)
             {
-                List<StudentLookup> ReserveingStudent = StudentsLookupFactory.RetrieveReservingStudent(ResourceLookup[0].resourceID);
+                List<StudentLookup> ReserveingStudent = StudentsFactory.RetrieveReservingStudent(ResourceLookup[0].resourceID);
                 string message = "Resource is reserved \n" + "Is The Student \n" + "Student ID: " + ReserveingStudent[0].StudentID + "\nStudent Name: " + ReserveingStudent[0].FullName;
                 result = MessageBox.Show(message, "Reserved", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }

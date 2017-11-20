@@ -53,11 +53,15 @@ namespace ABCAutomotive.BusinessLayer
             return true;
         }
 
-        public static bool validResource(ResourceLookup resource)
+        public static bool validReserve(ResourceLookup resource)
         {
             if(resource.resourceStatus == ResourceStatus.NotAvailable)
             {
                 throw new ConstraintException("Resource Is Not Available");
+            }
+            if (resource.reserveStatus == ReserveStatus.Reserved)
+            {
+                throw new ConstraintException("Resource Is Reserved");
             }
             return true;
         }

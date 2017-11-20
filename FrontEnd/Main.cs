@@ -105,6 +105,15 @@ namespace ABCAutomotive.FrontEnd
                 DisplayForm(modifyResourceStatus);
             }
 
+            if(sender == manageStudentsToolStrip)
+            {
+                if (student == null || student.IsDisposed)
+                {
+                    student = new Student(this);
+                }
+                DisplayForm(student);
+            }
+
         }
 
         private void DisplayForm(Form form)

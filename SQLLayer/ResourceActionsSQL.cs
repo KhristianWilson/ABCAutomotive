@@ -32,9 +32,18 @@ namespace ABCAutomotive.SQLLayer
         public static bool reserveResource(int studentID, int resourceID)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@studentId", resourceID, ParameterDirection.Input, SqlDbType.Int));
-            parmlist.Add(new ParmStruct("@resourceId", studentID, ParameterDirection.Input, SqlDbType.Int));
+            parmlist.Add(new ParmStruct("@studentId", studentID, ParameterDirection.Input, SqlDbType.Int));
+            parmlist.Add(new ParmStruct("@resourceId", resourceID, ParameterDirection.Input, SqlDbType.Int));
             DataAccess.SendData("spreserveResource", parmlist);
+            return true;
+        }
+
+        public static bool updateStatus(int resourceID, ResourceStatus status)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@status", status, ParameterDirection.Input, SqlDbType.Int));
+            parmlist.Add(new ParmStruct("@resourceId", resourceID, ParameterDirection.Input, SqlDbType.Int));
+            DataAccess.SendData("spupdateResourceStatus", parmlist);
             return true;
         }
     }

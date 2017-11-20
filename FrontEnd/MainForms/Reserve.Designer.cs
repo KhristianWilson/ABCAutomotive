@@ -62,6 +62,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnReserveResource = new System.Windows.Forms.Button();
+            this.btnclear = new System.Windows.Forms.Button();
             this.gbSearchResource.SuspendLayout();
             this.gbResource.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -113,7 +114,7 @@
             this.gbResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbResource.Location = new System.Drawing.Point(288, 12);
             this.gbResource.Name = "gbResource";
-            this.gbResource.Size = new System.Drawing.Size(582, 116);
+            this.gbResource.Size = new System.Drawing.Size(636, 116);
             this.gbResource.TabIndex = 6;
             this.gbResource.TabStop = false;
             this.gbResource.Text = "Resource Info";
@@ -122,7 +123,7 @@
             // 
             this.txtresourceStatus.Enabled = false;
             this.txtresourceStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtresourceStatus.Location = new System.Drawing.Point(394, 71);
+            this.txtresourceStatus.Location = new System.Drawing.Point(425, 68);
             this.txtresourceStatus.Name = "txtresourceStatus";
             this.txtresourceStatus.Size = new System.Drawing.Size(176, 27);
             this.txtresourceStatus.TabIndex = 21;
@@ -131,7 +132,7 @@
             // 
             this.lbltitle.AutoSize = true;
             this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(57, 41);
+            this.lbltitle.Location = new System.Drawing.Point(19, 38);
             this.lbltitle.Name = "lbltitle";
             this.lbltitle.Size = new System.Drawing.Size(50, 24);
             this.lbltitle.TabIndex = 14;
@@ -141,7 +142,7 @@
             // 
             this.txtreserveStatus.Enabled = false;
             this.txtreserveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtreserveStatus.Location = new System.Drawing.Point(394, 38);
+            this.txtreserveStatus.Location = new System.Drawing.Point(425, 35);
             this.txtreserveStatus.Name = "txtreserveStatus";
             this.txtreserveStatus.Size = new System.Drawing.Size(176, 27);
             this.txtreserveStatus.TabIndex = 20;
@@ -150,7 +151,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(49, 74);
+            this.label3.Location = new System.Drawing.Point(11, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 24);
             this.label3.TabIndex = 15;
@@ -160,16 +161,16 @@
             // 
             this.txttype.Enabled = false;
             this.txttype.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttype.Location = new System.Drawing.Point(113, 71);
+            this.txttype.Location = new System.Drawing.Point(75, 68);
             this.txttype.Name = "txttype";
-            this.txttype.Size = new System.Drawing.Size(176, 27);
+            this.txttype.Size = new System.Drawing.Size(222, 27);
             this.txttype.TabIndex = 19;
             // 
             // lblreserveStatus
             // 
             this.lblreserveStatus.AutoSize = true;
             this.lblreserveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblreserveStatus.Location = new System.Drawing.Point(295, 41);
+            this.lblreserveStatus.Location = new System.Drawing.Point(326, 38);
             this.lblreserveStatus.Name = "lblreserveStatus";
             this.lblreserveStatus.Size = new System.Drawing.Size(96, 24);
             this.lblreserveStatus.TabIndex = 16;
@@ -179,16 +180,16 @@
             // 
             this.txttitle.Enabled = false;
             this.txttitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttitle.Location = new System.Drawing.Point(113, 38);
+            this.txttitle.Location = new System.Drawing.Point(75, 35);
             this.txttitle.Name = "txttitle";
-            this.txttitle.Size = new System.Drawing.Size(176, 27);
+            this.txttitle.Size = new System.Drawing.Size(222, 27);
             this.txttitle.TabIndex = 18;
             // 
             // lblresourceStatus
             // 
             this.lblresourceStatus.AutoSize = true;
             this.lblresourceStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblresourceStatus.Location = new System.Drawing.Point(323, 74);
+            this.lblresourceStatus.Location = new System.Drawing.Point(354, 71);
             this.lblresourceStatus.Name = "lblresourceStatus";
             this.lblresourceStatus.Size = new System.Drawing.Size(65, 24);
             this.lblresourceStatus.TabIndex = 17;
@@ -227,7 +228,7 @@
             // 
             this.txtstatus.Enabled = false;
             this.txtstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstatus.Location = new System.Drawing.Point(419, 126);
+            this.txtstatus.Location = new System.Drawing.Point(458, 120);
             this.txtstatus.Name = "txtstatus";
             this.txtstatus.Size = new System.Drawing.Size(140, 27);
             this.txtstatus.TabIndex = 13;
@@ -236,7 +237,7 @@
             // 
             this.txtendDate.Enabled = false;
             this.txtendDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtendDate.Location = new System.Drawing.Point(419, 93);
+            this.txtendDate.Location = new System.Drawing.Point(458, 87);
             this.txtendDate.Name = "txtendDate";
             this.txtendDate.Size = new System.Drawing.Size(140, 27);
             this.txtendDate.TabIndex = 12;
@@ -245,7 +246,7 @@
             // 
             this.txtstartDate.Enabled = false;
             this.txtstartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstartDate.Location = new System.Drawing.Point(419, 60);
+            this.txtstartDate.Location = new System.Drawing.Point(458, 54);
             this.txtstartDate.Name = "txtstartDate";
             this.txtstartDate.Size = new System.Drawing.Size(140, 27);
             this.txtstartDate.TabIndex = 11;
@@ -254,7 +255,7 @@
             // 
             this.txtprogram.Enabled = false;
             this.txtprogram.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprogram.Location = new System.Drawing.Point(419, 27);
+            this.txtprogram.Location = new System.Drawing.Point(458, 21);
             this.txtprogram.Name = "txtprogram";
             this.txtprogram.Size = new System.Drawing.Size(140, 27);
             this.txtprogram.TabIndex = 10;
@@ -290,7 +291,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(349, 129);
+            this.lblStatus.Location = new System.Drawing.Point(388, 123);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(65, 24);
             this.lblStatus.TabIndex = 6;
@@ -300,7 +301,7 @@
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(320, 96);
+            this.lblEndDate.Location = new System.Drawing.Point(359, 90);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(93, 24);
             this.lblEndDate.TabIndex = 5;
@@ -310,7 +311,7 @@
             // 
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartDate.Location = new System.Drawing.Point(320, 63);
+            this.lblStartDate.Location = new System.Drawing.Point(359, 57);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(94, 24);
             this.lblStartDate.TabIndex = 4;
@@ -320,7 +321,7 @@
             // 
             this.lblProgram.AutoSize = true;
             this.lblProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgram.Location = new System.Drawing.Point(326, 30);
+            this.lblProgram.Location = new System.Drawing.Point(365, 24);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(87, 24);
             this.lblProgram.TabIndex = 3;
@@ -399,7 +400,7 @@
             // 
             // btnReserveResource
             // 
-            this.btnReserveResource.Location = new System.Drawing.Point(707, 329);
+            this.btnReserveResource.Location = new System.Drawing.Point(638, 329);
             this.btnReserveResource.Name = "btnReserveResource";
             this.btnReserveResource.Size = new System.Drawing.Size(140, 34);
             this.btnReserveResource.TabIndex = 9;
@@ -407,11 +408,22 @@
             this.btnReserveResource.UseVisualStyleBackColor = true;
             this.btnReserveResource.Click += new System.EventHandler(this.btnReserveResource_Click);
             // 
+            // btnclear
+            // 
+            this.btnclear.Location = new System.Drawing.Point(784, 329);
+            this.btnclear.Name = "btnclear";
+            this.btnclear.Size = new System.Drawing.Size(140, 34);
+            this.btnclear.TabIndex = 10;
+            this.btnclear.Text = "&Clear";
+            this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
+            // 
             // Reserve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 621);
+            this.Controls.Add(this.btnclear);
             this.Controls.Add(this.btnReserveResource);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbSearch);
@@ -468,5 +480,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnReserveResource;
+        private System.Windows.Forms.Button btnclear;
     }
 }

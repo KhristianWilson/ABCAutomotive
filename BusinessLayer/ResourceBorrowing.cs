@@ -29,7 +29,7 @@ namespace ABCAutomotive.BusinessLayer
             ResourceActionsSQL.checkInResource(returnStatus, resourceID, lateflag);
         }
 
-        public static void ReserveResource(int studentID, int resourceID)
+        public static bool ReserveResource(int studentID, int resourceID)
         {
             if (!Validation.checkLength(studentID.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
@@ -39,7 +39,16 @@ namespace ABCAutomotive.BusinessLayer
             {
                 throw new ArgumentNullException("Invalid ResourceID");
             }
-            ResourceActionsSQL.reserveResource(studentID, resourceID);
+            return ResourceActionsSQL.reserveResource(studentID, resourceID);
+        }
+
+        public static bool UpdateStatus(Resource resource)
+        {
+            if (!Validation.checkLength(resource.resourceid.ToString(), 8, SizeOperator.MustBeEqualTo))
+            {
+                throw new ArgumentNullException("Invalid ResourceID");
+            }
+            return ResourceActionsSQL.updateStatus(resource.resourceid, resource.resourceStatus);
         }
     }
 }

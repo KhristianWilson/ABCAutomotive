@@ -60,6 +60,12 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resourceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkOutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.reserveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentInfoToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
@@ -72,12 +78,7 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
-            this.resourceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkOutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.returnsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.reserveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageStudentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -96,7 +97,7 @@
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.resourceInfoToolStripMenuItem,
-            this.studentInfoToolStripMenuItem});
+            this.studentInfoToolStrip});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1246, 24);
@@ -325,6 +326,53 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
+            // resourceInfoToolStripMenuItem
+            // 
+            this.resourceInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkOutToolStrip,
+            this.returnsToolStrip,
+            this.reserveToolStrip,
+            this.updateResourceToolStrip});
+            this.resourceInfoToolStripMenuItem.Name = "resourceInfoToolStripMenuItem";
+            this.resourceInfoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.resourceInfoToolStripMenuItem.Text = "&Resource Info";
+            // 
+            // checkOutToolStrip
+            // 
+            this.checkOutToolStrip.Name = "checkOutToolStrip";
+            this.checkOutToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.checkOutToolStrip.Text = "&Check Out";
+            this.checkOutToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // returnsToolStrip
+            // 
+            this.returnsToolStrip.Name = "returnsToolStrip";
+            this.returnsToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.returnsToolStrip.Text = "&Returns";
+            this.returnsToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // reserveToolStrip
+            // 
+            this.reserveToolStrip.Name = "reserveToolStrip";
+            this.reserveToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.reserveToolStrip.Text = "&Reserves";
+            this.reserveToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // updateResourceToolStrip
+            // 
+            this.updateResourceToolStrip.Name = "updateResourceToolStrip";
+            this.updateResourceToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.updateResourceToolStrip.Text = "&Update Resource";
+            this.updateResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // studentInfoToolStrip
+            // 
+            this.studentInfoToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageStudentsToolStrip});
+            this.studentInfoToolStrip.Name = "studentInfoToolStrip";
+            this.studentInfoToolStrip.Size = new System.Drawing.Size(84, 20);
+            this.studentInfoToolStrip.Text = "&Student Info";
+            // 
             // toolStripMain
             // 
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -442,50 +490,12 @@
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
             // 
-            // resourceInfoToolStripMenuItem
+            // manageStudentsToolStrip
             // 
-            this.resourceInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkOutToolStrip,
-            this.returnsToolStrip,
-            this.reserveToolStrip,
-            this.updateResourceToolStrip});
-            this.resourceInfoToolStripMenuItem.Name = "resourceInfoToolStripMenuItem";
-            this.resourceInfoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.resourceInfoToolStripMenuItem.Text = "&Resource Info";
-            // 
-            // studentInfoToolStripMenuItem
-            // 
-            this.studentInfoToolStripMenuItem.Name = "studentInfoToolStripMenuItem";
-            this.studentInfoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.studentInfoToolStripMenuItem.Text = "&Student Info";
-            // 
-            // checkOutToolStrip
-            // 
-            this.checkOutToolStrip.Name = "checkOutToolStrip";
-            this.checkOutToolStrip.Size = new System.Drawing.Size(163, 22);
-            this.checkOutToolStrip.Text = "Check Out";
-            this.checkOutToolStrip.Click += new System.EventHandler(this.MenuClick);
-            // 
-            // returnsToolStrip
-            // 
-            this.returnsToolStrip.Name = "returnsToolStrip";
-            this.returnsToolStrip.Size = new System.Drawing.Size(163, 22);
-            this.returnsToolStrip.Text = "Return";
-            this.returnsToolStrip.Click += new System.EventHandler(this.MenuClick);
-            // 
-            // reserveToolStrip
-            // 
-            this.reserveToolStrip.Name = "reserveToolStrip";
-            this.reserveToolStrip.Size = new System.Drawing.Size(163, 22);
-            this.reserveToolStrip.Text = "Reserve";
-            this.reserveToolStrip.Click += new System.EventHandler(this.MenuClick);
-            // 
-            // updateResourceToolStrip
-            // 
-            this.updateResourceToolStrip.Name = "updateResourceToolStrip";
-            this.updateResourceToolStrip.Size = new System.Drawing.Size(163, 22);
-            this.updateResourceToolStrip.Text = "Update Resource";
-            this.updateResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
+            this.manageStudentsToolStrip.Name = "manageStudentsToolStrip";
+            this.manageStudentsToolStrip.Size = new System.Drawing.Size(166, 22);
+            this.manageStudentsToolStrip.Text = "&Manage Students";
+            this.manageStudentsToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // Main
             // 
@@ -567,7 +577,8 @@
         private System.Windows.Forms.ToolStripMenuItem checkOutToolStrip;
         private System.Windows.Forms.ToolStripMenuItem returnsToolStrip;
         private System.Windows.Forms.ToolStripMenuItem reserveToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem studentInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentInfoToolStrip;
         private System.Windows.Forms.ToolStripMenuItem updateResourceToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem manageStudentsToolStrip;
     }
 }

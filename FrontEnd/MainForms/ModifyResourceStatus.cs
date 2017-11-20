@@ -1,7 +1,9 @@
 ﻿using ABCAutomotive.BusinessLayer;
-using System.Windows.Forms;
 using ABCAutomotive.Types;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd.MainForms
 {
@@ -20,7 +22,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void ModifyResourceStatus_Load(object sender, System.EventArgs e)
         {
-            cbStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
+            List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
+            status.RemoveAt(1);
+            cbStatus.DataSource = status;
+
             gbResourceInfo.Enabled = false;
             btnClear.Visible = false;
             btnUpdate.Visible = false;
@@ -93,6 +98,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.SelectedIndex = -1;
             objRes = ResourceFactory.Create();
             txtsearchResource.Enabled = true;
+            cbStatus.Visible = false;
+            btnClear.Visible = false;
+            btnUpdate.Visible = false;
         }
 
         private void enableUpdate()
@@ -103,7 +111,31 @@ namespace ABCAutomotive.FrontEnd.MainForms
             lblStatus.Visible = true;
         }
 
+        private void txtsearchResource_Enter(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            parent.StatusLabel.Text = "";
+        }
+
         #endregion
 
+        #region Update Status
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objRes.resourceStatus = (ResourceStatus)cbStatus.SelectedItem;
+                ResourceMethods.UpdateStatus(objRes);
+                parent.StatusLabel.Text = "Status Updated";
+                LoadFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
     }
 }

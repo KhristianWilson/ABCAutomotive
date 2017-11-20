@@ -5,7 +5,7 @@ using System.Drawing;
 namespace ABCAutomotive.Types
 {
 
-    #region Interface
+    #region Interfaces
 
     public interface IStudent
     {

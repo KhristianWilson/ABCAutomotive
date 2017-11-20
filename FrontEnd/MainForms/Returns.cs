@@ -41,7 +41,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
                 if (int.TryParse(txtsearchResource.Text, out resourceID) || txtsearchResource.Text.Length == 8)
                 {
-                    StudentList = StudentsLookupFactory.CreateByResouce(resourceID);
+                    StudentList = StudentsFactory.CreateByResouce(resourceID);
                     loadStudentInfo();
                     loadLoanInfo();
                     returnMode();
@@ -106,7 +106,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void refreshStudentInfo()
         {
             int studentID = StudentList[0].StudentID;
-            StudentList = StudentsLookupFactory.Create(studentID);
+            StudentList = StudentsFactory.Create(studentID);
             loadStudentInfo();
             loadLoanInfo();
         }

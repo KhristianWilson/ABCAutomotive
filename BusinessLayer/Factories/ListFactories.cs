@@ -60,7 +60,7 @@ namespace ABCAutomotive.BusinessLayer
 
     #region Student LookUp
 
-    public static class StudentsLookupFactory
+    public static class StudentsFactory
     {
         public static List<StudentLookup> Create(string studentName)
         {
