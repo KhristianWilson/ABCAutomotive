@@ -1,6 +1,6 @@
 ﻿namespace ABCAutomotive.FrontEnd.MainForms
 {
-    partial class Student
+    partial class CreateStudent
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.gbSearch = new System.Windows.Forms.GroupBox();
-            this.lstSearchResults = new System.Windows.Forms.ListBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.gbStudentsInfo = new System.Windows.Forms.GroupBox();
             this.txtstudentID = new System.Windows.Forms.TextBox();
             this.lblstudentID = new System.Windows.Forms.Label();
             this.txtphoneNumber = new System.Windows.Forms.TextBox();
             this.lblphone = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtpostalCode = new System.Windows.Forms.TextBox();
             this.txtcity = new System.Windows.Forms.TextBox();
             this.txtaddress = new System.Windows.Forms.TextBox();
             this.lblpostalCode = new System.Windows.Forms.Label();
@@ -60,54 +55,10 @@
             this.lblFname = new System.Windows.Forms.Label();
             this.panActions = new System.Windows.Forms.Panel();
             this.btnclear = new System.Windows.Forms.Button();
-            this.btnupdate = new System.Windows.Forms.Button();
             this.btninsert = new System.Windows.Forms.Button();
-            this.btndelete = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.gbSearch.SuspendLayout();
             this.gbStudentsInfo.SuspendLayout();
             this.panActions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gbSearch
-            // 
-            this.gbSearch.Controls.Add(this.lstSearchResults);
-            this.gbSearch.Controls.Add(this.txtSearch);
-            this.gbSearch.Controls.Add(this.btnSearch);
-            this.gbSearch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSearch.Location = new System.Drawing.Point(12, 12);
-            this.gbSearch.Name = "gbSearch";
-            this.gbSearch.Size = new System.Drawing.Size(270, 169);
-            this.gbSearch.TabIndex = 3;
-            this.gbSearch.TabStop = false;
-            this.gbSearch.Text = "Search Students";
-            // 
-            // lstSearchResults
-            // 
-            this.lstSearchResults.FormattingEnabled = true;
-            this.lstSearchResults.Location = new System.Drawing.Point(15, 45);
-            this.lstSearchResults.Name = "lstSearchResults";
-            this.lstSearchResults.Size = new System.Drawing.Size(144, 95);
-            this.lstSearchResults.TabIndex = 2;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(15, 19);
-            this.txtSearch.MaxLength = 50;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(144, 22);
-            this.txtSearch.TabIndex = 0;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(181, 19);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "&Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // gbStudentsInfo
             // 
@@ -115,7 +66,7 @@
             this.gbStudentsInfo.Controls.Add(this.lblstudentID);
             this.gbStudentsInfo.Controls.Add(this.txtphoneNumber);
             this.gbStudentsInfo.Controls.Add(this.lblphone);
-            this.gbStudentsInfo.Controls.Add(this.textBox1);
+            this.gbStudentsInfo.Controls.Add(this.txtpostalCode);
             this.gbStudentsInfo.Controls.Add(this.txtcity);
             this.gbStudentsInfo.Controls.Add(this.txtaddress);
             this.gbStudentsInfo.Controls.Add(this.lblpostalCode);
@@ -136,10 +87,10 @@
             this.gbStudentsInfo.Controls.Add(this.lblLname);
             this.gbStudentsInfo.Controls.Add(this.lblFname);
             this.gbStudentsInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbStudentsInfo.Location = new System.Drawing.Point(12, 187);
+            this.gbStudentsInfo.Location = new System.Drawing.Point(12, 12);
             this.gbStudentsInfo.Name = "gbStudentsInfo";
             this.gbStudentsInfo.Size = new System.Drawing.Size(959, 176);
-            this.gbStudentsInfo.TabIndex = 6;
+            this.gbStudentsInfo.TabIndex = 7;
             this.gbStudentsInfo.TabStop = false;
             this.gbStudentsInfo.Text = "Student Info";
             // 
@@ -181,13 +132,13 @@
             this.lblphone.TabIndex = 21;
             this.lblphone.Text = "Phone Number:";
             // 
-            // textBox1
+            // txtpostalCode
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(431, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 27);
-            this.textBox1.TabIndex = 19;
+            this.txtpostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpostalCode.Location = new System.Drawing.Point(431, 102);
+            this.txtpostalCode.Name = "txtpostalCode";
+            this.txtpostalCode.Size = new System.Drawing.Size(143, 27);
+            this.txtpostalCode.TabIndex = 19;
             // 
             // txtcity
             // 
@@ -362,114 +313,75 @@
             // panActions
             // 
             this.panActions.Controls.Add(this.btnclear);
-            this.panActions.Controls.Add(this.btnupdate);
             this.panActions.Controls.Add(this.btninsert);
-            this.panActions.Controls.Add(this.btndelete);
-            this.panActions.Location = new System.Drawing.Point(12, 394);
+            this.panActions.Location = new System.Drawing.Point(12, 206);
             this.panActions.Name = "panActions";
             this.panActions.Size = new System.Drawing.Size(959, 100);
-            this.panActions.TabIndex = 7;
+            this.panActions.TabIndex = 26;
             // 
             // btnclear
             // 
-            this.btnclear.Location = new System.Drawing.Point(598, 27);
+            this.btnclear.Location = new System.Drawing.Point(436, 27);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(162, 44);
             this.btnclear.TabIndex = 17;
             this.btnclear.Text = "&Clear";
             this.btnclear.UseVisualStyleBackColor = true;
             // 
-            // btnupdate
-            // 
-            this.btnupdate.Location = new System.Drawing.Point(262, 27);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(162, 44);
-            this.btnupdate.TabIndex = 16;
-            this.btnupdate.Text = "&Update";
-            this.btnupdate.UseVisualStyleBackColor = true;
-            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
-            // 
             // btninsert
             // 
-            this.btninsert.Location = new System.Drawing.Point(94, 27);
+            this.btninsert.Location = new System.Drawing.Point(268, 27);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(162, 44);
-            this.btninsert.TabIndex = 15;
+            this.btninsert.TabIndex = 14;
             this.btninsert.Text = "&Insert";
             this.btninsert.UseVisualStyleBackColor = true;
-            this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
             // 
-            // btndelete
-            // 
-            this.btndelete.Location = new System.Drawing.Point(430, 27);
-            this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(162, 44);
-            this.btndelete.TabIndex = 14;
-            this.btndelete.Text = "&Delete";
-            this.btndelete.UseVisualStyleBackColor = true;
-            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // Student
+            // CreateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 621);
             this.Controls.Add(this.panActions);
             this.Controls.Add(this.gbStudentsInfo);
-            this.Controls.Add(this.gbSearch);
-            this.Name = "Student";
-            this.Text = "Student";
-            this.Load += new System.EventHandler(this.Student_Load);
-            this.gbSearch.ResumeLayout(false);
-            this.gbSearch.PerformLayout();
+            this.Name = "CreateStudent";
+            this.Text = "Create Students";
             this.gbStudentsInfo.ResumeLayout(false);
             this.gbStudentsInfo.PerformLayout();
             this.panActions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbSearch;
-        private System.Windows.Forms.ListBox lstSearchResults;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox gbStudentsInfo;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.ComboBox cbProgram;
-        private System.Windows.Forms.DateTimePicker dtpendDate;
-        private System.Windows.Forms.DateTimePicker dtpstartDate;
-        private System.Windows.Forms.TextBox txtbalance;
-        private System.Windows.Forms.TextBox txtlastName;
-        private System.Windows.Forms.TextBox txtfirstName;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label lblEndDate;
-        private System.Windows.Forms.Label lblStartDate;
-        private System.Windows.Forms.Label lblProgram;
-        private System.Windows.Forms.Label lblBalance;
-        private System.Windows.Forms.Label lblLname;
-        private System.Windows.Forms.Label lblFname;
+        private System.Windows.Forms.TextBox txtstudentID;
+        private System.Windows.Forms.Label lblstudentID;
         private System.Windows.Forms.TextBox txtphoneNumber;
         private System.Windows.Forms.Label lblphone;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtpostalCode;
         private System.Windows.Forms.TextBox txtcity;
         private System.Windows.Forms.TextBox txtaddress;
         private System.Windows.Forms.Label lblpostalCode;
         private System.Windows.Forms.Label lblcity;
         private System.Windows.Forms.Label lbladdress;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.ComboBox cbProgram;
+        private System.Windows.Forms.DateTimePicker dtpendDate;
+        private System.Windows.Forms.TextBox txtbalance;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.DateTimePicker dtpstartDate;
+        private System.Windows.Forms.TextBox txtlastName;
+        private System.Windows.Forms.Label lblEndDate;
+        private System.Windows.Forms.TextBox txtfirstName;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblProgram;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblLname;
+        private System.Windows.Forms.Label lblFname;
         private System.Windows.Forms.Panel panActions;
         private System.Windows.Forms.Button btnclear;
-        private System.Windows.Forms.Button btnupdate;
         private System.Windows.Forms.Button btninsert;
-        private System.Windows.Forms.Button btndelete;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox txtstudentID;
-        private System.Windows.Forms.Label lblstudentID;
     }
 }

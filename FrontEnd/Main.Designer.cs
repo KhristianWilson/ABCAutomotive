@@ -66,6 +66,7 @@
             this.reserveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.updateResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.studentInfoToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageStudentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
@@ -78,7 +79,6 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
-            this.manageStudentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -373,6 +373,13 @@
             this.studentInfoToolStrip.Size = new System.Drawing.Size(84, 20);
             this.studentInfoToolStrip.Text = "&Student Info";
             // 
+            // manageStudentsToolStrip
+            // 
+            this.manageStudentsToolStrip.Name = "manageStudentsToolStrip";
+            this.manageStudentsToolStrip.Size = new System.Drawing.Size(166, 22);
+            this.manageStudentsToolStrip.Text = "&Manage Students";
+            this.manageStudentsToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
             // toolStripMain
             // 
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -489,13 +496,6 @@
             this.timerDisplay.Enabled = true;
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
-            // 
-            // manageStudentsToolStrip
-            // 
-            this.manageStudentsToolStrip.Name = "manageStudentsToolStrip";
-            this.manageStudentsToolStrip.Size = new System.Drawing.Size(166, 22);
-            this.manageStudentsToolStrip.Text = "&Manage Students";
-            this.manageStudentsToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // Main
             // 

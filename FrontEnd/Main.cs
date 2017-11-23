@@ -17,7 +17,7 @@ namespace ABCAutomotive.FrontEnd
         Loans loans;
         Returns returns;
         Reserve reserves;
-        Student student;
+        ManageStudent student;
         ModifyResourceStatus modifyResourceStatus;
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
@@ -109,7 +109,7 @@ namespace ABCAutomotive.FrontEnd
             {
                 if (student == null || student.IsDisposed)
                 {
-                    student = new Student(this);
+                    student = new ManageStudent(this);
                 }
                 DisplayForm(student);
             }
