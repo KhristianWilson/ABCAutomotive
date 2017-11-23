@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbStudentsInfo = new System.Windows.Forms.GroupBox();
             this.txtstudentID = new System.Windows.Forms.TextBox();
             this.lblstudentID = new System.Windows.Forms.Label();
@@ -56,8 +57,10 @@
             this.panActions = new System.Windows.Forms.Panel();
             this.btnclear = new System.Windows.Forms.Button();
             this.btninsert = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbStudentsInfo.SuspendLayout();
             this.panActions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbStudentsInfo
@@ -102,6 +105,7 @@
             this.txtstudentID.Name = "txtstudentID";
             this.txtstudentID.Size = new System.Drawing.Size(123, 27);
             this.txtstudentID.TabIndex = 25;
+            this.txtstudentID.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblstudentID
             // 
@@ -121,6 +125,7 @@
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 27);
             this.txtphoneNumber.TabIndex = 23;
+            this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblphone
             // 
@@ -139,6 +144,7 @@
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 27);
             this.txtpostalCode.TabIndex = 19;
+            this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtcity
             // 
@@ -147,6 +153,7 @@
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 27);
             this.txtcity.TabIndex = 18;
+            this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtaddress
             // 
@@ -155,6 +162,7 @@
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 27);
             this.txtaddress.TabIndex = 17;
+            this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblpostalCode
             // 
@@ -208,6 +216,7 @@
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(200, 22);
             this.dtpendDate.TabIndex = 11;
+            this.dtpendDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtbalance
             // 
@@ -216,6 +225,7 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(123, 27);
             this.txtbalance.TabIndex = 9;
+            this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
             // 
@@ -233,6 +243,7 @@
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(200, 22);
             this.dtpstartDate.TabIndex = 10;
+            this.dtpstartDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtlastName
             // 
@@ -241,6 +252,7 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(123, 27);
             this.txtlastName.TabIndex = 8;
+            this.txtlastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblEndDate
             // 
@@ -259,6 +271,7 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(123, 27);
             this.txtfirstName.TabIndex = 7;
+            this.txtfirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStatus
             // 
@@ -327,6 +340,7 @@
             this.btnclear.TabIndex = 17;
             this.btnclear.Text = "&Clear";
             this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // btninsert
             // 
@@ -336,6 +350,11 @@
             this.btninsert.TabIndex = 14;
             this.btninsert.Text = "&Insert";
             this.btninsert.UseVisualStyleBackColor = true;
+            this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // CreateStudent
             // 
@@ -346,9 +365,12 @@
             this.Controls.Add(this.gbStudentsInfo);
             this.Name = "CreateStudent";
             this.Text = "Create Students";
+            this.Load += new System.EventHandler(this.CreateStudent_Load);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             this.gbStudentsInfo.ResumeLayout(false);
             this.gbStudentsInfo.PerformLayout();
             this.panActions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,5 +405,6 @@
         private System.Windows.Forms.Panel panActions;
         private System.Windows.Forms.Button btnclear;
         private System.Windows.Forms.Button btninsert;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

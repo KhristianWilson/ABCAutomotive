@@ -95,7 +95,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (Validation.checkLength(value, 20, SizeOperator.CanBeLessThan))
+                if (!Validation.checkLength(value, 20, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Student first must be less than 20 charaters");
                 }
@@ -119,7 +119,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (Validation.checkLength(value, 3, SizeOperator.CanBeLessThan))
+                if (!Validation.checkLength(value, 3, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Student last name must be less than 20 charaters");
                 }
@@ -143,7 +143,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (Validation.checkLength(value, 50, SizeOperator.CanBeLessThan))
+                if (!Validation.checkLength(value, 50, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Student address must be less than 50 charaters");
                 }
@@ -167,7 +167,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (Validation.checkLength(value, 20, SizeOperator.MustBeEqualTo))
+                if (!Validation.checkLength(value, 7, SizeOperator.MustBeEqualTo))
                 {
                     throw new ConstraintException("Student postal code must be 7 charaters");
                 }
@@ -195,7 +195,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (Validation.checkLength(value, 50, SizeOperator.CanBeLessThan))
+                if (!Validation.checkLength(value, 50, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Student city must be less than 50 charaters");
                 }
@@ -219,9 +219,9 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (Validation.checkLength(value, 12, SizeOperator.MustBeEqualTo))
+                if (!Validation.checkLength(value, 12, SizeOperator.MustBeEqualTo))
                 {
-                    throw new ConstraintException("Student phone number must be less than 12 charaters");
+                    throw new ConstraintException("Student phone number must be 12 charaters");
                 }
                 if (!Validation.checkPhoneNumber(value))
                 {

@@ -19,15 +19,18 @@ namespace ABCAutomotive.FrontEnd
         Reserve reserves;
         ManageStudent student;
         ModifyResourceStatus modifyResourceStatus;
+        CreateStudent createStudent;
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
+
+        public int accessLevel { get; set; }
 
         private void Main_Load(object sender, EventArgs e)
         {
             StartUpForms.Splash Splash = new StartUpForms.Splash();
             Splash.ShowDialog();
 
-            StartUpForms.Login login = new StartUpForms.Login();
+            StartUpForms.Login login = new StartUpForms.Login(this);
             login.ShowDialog();
             if (login.DialogResult == DialogResult.Cancel)
             {
@@ -114,6 +117,14 @@ namespace ABCAutomotive.FrontEnd
                 DisplayForm(student);
             }
 
+            if(sender == createStudentToolStrip)
+            {
+                if (createStudent == null || createStudent.IsDisposed)
+                {
+                    createStudent = new CreateStudent(this);
+                }
+                DisplayForm(createStudent);
+            }
         }
 
         private void DisplayForm(Form form)

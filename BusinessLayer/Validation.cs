@@ -36,7 +36,7 @@ namespace ABCAutomotive.BusinessLayer
 
         public static bool checkPhoneNumber(string phone)
         {
-            var matches = Regex.Match(phone, "^[0-9]{10,12}$");
+            var matches = Regex.Match(phone, (@"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"));
             return matches.Success;
         }
 

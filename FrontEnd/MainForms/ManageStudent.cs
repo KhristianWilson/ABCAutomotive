@@ -17,7 +17,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region StartUp
 
-        BusinessLayer.Student student;
+        Student student;
         List<StudentLookup> StudentList;
 
         private void Student_Load(object sender, EventArgs e)
@@ -102,28 +102,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #endregion
 
-        #region CUD 
-
-        private void btninsert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (FormIsClean())
-                {
-                    StudentCUD.Insert(student);
-                    parent.StatusLabel.Text = ("Insert Successful");
-                }
-                else
-                {
-                    MessageBox.Show("Form is not clean", "Insert rejected");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Insert rejected");
-            }
-        }
+        #region UD 
 
         private void btnupdate_Click(object sender, EventArgs e)
         {

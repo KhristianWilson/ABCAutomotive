@@ -8,10 +8,14 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
     {
         private Authentication user;
 
-        public Login()
+        private Main parent;
+        public Login(Main p)
         {
+            parent = p;
             InitializeComponent();
         }
+
+        #region StartUp
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -26,6 +30,10 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
             txtUsername.MaxLength = 30;
         }
 
+        #endregion
+
+        #region Login
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -35,6 +43,7 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
                 if(user.AccessLevel != 0)
                 {
                     DialogResult = DialogResult.OK;
+                    parent.accessLevel = user.AccessLevel;
                     this.Close();
                 }
             }
@@ -44,13 +53,15 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
             }
         }
 
+        #endregion
+
+        #region HouseKeeping
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
-        #region HouseKeeping
 
         private void SavePassword()
         {

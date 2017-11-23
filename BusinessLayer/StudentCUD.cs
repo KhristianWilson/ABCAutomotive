@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ABCAutomotive.SQLLayer;
 using ABCAutomotive.Types;
-using ABCAutomotive.SQLLayer;
+using System;
 
 namespace ABCAutomotive.BusinessLayer
 {
