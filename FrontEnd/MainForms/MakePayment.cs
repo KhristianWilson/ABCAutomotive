@@ -5,65 +5,25 @@ using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd.MainForms
 {
-    public partial class Reserve : Form
+    public partial class MakePayment : Form
     {
         private Main parent;
-        public Reserve(Main p)
+        public MakePayment(Main p)
         {
-            this.parent = p;
+            parent = p;
             InitializeComponent();
         }
 
-        #region Start Up
+        #region StartUp
 
         List<StudentLookup> StudentList;
-        List<ResourceLookup> ResourceList;
+        Payment payment;
 
-        private void Reserve_Load(object sender, EventArgs e)
+        private void MakePayment_Load(object sender, System.EventArgs e)
         {
-            txtsearchResource.MaxLength = 8;
-            gbResource.Visible= false;
-            gbSearch.Visible = false;
+            gbpayment.Visible = false;
             gbStudentsInfo.Visible = false;
-            btnReserveResource.Visible = false;
-            btnclear.Visible = false;
-        }
-
-        #endregion
-
-        #region Resource Searching
-
-        private void btnSearchResource_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int resouceID = 0;
-                if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
-                {
-                    ResourceList = ResourceLookupFactory.Create(resouceID);
-                    loadResourceInfo(ResourceList);
-                    ReserveMode();
-                }
-                else
-                {
-                    errorProvider1.SetError(txtsearchResource, "Invalid ResourceID");
-                }
-            }
-            catch (Exception ex)
-            {
-                errorProvider1.SetError(txtsearchResource, ex.Message);
-                btnReserveResource.Enabled = false;
-            }
-        }
-
-        private void loadResourceInfo(List<ResourceLookup> resourceLookup)
-        {
-            txttitle.Text = resourceLookup[0].title;
-            txtreserveStatus.Text = resourceLookup[0].reserveStatus.ToString();
-            txttype.Text = resourceLookup[0].resourceType.ToString();
-            txtresourceStatus.Text = resourceLookup[0].resourceStatus.ToString();
-            btnReserveResource.Enabled = true;
-            Validation.validReserve(resourceLookup[0]);
+            gbStudentsInfo.Enabled = false;
         }
 
         #endregion
@@ -110,17 +70,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
                 StudentList = StudentsFactory.Create(studentID);
-                Validation.validStudent(StudentList[0]);
-                btnReserveResource.Enabled = true;
-                loadStudentInfo(StudentList);   
+                loadStudentInfo(StudentList);
+                showInfo();
             }
             catch (Exception ex)
             {
-                btnReserveResource.Enabled = false;
                 errorProvider1.SetError(txtSearch, ex.Message);
             }
         }
-
         private void loadStudentInfo(List<StudentLookup> studentList)
         {
             txtfirstName.Text = studentList[0].FirstName;
@@ -136,18 +93,17 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region House Keeping
 
-        private void ReserveMode()
+        private void showInfo()
         {
-            gbResource.Visible = true;
-            gbSearch.Visible = true;
+            gbpayment.Enabled = true;
+            gbpayment.Visible = true;
             gbStudentsInfo.Visible = true;
-            btnReserveResource.Visible = true;
-            btnclear.Visible = true;
+            parent.StatusLabel.Text = "";
         }
 
-        private void btnclear_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            Reserve_Load(null, null);
+            MakePayment_Load(null, null);
             foreach (Control x in gbStudentsInfo.Controls)
             {
                 if (x is TextBox | x is ComboBox)
@@ -160,29 +116,55 @@ namespace ABCAutomotive.FrontEnd.MainForms
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
             txtSearch.ResetText();
+
         }
 
-        private void txtsearchResource_Enter(object sender, EventArgs e)
+        private void txtamount_Enter(object sender, EventArgs e)
         {
             errorProvider1.Clear();
-            parent.StatusLabel.Text = "";
         }
 
         #endregion
 
-        #region Reserve Resource
+        #region Validating
 
-        private void btnReserveResource_Click(object sender, EventArgs e)
+        private void txtamount_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if(decimal.TryParse(txtamount.Text, out decimal amount))
+            {
+                if(amount <= 0)
+                {
+                    errorProvider1.SetError(txtamount, "Amount Must Be Greater Than 0.00");
+                    btnmakePayment.Enabled = false;
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(txtamount, "Amount Must an Decimal Amount");
+                btnmakePayment.Enabled = false;
+            }
+            btnmakePayment.Enabled = true;
+        }
+
+        #endregion
+
+        #region Make Payment
+
+        private void btnmakePayment_Click(object sender, EventArgs e)
         {
             try
             {
-                ResourceMethods.ReserveResource(StudentList[0].StudentID, ResourceList[0].resourceID);
-                parent.StatusLabel.Text = "Resource Reserved";
-                btnclear_Click(null, null);
+                payment = PaymentFactory.Create();
+                payment.paymentAmount = Convert.ToDecimal(txtamount.Text);
+                payment.paymentDate = DateTime.Now;
+                payment.studentId = StudentList[0].StudentID;
+                PaymentMethods.MakePayment(payment);
+                parent.StatusLabel.Text = "Payment Made";
+                btnCancel_Click(null, null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 

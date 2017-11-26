@@ -41,7 +41,7 @@
             this.dtpAddDate = new System.Windows.Forms.DateTimePicker();
             this.lblDateOfRem = new System.Windows.Forms.Label();
             this.lblDateOfPur = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.txtpublisher = new System.Windows.Forms.TextBox();
             this.lblpublisher = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbSearchResource.SuspendLayout();
             this.gbResourceInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +105,7 @@
             this.gbResourceInfo.Controls.Add(this.dtpAddDate);
             this.gbResourceInfo.Controls.Add(this.lblDateOfRem);
             this.gbResourceInfo.Controls.Add(this.lblDateOfPur);
-            this.gbResourceInfo.Controls.Add(this.pictureBox1);
+            this.gbResourceInfo.Controls.Add(this.pbImage);
             this.gbResourceInfo.Controls.Add(this.txtpublisher);
             this.gbResourceInfo.Controls.Add(this.lblpublisher);
             this.gbResourceInfo.Controls.Add(this.txtDesc);
@@ -196,13 +196,13 @@
             this.lblDateOfPur.TabIndex = 36;
             this.lblDateOfPur.Text = "Date Of Purchase:";
             // 
-            // pictureBox1
+            // pbImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(14, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 156);
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
+            this.pbImage.Location = new System.Drawing.Point(14, 19);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(178, 156);
+            this.pbImage.TabIndex = 33;
+            this.pbImage.TabStop = false;
             // 
             // txtpublisher
             // 
@@ -369,7 +369,7 @@
             this.gbSearchResource.PerformLayout();
             this.gbResourceInfo.ResumeLayout(false);
             this.gbResourceInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -401,7 +401,7 @@
         private System.Windows.Forms.Label lblDateOfPur;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.TextBox txtpublisher;
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Button btnUpdate;

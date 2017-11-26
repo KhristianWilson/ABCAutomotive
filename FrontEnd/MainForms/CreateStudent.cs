@@ -24,6 +24,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
             student = StudentFactory.Create();
+            student.startDate = DateTime.Now;
+            student.endDate = DateTime.Now;
         }
 
         #endregion
@@ -48,7 +50,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -68,7 +70,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     isClean = false;
                     break;
                 }
-                if (ctrl.Text == string.Empty)
+                if (ctrl.Text == string.Empty && ctrl != txtstudentID)
                 {
                     isClean = false;
                     break;
@@ -94,6 +96,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbProgram.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
+            parent.StatusLabel.Text = "";
+        }
+
+        private void txtstudentID_Enter(object sender, EventArgs e)
+        {
+            parent.StatusLabel.Text = "";
         }
 
         #endregion

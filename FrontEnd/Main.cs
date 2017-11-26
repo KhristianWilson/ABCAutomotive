@@ -20,6 +20,7 @@ namespace ABCAutomotive.FrontEnd
         ManageStudent student;
         ModifyResourceStatus modifyResourceStatus;
         CreateStudent createStudent;
+        MakePayment makePayment;
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
@@ -124,6 +125,15 @@ namespace ABCAutomotive.FrontEnd
                     createStudent = new CreateStudent(this);
                 }
                 DisplayForm(createStudent);
+            }
+            
+            if(sender == paymentsToolStrip)
+            {
+                if (makePayment == null || makePayment.IsDisposed)
+                {
+                    makePayment = new MakePayment(this);
+                }
+                DisplayForm(makePayment);
             }
         }
 

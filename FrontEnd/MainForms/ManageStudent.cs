@@ -22,7 +22,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void Student_Load(object sender, EventArgs e)
         {
-            txtSearch.MaxLength = 8;
             btndelete.Enabled = false;
             btnupdate.Enabled = false;
             txtstudentID.Enabled = false;
@@ -197,6 +196,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.SelectedIndex = -1;
             gbSearch.Enabled = true;
             editMode(false);
+            lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
             lstSearchResults.Visible = false;
 

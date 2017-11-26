@@ -40,6 +40,14 @@ namespace ABCAutomotive.Types
         object TimeStamp { get; set; }
     }
 
+    public interface IPayment
+    {
+        int paymentId { get; set; }
+        DateTime paymentDate { get; set; }
+        decimal paymentAmount { get; set; }
+        int studentId { get; set; }
+    }
+
     #endregion
 
     #region Structures

@@ -8,10 +8,9 @@ using System.Windows.Forms;
 namespace ABCAutomotive.FrontEnd.MainForms
 {
     public partial class ModifyResourceStatus : Form
-    {
-        private Resource objRes;
+    { 
+        
         private Main parent;
-
         public ModifyResourceStatus(Main p)
         {
             parent = p;
@@ -20,6 +19,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region Start Up
 
+        private Resource objRes;
+
         private void ModifyResourceStatus_Load(object sender, System.EventArgs e)
         {
             List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
@@ -27,11 +28,13 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.DataSource = status;
 
             gbResourceInfo.Enabled = false;
+            gbResourceInfo.Visible = false;
             btnClear.Visible = false;
             btnUpdate.Visible = false;
             cbStatus.Visible = false;
             lblStatus.Visible = false;
             txtsearchResource.MaxLength = 8;
+            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         #endregion
@@ -71,6 +74,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtreferencenumber.Text = objRes.referenceNumber;
             txtreserveStatus.Text = objRes.reserveStatus.ToString();
             dtpAddDate.Value = objRes.purchaseDate;
+            pbImage.Image = objRes.image;
             dtpRemovelDate.Value = objRes.removealDate;
             cbStatus.SelectedItem = objRes.resourceStatus;
         }
@@ -101,6 +105,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.Visible = false;
             btnClear.Visible = false;
             btnUpdate.Visible = false;
+            gbResourceInfo.Visible = false;
         }
 
         private void enableUpdate()
@@ -109,6 +114,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             btnUpdate.Visible = true;
             cbStatus.Visible = true;
             lblStatus.Visible = true;
+            gbResourceInfo.Visible = true;
         }
 
         private void txtsearchResource_Enter(object sender, EventArgs e)
@@ -128,7 +134,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 objRes.resourceStatus = (ResourceStatus)cbStatus.SelectedItem;
                 ResourceMethods.UpdateStatus(objRes);
                 parent.StatusLabel.Text = "Status Updated";
-                LoadFields();
+                btnClear_Click(null, null);
             }
             catch (Exception ex)
             {
@@ -137,5 +143,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
         }
 
         #endregion
+
     }
 }

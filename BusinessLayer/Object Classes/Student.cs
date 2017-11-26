@@ -42,7 +42,7 @@ namespace ABCAutomotive.BusinessLayer
         {
             get
             {
-                if (_studentid == 0 || string.IsNullOrEmpty(_firstName) || string.IsNullOrEmpty(_lastName) || string.IsNullOrEmpty(_address) || string.IsNullOrEmpty(_postalCode) || string.IsNullOrEmpty(_phone) || string.IsNullOrEmpty(_city))
+                if (string.IsNullOrEmpty(_firstName) || string.IsNullOrEmpty(_lastName) || string.IsNullOrEmpty(_address) || string.IsNullOrEmpty(_postalCode) || string.IsNullOrEmpty(_phone) || string.IsNullOrEmpty(_city))
                 {
                     return false;
                 }

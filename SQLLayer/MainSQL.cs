@@ -9,7 +9,7 @@ namespace ABCAutomotive.SQLLayer
 
     #region AuthSQL
 
-    public class AuthenticationSQL
+    public static class AuthenticationSQL
     {
         public static int Retrieve(string username, string password)
         {
@@ -27,7 +27,7 @@ namespace ABCAutomotive.SQLLayer
 
     #region StudentSQL
 
-    public class StudentSQL
+    public static class StudentSQL
     {
         public static DataTable Retrieve(int ID)
         {
@@ -75,7 +75,7 @@ namespace ABCAutomotive.SQLLayer
         public static bool Insert(IStudent student)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@timestamp", student.TimeStamp, ParameterDirection.InputOutput, SqlDbType.Timestamp));
+            parmlist.Add(new ParmStruct("@timestamp", DBNull.Value, ParameterDirection.InputOutput, SqlDbType.Timestamp));
             parmlist.Add(new ParmStruct("@stuid", student.studentid, ParameterDirection.InputOutput, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@firstName", student.firstName, ParameterDirection.Input, SqlDbType.VarChar, 20));
             parmlist.Add(new ParmStruct("@lastName", student.lastName, ParameterDirection.Input, SqlDbType.VarChar, 30));
@@ -88,7 +88,7 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@startDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
             parmlist.Add(new ParmStruct("@endDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
 
-            DataAccess.SendData("spinsertStudent]", parmlist);
+            DataAccess.SendData("spinsertStudent", parmlist);
             student.TimeStamp = parmlist[0].parmValue;
             student.studentid = Convert.ToInt32(parmlist[1].parmValue);
             return true;
@@ -99,13 +99,29 @@ namespace ABCAutomotive.SQLLayer
 
     #region ResouceSQL
 
-    public class ResouceSQL
+    public static class ResouceSQL
     {
         public static DataTable Retrieve(int ID)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@resourceId", ID, ParameterDirection.Input, SqlDbType.Int));
             return DataAccess.GetDataTable("spgetResource", parmlist);
+        }
+    }
+
+    #endregion
+
+    #region PaymentSQL
+
+    public static class PaymentSQL
+    {
+        public static bool MakePayment(IPayment payment)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@amount", payment.paymentAmount, ParameterDirection.Input, SqlDbType.Decimal));
+            parmlist.Add(new ParmStruct("@paymentDate", payment.paymentDate, ParameterDirection.Input, SqlDbType.DateTime));
+            parmlist.Add(new ParmStruct("@studentId", payment.studentId, ParameterDirection.Input, SqlDbType.Int));
+            return DataAccess.SendData("spmakePayment", parmlist);
         }
     }
 

@@ -8,7 +8,7 @@ using System.IO;
 namespace ABCAutomotive.BusinessLayer
 {
 
-    #region AuthenticationFactory
+    #region Authentication Factory
 
     public static class AuthenticationFactory
     {
@@ -44,7 +44,7 @@ namespace ABCAutomotive.BusinessLayer
 
     #endregion
 
-    #region StudentFactory
+    #region Student Factory
 
     public static class StudentFactory
     {
@@ -99,7 +99,7 @@ namespace ABCAutomotive.BusinessLayer
 
     #endregion
 
-    #region ResourceFactory
+    #region Resource Factory
 
     public static class ResourceFactory
     {
@@ -167,6 +167,17 @@ namespace ABCAutomotive.BusinessLayer
 
     }
 
+    #endregion
+
+    #region Payment Factory
+
+    public static class PaymentFactory
+    {
+        public static Payment Create()
+        {
+            return new Payment();
+        }
+    }
     #endregion
 
 }
