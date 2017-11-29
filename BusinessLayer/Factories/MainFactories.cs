@@ -60,19 +60,20 @@ namespace ABCAutomotive.BusinessLayer
                 throw new ArgumentException("Invalid Student ID");
             }
 
-            DataTable EmpTable = StudentSQL.Retrieve(studentid);
-            return Repackage(EmpTable.Rows[0]);
+            DataTable StuTable = StudentSQL.Retrieve(studentid);
+            return Repackage(StuTable.Rows[0]);
         }
 
-        public static Student Create(string name)
+        public static Student CreateByResouce(int resourceID)
         {
-            if (string.IsNullOrEmpty(name) || !Validation.checkLength(name, 30, SizeOperator.CanBeLessThan))
+            if (resourceID == 0 || !Validation.checkLength(resourceID.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
-                throw new ArgumentException("Invalid Student Name");
+                throw new ArgumentException("Invalid Resource ID");
             }
 
-            DataTable StudentTable = StudentSQL.Retrieve(name);
-            return Repackage(StudentTable.Rows[0]);
+            DataTable StuTable = StudentSQL.RetrieveOwningStudent(resourceID);
+            return Repackage(StuTable.Rows[0]);
+
         }
 
         private static Student Repackage(DataRow myRow)

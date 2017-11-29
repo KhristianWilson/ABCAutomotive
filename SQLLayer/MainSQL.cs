@@ -36,11 +36,11 @@ namespace ABCAutomotive.SQLLayer
             return DataAccess.GetDataTable("spgetStudentById", parmlist);
         }
 
-        public static DataTable Retrieve(string name)
+        public static DataTable RetrieveOwningStudent(int resourceID)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@search ", name, ParameterDirection.Input, SqlDbType.VarChar, 30));
-            return DataAccess.GetDataTable("spgetStudentByName", parmlist);
+            parmlist.Add(new ParmStruct("@resourceID", resourceID, ParameterDirection.Input, SqlDbType.Int));
+            return DataAccess.GetDataTable("spgetStudentByResource", parmlist);
         }
 
         public static bool Delete(int stuid)

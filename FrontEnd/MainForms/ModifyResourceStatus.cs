@@ -26,13 +26,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
             status.RemoveAt(1);
             cbStatus.DataSource = status;
-
-            gbResourceInfo.Enabled = false;
-            gbResourceInfo.Visible = false;
-            btnClear.Visible = false;
-            btnUpdate.Visible = false;
-            cbStatus.Visible = false;
-            lblStatus.Visible = false;
+            objRes = ResourceFactory.Create();
+            enableUpdate(false);
             txtsearchResource.MaxLength = 8;
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -51,7 +46,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     objRes = ResourceFactory.Create(id);
                     LoadFields();
                     txtsearchResource.Enabled = false;
-                    enableUpdate();
+                    enableUpdate(true);
                 }
                 else
                 {
@@ -101,20 +96,17 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
             objRes = ResourceFactory.Create();
+            enableUpdate(false);
             txtsearchResource.Enabled = true;
-            cbStatus.Visible = false;
-            btnClear.Visible = false;
-            btnUpdate.Visible = false;
-            gbResourceInfo.Visible = false;
         }
 
-        private void enableUpdate()
+        private void enableUpdate(bool mode)
         {
-            btnClear.Visible = true;
-            btnUpdate.Visible = true;
-            cbStatus.Visible = true;
-            lblStatus.Visible = true;
-            gbResourceInfo.Visible = true;
+            btnClear.Visible = mode;
+            btnUpdate.Visible = mode;
+            cbStatus.Visible = mode;
+            lblStatus.Visible = mode;
+            gbResourceInfo.Visible = mode;
         }
 
         private void txtsearchResource_Enter(object sender, EventArgs e)

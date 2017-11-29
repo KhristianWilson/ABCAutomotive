@@ -17,7 +17,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #region Start Up
 
         List<LoansLookup> LoansList;
-        List<StudentLookup> StudentList;
+        Student student;
 
         private void Returns_Load(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
                 if (int.TryParse(txtsearchResource.Text, out resourceID) || txtsearchResource.Text.Length == 8)
                 {
-                    StudentList = StudentsFactory.CreateByResouce(resourceID);
+                    student = StudentFactory.CreateByResouce(resourceID);
                     loadStudentInfo();
                     loadLoanInfo();
                     returnMode();
@@ -63,20 +63,20 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void loadLoanInfo()
         {
-            LoansList = LoansLookupFactory.Create(StudentList[0].StudentID);
+            LoansList = LoansLookupFactory.Create(student.studentid);
             dgvLoans.DataSource = LoansList;
             (dgvLoans.Columns[4] as DataGridViewImageColumn).ImageLayout = DataGridViewImageCellLayout.Zoom;
         }
 
         private void loadStudentInfo()
         {
-            txtfirstName.Text = StudentList[0].FirstName;
-            txtlastName.Text = StudentList[0].LastName;
-            txtbalance.Text = StudentList[0].Balance.ToString("c");
-            txtprogram.Text = StudentList[0].ProgramType.ToString();
-            txtstartDate.Text = StudentList[0].StartDate.ToShortDateString();
-            txtendDate.Text = StudentList[0].EndDate.ToShortDateString();
-            txtstatus.Text = StudentList[0].Status.ToString();
+            txtfirstName.Text = student.firstName;
+            txtlastName.Text = student.lastName;
+            txtbalance.Text = student.balanceDue.ToString("c");
+            txtprogram.Text = student.programType.ToString();
+            txtstartDate.Text = student.startDate.ToString();
+            txtendDate.Text = student.endDate.ToString();
+            txtstatus.Text = student.status.ToString();
         }
 
         #endregion
@@ -99,14 +99,15 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             Returns_Load(null, null);
             txtsearchResource.ResetText();
-            StudentList.Clear();
+            LoansList.Clear();
+            student = StudentFactory.Create();
             parent.StatusLabel.Text = "";
         }
 
         private void refreshStudentInfo()
         {
-            int studentID = StudentList[0].StudentID;
-            StudentList = StudentsFactory.Create(studentID);
+            int studentID = student.studentid;
+            student = StudentFactory.Create(studentID);
             loadStudentInfo();
             loadLoanInfo();
         }

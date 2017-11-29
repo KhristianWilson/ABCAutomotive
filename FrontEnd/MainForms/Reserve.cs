@@ -17,7 +17,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #region Start Up
 
         List<StudentLookup> StudentList;
-        List<ResourceLookup> ResourceList;
+        Student student;
+        Resource resource;
 
         private void Reserve_Load(object sender, EventArgs e)
         {
@@ -40,8 +41,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 int resouceID = 0;
                 if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
                 {
-                    ResourceList = ResourceLookupFactory.Create(resouceID);
-                    loadResourceInfo(ResourceList);
+                    resource = ResourceFactory.Create(resouceID);
+                    loadResourceInfo();
                     ReserveMode();
                 }
                 else
@@ -56,14 +57,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
         }
 
-        private void loadResourceInfo(List<ResourceLookup> resourceLookup)
+        private void loadResourceInfo()
         {
-            txttitle.Text = resourceLookup[0].title;
-            txtreserveStatus.Text = resourceLookup[0].reserveStatus.ToString();
-            txttype.Text = resourceLookup[0].resourceType.ToString();
-            txtresourceStatus.Text = resourceLookup[0].resourceStatus.ToString();
+            txttitle.Text = resource.title;
+            txtreserveStatus.Text = resource.reserveStatus.ToString();
+            txttype.Text = resource.resourceType.ToString();
+            txtresourceStatus.Text = resource.resourceStatus.ToString();
             btnReserveResource.Enabled = true;
-            Validation.validReserve(resourceLookup[0]);
+            Validation.validReserve(resource);
         }
 
         #endregion
@@ -109,10 +110,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
-                StudentList = StudentsFactory.Create(studentID);
-                Validation.validStudent(StudentList[0]);
+                student = StudentFactory.Create(studentID);
+                Validation.validStudent(student);
                 btnReserveResource.Enabled = true;
-                loadStudentInfo(StudentList);   
+                loadStudentInfo();   
             }
             catch (Exception ex)
             {
@@ -121,15 +122,15 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
         }
 
-        private void loadStudentInfo(List<StudentLookup> studentList)
+        private void loadStudentInfo()
         {
-            txtfirstName.Text = studentList[0].FirstName;
-            txtlastName.Text = studentList[0].LastName;
-            txtbalance.Text = studentList[0].Balance.ToString("c2");
-            txtprogram.Text = studentList[0].ProgramType.ToString();
-            txtstartDate.Text = studentList[0].StartDate.ToShortDateString();
-            txtendDate.Text = studentList[0].EndDate.ToShortDateString();
-            txtstatus.Text = studentList[0].Status.ToString();
+            txtfirstName.Text = student.firstName;
+            txtlastName.Text = student.lastName;
+            txtbalance.Text = student.balanceDue.ToString("c2");
+            txtprogram.Text = student.programType.ToString();
+            txtstartDate.Text = student.startDate.ToString();
+            txtendDate.Text = student.endDate.ToString();
+            txtstatus.Text = student.status.ToString();
         }
 
         #endregion
@@ -160,6 +161,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
             txtSearch.ResetText();
+            resource = ResourceFactory.Create();
+            student = StudentFactory.Create();
         }
 
         private void txtsearchResource_Enter(object sender, EventArgs e)
@@ -176,7 +179,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
-                ResourceMethods.ReserveResource(StudentList[0].StudentID, ResourceList[0].resourceID);
+                ResourceMethods.ReserveResource(student.studentid, resource.resourceid);
                 parent.StatusLabel.Text = "Resource Reserved";
                 btnclear_Click(null, null);
             }

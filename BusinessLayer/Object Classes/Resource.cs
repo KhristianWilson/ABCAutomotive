@@ -47,7 +47,7 @@ namespace ABCAutomotive.BusinessLayer
         {
             get
             {
-                if (_resourceId == 0 || string.IsNullOrEmpty(_description) || string.IsNullOrEmpty(_title) || string.IsNullOrEmpty(_publisher) || _price == 0 || _dateOfPurchase == default(DateTime) || _image == default(Image))
+                if (string.IsNullOrEmpty(_description) || string.IsNullOrEmpty(_title) || string.IsNullOrEmpty(_publisher) || _price == 0 || _dateOfPurchase == default(DateTime) || _image == default(Image))
                 {
                     return false;
                 }
@@ -96,7 +96,11 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     return;
                 }
-                if (string.IsNullOrEmpty(value) || Validation.checkLength(value, 50, SizeOperator.CanBeLessThan))
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Required");
+                }
+                if (!Validation.checkLength(value, 50, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Description must be less than 50 charaters");
                 }
@@ -116,7 +120,11 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     return;
                 }
-                if (string.IsNullOrEmpty(value) || Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Required");
+                }
+                if (!Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Title must be less than 30 charaters");
                 }
@@ -136,7 +144,11 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     return;
                 }
-                if (string.IsNullOrEmpty(value) || Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Required");
+                }
+                if (!Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Publisher must be less than 30 charaters");
                 }
@@ -156,7 +168,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     return;
                 }
-                if (Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
+                if (!Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Reference Number must be less than 50 charaters");
                 }

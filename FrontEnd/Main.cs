@@ -21,6 +21,7 @@ namespace ABCAutomotive.FrontEnd
         ModifyResourceStatus modifyResourceStatus;
         CreateStudent createStudent;
         MakePayment makePayment;
+        AddResource addResource;
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
@@ -28,19 +29,23 @@ namespace ABCAutomotive.FrontEnd
 
         private void Main_Load(object sender, EventArgs e)
         {
-            StartUpForms.Splash Splash = new StartUpForms.Splash();
-            Splash.ShowDialog();
+            //StartUpForms.Splash Splash = new StartUpForms.Splash();
+            //Splash.ShowDialog();
 
-            StartUpForms.Login login = new StartUpForms.Login(this);
-            login.ShowDialog();
-            if (login.DialogResult == DialogResult.Cancel)
-            {
-                this.Close();
-            }
+            //StartUpForms.Login login = new StartUpForms.Login(this);
+            //login.ShowDialog();
+            //if (login.DialogResult == DialogResult.Cancel)
+            //{
+            //    this.Close();
+            //}
 
             this.Text = Application.ProductName;
             SetupStatasStrip();
             this.WindowState = FormWindowState.Maximized;
+            if(accessLevel == 2)
+            {
+                addResourceToolStrip.Visible = true;
+            }
         }
 
         #endregion
@@ -134,6 +139,14 @@ namespace ABCAutomotive.FrontEnd
                     makePayment = new MakePayment(this);
                 }
                 DisplayForm(makePayment);
+            }
+            if(sender == addResourceToolStrip)
+            {
+                if (addResource == null || addResource.IsDisposed)
+                {
+                    addResource = new AddResource(this);
+                }
+                DisplayForm(addResource);
             }
         }
 

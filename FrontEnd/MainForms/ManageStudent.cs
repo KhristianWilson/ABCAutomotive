@@ -24,7 +24,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             btndelete.Enabled = false;
             btnupdate.Enabled = false;
+            btnclear.Enabled = false;
             txtstudentID.Enabled = false;
+            gbStudentsInfo.Enabled = false;
             cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
             student = StudentFactory.Create();
@@ -129,7 +131,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 try
                 {
-                    StudentCUD.Delete(Convert.ToInt32(txtstudentID.Text));
+                    Validation.validDelete(student);
+                    StudentCUD.Delete(student.studentid);
                     parent.StatusLabel.Text = ("Delete Successful");
                     btnclear_Click(null, null);
                 }
@@ -149,6 +152,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             btnupdate.Enabled = mode;
             btndelete.Enabled = mode;
             btnSearch.Enabled = !mode;
+            btnclear.Enabled = mode;
+            gbStudentsInfo.Enabled = mode;
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -182,10 +187,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             foreach (Control ctrl in gbStudentsInfo.Controls)
             {
-               if(ctrl is TextBox)
+                if (ctrl is TextBox)
                 {
                     ctrl.ResetText();
-                } 
+                }
             }
 
             dtpendDate.Value = DateTime.Now;
@@ -194,7 +199,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbProgram.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
+            student = StudentFactory.Create();
             gbSearch.Enabled = true;
+            txtSearch.Focus();
             editMode(false);
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
@@ -223,9 +230,18 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 if (object.ReferenceEquals(sender, txtbalance))
                 {
-                    if(Double.TryParse(txtbalance.Text, out double balance))
+                    string tempBalance;
+                    if (txtbalance.Text.StartsWith("$"))
                     {
-                        student.balanceDue = Convert.ToDouble(txtbalance.Text);
+                        tempBalance = txtbalance.Text.Remove(0,1);
+                    }
+                    else
+                    {
+                        tempBalance = txtbalance.Text;
+                    }
+                    if (Double.TryParse(tempBalance, out double balance))
+                    {
+                        student.balanceDue = balance;
                     }
                     else
                     {
@@ -255,6 +271,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (object.ReferenceEquals(sender, dtpendDate))
                 {
                     student.endDate = dtpendDate.Value;
+                }
+                if (object.ReferenceEquals(sender, cbProgram))
+                {
+                    student.programType = (ProgramType)cbProgram.SelectedItem;
+                }
+                if (object.ReferenceEquals(sender, cbStatus))
+                {
+                    student.status = (StudentStatus)cbStatus.SelectedItem;
                 }
             }
             catch (Exception ex)

@@ -40,20 +40,20 @@ namespace ABCAutomotive.BusinessLayer
             return matches.Success;
         }
 
-        public static bool validStudent(StudentLookup student)
+        public static bool validStudent(Student student)
         {
-            if(student.Balance > 0)
+            if(student.balanceDue > 0)
             {
                 throw new ConstraintException("Student Maintains A Balance Higher Then $0.00");
             }
-            if(student.Status == StudentStatus.Inactive)
+            if(student.status == StudentStatus.Inactive)
             {
                 throw new ConstraintException("Student Is Inactive");
             }
             return true;
         }
 
-        public static bool validReserve(ResourceLookup resource)
+        public static bool validReserve(Resource resource)
         {
             if(resource.resourceStatus == ResourceStatus.NotAvailable)
             {
@@ -62,6 +62,15 @@ namespace ABCAutomotive.BusinessLayer
             if (resource.reserveStatus == ReserveStatus.Reserved)
             {
                 throw new ConstraintException("Resource Is Reserved");
+            }
+            return true;
+        }
+
+        public static bool validDelete(Student student)
+        {
+            if (student.balanceDue > 0)
+            {
+                throw new ConstraintException("Cannot Delete Student Owning More then 0.00");
             }
             return true;
         }

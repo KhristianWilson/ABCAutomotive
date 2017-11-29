@@ -17,6 +17,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #region StartUp
 
         List<StudentLookup> StudentList;
+        Student student;
         Payment payment;
 
         private void MakePayment_Load(object sender, System.EventArgs e)
@@ -24,6 +25,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbpayment.Visible = false;
             gbStudentsInfo.Visible = false;
             gbStudentsInfo.Enabled = false;
+            student = StudentFactory.Create();
+            payment = PaymentFactory.Create();
         }
 
         #endregion
@@ -69,41 +72,40 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
-                StudentList = StudentsFactory.Create(studentID);
-                loadStudentInfo(StudentList);
-                showInfo();
+                student = StudentFactory.Create(studentID);
+                loadStudentInfo();
+                showInfo(true);
             }
             catch (Exception ex)
             {
                 errorProvider1.SetError(txtSearch, ex.Message);
             }
         }
-        private void loadStudentInfo(List<StudentLookup> studentList)
+        private void loadStudentInfo()
         {
-            txtfirstName.Text = studentList[0].FirstName;
-            txtlastName.Text = studentList[0].LastName;
-            txtbalance.Text = studentList[0].Balance.ToString("c2");
-            txtprogram.Text = studentList[0].ProgramType.ToString();
-            txtstartDate.Text = studentList[0].StartDate.ToShortDateString();
-            txtendDate.Text = studentList[0].EndDate.ToShortDateString();
-            txtstatus.Text = studentList[0].Status.ToString();
+            txtfirstName.Text = student.firstName;
+            txtlastName.Text = student.lastName;
+            txtbalance.Text = student.balanceDue.ToString("c");
+            txtprogram.Text = student.programType.ToString();
+            txtstartDate.Text = student.startDate.ToString();
+            txtendDate.Text = student.endDate.ToString();
+            txtstatus.Text = student.status.ToString();
         }
 
         #endregion
 
         #region House Keeping
 
-        private void showInfo()
+        private void showInfo(bool mode)
         {
-            gbpayment.Enabled = true;
-            gbpayment.Visible = true;
-            gbStudentsInfo.Visible = true;
+            gbpayment.Enabled = mode;
+            gbpayment.Visible = mode;
+            gbStudentsInfo.Visible = mode;
             parent.StatusLabel.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            MakePayment_Load(null, null);
             foreach (Control x in gbStudentsInfo.Controls)
             {
                 if (x is TextBox | x is ComboBox)
@@ -116,6 +118,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
             txtSearch.ResetText();
+            showInfo(false);
+            student = StudentFactory.Create();
 
         }
 
@@ -157,7 +161,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 payment = PaymentFactory.Create();
                 payment.paymentAmount = Convert.ToDecimal(txtamount.Text);
                 payment.paymentDate = DateTime.Now;
-                payment.studentId = StudentList[0].StudentID;
+                payment.studentId = student.studentid;
                 PaymentMethods.MakePayment(payment);
                 parent.StatusLabel.Text = "Payment Made";
                 btnCancel_Click(null, null);

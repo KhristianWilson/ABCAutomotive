@@ -8,17 +8,6 @@ namespace ABCAutomotive.SQLLayer
     public static class ListsSQL
     {
 
-        #region Resource Lookup
-
-        public static DataTable RetrieveResourceLookup(int resourceId)
-        {
-            List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@resourceId", resourceId, ParameterDirection.Input, SqlDbType.Int));
-            return DataAccess.GetDataTable("spgetResource", parmlist);
-        }
-
-        #endregion
-
         #region Student Lookups
 
         public static DataTable RetrieveStudentLookup(string studentName)

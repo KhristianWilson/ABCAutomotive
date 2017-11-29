@@ -19,8 +19,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #region Start Up
 
         List<StudentLookup> StudentList;
-        List<ResourceLookup> ResourceLookup;
         List<LoansLookup> loansLookup;
+        Resource resource;
+        Student student;
         BindingList<LoanItem> loanItems = new BindingList<LoanItem>();
 
         private void Loans_Load(object sender, System.EventArgs e)
@@ -83,9 +84,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
-                StudentList = StudentsFactory.Create(studentID);
-                loadStudentInfo(StudentList);
-                loadStudentLoans(studentID);
+                student = StudentFactory.Create(studentID);
+                loadStudentInfo();
+                loadStudentLoans();
                 CheckOutMode();
             }
             catch (Exception ex)
@@ -94,22 +95,22 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
         }
 
-        private void loadStudentLoans(int studentID)
+        private void loadStudentLoans()
         {
-            loansLookup = LoansLookupFactory.Create(studentID);
+            loansLookup = LoansLookupFactory.Create(student.studentid);
             dgvLoans.DataSource = loansLookup;
             (dgvLoans.Columns[4] as DataGridViewImageColumn).ImageLayout = DataGridViewImageCellLayout.Zoom;
         }
 
-        private void loadStudentInfo(List<StudentLookup> studentList)
+        private void loadStudentInfo()
         {
-            txtfirstName.Text = studentList[0].FirstName;
-            txtlastName.Text = studentList[0].LastName;
-            txtbalance.Text = studentList[0].Balance.ToString("c2");
-            txtprogram.Text = studentList[0].ProgramType.ToString();
-            txtstartDate.Text = studentList[0].StartDate.ToShortDateString();
-            txtendDate.Text = studentList[0].EndDate.ToShortDateString();
-            txtstatus.Text = studentList[0].Status.ToString();
+            txtfirstName.Text = student.firstName;
+            txtlastName.Text = student.lastName;
+            txtbalance.Text = student.balanceDue.ToString("c");
+            txtprogram.Text = student.programType.ToString();
+            txtstartDate.Text = student.startDate.ToString();
+            txtendDate.Text = student.endDate.ToString();
+            txtstatus.Text = student.status.ToString();
         }
 
         #endregion
@@ -123,8 +124,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 int resouceID = 0;
                 if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
                 {
-                    ResourceLookup = ResourceLookupFactory.Create(resouceID);
-                    loadResourceInfo(ResourceLookup);
+                    resource= ResourceFactory.Create(resouceID);
+                    loadResourceInfo();
                     btnAddtoCart.Enabled = true;
                 }
                 else
@@ -138,12 +139,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
         }
 
-        private void loadResourceInfo(List<ResourceLookup> resourceLookup)
+        private void loadResourceInfo()
         {
-            txttitle.Text = resourceLookup[0].title;
-            txtreserveStatus.Text = resourceLookup[0].reserveStatus.ToString();
-            txttype.Text = resourceLookup[0].resourceType.ToString();
-            txtresourceStatus.Text = resourceLookup[0].resourceStatus.ToString();
+            txttitle.Text = resource.title;
+            txtreserveStatus.Text = resource.reserveStatus.ToString();
+            txttype.Text = resource.resourceType.ToString();
+            txtresourceStatus.Text = resource.resourceStatus.ToString();
         }
 
 
@@ -205,10 +206,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             errorProvider1.Clear();
             DialogResult result = DialogResult.None;
-            if (ResourceLookup[0].reserveStatus == ReserveStatus.Reserved)
+            if (resource.reserveStatus == ReserveStatus.Reserved)
             {
-                List<StudentLookup> ReserveingStudent = StudentsFactory.RetrieveReservingStudent(ResourceLookup[0].resourceID);
-                string message = "Resource is reserved \n" + "Is The Student \n" + "Student ID: " + ReserveingStudent[0].StudentID + "\nStudent Name: " + ReserveingStudent[0].FullName;
+                Student ReserveingStudent = StudentFactory.CreateByResouce(resource.resourceid);
+                string message = "Resource is reserved \n" + "Is The Student \n" + "Student ID: " + ReserveingStudent.studentid + "\nStudent Name: " + ReserveingStudent.firstName + ", " + ReserveingStudent.lastName;
                 result = MessageBox.Show(message, "Reserved", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }
 
@@ -226,7 +227,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             if (CheckResource())
             {
-                loanItems.Add(new LoanItem(ResourceLookup[0].resourceID, txttitle.Text, GetDueDate()));
+                loanItems.Add(new LoanItem(resource.resourceid, txttitle.Text, GetDueDate()));
                 lstCart.ValueMember = "resourceID";
                 lstCart.DisplayMember = "titleDueDate";
                 lstCart.DataSource = loanItems;
@@ -237,7 +238,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             foreach (LoanItem item in loanItems)
             {
-                if (item.resourceID == ResourceLookup[0].resourceID)
+                if (item.resourceID == resource.resourceid)
                 {
                     errorProvider1.SetError(btnAddtoCart, "Resource In Cart");
                     return false;
@@ -276,9 +277,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
                         lstCart.SelectedIndex = i;
 
                         int resourceID = Convert.ToInt32(lstCart.SelectedValue);
-                        ResourceMethods.CheckOutResource(StudentList[0].StudentID, resourceID);
+                        ResourceMethods.CheckOutResource(student.studentid, resourceID);
                     }
-                    loadStudentLoans(StudentList[0].StudentID);
+
+                    loadStudentLoans();
                     loanItems.Clear();
                     parent.StatusLabel.Text = "Items Added To Student Loans";
                 }

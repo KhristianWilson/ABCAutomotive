@@ -109,49 +109,10 @@ namespace ABCAutomotive.BusinessLayer
                 studentLookup.StudentID = Convert.ToInt32(Row["StudentID"]);
                 studentLookup.FirstName = Row["FirstName"].ToString();
                 studentLookup.LastName= Row["LastName"].ToString();
-                studentLookup.Balance = Convert.ToDouble(Row["BalanceDue"]);
-                studentLookup.ProgramType = (ProgramType)(Convert.ToInt32(Row["Program"]));
-                studentLookup.Status= (StudentStatus)(Convert.ToInt32(Row["Status"]));
-                studentLookup.EndDate = Convert.ToDateTime(Row["EndDate"]);
-                studentLookup.StartDate = Convert.ToDateTime(Row["StartDate"]);
                 StudentsList.Add(studentLookup);
             }
 
             return StudentsList;
-        }
-    }
-
-    #endregion
-
-    #region Resource LookUp
-
-    public static class ResourceLookupFactory
-    {
-        public static List<ResourceLookup> Create(int resourceId)
-        {
-            DataTable tmpTable = ListsSQL.RetrieveResourceLookup(resourceId);
-            List<ResourceLookup> newResourceList = new List<ResourceLookup>();
-
-            newResourceList = RepackageResourceLookup(tmpTable);
-            return newResourceList;
-        }
-
-        private static List<ResourceLookup> RepackageResourceLookup(DataTable myTable)
-        {
-            List<ResourceLookup> resourceList = new List<ResourceLookup>();
-
-            foreach (DataRow Row in myTable.Rows)
-            {
-                ResourceLookup resourceLookup = new ResourceLookup();
-                resourceLookup.resourceID = Convert.ToInt32(Row["ResourceID"]);
-                resourceLookup.title = Row["Title"].ToString();
-                resourceLookup.resourceType = (ResourceType)(Convert.ToInt32(Row["Type"]));
-                resourceLookup.reserveStatus= (ReserveStatus)(Convert.ToInt32(Row["ReserveStatus"]));
-                resourceLookup.resourceStatus = (ResourceStatus)(Convert.ToInt32(Row["Status"]));
-                resourceList.Add(resourceLookup);
-            }
-
-            return resourceList;
         }
     }
 

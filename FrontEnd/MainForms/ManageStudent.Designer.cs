@@ -88,7 +88,7 @@
             this.lstSearchResults.Location = new System.Drawing.Point(15, 45);
             this.lstSearchResults.Name = "lstSearchResults";
             this.lstSearchResults.Size = new System.Drawing.Size(144, 95);
-            this.lstSearchResults.TabIndex = 2;
+            this.lstSearchResults.TabIndex = 3;
             // 
             // txtSearch
             // 
@@ -104,7 +104,7 @@
             this.btnSearch.Location = new System.Drawing.Point(181, 19);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -139,7 +139,7 @@
             this.gbStudentsInfo.Location = new System.Drawing.Point(12, 187);
             this.gbStudentsInfo.Name = "gbStudentsInfo";
             this.gbStudentsInfo.Size = new System.Drawing.Size(959, 176);
-            this.gbStudentsInfo.TabIndex = 6;
+            this.gbStudentsInfo.TabIndex = 9;
             this.gbStudentsInfo.TabStop = false;
             this.gbStudentsInfo.Text = "Student Info";
             // 
@@ -150,7 +150,7 @@
             this.txtstudentID.Location = new System.Drawing.Point(122, 41);
             this.txtstudentID.Name = "txtstudentID";
             this.txtstudentID.Size = new System.Drawing.Size(123, 27);
-            this.txtstudentID.TabIndex = 25;
+            this.txtstudentID.TabIndex = 4;
             // 
             // lblstudentID
             // 
@@ -169,7 +169,7 @@
             this.txtphoneNumber.Location = new System.Drawing.Point(431, 138);
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 27);
-            this.txtphoneNumber.TabIndex = 10;
+            this.txtphoneNumber.TabIndex = 11;
             this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblphone
@@ -188,7 +188,7 @@
             this.txtpostalCode.Location = new System.Drawing.Point(431, 102);
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 27);
-            this.txtpostalCode.TabIndex = 9;
+            this.txtpostalCode.TabIndex = 10;
             this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtcity
@@ -197,7 +197,7 @@
             this.txtcity.Location = new System.Drawing.Point(431, 69);
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 27);
-            this.txtcity.TabIndex = 8;
+            this.txtcity.TabIndex = 9;
             this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtaddress
@@ -206,7 +206,7 @@
             this.txtaddress.Location = new System.Drawing.Point(431, 36);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 27);
-            this.txtaddress.TabIndex = 7;
+            this.txtaddress.TabIndex = 8;
             this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblpostalCode
@@ -247,6 +247,7 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
             this.cbStatus.TabIndex = 13;
+            this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // cbProgram
             // 
@@ -256,13 +257,14 @@
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(121, 21);
             this.cbProgram.TabIndex = 12;
+            this.cbProgram.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // dtpendDate
             // 
             this.dtpendDate.Location = new System.Drawing.Point(704, 139);
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpendDate.TabIndex = 13;
+            this.dtpendDate.TabIndex = 15;
             this.dtpendDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtbalance
@@ -271,7 +273,7 @@
             this.txtbalance.Location = new System.Drawing.Point(122, 138);
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(123, 27);
-            this.txtbalance.TabIndex = 6;
+            this.txtbalance.TabIndex = 7;
             this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
@@ -289,7 +291,7 @@
             this.dtpstartDate.Location = new System.Drawing.Point(704, 111);
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpstartDate.TabIndex = 13;
+            this.dtpstartDate.TabIndex = 14;
             this.dtpstartDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtlastName
@@ -298,7 +300,7 @@
             this.txtlastName.Location = new System.Drawing.Point(122, 107);
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(123, 27);
-            this.txtlastName.TabIndex = 5;
+            this.txtlastName.TabIndex = 6;
             this.txtlastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblEndDate
@@ -317,7 +319,7 @@
             this.txtfirstName.Location = new System.Drawing.Point(122, 74);
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(123, 27);
-            this.txtfirstName.TabIndex = 4;
+            this.txtfirstName.TabIndex = 5;
             this.txtfirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStatus
@@ -385,7 +387,7 @@
             this.btnclear.Location = new System.Drawing.Point(501, 28);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(162, 44);
-            this.btnclear.TabIndex = 16;
+            this.btnclear.TabIndex = 18;
             this.btnclear.Text = "&Clear";
             this.btnclear.UseVisualStyleBackColor = true;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
@@ -395,7 +397,7 @@
             this.btnupdate.Location = new System.Drawing.Point(165, 28);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(162, 44);
-            this.btnupdate.TabIndex = 14;
+            this.btnupdate.TabIndex = 16;
             this.btnupdate.Text = "&Update";
             this.btnupdate.UseVisualStyleBackColor = true;
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
@@ -405,7 +407,7 @@
             this.btndelete.Location = new System.Drawing.Point(333, 28);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(162, 44);
-            this.btndelete.TabIndex = 15;
+            this.btndelete.TabIndex = 17;
             this.btndelete.Text = "&Delete";
             this.btndelete.UseVisualStyleBackColor = true;
             this.btndelete.Click += new System.EventHandler(this.btndelete_Click);

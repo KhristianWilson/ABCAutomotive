@@ -44,11 +44,19 @@ namespace ABCAutomotive.BusinessLayer
 
         public static bool UpdateStatus(Resource resource)
         {
-            if (!Validation.checkLength(resource.resourceid.ToString(), 8, SizeOperator.MustBeEqualTo))
-            {
-                throw new ArgumentNullException("Invalid ResourceID");
-            }
             return ResourceActionsSQL.updateStatus(resource.resourceid, resource.resourceStatus);
+        }
+
+        public static bool InsertResource(Resource resource)
+        {
+            if (resource.IsClean)
+            {
+                return ResourceActionsSQL.insertResource(resource);
+            }
+            else
+            {
+                throw new ArgumentException("Resource must have all infomation");
+            }
         }
     }
 }

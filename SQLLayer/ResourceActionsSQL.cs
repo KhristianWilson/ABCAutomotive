@@ -1,7 +1,9 @@
 ﻿using ABCAutomotive.DAL;
 using ABCAutomotive.Types;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 
 namespace ABCAutomotive.SQLLayer
 {
@@ -12,8 +14,7 @@ namespace ABCAutomotive.SQLLayer
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@studentId", resourceID, ParameterDirection.Input, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@resourceId", studentID, ParameterDirection.Input, SqlDbType.Int));
-            DataAccess.SendData("spcheckOutResource", parmlist);
-            return true;
+            return DataAccess.SendData("spcheckOutResource", parmlist);
         }
 
         public static bool checkInResource(int returnStatus, int resourceID, bool lateflag)
@@ -21,12 +22,11 @@ namespace ABCAutomotive.SQLLayer
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@resourceid", resourceID, ParameterDirection.Input, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@lateFlag", lateflag, ParameterDirection.Input, SqlDbType.Bit));
-            if(returnStatus != 0)
+            if (returnStatus != 0)
             {
                 parmlist.Add(new ParmStruct("@returnedstatus", returnStatus, ParameterDirection.Input, SqlDbType.Int));
             }
-            DataAccess.SendData("spcheckInResource", parmlist);
-            return true;
+            return DataAccess.SendData("spcheckInResource", parmlist);
         }
 
         public static bool reserveResource(int studentID, int resourceID)
@@ -34,8 +34,7 @@ namespace ABCAutomotive.SQLLayer
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@studentId", studentID, ParameterDirection.Input, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@resourceId", resourceID, ParameterDirection.Input, SqlDbType.Int));
-            DataAccess.SendData("spreserveResource", parmlist);
-            return true;
+            return DataAccess.SendData("spreserveResource", parmlist);
         }
 
         public static bool updateStatus(int resourceID, ResourceStatus status)
@@ -43,8 +42,34 @@ namespace ABCAutomotive.SQLLayer
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@status", status, ParameterDirection.Input, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@resourceId", resourceID, ParameterDirection.Input, SqlDbType.Int));
-            DataAccess.SendData("spupdateResourceStatus", parmlist);
+            return DataAccess.SendData("spupdateResourceStatus", parmlist);
+        }
+
+        public static bool insertResource(IResource resource)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@timestamp", 0, ParameterDirection.InputOutput, SqlDbType.Timestamp));
+            parmlist.Add(new ParmStruct("@resourceId", resource.resourceid, ParameterDirection.InputOutput, SqlDbType.Int));
+            parmlist.Add(new ParmStruct("@desc", resource.description, ParameterDirection.Input, SqlDbType.VarChar, 50));
+            parmlist.Add(new ParmStruct("@title", resource.title, ParameterDirection.Input, SqlDbType.VarChar, 30));
+            parmlist.Add(new ParmStruct("@type", resource.resourceType, ParameterDirection.Input, SqlDbType.TinyInt));
+            parmlist.Add(new ParmStruct("@publisher", resource.publisher, ParameterDirection.Input, SqlDbType.VarChar, 30));
+            parmlist.Add(new ParmStruct("@dateOfPurchase", resource.purchaseDate, ParameterDirection.Input, SqlDbType.DateTime));
+            parmlist.Add(new ParmStruct("@price", resource.price, ParameterDirection.Input, SqlDbType.Decimal));
+            parmlist.Add(new ParmStruct("@referenceNum", resource.referenceNumber, ParameterDirection.Input, SqlDbType.VarChar, 50));
+            parmlist.Add(new ParmStruct("@image", CreateImageSave(resource.image), ParameterDirection.Input, SqlDbType.Image));
+            parmlist.Add(new ParmStruct("@status", resource.resourceStatus, ParameterDirection.Input, SqlDbType.TinyInt));
+            DataAccess.SendData("spinsertResource", parmlist);
+            resource.resourceid = Convert.ToInt32(parmlist[1].parmValue);
+            resource.TimeStamp = parmlist[0].parmValue;
             return true;
+        }
+
+        private static byte[] CreateImageSave(Image image)
+        {
+            ImageConverter _imageConverter = new ImageConverter();
+            byte[] xByte = (byte[])_imageConverter.ConvertTo(image, typeof(byte[]));
+            return xByte;
         }
     }
 }

@@ -28,8 +28,8 @@ namespace ABCAutomotive.BusinessLayer
         internal double _balancedue;
         internal ProgramType _programType;
         internal StudentStatus _status;
-        internal DateTime _startDate;
-        internal DateTime _endDate;
+        internal DateTime _startDate = DateTime.Now;
+        internal DateTime _endDate = new DateTime(DateTime.Now.Day + 1);
         internal object _timeStamp;
 
         internal Boolean _trusted = false;

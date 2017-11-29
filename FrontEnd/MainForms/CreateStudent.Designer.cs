@@ -126,6 +126,7 @@
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 27);
             this.txtphoneNumber.TabIndex = 8;
+            this.txtphoneNumber.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtphoneNumber.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -146,6 +147,7 @@
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 27);
             this.txtpostalCode.TabIndex = 7;
+            this.txtpostalCode.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtpostalCode.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -156,6 +158,7 @@
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 27);
             this.txtcity.TabIndex = 6;
+            this.txtcity.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtcity.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -166,6 +169,7 @@
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 27);
             this.txtaddress.TabIndex = 5;
+            this.txtaddress.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtaddress.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -207,6 +211,7 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
             this.cbStatus.TabIndex = 13;
+            this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // cbProgram
             // 
@@ -216,6 +221,7 @@
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(121, 21);
             this.cbProgram.TabIndex = 12;
+            this.cbProgram.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // dtpendDate
             // 
@@ -233,6 +239,7 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(123, 27);
             this.txtbalance.TabIndex = 4;
+            this.txtbalance.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtbalance.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -262,6 +269,7 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(123, 27);
             this.txtlastName.TabIndex = 3;
+            this.txtlastName.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtlastName.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtlastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -282,6 +290,7 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(123, 27);
             this.txtfirstName.TabIndex = 2;
+            this.txtfirstName.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtfirstName.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtfirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 

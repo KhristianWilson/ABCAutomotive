@@ -17,11 +17,6 @@ namespace ABCAutomotive.BusinessLayer
         public int StudentID { get; internal set; }
         public string FirstName { get; internal set; }
         public string LastName { get; internal set; }
-        public double Balance { get; internal set; }
-        public ProgramType ProgramType { get; internal set; }
-        public DateTime StartDate { get; internal set; }
-        public DateTime EndDate { get; internal set; }
-        public StudentStatus Status { get; internal set; }
         public string FullName { get { return string.Format("{0},{1}", this.FirstName, this.LastName); } }
 
     }
@@ -46,24 +41,6 @@ namespace ABCAutomotive.BusinessLayer
         public DateTime CheckOutDate { get; internal set; }
         public Image Image { get; internal set; }
         public DateTime DueDate { get; internal set; }
-    }
-
-    #endregion
-
-    #region ResourceLoop
-
-    public class ResourceLookup
-    {
-        internal ResourceLookup()
-        {
-
-        }
-
-        public int resourceID { get; internal set; }
-        public string title { get; internal set; }
-        public ResourceType resourceType { get; internal set; }
-        public ReserveStatus reserveStatus { get; internal set; }
-        public ResourceStatus resourceStatus { get; internal set; }
     }
 
     #endregion

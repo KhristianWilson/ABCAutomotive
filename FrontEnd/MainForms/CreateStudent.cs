@@ -18,14 +18,18 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #region Startup
 
         Student student;
+
         private void CreateStudent_Load(object sender, EventArgs e)
         {
             txtstudentID.Enabled = false;
             cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
+
             student = StudentFactory.Create();
             student.startDate = DateTime.Now;
             student.endDate = DateTime.Now;
+            student.status = (StudentStatus)cbStatus.SelectedItem;
+            student.programType = (ProgramType)cbProgram.SelectedItem;
         }
 
         #endregion
@@ -102,6 +106,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void txtstudentID_Enter(object sender, EventArgs e)
         {
             parent.StatusLabel.Text = "";
+            (sender as TextBox).SelectAll();
+        }
+
+        private void txtfirstName_Click(object sender, EventArgs e)
+        {
+            (sender as TextBox).SelectAll();
         }
 
         #endregion
@@ -124,9 +134,18 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 if (object.ReferenceEquals(sender, txtbalance))
                 {
-                    if (Double.TryParse(txtbalance.Text, out double balance))
+                    string tempBalance;
+                    if (txtbalance.Text.StartsWith("$"))
                     {
-                        student.balanceDue = Convert.ToDouble(txtbalance.Text);
+                        tempBalance = txtbalance.Text.Remove(0, 1);
+                    }
+                    else
+                    {
+                        tempBalance = txtbalance.Text;
+                    }
+                    if (Double.TryParse(tempBalance, out double balance))
+                    {
+                        student.balanceDue = balance;
                     }
                     else
                     {
@@ -156,6 +175,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (object.ReferenceEquals(sender, dtpendDate))
                 {
                     student.endDate = dtpendDate.Value;
+                }
+                if (object.ReferenceEquals(sender, cbProgram))
+                {
+                    student.programType = (ProgramType)cbProgram.SelectedItem;
+                }
+                if (object.ReferenceEquals(sender, cbStatus))
+                {
+                    student.status = (StudentStatus)cbStatus.SelectedItem;
                 }
             }
             catch (Exception ex)

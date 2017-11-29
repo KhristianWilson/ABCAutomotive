@@ -35,11 +35,7 @@ namespace UnitTestProject
         [TestMethod]
         public void Postive_Student_CreateFilledByName()
         {
-            Student myStu = StudentFactory.Create("Khris");
-            Assert.IsNotNull(myStu);
 
-            Assert.IsTrue(myStu.firstName == "Khris");
-            Assert.IsTrue(myStu.lastName == "Wilson");
         }
 
         [TestMethod]
@@ -95,18 +91,6 @@ namespace UnitTestProject
             Assert.IsTrue(StudentList[1].FirstName.ToString() == "Jo");
             Assert.IsTrue(StudentList[1].LastName.ToString() == "Long");
         }
-
-        [TestMethod]
-        public void Positive_Resoure_List()
-        {
-            List<ResourceLookup> ResourceList = ResourceLookupFactory.Create(10000000);
-
-            Assert.IsTrue(ResourceList[0].title.ToString() == "Brake Repair 101");
-            Assert.IsTrue(ResourceList[0].resourceType == ResourceType.DVD);
-
-        }
-
-
         #endregion
 
     }

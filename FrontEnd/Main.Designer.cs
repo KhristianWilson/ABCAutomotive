@@ -30,14 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
-            this.resourceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkOutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkOutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.overdueChargeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resourceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reserveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.updateResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.addResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.studentInfoToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.manageStudentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.createStudentToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
@@ -50,7 +54,6 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
-            this.paymentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -64,6 +67,7 @@
             // menuStripMain
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loansToolStripMenuItem,
             this.resourceInfoToolStripMenuItem,
             this.studentInfoToolStrip});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
@@ -72,30 +76,46 @@
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip";
             // 
-            // resourceInfoToolStripMenuItem
+            // loansToolStripMenuItem
             // 
-            this.resourceInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkOutToolStrip,
+            this.loansToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.returnsToolStrip,
-            this.reserveToolStrip,
-            this.updateResourceToolStrip});
-            this.resourceInfoToolStripMenuItem.Name = "resourceInfoToolStripMenuItem";
-            this.resourceInfoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.resourceInfoToolStripMenuItem.Text = "&Resource Info";
-            // 
-            // checkOutToolStrip
-            // 
-            this.checkOutToolStrip.Name = "checkOutToolStrip";
-            this.checkOutToolStrip.Size = new System.Drawing.Size(163, 22);
-            this.checkOutToolStrip.Text = "&Check Out";
-            this.checkOutToolStrip.Click += new System.EventHandler(this.MenuClick);
+            this.checkOutToolStrip,
+            this.overdueChargeToolStripMenuItem});
+            this.loansToolStripMenuItem.Name = "loansToolStripMenuItem";
+            this.loansToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.loansToolStripMenuItem.Text = "&Loans";
+            this.loansToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
             // 
             // returnsToolStrip
             // 
             this.returnsToolStrip.Name = "returnsToolStrip";
-            this.returnsToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.returnsToolStrip.Size = new System.Drawing.Size(165, 22);
             this.returnsToolStrip.Text = "&Returns";
             this.returnsToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // checkOutToolStrip
+            // 
+            this.checkOutToolStrip.Name = "checkOutToolStrip";
+            this.checkOutToolStrip.Size = new System.Drawing.Size(165, 22);
+            this.checkOutToolStrip.Text = "&Check Out";
+            // 
+            // overdueChargeToolStripMenuItem
+            // 
+            this.overdueChargeToolStripMenuItem.Name = "overdueChargeToolStripMenuItem";
+            this.overdueChargeToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.overdueChargeToolStripMenuItem.Text = "&Overdue Charges";
+            this.overdueChargeToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // resourceInfoToolStripMenuItem
+            // 
+            this.resourceInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reserveToolStrip,
+            this.updateResourceToolStrip,
+            this.addResourceToolStrip});
+            this.resourceInfoToolStripMenuItem.Name = "resourceInfoToolStripMenuItem";
+            this.resourceInfoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.resourceInfoToolStripMenuItem.Text = "&Resource Info";
             // 
             // reserveToolStrip
             // 
@@ -110,6 +130,14 @@
             this.updateResourceToolStrip.Size = new System.Drawing.Size(163, 22);
             this.updateResourceToolStrip.Text = "&Update Resource";
             this.updateResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // addResourceToolStrip
+            // 
+            this.addResourceToolStrip.Name = "addResourceToolStrip";
+            this.addResourceToolStrip.Size = new System.Drawing.Size(163, 22);
+            this.addResourceToolStrip.Text = "&Add Resource";
+            this.addResourceToolStrip.Visible = false;
+            this.addResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // studentInfoToolStrip
             // 
@@ -134,6 +162,13 @@
             this.createStudentToolStrip.Size = new System.Drawing.Size(166, 22);
             this.createStudentToolStrip.Text = "&Create Student";
             this.createStudentToolStrip.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // paymentsToolStrip
+            // 
+            this.paymentsToolStrip.Name = "paymentsToolStrip";
+            this.paymentsToolStrip.Size = new System.Drawing.Size(166, 22);
+            this.paymentsToolStrip.Text = "&Payments";
+            this.paymentsToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // toolStripMain
             // 
@@ -252,13 +287,6 @@
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
             // 
-            // paymentsToolStrip
-            // 
-            this.paymentsToolStrip.Name = "paymentsToolStrip";
-            this.paymentsToolStrip.Size = new System.Drawing.Size(166, 22);
-            this.paymentsToolStrip.Text = "&Payments";
-            this.paymentsToolStrip.Click += new System.EventHandler(this.MenuClick);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,13 +335,16 @@
         private System.Windows.Forms.ToolStripButton btnReturns;
         private System.Windows.Forms.ToolStripButton btnReserves;
         private System.Windows.Forms.ToolStripMenuItem resourceInfoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkOutToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem returnsToolStrip;
         private System.Windows.Forms.ToolStripMenuItem reserveToolStrip;
         private System.Windows.Forms.ToolStripMenuItem studentInfoToolStrip;
         private System.Windows.Forms.ToolStripMenuItem updateResourceToolStrip;
         private System.Windows.Forms.ToolStripMenuItem manageStudentsToolStrip;
         private System.Windows.Forms.ToolStripMenuItem createStudentToolStrip;
         private System.Windows.Forms.ToolStripMenuItem paymentsToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnsToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem checkOutToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem overdueChargeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addResourceToolStrip;
     }
 }
