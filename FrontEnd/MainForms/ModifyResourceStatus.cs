@@ -2,6 +2,8 @@
 using ABCAutomotive.Types;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -43,7 +45,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 if(Int32.TryParse(txtsearchResource.Text, out int id))
                 {
-                    objRes = ResourceFactory.Create(id);
+                    objRes = ResourceFactory.CreateNotLoaned(id);
                     LoadFields();
                     txtsearchResource.Enabled = false;
                     enableUpdate(true);
@@ -69,7 +71,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtreferencenumber.Text = objRes.referenceNumber;
             txtreserveStatus.Text = objRes.reserveStatus.ToString();
             dtpAddDate.Value = objRes.purchaseDate;
-            pbImage.Image = objRes.image;
+            pbImage.Image = getImage(objRes.image);
             dtpRemovelDate.Value = objRes.removealDate;
             cbStatus.SelectedItem = objRes.resourceStatus;
         }
@@ -113,6 +115,19 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             errorProvider1.Clear();
             parent.StatusLabel.Text = "";
+        }
+        private static Image getImage(byte[] ImageData)
+        {
+            Image Image;
+            if (ImageData == null)
+            {
+                return null;
+            }
+            using (MemoryStream ms = new MemoryStream(ImageData))
+            {
+                Image = Image.FromStream(ms);
+            }
+            return Image;
         }
 
         #endregion

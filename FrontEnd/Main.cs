@@ -22,6 +22,7 @@ namespace ABCAutomotive.FrontEnd
         CreateStudent createStudent;
         MakePayment makePayment;
         AddResource addResource;
+        OverDueLoans overDueLoans;
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
@@ -147,6 +148,14 @@ namespace ABCAutomotive.FrontEnd
                     addResource = new AddResource(this);
                 }
                 DisplayForm(addResource);
+            }
+            if (sender == overdueChargeToolStrip)
+            {
+                if (overDueLoans == null || overDueLoans.IsDisposed)
+                {
+                    overDueLoans = new OverDueLoans(this);
+                }
+                DisplayForm(overDueLoans);
             }
         }
 

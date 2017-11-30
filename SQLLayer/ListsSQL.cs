@@ -24,20 +24,6 @@ namespace ABCAutomotive.SQLLayer
             return DataAccess.GetDataTable("spgetStudentById", parmlist);
         }
 
-        public static DataTable RetrieveOwningStudent(int resourceId)
-        {
-            List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@resourceID", resourceId, ParameterDirection.Input, SqlDbType.Int));
-            return DataAccess.GetDataTable("spgetStudentByResource", parmlist);
-        }
-
-        public static DataTable RetrieveReservingStudent(int resourceId)
-        {
-            List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@resourceID", resourceId, ParameterDirection.Input, SqlDbType.Int));
-            return DataAccess.GetDataTable("spgetReservingStudent", parmlist);
-        }
-
         #endregion
 
         #region Loan Lookup

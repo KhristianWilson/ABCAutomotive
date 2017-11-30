@@ -120,6 +120,18 @@ namespace ABCAutomotive.BusinessLayer
             return Repackage(ResouceTable.Rows[0]);
         }
 
+        public static Resource CreateNotLoaned(int resourceid)
+        {
+            if (resourceid == 0 || !Validation.checkLength(resourceid.ToString(), 8, SizeOperator.MustBeEqualTo))
+            {
+                throw new ArgumentException("Invalid Resource ID");
+            }
+
+            DataTable ResouceTable = ResouceSQL.RetrieveNonLoaned(resourceid);
+            return Repackage(ResouceTable.Rows[0]);
+        }
+
+
         private static Resource Repackage(DataRow myRow)
         {
             Resource myResource = new Resource();
@@ -131,7 +143,7 @@ namespace ABCAutomotive.BusinessLayer
             myResource._dateOfPurchase = Convert.ToDateTime(myRow["DateOfPurchase"]);
             myResource._price = Convert.ToDouble(myRow["Price"]);
             myResource._referenceNumber = myRow["ReferenceNumber"].ToString();
-            myResource._image = getImage((byte[])myRow["Image"]);
+            myResource._image = (byte[])(myRow["Image"]);
             myResource._status = (ResourceStatus)(Convert.ToInt32(myRow["Status"]));
             myResource._reserveStatus = (ReserveStatus)(Convert.ToInt32(myRow["ReserveStatus"]));
             if(myRow["StudentReserving"].ToString() != string.Empty)
@@ -151,21 +163,6 @@ namespace ABCAutomotive.BusinessLayer
 
             return myResource;
         }
-
-        private static Image getImage(byte[] ImageData)
-        {
-            Image Image;
-            if (ImageData == null)
-            {
-                return null;
-            }
-            using (MemoryStream ms = new MemoryStream(ImageData))
-            {
-                Image = Image.FromStream(ms);
-            }
-            return Image;
-        }
-
     }
 
     #endregion

@@ -29,7 +29,7 @@ namespace ABCAutomotive.BusinessLayer
         internal ResourceStatus _status;
 
         internal DateTime _dateOfPurchase;
-        internal Image _image;
+        internal byte[] _image;
         internal double _price;
         internal object _timestamp;
 
@@ -47,7 +47,7 @@ namespace ABCAutomotive.BusinessLayer
         {
             get
             {
-                if (string.IsNullOrEmpty(_description) || string.IsNullOrEmpty(_title) || string.IsNullOrEmpty(_publisher) || _price == 0 || _dateOfPurchase == default(DateTime) || _image == default(Image))
+                if (string.IsNullOrEmpty(_description) || string.IsNullOrEmpty(_title) || string.IsNullOrEmpty(_publisher) || _price == 0 || _dateOfPurchase == default(DateTime) || _image == null)
                 {
                     return false;
                 }
@@ -176,7 +176,7 @@ namespace ABCAutomotive.BusinessLayer
             }
         }
 
-        public Image image
+        public byte[] image
         {
             get
             {

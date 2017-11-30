@@ -33,7 +33,7 @@
             this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.checkOutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.overdueChargeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.overdueChargeToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.resourceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reserveToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.updateResourceToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +81,7 @@
             this.loansToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.returnsToolStrip,
             this.checkOutToolStrip,
-            this.overdueChargeToolStripMenuItem});
+            this.overdueChargeToolStrip});
             this.loansToolStripMenuItem.Name = "loansToolStripMenuItem";
             this.loansToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.loansToolStripMenuItem.Text = "&Loans";
@@ -100,12 +100,12 @@
             this.checkOutToolStrip.Size = new System.Drawing.Size(165, 22);
             this.checkOutToolStrip.Text = "&Check Out";
             // 
-            // overdueChargeToolStripMenuItem
+            // overdueChargeToolStrip
             // 
-            this.overdueChargeToolStripMenuItem.Name = "overdueChargeToolStripMenuItem";
-            this.overdueChargeToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.overdueChargeToolStripMenuItem.Text = "&Overdue Charges";
-            this.overdueChargeToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
+            this.overdueChargeToolStrip.Name = "overdueChargeToolStrip";
+            this.overdueChargeToolStrip.Size = new System.Drawing.Size(165, 22);
+            this.overdueChargeToolStrip.Text = "&Overdue Charges";
+            this.overdueChargeToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // resourceInfoToolStripMenuItem
             // 
@@ -136,7 +136,6 @@
             this.addResourceToolStrip.Name = "addResourceToolStrip";
             this.addResourceToolStrip.Size = new System.Drawing.Size(163, 22);
             this.addResourceToolStrip.Text = "&Add Resource";
-            this.addResourceToolStrip.Visible = false;
             this.addResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // studentInfoToolStrip
@@ -344,7 +343,7 @@
         private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnsToolStrip;
         private System.Windows.Forms.ToolStripMenuItem checkOutToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem overdueChargeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overdueChargeToolStrip;
         private System.Windows.Forms.ToolStripMenuItem addResourceToolStrip;
     }
 }

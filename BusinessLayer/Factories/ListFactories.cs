@@ -81,23 +81,6 @@ namespace ABCAutomotive.BusinessLayer
             return newStudentsList;
 
         }
-        public static List<StudentLookup> CreateByResouce(int resourceID)
-        {
-            DataTable tmpTable = ListsSQL.RetrieveOwningStudent(resourceID);
-            List<StudentLookup> newStudentsList = new List<StudentLookup>();
-
-            newStudentsList = RepackageStudentLookup(tmpTable);
-            return newStudentsList;
-        }
-
-        public static List<StudentLookup> RetrieveReservingStudent(int resourceID)
-        {
-            DataTable tmpTable = ListsSQL.RetrieveReservingStudent(resourceID);
-            List<StudentLookup> newStudentsList = new List<StudentLookup>();
-
-            newStudentsList = RepackageStudentLookup(tmpTable);
-            return newStudentsList;
-        }
 
         private static List<StudentLookup> RepackageStudentLookup(DataTable myTable)
         {

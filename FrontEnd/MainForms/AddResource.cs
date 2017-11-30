@@ -2,6 +2,7 @@
 using ABCAutomotive.Types;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd
@@ -146,6 +147,7 @@ namespace ABCAutomotive.FrontEnd
             cbType.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
             cbType.SelectedIndex = -1;
+            parent.StatusLabel.Text = "";
 
         }
 
@@ -179,9 +181,13 @@ namespace ABCAutomotive.FrontEnd
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pbImage.Image = Image.FromFile(openFileDialog1.FileName);
-                resource.image = pbImage.Image;
+                MemoryStream stream = new MemoryStream();
+                pbImage.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] pic = stream.GetBuffer();
+                resource.image = pic;
             }
         }
+
 
         #endregion
 

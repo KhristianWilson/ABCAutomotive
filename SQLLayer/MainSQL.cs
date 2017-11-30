@@ -107,6 +107,13 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@resourceId", ID, ParameterDirection.Input, SqlDbType.Int));
             return DataAccess.GetDataTable("spgetResource", parmlist);
         }
+
+        public static DataTable RetrieveNonLoaned(int ID)
+        {
+            List<ParmStruct> parmlist = new List<ParmStruct>();
+            parmlist.Add(new ParmStruct("@resourceId", ID, ParameterDirection.Input, SqlDbType.Int));
+            return DataAccess.GetDataTable("spgetResourceNotLoaned", parmlist);
+        }
     }
 
     #endregion

@@ -32,7 +32,7 @@ namespace ABCAutomotive.Types
         string title { get; set; }
         string publisher { get; set; }
         string referenceNumber { get; set; }
-        Image image { get; set; }
+        Byte[] image { get; set; }
         ResourceStatus resourceStatus { get; set; }
         ResourceType resourceType { get; set; }
         DateTime purchaseDate { get; set; }
