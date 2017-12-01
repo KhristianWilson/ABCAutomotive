@@ -85,11 +85,11 @@
     <Compile Include="MainForms\ModifyResourceStatus.Designer.cs">
       <DependentUpon>ModifyResourceStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForms\OverDueLoans.cs">
+    <Compile Include="MainForms\OverDueReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForms\OverDueLoans.Designer.cs">
-      <DependentUpon>OverDueLoans.cs</DependentUpon>
+    <Compile Include="MainForms\OverDueReport.Designer.cs">
+      <DependentUpon>OverDueReport.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForms\Reserve.cs">
       <SubType>Form</SubType>
@@ -141,8 +141,8 @@
     <EmbeddedResource Include="MainForms\ModifyResourceStatus.resx">
       <DependentUpon>ModifyResourceStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForms\OverDueLoans.resx">
-      <DependentUpon>OverDueLoans.cs</DependentUpon>
+    <EmbeddedResource Include="MainForms\OverDueReport.resx">
+      <DependentUpon>OverDueReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\Reserve.resx">
       <DependentUpon>Reserve.cs</DependentUpon>

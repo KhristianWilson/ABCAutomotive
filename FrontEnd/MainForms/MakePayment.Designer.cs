@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbSearch = new System.Windows.Forms.GroupBox();
-            this.lstSearchResults = new System.Windows.Forms.ListBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.gbpayment = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnmakePayment = new System.Windows.Forms.Button();
+            this.rdoCredit = new System.Windows.Forms.RadioButton();
+            this.rdoDebit = new System.Windows.Forms.RadioButton();
+            this.txtamount = new System.Windows.Forms.TextBox();
+            this.lblAmount = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbStudentsInfo = new System.Windows.Forms.GroupBox();
             this.txtstatus = new System.Windows.Forms.TextBox();
@@ -50,58 +52,15 @@
             this.lblBalance = new System.Windows.Forms.Label();
             this.lblLname = new System.Windows.Forms.Label();
             this.lblFname = new System.Windows.Forms.Label();
-            this.lblAmount = new System.Windows.Forms.Label();
-            this.txtamount = new System.Windows.Forms.TextBox();
-            this.rdoDebit = new System.Windows.Forms.RadioButton();
-            this.rdoCredit = new System.Windows.Forms.RadioButton();
-            this.btnmakePayment = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.gbSearch.SuspendLayout();
+            this.gbSearch = new System.Windows.Forms.GroupBox();
+            this.lstSearchResults = new System.Windows.Forms.ListBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.gbpayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbStudentsInfo.SuspendLayout();
+            this.gbSearch.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gbSearch
-            // 
-            this.gbSearch.Controls.Add(this.lstSearchResults);
-            this.gbSearch.Controls.Add(this.txtSearch);
-            this.gbSearch.Controls.Add(this.btnSearch);
-            this.gbSearch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSearch.Location = new System.Drawing.Point(12, 12);
-            this.gbSearch.Name = "gbSearch";
-            this.gbSearch.Size = new System.Drawing.Size(270, 169);
-            this.gbSearch.TabIndex = 3;
-            this.gbSearch.TabStop = false;
-            this.gbSearch.Text = "Search Students";
-            // 
-            // lstSearchResults
-            // 
-            this.lstSearchResults.FormattingEnabled = true;
-            this.lstSearchResults.Location = new System.Drawing.Point(15, 45);
-            this.lstSearchResults.Name = "lstSearchResults";
-            this.lstSearchResults.Size = new System.Drawing.Size(144, 95);
-            this.lstSearchResults.TabIndex = 2;
-            this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.LstSearchResults_SelectedIndexChanged);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(15, 19);
-            this.txtSearch.MaxLength = 50;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(144, 22);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.Enter += new System.EventHandler(this.txtamount_Enter);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(181, 19);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "&Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // gbpayment
             // 
@@ -117,6 +76,68 @@
             this.gbpayment.TabIndex = 4;
             this.gbpayment.TabStop = false;
             this.gbpayment.Text = "Payment Info";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(458, 60);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(140, 23);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel Payment";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnmakePayment
+            // 
+            this.btnmakePayment.Location = new System.Drawing.Point(458, 31);
+            this.btnmakePayment.Name = "btnmakePayment";
+            this.btnmakePayment.Size = new System.Drawing.Size(140, 23);
+            this.btnmakePayment.TabIndex = 7;
+            this.btnmakePayment.Text = "Confirm Payment";
+            this.btnmakePayment.UseVisualStyleBackColor = true;
+            this.btnmakePayment.Click += new System.EventHandler(this.btnmakePayment_Click);
+            // 
+            // rdoCredit
+            // 
+            this.rdoCredit.AutoSize = true;
+            this.rdoCredit.Location = new System.Drawing.Point(341, 57);
+            this.rdoCredit.Name = "rdoCredit";
+            this.rdoCredit.Size = new System.Drawing.Size(52, 17);
+            this.rdoCredit.TabIndex = 6;
+            this.rdoCredit.TabStop = true;
+            this.rdoCredit.Text = "Credit";
+            this.rdoCredit.UseVisualStyleBackColor = true;
+            // 
+            // rdoDebit
+            // 
+            this.rdoDebit.AutoSize = true;
+            this.rdoDebit.Location = new System.Drawing.Point(341, 34);
+            this.rdoDebit.Name = "rdoDebit";
+            this.rdoDebit.Size = new System.Drawing.Size(50, 17);
+            this.rdoDebit.TabIndex = 5;
+            this.rdoDebit.TabStop = true;
+            this.rdoDebit.Text = "Debit";
+            this.rdoDebit.UseVisualStyleBackColor = true;
+            // 
+            // txtamount
+            // 
+            this.txtamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtamount.Location = new System.Drawing.Point(157, 31);
+            this.txtamount.Name = "txtamount";
+            this.txtamount.Size = new System.Drawing.Size(140, 27);
+            this.txtamount.TabIndex = 4;
+            this.txtamount.Enter += new System.EventHandler(this.txtamount_Enter);
+            this.txtamount.Validating += new System.ComponentModel.CancelEventHandler(this.txtamount_Validating);
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblAmount.Location = new System.Drawing.Point(11, 34);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(131, 24);
+            this.lblAmount.TabIndex = 0;
+            this.lblAmount.Text = "Enter Amount:";
             // 
             // errorProvider1
             // 
@@ -280,96 +301,74 @@
             this.lblFname.TabIndex = 0;
             this.lblFname.Text = "First Name:";
             // 
-            // lblAmount
+            // gbSearch
             // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblAmount.Location = new System.Drawing.Point(11, 34);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(131, 24);
-            this.lblAmount.TabIndex = 0;
-            this.lblAmount.Text = "Enter Amount:";
+            this.gbSearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.gbSearch.Controls.Add(this.lstSearchResults);
+            this.gbSearch.Controls.Add(this.txtSearch);
+            this.gbSearch.Controls.Add(this.btnSearch);
+            this.gbSearch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSearch.Location = new System.Drawing.Point(12, 12);
+            this.gbSearch.Name = "gbSearch";
+            this.gbSearch.Size = new System.Drawing.Size(270, 169);
+            this.gbSearch.TabIndex = 10;
+            this.gbSearch.TabStop = false;
+            this.gbSearch.Text = "Search Students";
             // 
-            // txtamount
+            // lstSearchResults
             // 
-            this.txtamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtamount.Location = new System.Drawing.Point(157, 31);
-            this.txtamount.Name = "txtamount";
-            this.txtamount.Size = new System.Drawing.Size(140, 27);
-            this.txtamount.TabIndex = 4;
-            this.txtamount.Enter += new System.EventHandler(this.txtamount_Enter);
-            this.txtamount.Validating += new System.ComponentModel.CancelEventHandler(this.txtamount_Validating);
+            this.lstSearchResults.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstSearchResults.FormattingEnabled = true;
+            this.lstSearchResults.ItemHeight = 19;
+            this.lstSearchResults.Location = new System.Drawing.Point(15, 57);
+            this.lstSearchResults.Name = "lstSearchResults";
+            this.lstSearchResults.Size = new System.Drawing.Size(241, 99);
+            this.lstSearchResults.TabIndex = 3;
+            this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.LstSearchResults_SelectedIndexChanged);
             // 
-            // rdoDebit
+            // txtSearch
             // 
-            this.rdoDebit.AutoSize = true;
-            this.rdoDebit.Location = new System.Drawing.Point(341, 34);
-            this.rdoDebit.Name = "rdoDebit";
-            this.rdoDebit.Size = new System.Drawing.Size(50, 17);
-            this.rdoDebit.TabIndex = 5;
-            this.rdoDebit.TabStop = true;
-            this.rdoDebit.Text = "Debit";
-            this.rdoDebit.UseVisualStyleBackColor = true;
+            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(15, 25);
+            this.txtSearch.MaxLength = 50;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(144, 26);
+            this.txtSearch.TabIndex = 1;
             // 
-            // rdoCredit
+            // btnSearch
             // 
-            this.rdoCredit.AutoSize = true;
-            this.rdoCredit.Location = new System.Drawing.Point(341, 57);
-            this.rdoCredit.Name = "rdoCredit";
-            this.rdoCredit.Size = new System.Drawing.Size(52, 17);
-            this.rdoCredit.TabIndex = 6;
-            this.rdoCredit.TabStop = true;
-            this.rdoCredit.Text = "Credit";
-            this.rdoCredit.UseVisualStyleBackColor = true;
-            // 
-            // btnmakePayment
-            // 
-            this.btnmakePayment.Location = new System.Drawing.Point(458, 31);
-            this.btnmakePayment.Name = "btnmakePayment";
-            this.btnmakePayment.Size = new System.Drawing.Size(140, 23);
-            this.btnmakePayment.TabIndex = 7;
-            this.btnmakePayment.Text = "Confirm Payment";
-            this.btnmakePayment.UseVisualStyleBackColor = true;
-            this.btnmakePayment.Click += new System.EventHandler(this.btnmakePayment_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(458, 60);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(140, 23);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancel Payment";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(165, 25);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 26);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "&Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // MakePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 621);
+            this.Controls.Add(this.gbSearch);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbpayment);
-            this.Controls.Add(this.gbSearch);
             this.Name = "MakePayment";
             this.Text = "MakePayment";
             this.Load += new System.EventHandler(this.MakePayment_Load);
-            this.gbSearch.ResumeLayout(false);
-            this.gbSearch.PerformLayout();
             this.gbpayment.ResumeLayout(false);
             this.gbpayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbStudentsInfo.ResumeLayout(false);
             this.gbStudentsInfo.PerformLayout();
+            this.gbSearch.ResumeLayout(false);
+            this.gbSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gbSearch;
-        private System.Windows.Forms.ListBox lstSearchResults;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox gbpayment;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.GroupBox gbStudentsInfo;
@@ -393,5 +392,9 @@
         private System.Windows.Forms.TextBox txtamount;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox gbSearch;
+        private System.Windows.Forms.ListBox lstSearchResults;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

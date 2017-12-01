@@ -1,7 +1,6 @@
 ﻿using ABCAutomotive.BusinessLayer;
 using ABCAutomotive.Types;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd.MainForms
@@ -27,7 +26,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
             student = StudentFactory.Create();
             student.startDate = DateTime.Now;
-            student.endDate = DateTime.Now;
+            student.endDate = DateTime.Now.AddDays(1);
             student.status = (StudentStatus)cbStatus.SelectedItem;
             student.programType = (ProgramType)cbProgram.SelectedItem;
         }
@@ -48,7 +47,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 else
                 {
-                    MessageBox.Show("Form is not clean", "Insert rejected");
+                    MessageBox.Show("Fields Were Left Blank", "Insert rejected");
                 }
 
             }
@@ -105,7 +104,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void txtstudentID_Enter(object sender, EventArgs e)
         {
-            parent.StatusLabel.Text = "";
             (sender as TextBox).SelectAll();
         }
 

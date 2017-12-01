@@ -20,7 +20,6 @@ namespace ABCAutomotive.SQLLayer
             DataAccess.GetDataTable("spauthenticate", parmlist);
             return Convert.ToInt16(parmlist[2].parmValue);
         }
-
     }
 
     #endregion

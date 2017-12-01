@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
 
 namespace ABCAutomotive.Types
 {

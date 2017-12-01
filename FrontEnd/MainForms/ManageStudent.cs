@@ -116,7 +116,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 else
                 {
-                    MessageBox.Show("Form is not clean", "Update rejected");
+                    MessageBox.Show("Fields Were Left Blank", "Update rejected");
                 }
             }
             catch (Exception ex)
@@ -151,15 +151,21 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             btnupdate.Enabled = mode;
             btndelete.Enabled = mode;
-            btnSearch.Enabled = !mode;
             btnclear.Enabled = mode;
             gbStudentsInfo.Enabled = mode;
+            btnSearch.Enabled = !mode;
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {
             errorProvider1.Clear();
             parent.StatusLabel.Text = "";
+        }
+
+        private void txtfirstName_Click(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            (sender as TextBox).SelectAll();
         }
 
         private bool FormIsClean()
@@ -289,6 +295,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         }
 
         #endregion
+
 
     }
 }

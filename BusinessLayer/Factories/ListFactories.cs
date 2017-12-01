@@ -69,7 +69,6 @@ namespace ABCAutomotive.BusinessLayer
 
             newStudentsList = RepackageStudentLookup(tmpTable);
             return newStudentsList;
-
         }
 
         public static List<StudentLookup> Create(int studentID)
@@ -79,7 +78,6 @@ namespace ABCAutomotive.BusinessLayer
 
             newStudentsList = RepackageStudentLookup(tmpTable);
             return newStudentsList;
-
         }
 
         private static List<StudentLookup> RepackageStudentLookup(DataTable myTable)
@@ -96,6 +94,40 @@ namespace ABCAutomotive.BusinessLayer
             }
 
             return StudentsList;
+        }
+    }
+
+    #endregion
+
+    #region OverDue Lookup
+
+    public static class OverDueLookupFactory
+    {
+        public static List<OverDueLookup> Create()
+        {
+            DataTable tmpTable = ListsSQL.RetrieveOverdueLookup();
+            List<OverDueLookup> newOverdueist = new List<OverDueLookup>();
+
+            newOverdueist = RepackageOverdueLookup(tmpTable);
+            return newOverdueist;
+        }
+
+        private static List<OverDueLookup> RepackageOverdueLookup(DataTable myTable)
+        {
+            List<OverDueLookup> OverdueList = new List<OverDueLookup>();
+
+            foreach (DataRow Row in myTable.Rows)
+            {
+                OverDueLookup OverDueLookup = new OverDueLookup();
+                OverDueLookup.Description = Row["Description"].ToString();
+                OverDueLookup.StudentID = Convert.ToInt32(Row["StudentID"]);
+                OverDueLookup.Price = Convert.ToDouble(Row["Price"]);
+                OverDueLookup.FullName = Row["Full Name"].ToString();
+                OverDueLookup.ResourceType = (ResourceType)Row["Type"];
+                OverdueList.Add(OverDueLookup);
+            }
+
+            return OverdueList;
         }
     }
 

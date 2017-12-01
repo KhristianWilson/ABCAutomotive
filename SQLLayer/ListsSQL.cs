@@ -37,5 +37,14 @@ namespace ABCAutomotive.SQLLayer
 
         #endregion
 
+        #region Overdue Lookup
+
+        public static DataTable RetrieveOverdueLookup()
+        {
+            return DataAccess.GetDataTable("spoverDueChangesReport");
+        }
+
+        #endregion
+
     }
 }

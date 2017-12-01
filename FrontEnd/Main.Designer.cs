@@ -99,6 +99,7 @@
             this.checkOutToolStrip.Name = "checkOutToolStrip";
             this.checkOutToolStrip.Size = new System.Drawing.Size(165, 22);
             this.checkOutToolStrip.Text = "&Check Out";
+            this.checkOutToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // overdueChargeToolStrip
             // 

@@ -3,7 +3,6 @@ using ABCAutomotive.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 
 namespace ABCAutomotive.SQLLayer
 {
@@ -56,7 +55,14 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@publisher", resource.publisher, ParameterDirection.Input, SqlDbType.VarChar, 30));
             parmlist.Add(new ParmStruct("@dateOfPurchase", resource.purchaseDate, ParameterDirection.Input, SqlDbType.DateTime));
             parmlist.Add(new ParmStruct("@price", resource.price, ParameterDirection.Input, SqlDbType.Decimal));
-            parmlist.Add(new ParmStruct("@referenceNum", resource.referenceNumber, ParameterDirection.Input, SqlDbType.VarChar, 50));
+            if(resource.referenceNumber != string.Empty)
+            {
+                parmlist.Add(new ParmStruct("@referenceNum", resource.referenceNumber, ParameterDirection.Input, SqlDbType.VarChar, 50));
+            }
+            else
+            {
+                parmlist.Add(new ParmStruct("@referenceNum", DBNull.Value, ParameterDirection.Input, SqlDbType.VarChar, 50));
+            }
             parmlist.Add(new ParmStruct("@image", resource.image, ParameterDirection.Input, SqlDbType.Image));
             parmlist.Add(new ParmStruct("@status", resource.resourceStatus, ParameterDirection.Input, SqlDbType.TinyInt));
             DataAccess.SendData("spinsertResource", parmlist);

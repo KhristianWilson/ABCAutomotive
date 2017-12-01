@@ -45,4 +45,23 @@ namespace ABCAutomotive.BusinessLayer
 
     #endregion
 
+    #region OverDueLookUp
+
+    public class OverDueLookup
+    {
+        internal OverDueLookup()
+        {
+
+        }
+
+        public string Description { get; set; }
+        public ResourceType ResourceType { get; internal set; }
+        public int StudentID { get; internal set; }
+        public string FullName { get; set; }
+        public double Price { get; set; }
+
+    }
+
+    #endregion
+
 }
