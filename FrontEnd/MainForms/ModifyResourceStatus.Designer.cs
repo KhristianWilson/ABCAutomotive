@@ -66,30 +66,32 @@
             // 
             // gbSearchResource
             // 
+            this.gbSearchResource.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.gbSearchResource.Controls.Add(this.txtsearchResource);
             this.gbSearchResource.Controls.Add(this.btnSearchResource);
-            this.gbSearchResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSearchResource.Location = new System.Drawing.Point(12, 12);
+            this.gbSearchResource.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSearchResource.Location = new System.Drawing.Point(12, 4);
             this.gbSearchResource.Name = "gbSearchResource";
-            this.gbSearchResource.Size = new System.Drawing.Size(270, 60);
+            this.gbSearchResource.Size = new System.Drawing.Size(270, 68);
             this.gbSearchResource.TabIndex = 5;
             this.gbSearchResource.TabStop = false;
             this.gbSearchResource.Text = "Search Resources";
             // 
             // txtsearchResource
             // 
-            this.txtsearchResource.Location = new System.Drawing.Point(15, 19);
+            this.txtsearchResource.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsearchResource.Location = new System.Drawing.Point(15, 28);
             this.txtsearchResource.MaxLength = 50;
             this.txtsearchResource.Name = "txtsearchResource";
-            this.txtsearchResource.Size = new System.Drawing.Size(144, 22);
+            this.txtsearchResource.Size = new System.Drawing.Size(144, 26);
             this.txtsearchResource.TabIndex = 4;
             this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearchResource
             // 
-            this.btnSearchResource.Location = new System.Drawing.Point(181, 19);
+            this.btnSearchResource.Location = new System.Drawing.Point(165, 27);
             this.btnSearchResource.Name = "btnSearchResource";
-            this.btnSearchResource.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchResource.Size = new System.Drawing.Size(75, 26);
             this.btnSearchResource.TabIndex = 5;
             this.btnSearchResource.Text = "&Search";
             this.btnSearchResource.UseVisualStyleBackColor = true;
@@ -117,6 +119,7 @@
             this.gbResourceInfo.Controls.Add(this.lblreserveStatus);
             this.gbResourceInfo.Controls.Add(this.txttitle);
             this.gbResourceInfo.Controls.Add(this.lblresourceStatus);
+            this.gbResourceInfo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbResourceInfo.Location = new System.Drawing.Point(13, 79);
             this.gbResourceInfo.Name = "gbResourceInfo";
             this.gbResourceInfo.Size = new System.Drawing.Size(958, 328);
@@ -127,78 +130,80 @@
             // lblprice
             // 
             this.lblprice.AutoSize = true;
-            this.lblprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblprice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprice.Location = new System.Drawing.Point(267, 228);
             this.lblprice.Name = "lblprice";
-            this.lblprice.Size = new System.Drawing.Size(58, 24);
+            this.lblprice.Size = new System.Drawing.Size(52, 21);
             this.lblprice.TabIndex = 41;
             this.lblprice.Text = "Price:";
             // 
             // lblreferencenumber
             // 
             this.lblreferencenumber.AutoSize = true;
-            this.lblreferencenumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblreferencenumber.Location = new System.Drawing.Point(148, 261);
+            this.lblreferencenumber.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblreferencenumber.Location = new System.Drawing.Point(165, 263);
             this.lblreferencenumber.Name = "lblreferencenumber";
-            this.lblreferencenumber.Size = new System.Drawing.Size(177, 24);
+            this.lblreferencenumber.Size = new System.Drawing.Size(154, 21);
             this.lblreferencenumber.TabIndex = 42;
             this.lblreferencenumber.Text = "Reference Number:";
             // 
             // txtreferencenumber
             // 
             this.txtreferencenumber.Enabled = false;
-            this.txtreferencenumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtreferencenumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtreferencenumber.Location = new System.Drawing.Point(331, 258);
             this.txtreferencenumber.Name = "txtreferencenumber";
-            this.txtreferencenumber.Size = new System.Drawing.Size(140, 27);
+            this.txtreferencenumber.Size = new System.Drawing.Size(140, 26);
             this.txtreferencenumber.TabIndex = 44;
             // 
             // txtprice
             // 
             this.txtprice.Enabled = false;
-            this.txtprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtprice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtprice.Location = new System.Drawing.Point(331, 225);
             this.txtprice.Name = "txtprice";
-            this.txtprice.Size = new System.Drawing.Size(140, 27);
+            this.txtprice.Size = new System.Drawing.Size(140, 26);
             this.txtprice.TabIndex = 43;
             // 
             // dtpRemovelDate
             // 
-            this.dtpRemovelDate.Location = new System.Drawing.Point(678, 265);
+            this.dtpRemovelDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpRemovelDate.Location = new System.Drawing.Point(678, 259);
             this.dtpRemovelDate.Name = "dtpRemovelDate";
-            this.dtpRemovelDate.Size = new System.Drawing.Size(140, 20);
+            this.dtpRemovelDate.Size = new System.Drawing.Size(168, 26);
             this.dtpRemovelDate.TabIndex = 40;
             // 
             // dtpAddDate
             // 
-            this.dtpAddDate.Location = new System.Drawing.Point(678, 232);
+            this.dtpAddDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpAddDate.Location = new System.Drawing.Point(678, 226);
             this.dtpAddDate.Name = "dtpAddDate";
-            this.dtpAddDate.Size = new System.Drawing.Size(140, 20);
+            this.dtpAddDate.Size = new System.Drawing.Size(168, 26);
             this.dtpAddDate.TabIndex = 39;
             // 
             // lblDateOfRem
             // 
             this.lblDateOfRem.AutoSize = true;
-            this.lblDateOfRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfRem.Location = new System.Drawing.Point(516, 265);
+            this.lblDateOfRem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOfRem.Location = new System.Drawing.Point(518, 264);
             this.lblDateOfRem.Name = "lblDateOfRem";
-            this.lblDateOfRem.Size = new System.Drawing.Size(156, 24);
+            this.lblDateOfRem.Size = new System.Drawing.Size(144, 21);
             this.lblDateOfRem.TabIndex = 38;
             this.lblDateOfRem.Text = "Date Of Removal:";
             // 
             // lblDateOfPur
             // 
             this.lblDateOfPur.AutoSize = true;
-            this.lblDateOfPur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfPur.Location = new System.Drawing.Point(510, 228);
+            this.lblDateOfPur.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOfPur.Location = new System.Drawing.Point(516, 231);
             this.lblDateOfPur.Name = "lblDateOfPur";
-            this.lblDateOfPur.Size = new System.Drawing.Size(162, 24);
+            this.lblDateOfPur.Size = new System.Drawing.Size(146, 21);
             this.lblDateOfPur.TabIndex = 36;
             this.lblDateOfPur.Text = "Date Of Purchase:";
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(14, 19);
+            this.pbImage.Location = new System.Drawing.Point(14, 28);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(178, 156);
             this.pbImage.TabIndex = 33;
@@ -207,26 +212,26 @@
             // txtpublisher
             // 
             this.txtpublisher.Enabled = false;
-            this.txtpublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpublisher.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpublisher.Location = new System.Drawing.Point(331, 192);
             this.txtpublisher.Name = "txtpublisher";
-            this.txtpublisher.Size = new System.Drawing.Size(140, 27);
+            this.txtpublisher.Size = new System.Drawing.Size(140, 26);
             this.txtpublisher.TabIndex = 32;
             // 
             // lblpublisher
             // 
             this.lblpublisher.AutoSize = true;
-            this.lblpublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpublisher.Location = new System.Drawing.Point(231, 198);
+            this.lblpublisher.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpublisher.Location = new System.Drawing.Point(236, 198);
             this.lblpublisher.Name = "lblpublisher";
-            this.lblpublisher.Size = new System.Drawing.Size(94, 24);
+            this.lblpublisher.Size = new System.Drawing.Size(83, 21);
             this.lblpublisher.TabIndex = 31;
             this.lblpublisher.Text = "Publisher:";
             // 
             // txtDesc
             // 
             this.txtDesc.Enabled = false;
-            this.txtDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesc.Location = new System.Drawing.Point(331, 82);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
@@ -236,68 +241,68 @@
             // lbldescription
             // 
             this.lbldescription.AutoSize = true;
-            this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(216, 85);
+            this.lbldescription.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldescription.Location = new System.Drawing.Point(221, 85);
             this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(109, 24);
+            this.lbldescription.Size = new System.Drawing.Size(100, 21);
             this.lbldescription.TabIndex = 29;
             this.lbldescription.Text = "Description:";
             // 
             // lbltitle
             // 
             this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitle.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitle.Location = new System.Drawing.Point(275, 19);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(50, 24);
+            this.lbltitle.Size = new System.Drawing.Size(46, 21);
             this.lbltitle.TabIndex = 22;
             this.lbltitle.Text = "Title:";
             // 
             // txtreserveStatus
             // 
             this.txtreserveStatus.Enabled = false;
-            this.txtreserveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtreserveStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtreserveStatus.Location = new System.Drawing.Point(678, 192);
             this.txtreserveStatus.Name = "txtreserveStatus";
-            this.txtreserveStatus.Size = new System.Drawing.Size(140, 27);
+            this.txtreserveStatus.Size = new System.Drawing.Size(168, 26);
             this.txtreserveStatus.TabIndex = 28;
             // 
             // lbltype
             // 
             this.lbltype.AutoSize = true;
-            this.lbltype.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltype.Location = new System.Drawing.Point(267, 52);
+            this.lbltype.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltype.Location = new System.Drawing.Point(269, 51);
             this.lbltype.Name = "lbltype";
-            this.lbltype.Size = new System.Drawing.Size(58, 24);
+            this.lbltype.Size = new System.Drawing.Size(52, 21);
             this.lbltype.TabIndex = 23;
             this.lbltype.Text = "Type:";
             // 
             // txttype
             // 
             this.txttype.Enabled = false;
-            this.txttype.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttype.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttype.Location = new System.Drawing.Point(331, 49);
             this.txttype.Name = "txttype";
-            this.txttype.Size = new System.Drawing.Size(140, 27);
+            this.txttype.Size = new System.Drawing.Size(140, 26);
             this.txttype.TabIndex = 27;
             // 
             // lblreserveStatus
             // 
             this.lblreserveStatus.AutoSize = true;
-            this.lblreserveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblreserveStatus.Location = new System.Drawing.Point(576, 198);
+            this.lblreserveStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblreserveStatus.Location = new System.Drawing.Point(578, 198);
             this.lblreserveStatus.Name = "lblreserveStatus";
-            this.lblreserveStatus.Size = new System.Drawing.Size(96, 24);
+            this.lblreserveStatus.Size = new System.Drawing.Size(84, 21);
             this.lblreserveStatus.TabIndex = 24;
             this.lblreserveStatus.Text = "Reserved:";
             // 
             // txttitle
             // 
             this.txttitle.Enabled = false;
-            this.txttitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttitle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttitle.Location = new System.Drawing.Point(331, 16);
             this.txttitle.Name = "txttitle";
-            this.txttitle.Size = new System.Drawing.Size(140, 27);
+            this.txttitle.Size = new System.Drawing.Size(140, 26);
             this.txttitle.TabIndex = 26;
             // 
             // lblresourceStatus
@@ -312,26 +317,28 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(23, 431);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(65, 24);
+            this.lblStatus.Size = new System.Drawing.Size(60, 21);
             this.lblStatus.TabIndex = 34;
             this.lblStatus.Text = "Status:";
             // 
             // cbStatus
             // 
+            this.cbStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(94, 434);
+            this.cbStatus.Location = new System.Drawing.Point(89, 425);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(140, 21);
+            this.cbStatus.Size = new System.Drawing.Size(140, 27);
             this.cbStatus.TabIndex = 35;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(248, 431);
+            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(248, 425);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
             this.btnUpdate.TabIndex = 36;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -339,9 +346,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(329, 431);
+            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(329, 425);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(75, 29);
             this.btnClear.TabIndex = 37;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -363,7 +371,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.cbStatus);
             this.Name = "ModifyResourceStatus";
-            this.Text = "ModifyResourceStatus";
+            this.Text = "Modify Resource Status";
             this.Load += new System.EventHandler(this.ModifyResourceStatus_Load);
             this.gbSearchResource.ResumeLayout(false);
             this.gbSearchResource.PerformLayout();

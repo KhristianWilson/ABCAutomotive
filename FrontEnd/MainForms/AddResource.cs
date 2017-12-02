@@ -26,6 +26,8 @@ namespace ABCAutomotive.FrontEnd
             txttitle.MaxLength = 30;
             txtpublisher.MaxLength = 30;
             txtreferencenumber.MaxLength = 50;
+            txtResourceID.Enabled = true;
+
             pbImage.BorderStyle = BorderStyle.FixedSingle;
             cbType.DataSource = Enum.GetValues(typeof(ResourceType));
             cbStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
@@ -114,6 +116,7 @@ namespace ABCAutomotive.FrontEnd
                 if (FormIsClean())
                 {
                     ResourceMethods.InsertResource(resource);
+                    txtResourceID.Text = resource.resourceid.ToString();
                     parent.StatusLabel.Text = "Resource Added ID: " + resource.resourceid.ToString();                   
                 }
                 else
@@ -170,6 +173,17 @@ namespace ABCAutomotive.FrontEnd
             }
 
             return isClean;
+        }
+
+        private void txttitle_Click(object sender, EventArgs e)
+        {
+            (sender as TextBox).SelectAll();
+        }
+
+        private void txttitle_Enter(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            (sender as TextBox).SelectAll();
         }
 
         #endregion

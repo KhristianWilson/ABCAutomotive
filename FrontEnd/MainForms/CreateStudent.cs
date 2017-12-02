@@ -43,7 +43,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     StudentCUD.Insert(student);
                     txtstudentID.Text = student.studentid.ToString();
-                    parent.StatusLabel.Text = ("Insert Successful");
+                    parent.StatusLabel.Text = "Insert Successful StudentID:" + student.studentid;
                 }
                 else
                 {

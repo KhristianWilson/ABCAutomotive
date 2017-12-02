@@ -1,4 +1,5 @@
 ﻿using ABCAutomotive.BusinessLayer;
+using ABCAutomotive.Types;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -25,6 +26,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbpayment.Visible = false;
             gbStudentsInfo.Visible = false;
             gbStudentsInfo.Enabled = false;
+            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
             student = StudentFactory.Create();
             payment = PaymentFactory.Create();
         }
@@ -86,10 +89,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtfirstName.Text = student.firstName;
             txtlastName.Text = student.lastName;
             txtbalance.Text = student.balanceDue.ToString("c");
-            txtprogram.Text = student.programType.ToString();
-            txtstartDate.Text = student.startDate.ToString();
-            txtendDate.Text = student.endDate.ToString();
-            txtstatus.Text = student.status.ToString();
+            cbProgram.SelectedItem = student.programType.ToString();
+            cbStatus.SelectedItem = student.startDate.ToString();
+            dtpstartDate.Value = student.startDate;
+            dtpendDate.Value = student.endDate;
         }
 
         #endregion

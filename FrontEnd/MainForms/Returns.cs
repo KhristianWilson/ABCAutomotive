@@ -1,4 +1,5 @@
 ﻿using ABCAutomotive.BusinessLayer;
+using ABCAutomotive.Types;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -27,6 +28,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbReturn.Visible = false;
             dgvLoans.ReadOnly = true;
             parent.StatusLabel.Text = "";
+
+            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
         }
 
         #endregion
@@ -73,10 +77,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtfirstName.Text = student.firstName;
             txtlastName.Text = student.lastName;
             txtbalance.Text = student.balanceDue.ToString("c");
-            txtprogram.Text = student.programType.ToString();
-            txtstartDate.Text = student.startDate.ToString();
-            txtendDate.Text = student.endDate.ToString();
-            txtstatus.Text = student.status.ToString();
+            cbprogram.SelectedItem = student.programType;
+            dtpstartDate.Value = student.startDate;
+            dtpendDate.Value = student.endDate;
+            cbstudentStatus.SelectedItem = student.status;
         }
 
         #endregion

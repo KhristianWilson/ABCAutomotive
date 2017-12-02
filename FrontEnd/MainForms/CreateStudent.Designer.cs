@@ -67,7 +67,7 @@
             // 
             this.panActions.Controls.Add(this.btnclear);
             this.panActions.Controls.Add(this.btninsert);
-            this.panActions.Location = new System.Drawing.Point(12, 206);
+            this.panActions.Location = new System.Drawing.Point(12, 194);
             this.panActions.Name = "panActions";
             this.panActions.Size = new System.Drawing.Size(959, 100);
             this.panActions.TabIndex = 26;
@@ -75,7 +75,7 @@
             // btnclear
             // 
             this.btnclear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclear.Location = new System.Drawing.Point(189, 27);
+            this.btnclear.Location = new System.Drawing.Point(183, 27);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(162, 44);
             this.btnclear.TabIndex = 14;
@@ -86,7 +86,7 @@
             // btninsert
             // 
             this.btninsert.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btninsert.Location = new System.Drawing.Point(21, 27);
+            this.btninsert.Location = new System.Drawing.Point(15, 27);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(162, 44);
             this.btninsert.TabIndex = 13;
@@ -141,6 +141,8 @@
             this.txtstudentID.Name = "txtstudentID";
             this.txtstudentID.Size = new System.Drawing.Size(148, 26);
             this.txtstudentID.TabIndex = 4;
+            this.txtstudentID.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtstudentID.Enter += new System.EventHandler(this.txtstudentID_Enter);
             // 
             // lblstudentID
             // 
@@ -160,6 +162,9 @@
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 26);
             this.txtphoneNumber.TabIndex = 11;
+            this.txtphoneNumber.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtphoneNumber.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblphone
             // 
@@ -178,6 +183,9 @@
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 26);
             this.txtpostalCode.TabIndex = 10;
+            this.txtpostalCode.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtpostalCode.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtcity
             // 
@@ -186,6 +194,9 @@
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 26);
             this.txtcity.TabIndex = 9;
+            this.txtcity.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtcity.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtaddress
             // 
@@ -194,6 +205,9 @@
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 26);
             this.txtaddress.TabIndex = 8;
+            this.txtaddress.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtaddress.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblpostalCode
             // 
@@ -234,6 +248,7 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(200, 29);
             this.cbStatus.TabIndex = 13;
+            this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // cbProgram
             // 
@@ -244,6 +259,7 @@
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(200, 29);
             this.cbProgram.TabIndex = 12;
+            this.cbProgram.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // dtpendDate
             // 
@@ -253,6 +269,7 @@
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(200, 29);
             this.dtpendDate.TabIndex = 15;
+            this.dtpendDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtbalance
             // 
@@ -261,6 +278,9 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(148, 26);
             this.txtbalance.TabIndex = 7;
+            this.txtbalance.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtbalance.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
             // 
@@ -280,6 +300,7 @@
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(200, 29);
             this.dtpstartDate.TabIndex = 14;
+            this.dtpstartDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtlastName
             // 
@@ -288,12 +309,15 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(148, 26);
             this.txtlastName.TabIndex = 6;
+            this.txtlastName.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtlastName.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtlastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(609, 138);
+            this.lblEndDate.Location = new System.Drawing.Point(609, 144);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(83, 21);
             this.lblEndDate.TabIndex = 5;
@@ -306,6 +330,9 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(148, 26);
             this.txtfirstName.TabIndex = 5;
+            this.txtfirstName.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtfirstName.Enter += new System.EventHandler(this.txtstudentID_Enter);
+            this.txtfirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStatus
             // 
@@ -367,7 +394,6 @@
             this.Name = "CreateStudent";
             this.Text = "Create Students";
             this.Load += new System.EventHandler(this.CreateStudent_Load);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             this.panActions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbStudentsInfo.ResumeLayout(false);

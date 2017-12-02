@@ -1,4 +1,5 @@
 ﻿using ABCAutomotive.BusinessLayer;
+using ABCAutomotive.Types;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -28,6 +29,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbStudentsInfo.Visible = false;
             btnReserveResource.Visible = false;
             btnclear.Visible = false;
+
+            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
+            cbresourceStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
+            cbreserved.DataSource = Enum.GetValues(typeof(ReserveStatus));
+            cbtype.DataSource = Enum.GetValues(typeof(ResourceType));
         }
 
         #endregion
@@ -60,9 +67,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void loadResourceInfo()
         {
             txttitle.Text = resource.title;
-            txtreserveStatus.Text = resource.reserveStatus.ToString();
-            txttype.Text = resource.resourceType.ToString();
-            txtresourceStatus.Text = resource.resourceStatus.ToString();
+            cbreserved.SelectedItem = resource.reserveStatus;
+            txttitle.Text = resource.resourceType.ToString();
+            cbresourceStatus.SelectedItem = resource.resourceStatus;
             btnReserveResource.Enabled = true;
             Validation.validReserve(resource);
         }
@@ -127,10 +134,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtfirstName.Text = student.firstName;
             txtlastName.Text = student.lastName;
             txtbalance.Text = student.balanceDue.ToString("c2");
-            txtprogram.Text = student.programType.ToString();
-            txtstartDate.Text = student.startDate.ToString();
-            txtendDate.Text = student.endDate.ToString();
-            txtstatus.Text = student.status.ToString();
+            cbprogram.SelectedItem = student.programType;
+            dtpstartDate.Value = student.startDate;
+            dtpendDate.Value = student.endDate;
+            cbstudentStatus.SelectedItem = student.status;
         }
 
         #endregion
