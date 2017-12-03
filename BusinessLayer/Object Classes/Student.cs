@@ -30,7 +30,6 @@ namespace ABCAutomotive.BusinessLayer
         internal StudentStatus _status;
         internal DateTime _startDate = DateTime.Now;
         internal DateTime _endDate = new DateTime(DateTime.Now.Day + 1);
-        internal object _timeStamp;
 
         internal Boolean _trusted = false;
 
@@ -316,18 +315,6 @@ namespace ABCAutomotive.BusinessLayer
                     throw new ConstraintException("End date must after start date");
                 }
                 _endDate = value;
-            }
-        }
-
-        object IStudent.TimeStamp
-        {
-            get
-            {
-                return _timeStamp;
-            }
-            set
-            {
-                value = _timeStamp;
             }
         }
 

@@ -91,7 +91,6 @@ namespace ABCAutomotive.BusinessLayer
             myStudent.status = (StudentStatus)(Convert.ToInt32(myRow["Status"]));
             myStudent._startDate = Convert.ToDateTime(myRow["StartDate"]);
             myStudent._endDate = Convert.ToDateTime(myRow["EndDate"]);
-            myStudent._timeStamp = myRow["TimeStamp"];
             myStudent._trusted = true;
 
             return myStudent;
@@ -158,7 +157,6 @@ namespace ABCAutomotive.BusinessLayer
             {
                 myResource._removealDate = DateTime.Now;
             }
-            myResource._timestamp = myRow["TimeStamp"];
             myResource._trusted = true;
 
             return myResource;

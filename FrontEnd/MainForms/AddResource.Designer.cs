@@ -119,26 +119,29 @@
             this.btnLoadImage.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(80, 30);
-            this.btnLoadImage.TabIndex = 49;
+            this.btnLoadImage.TabIndex = 9;
             this.btnLoadImage.Text = "Load Image";
             this.btnLoadImage.UseVisualStyleBackColor = true;
             this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(719, 285);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(198, 27);
-            this.cbStatus.TabIndex = 48;
+            this.cbStatus.TabIndex = 7;
             this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
             // cbType
             // 
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbType.FormattingEnabled = true;
+            this.cbType.ItemHeight = 19;
             this.cbType.Location = new System.Drawing.Point(333, 120);
             this.cbType.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cbType.Name = "cbType";
@@ -152,7 +155,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(118, 30);
-            this.btnClear.TabIndex = 46;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -163,7 +166,7 @@
             this.btninsert.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(118, 30);
-            this.btninsert.TabIndex = 45;
+            this.btninsert.TabIndex = 10;
             this.btninsert.Text = "&Add Resource";
             this.btninsert.UseVisualStyleBackColor = true;
             this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
@@ -197,7 +200,7 @@
             this.txtreferencenumber.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtreferencenumber.Name = "txtreferencenumber";
             this.txtreferencenumber.Size = new System.Drawing.Size(210, 26);
-            this.txtreferencenumber.TabIndex = 44;
+            this.txtreferencenumber.TabIndex = 6;
             this.txtreferencenumber.Click += new System.EventHandler(this.txttitle_Click);
             this.txtreferencenumber.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtreferencenumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
@@ -209,7 +212,7 @@
             this.txtprice.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtprice.Name = "txtprice";
             this.txtprice.Size = new System.Drawing.Size(210, 26);
-            this.txtprice.TabIndex = 43;
+            this.txtprice.TabIndex = 5;
             this.txtprice.Click += new System.EventHandler(this.txttitle_Click);
             this.txtprice.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtprice.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
@@ -221,7 +224,7 @@
             this.dtpAddDate.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.dtpAddDate.Name = "dtpAddDate";
             this.dtpAddDate.Size = new System.Drawing.Size(198, 26);
-            this.dtpAddDate.TabIndex = 39;
+            this.dtpAddDate.TabIndex = 8;
             this.dtpAddDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
             // lblDateOfPur
@@ -252,7 +255,7 @@
             this.txtpublisher.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtpublisher.Name = "txtpublisher";
             this.txtpublisher.Size = new System.Drawing.Size(210, 26);
-            this.txtpublisher.TabIndex = 32;
+            this.txtpublisher.TabIndex = 4;
             this.txtpublisher.Click += new System.EventHandler(this.txttitle_Click);
             this.txtpublisher.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtpublisher.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
@@ -276,7 +279,7 @@
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(297, 104);
-            this.txtDesc.TabIndex = 30;
+            this.txtDesc.TabIndex = 3;
             this.txtDesc.Click += new System.EventHandler(this.txttitle_Click);
             this.txtDesc.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtDesc.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
@@ -332,7 +335,7 @@
             this.txttitle.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txttitle.Name = "txttitle";
             this.txttitle.Size = new System.Drawing.Size(211, 26);
-            this.txttitle.TabIndex = 26;
+            this.txttitle.TabIndex = 1;
             this.txttitle.Click += new System.EventHandler(this.txttitle_Click);
             this.txttitle.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txttitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);

@@ -241,6 +241,7 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.ItemHeight = 21;
@@ -252,10 +253,11 @@
             // 
             // cbProgram
             // 
+            this.cbProgram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProgram.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProgram.FormattingEnabled = true;
             this.cbProgram.ItemHeight = 21;
-            this.cbProgram.Location = new System.Drawing.Point(704, 39);
+            this.cbProgram.Location = new System.Drawing.Point(704, 31);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(200, 29);
             this.cbProgram.TabIndex = 12;
@@ -338,7 +340,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(632, 80);
+            this.lblStatus.Location = new System.Drawing.Point(632, 76);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(60, 21);
             this.lblStatus.TabIndex = 6;
@@ -348,7 +350,7 @@
             // 
             this.lblProgram.AutoSize = true;
             this.lblProgram.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgram.Location = new System.Drawing.Point(614, 47);
+            this.lblProgram.Location = new System.Drawing.Point(614, 39);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(78, 21);
             this.lblProgram.TabIndex = 3;

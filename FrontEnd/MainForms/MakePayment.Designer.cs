@@ -38,7 +38,11 @@
             this.lblAmount = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbStudentsInfo = new System.Windows.Forms.GroupBox();
+            this.dtpendDate = new System.Windows.Forms.DateTimePicker();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
             this.txtbalance = new System.Windows.Forms.TextBox();
+            this.cbProgram = new System.Windows.Forms.ComboBox();
             this.txtlastName = new System.Windows.Forms.TextBox();
             this.txtfirstName = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -52,10 +56,6 @@
             this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.cbProgram = new System.Windows.Forms.ComboBox();
-            this.dtpendDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
             this.gbpayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbStudentsInfo.SuspendLayout();
@@ -169,6 +169,35 @@
             this.gbStudentsInfo.Text = "Student Info";
             this.gbStudentsInfo.Visible = false;
             // 
+            // dtpendDate
+            // 
+            this.dtpendDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpendDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpendDate.Location = new System.Drawing.Point(458, 118);
+            this.dtpendDate.Name = "dtpendDate";
+            this.dtpendDate.Size = new System.Drawing.Size(200, 29);
+            this.dtpendDate.TabIndex = 19;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.ItemHeight = 21;
+            this.cbStatus.Location = new System.Drawing.Point(458, 52);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(200, 29);
+            this.cbStatus.TabIndex = 17;
+            // 
+            // dtpstartDate
+            // 
+            this.dtpstartDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpstartDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpstartDate.Location = new System.Drawing.Point(458, 84);
+            this.dtpstartDate.Name = "dtpstartDate";
+            this.dtpstartDate.Size = new System.Drawing.Size(200, 29);
+            this.dtpstartDate.TabIndex = 18;
+            // 
             // txtbalance
             // 
             this.txtbalance.Enabled = false;
@@ -177,6 +206,17 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(140, 26);
             this.txtbalance.TabIndex = 9;
+            // 
+            // cbProgram
+            // 
+            this.cbProgram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProgram.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProgram.FormattingEnabled = true;
+            this.cbProgram.ItemHeight = 21;
+            this.cbProgram.Location = new System.Drawing.Point(458, 20);
+            this.cbProgram.Name = "cbProgram";
+            this.cbProgram.Size = new System.Drawing.Size(200, 29);
+            this.cbProgram.TabIndex = 16;
             // 
             // txtlastName
             // 
@@ -310,44 +350,6 @@
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.ItemHeight = 21;
-            this.cbStatus.Location = new System.Drawing.Point(458, 52);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(200, 29);
-            this.cbStatus.TabIndex = 17;
-            // 
-            // cbProgram
-            // 
-            this.cbProgram.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProgram.FormattingEnabled = true;
-            this.cbProgram.ItemHeight = 21;
-            this.cbProgram.Location = new System.Drawing.Point(458, 20);
-            this.cbProgram.Name = "cbProgram";
-            this.cbProgram.Size = new System.Drawing.Size(200, 29);
-            this.cbProgram.TabIndex = 16;
-            // 
-            // dtpendDate
-            // 
-            this.dtpendDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpendDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpendDate.Location = new System.Drawing.Point(458, 118);
-            this.dtpendDate.Name = "dtpendDate";
-            this.dtpendDate.Size = new System.Drawing.Size(200, 29);
-            this.dtpendDate.TabIndex = 19;
-            // 
-            // dtpstartDate
-            // 
-            this.dtpstartDate.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpstartDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpstartDate.Location = new System.Drawing.Point(458, 84);
-            this.dtpstartDate.Name = "dtpstartDate";
-            this.dtpstartDate.Size = new System.Drawing.Size(200, 29);
-            this.dtpstartDate.TabIndex = 18;
             // 
             // MakePayment
             // 

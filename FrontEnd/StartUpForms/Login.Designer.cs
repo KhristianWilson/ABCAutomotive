@@ -72,6 +72,8 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(220, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Click += new System.EventHandler(this.txtUsername_Click);
+            this.txtPassword.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtUsername
@@ -80,6 +82,8 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(220, 20);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // PasswordLabel

@@ -47,7 +47,6 @@ namespace ABCAutomotive.SQLLayer
         public static bool insertResource(IResource resource)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@timestamp", DBNull.Value, ParameterDirection.InputOutput, SqlDbType.Timestamp));
             parmlist.Add(new ParmStruct("@resourceId", resource.resourceid, ParameterDirection.InputOutput, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@desc", resource.description, ParameterDirection.Input, SqlDbType.VarChar, 50));
             parmlist.Add(new ParmStruct("@title", resource.title, ParameterDirection.Input, SqlDbType.VarChar, 30));
@@ -66,8 +65,7 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@image", resource.image, ParameterDirection.Input, SqlDbType.Image));
             parmlist.Add(new ParmStruct("@status", resource.resourceStatus, ParameterDirection.Input, SqlDbType.TinyInt));
             DataAccess.SendData("spinsertResource", parmlist);
-            resource.resourceid = Convert.ToInt32(parmlist[1].parmValue);
-            resource.TimeStamp = parmlist[0].parmValue;
+            resource.resourceid = Convert.ToInt32(parmlist[0].parmValue);
             return true;
         }
     }

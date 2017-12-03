@@ -53,7 +53,6 @@ namespace ABCAutomotive.SQLLayer
         public static bool Update(IStudent student)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@timestamp", student.TimeStamp, ParameterDirection.InputOutput, SqlDbType.Timestamp));
             parmlist.Add(new ParmStruct("@stuid", student.studentid, ParameterDirection.Input, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@firstName", student.firstName, ParameterDirection.Input, SqlDbType.VarChar, 20));
             parmlist.Add(new ParmStruct("@lastName", student.lastName, ParameterDirection.Input, SqlDbType.VarChar, 30));
@@ -67,14 +66,12 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@endDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
 
             DataAccess.SendData("spupdateStudent", parmlist);
-            student.TimeStamp = parmlist[0].parmValue;
             return true;
         }
 
         public static bool Insert(IStudent student)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
-            parmlist.Add(new ParmStruct("@timestamp", DBNull.Value, ParameterDirection.InputOutput, SqlDbType.Timestamp));
             parmlist.Add(new ParmStruct("@stuid", student.studentid, ParameterDirection.InputOutput, SqlDbType.Int));
             parmlist.Add(new ParmStruct("@firstName", student.firstName, ParameterDirection.Input, SqlDbType.VarChar, 20));
             parmlist.Add(new ParmStruct("@lastName", student.lastName, ParameterDirection.Input, SqlDbType.VarChar, 30));
@@ -88,8 +85,7 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@endDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
 
             DataAccess.SendData("spinsertStudent", parmlist);
-            student.TimeStamp = parmlist[0].parmValue;
-            student.studentid = Convert.ToInt32(parmlist[1].parmValue);
+            student.studentid = Convert.ToInt32(parmlist[0].parmValue);
             return true;
         }
     }

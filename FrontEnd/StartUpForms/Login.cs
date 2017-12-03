@@ -85,7 +85,18 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
             }
         }
 
-       #endregion
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+            (sender as TextBox).SelectAll();
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
+            (sender as TextBox).SelectAll();
+        }
+
+        #endregion
 
     }
 }

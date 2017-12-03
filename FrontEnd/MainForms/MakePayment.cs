@@ -144,13 +144,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     errorProvider1.SetError(txtamount, "Amount Must Be Greater Than 0.00");
                     btnmakePayment.Enabled = false;
                 }
+                else
+                {
+                    btnmakePayment.Enabled = true;
+                }
             }
             else
             {
                 errorProvider1.SetError(txtamount, "Amount Must an Decimal Amount");
                 btnmakePayment.Enabled = false;
             }
-            btnmakePayment.Enabled = true;
         }
 
         #endregion

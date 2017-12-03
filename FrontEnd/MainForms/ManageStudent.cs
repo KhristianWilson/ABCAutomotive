@@ -158,13 +158,13 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            errorProvider1.SetError((sender as Control), "");
             parent.StatusLabel.Text = "";
         }
 
         private void txtfirstName_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            errorProvider1.SetError((sender as Control), "");
             (sender as TextBox).SelectAll();
         }
 

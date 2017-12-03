@@ -26,7 +26,7 @@ namespace ABCAutomotive.FrontEnd
             txttitle.MaxLength = 30;
             txtpublisher.MaxLength = 30;
             txtreferencenumber.MaxLength = 50;
-            txtResourceID.Enabled = true;
+            txtResourceID.Enabled = false;
 
             pbImage.BorderStyle = BorderStyle.FixedSingle;
             cbType.DataSource = Enum.GetValues(typeof(ResourceType));
@@ -182,7 +182,7 @@ namespace ABCAutomotive.FrontEnd
 
         private void txttitle_Enter(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            errorProvider1.SetError((sender as Control), "");
             (sender as TextBox).SelectAll();
         }
 

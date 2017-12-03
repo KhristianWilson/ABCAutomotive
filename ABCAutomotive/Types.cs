@@ -20,7 +20,6 @@ namespace ABCAutomotive.Types
         StudentStatus status { get; set; }
         DateTime startDate { get; set; }
         DateTime endDate { get; set; }
-        object TimeStamp { get; set; }
 
     }
 
@@ -36,7 +35,6 @@ namespace ABCAutomotive.Types
         ResourceType resourceType { get; set; }
         DateTime purchaseDate { get; set; }
         double price { get; set; }
-        object TimeStamp { get; set; }
     }
 
     public interface IPayment

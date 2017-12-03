@@ -31,7 +31,6 @@ namespace ABCAutomotive.BusinessLayer
         internal DateTime _dateOfPurchase;
         internal byte[] _image;
         internal double _price;
-        internal object _timestamp;
 
         internal int _reserveingStudent;
         internal DateTime _removealDate;
@@ -299,19 +298,6 @@ namespace ABCAutomotive.BusinessLayer
                 return _removealDate;
             }
         }
-
-        object IResource.TimeStamp
-        {
-            get
-            {
-                return _timestamp;
-            }
-            set
-            {
-                value = _timestamp;
-            }
-        }
-
 
         #endregion
 

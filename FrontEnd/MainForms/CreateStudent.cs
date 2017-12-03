@@ -105,11 +105,13 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void txtstudentID_Enter(object sender, EventArgs e)
         {
             (sender as TextBox).SelectAll();
+            errorProvider1.SetError((sender as Control), "");
         }
 
         private void txtfirstName_Click(object sender, EventArgs e)
         {
             (sender as TextBox).SelectAll();
+            errorProvider1.SetError((sender as Control), "");
         }
 
         #endregion
