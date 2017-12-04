@@ -43,7 +43,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 int resourceID;
 
-                if (int.TryParse(txtsearchResource.Text, out resourceID) || txtsearchResource.Text.Length == 8)
+                if (int.TryParse(txtsearchResource.Text, out resourceID) && txtsearchResource.Text.Length == 8)
                 {
                     student = StudentFactory.CreateByResouce(resourceID);
                     loadStudentInfo();
@@ -97,6 +97,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void txtsearchResource_Enter(object sender, EventArgs e)
         {
             errorProvider1.Clear();
+            txtsearchResource.SelectAll();
+        }
+
+        private void txtsearchResource_Click(object sender, EventArgs e)
+        {
+            txtsearchResource.SelectAll();
         }
 
         private void btnClear_Click(object sender, EventArgs e)

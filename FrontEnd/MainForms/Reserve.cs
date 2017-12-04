@@ -49,6 +49,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
                 {
                     resource = ResourceFactory.Create(resouceID);
+                    Validation.validReserve(resource);
                     loadResourceInfo();
                     ReserveMode();
                 }
@@ -71,7 +72,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txttitle.Text = resource.resourceType.ToString();
             cbresourceStatus.SelectedItem = resource.resourceStatus;
             btnReserveResource.Enabled = true;
-            Validation.validReserve(resource);
         }
 
         #endregion

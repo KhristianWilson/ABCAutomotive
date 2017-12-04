@@ -101,7 +101,7 @@
             // rdoCredit
             // 
             this.rdoCredit.AutoSize = true;
-            this.rdoCredit.Location = new System.Drawing.Point(369, 54);
+            this.rdoCredit.Location = new System.Drawing.Point(362, 62);
             this.rdoCredit.Name = "rdoCredit";
             this.rdoCredit.Size = new System.Drawing.Size(74, 25);
             this.rdoCredit.TabIndex = 6;
@@ -112,7 +112,7 @@
             // rdoDebit
             // 
             this.rdoDebit.AutoSize = true;
-            this.rdoDebit.Location = new System.Drawing.Point(369, 31);
+            this.rdoDebit.Location = new System.Drawing.Point(362, 31);
             this.rdoDebit.Name = "rdoDebit";
             this.rdoDebit.Size = new System.Drawing.Size(68, 25);
             this.rdoDebit.TabIndex = 5;

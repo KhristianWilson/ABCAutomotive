@@ -89,6 +89,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
                 student = StudentFactory.Create(studentID);
+                Validation.validStudent(student);
                 loadStudentInfo();
                 loadStudentLoans();
                 CheckOutMode();

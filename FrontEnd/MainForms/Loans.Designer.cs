@@ -35,6 +35,10 @@
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.gbStudentsInfo = new System.Windows.Forms.GroupBox();
+            this.dtpendDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
+            this.cbstudentStatus = new System.Windows.Forms.ComboBox();
+            this.cbprogram = new System.Windows.Forms.ComboBox();
             this.txtbalance = new System.Windows.Forms.TextBox();
             this.txtlastName = new System.Windows.Forms.TextBox();
             this.txtfirstName = new System.Windows.Forms.TextBox();
@@ -64,10 +68,6 @@
             this.btncheckOut = new System.Windows.Forms.Button();
             this.lstCart = new System.Windows.Forms.ListBox();
             this.btnRemoveItem = new System.Windows.Forms.Button();
-            this.dtpendDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
-            this.cbstudentStatus = new System.Windows.Forms.ComboBox();
-            this.cbprogram = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbSearch.SuspendLayout();
             this.gbStudentsInfo.SuspendLayout();
@@ -149,6 +149,42 @@
             this.gbStudentsInfo.TabStop = false;
             this.gbStudentsInfo.Text = "Student Info";
             this.gbStudentsInfo.Visible = false;
+            // 
+            // dtpendDate
+            // 
+            this.dtpendDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpendDate.Location = new System.Drawing.Point(419, 86);
+            this.dtpendDate.Name = "dtpendDate";
+            this.dtpendDate.Size = new System.Drawing.Size(204, 26);
+            this.dtpendDate.TabIndex = 29;
+            // 
+            // dtpstartDate
+            // 
+            this.dtpstartDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpstartDate.Location = new System.Drawing.Point(419, 55);
+            this.dtpstartDate.Name = "dtpstartDate";
+            this.dtpstartDate.Size = new System.Drawing.Size(204, 26);
+            this.dtpstartDate.TabIndex = 28;
+            // 
+            // cbstudentStatus
+            // 
+            this.cbstudentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstudentStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbstudentStatus.FormattingEnabled = true;
+            this.cbstudentStatus.Location = new System.Drawing.Point(419, 116);
+            this.cbstudentStatus.Name = "cbstudentStatus";
+            this.cbstudentStatus.Size = new System.Drawing.Size(204, 27);
+            this.cbstudentStatus.TabIndex = 27;
+            // 
+            // cbprogram
+            // 
+            this.cbprogram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbprogram.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbprogram.FormattingEnabled = true;
+            this.cbprogram.Location = new System.Drawing.Point(419, 22);
+            this.cbprogram.Name = "cbprogram";
+            this.cbprogram.Size = new System.Drawing.Size(204, 27);
+            this.cbprogram.TabIndex = 26;
             // 
             // txtbalance
             // 
@@ -447,40 +483,6 @@
             this.btnRemoveItem.Text = "&Remove Item";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
             this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
-            // 
-            // dtpendDate
-            // 
-            this.dtpendDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpendDate.Location = new System.Drawing.Point(419, 86);
-            this.dtpendDate.Name = "dtpendDate";
-            this.dtpendDate.Size = new System.Drawing.Size(204, 26);
-            this.dtpendDate.TabIndex = 29;
-            // 
-            // dtpstartDate
-            // 
-            this.dtpstartDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpstartDate.Location = new System.Drawing.Point(419, 55);
-            this.dtpstartDate.Name = "dtpstartDate";
-            this.dtpstartDate.Size = new System.Drawing.Size(204, 26);
-            this.dtpstartDate.TabIndex = 28;
-            // 
-            // cbstudentStatus
-            // 
-            this.cbstudentStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbstudentStatus.FormattingEnabled = true;
-            this.cbstudentStatus.Location = new System.Drawing.Point(419, 116);
-            this.cbstudentStatus.Name = "cbstudentStatus";
-            this.cbstudentStatus.Size = new System.Drawing.Size(204, 27);
-            this.cbstudentStatus.TabIndex = 27;
-            // 
-            // cbprogram
-            // 
-            this.cbprogram.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbprogram.FormattingEnabled = true;
-            this.cbprogram.Location = new System.Drawing.Point(419, 22);
-            this.cbprogram.Name = "cbprogram";
-            this.cbprogram.Size = new System.Drawing.Size(204, 27);
-            this.cbprogram.TabIndex = 26;
             // 
             // Loans
             // 
