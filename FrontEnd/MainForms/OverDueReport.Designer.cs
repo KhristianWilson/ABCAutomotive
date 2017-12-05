@@ -31,6 +31,7 @@
             this.dgvoverDueLoans = new System.Windows.Forms.DataGridView();
             this.lblDate = new System.Windows.Forms.Label();
             this.lbldateText = new System.Windows.Forms.Label();
+            this.lblnoRecords = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvoverDueLoans)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,16 +61,27 @@
             this.lbldateText.Size = new System.Drawing.Size(211, 43);
             this.lbldateText.TabIndex = 2;
             // 
+            // lblnoRecords
+            // 
+            this.lblnoRecords.AutoSize = true;
+            this.lblnoRecords.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnoRecords.Location = new System.Drawing.Point(428, 31);
+            this.lblnoRecords.Name = "lblnoRecords";
+            this.lblnoRecords.Size = new System.Drawing.Size(0, 21);
+            this.lblnoRecords.TabIndex = 3;
+            // 
             // OverDueReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 621);
+            this.Controls.Add(this.lblnoRecords);
             this.Controls.Add(this.lbldateText);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dgvoverDueLoans);
             this.Name = "OverDueReport";
             this.Text = "Overdue Loans";
+            this.Activated += new System.EventHandler(this.OverDueReport_Activated);
             this.Load += new System.EventHandler(this.OverDueLoans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvoverDueLoans)).EndInit();
             this.ResumeLayout(false);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.DataGridView dgvoverDueLoans;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lbldateText;
+        private System.Windows.Forms.Label lblnoRecords;
     }
 }

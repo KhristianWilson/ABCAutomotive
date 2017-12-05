@@ -39,7 +39,6 @@ namespace ABCAutomotive.Types
 
     public interface IPayment
     {
-        int paymentId { get; set; }
         DateTime paymentDate { get; set; }
         decimal paymentAmount { get; set; }
         int studentId { get; set; }

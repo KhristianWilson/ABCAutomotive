@@ -119,7 +119,7 @@
             this.btnLoadImage.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(80, 30);
-            this.btnLoadImage.TabIndex = 9;
+            this.btnLoadImage.TabIndex = 11;
             this.btnLoadImage.Text = "Load Image";
             this.btnLoadImage.UseVisualStyleBackColor = true;
             this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
@@ -146,7 +146,7 @@
             this.cbType.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(210, 27);
-            this.cbType.TabIndex = 47;
+            this.cbType.TabIndex = 2;
             this.cbType.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
             // btnClear
@@ -155,7 +155,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(118, 30);
-            this.btnClear.TabIndex = 11;
+            this.btnClear.TabIndex = 10;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -166,7 +166,7 @@
             this.btninsert.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(118, 30);
-            this.btninsert.TabIndex = 10;
+            this.btninsert.TabIndex = 9;
             this.btninsert.Text = "&Add Resource";
             this.btninsert.UseVisualStyleBackColor = true;
             this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
@@ -357,6 +357,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "AddResource";
             this.Text = "Add Resource";
+            this.Activated += new System.EventHandler(this.AddResource_Activated);
             this.Load += new System.EventHandler(this.AddResource_Load);
             this.gbResourceInfo.ResumeLayout(false);
             this.gbResourceInfo.PerformLayout();

@@ -453,6 +453,7 @@
             this.Controls.Add(this.gbSearch);
             this.Name = "ManageStudent";
             this.Text = "Manage Students";
+            this.Activated += new System.EventHandler(this.ManageStudent_Activated);
             this.Load += new System.EventHandler(this.Student_Load);
             this.Click += new System.EventHandler(this.txtfirstName_Click);
             this.gbSearch.ResumeLayout(false);

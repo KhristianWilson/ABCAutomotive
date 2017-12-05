@@ -47,7 +47,6 @@
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
             this.dtpendDate = new System.Windows.Forms.DateTimePicker();
-            this.txtbalance = new System.Windows.Forms.TextBox();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
             this.txtlastName = new System.Windows.Forms.TextBox();
@@ -55,7 +54,6 @@
             this.txtfirstName = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblProgram = new System.Windows.Forms.Label();
-            this.lblBalance = new System.Windows.Forms.Label();
             this.lblLname = new System.Windows.Forms.Label();
             this.lblFname = new System.Windows.Forms.Label();
             this.panActions.SuspendLayout();
@@ -78,7 +76,7 @@
             this.btnclear.Location = new System.Drawing.Point(183, 27);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(162, 44);
-            this.btnclear.TabIndex = 14;
+            this.btnclear.TabIndex = 16;
             this.btnclear.Text = "&Clear";
             this.btnclear.UseVisualStyleBackColor = true;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
@@ -89,7 +87,7 @@
             this.btninsert.Location = new System.Drawing.Point(15, 27);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(162, 44);
-            this.btninsert.TabIndex = 13;
+            this.btninsert.TabIndex = 15;
             this.btninsert.Text = "&Insert";
             this.btninsert.UseVisualStyleBackColor = true;
             this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
@@ -114,7 +112,6 @@
             this.gbStudentsInfo.Controls.Add(this.cbStatus);
             this.gbStudentsInfo.Controls.Add(this.cbProgram);
             this.gbStudentsInfo.Controls.Add(this.dtpendDate);
-            this.gbStudentsInfo.Controls.Add(this.txtbalance);
             this.gbStudentsInfo.Controls.Add(this.lblStartDate);
             this.gbStudentsInfo.Controls.Add(this.dtpstartDate);
             this.gbStudentsInfo.Controls.Add(this.txtlastName);
@@ -122,7 +119,6 @@
             this.gbStudentsInfo.Controls.Add(this.txtfirstName);
             this.gbStudentsInfo.Controls.Add(this.lblStatus);
             this.gbStudentsInfo.Controls.Add(this.lblProgram);
-            this.gbStudentsInfo.Controls.Add(this.lblBalance);
             this.gbStudentsInfo.Controls.Add(this.lblLname);
             this.gbStudentsInfo.Controls.Add(this.lblFname);
             this.gbStudentsInfo.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,6 +137,7 @@
             this.txtstudentID.Name = "txtstudentID";
             this.txtstudentID.Size = new System.Drawing.Size(148, 26);
             this.txtstudentID.TabIndex = 4;
+            this.txtstudentID.TabStop = false;
             this.txtstudentID.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtstudentID.Enter += new System.EventHandler(this.txtstudentID_Enter);
             // 
@@ -161,7 +158,7 @@
             this.txtphoneNumber.Location = new System.Drawing.Point(431, 138);
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 26);
-            this.txtphoneNumber.TabIndex = 11;
+            this.txtphoneNumber.TabIndex = 10;
             this.txtphoneNumber.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtphoneNumber.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
@@ -182,7 +179,7 @@
             this.txtpostalCode.Location = new System.Drawing.Point(431, 107);
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 26);
-            this.txtpostalCode.TabIndex = 10;
+            this.txtpostalCode.TabIndex = 9;
             this.txtpostalCode.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtpostalCode.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
@@ -193,7 +190,7 @@
             this.txtcity.Location = new System.Drawing.Point(431, 74);
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 26);
-            this.txtcity.TabIndex = 9;
+            this.txtcity.TabIndex = 8;
             this.txtcity.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtcity.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
@@ -204,7 +201,7 @@
             this.txtaddress.Location = new System.Drawing.Point(431, 41);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 26);
-            this.txtaddress.TabIndex = 8;
+            this.txtaddress.TabIndex = 7;
             this.txtaddress.Click += new System.EventHandler(this.txtfirstName_Click);
             this.txtaddress.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
@@ -248,7 +245,7 @@
             this.cbStatus.Location = new System.Drawing.Point(704, 69);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(200, 29);
-            this.cbStatus.TabIndex = 13;
+            this.cbStatus.TabIndex = 12;
             this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // cbProgram
@@ -260,7 +257,7 @@
             this.cbProgram.Location = new System.Drawing.Point(704, 31);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(200, 29);
-            this.cbProgram.TabIndex = 12;
+            this.cbProgram.TabIndex = 11;
             this.cbProgram.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // dtpendDate
@@ -270,19 +267,8 @@
             this.dtpendDate.Location = new System.Drawing.Point(704, 135);
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(200, 29);
-            this.dtpendDate.TabIndex = 15;
+            this.dtpendDate.TabIndex = 14;
             this.dtpendDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
-            // 
-            // txtbalance
-            // 
-            this.txtbalance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbalance.Location = new System.Drawing.Point(122, 138);
-            this.txtbalance.Name = "txtbalance";
-            this.txtbalance.Size = new System.Drawing.Size(148, 26);
-            this.txtbalance.TabIndex = 7;
-            this.txtbalance.Click += new System.EventHandler(this.txtfirstName_Click);
-            this.txtbalance.Enter += new System.EventHandler(this.txtstudentID_Enter);
-            this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
             // 
@@ -301,7 +287,7 @@
             this.dtpstartDate.Location = new System.Drawing.Point(704, 104);
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(200, 29);
-            this.dtpstartDate.TabIndex = 14;
+            this.dtpstartDate.TabIndex = 13;
             this.dtpstartDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtlastName
@@ -356,16 +342,6 @@
             this.lblProgram.TabIndex = 3;
             this.lblProgram.Text = "Program:";
             // 
-            // lblBalance
-            // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.Location = new System.Drawing.Point(39, 144);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(72, 21);
-            this.lblBalance.TabIndex = 2;
-            this.lblBalance.Text = "Balance:";
-            // 
             // lblLname
             // 
             this.lblLname.AutoSize = true;
@@ -394,7 +370,8 @@
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.panActions);
             this.Name = "CreateStudent";
-            this.Text = "Create Students";
+            this.Text = "Create Student";
+            this.Activated += new System.EventHandler(this.CreateStudent_Activated);
             this.Load += new System.EventHandler(this.CreateStudent_Load);
             this.panActions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -423,7 +400,6 @@
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.ComboBox cbProgram;
         private System.Windows.Forms.DateTimePicker dtpendDate;
-        private System.Windows.Forms.TextBox txtbalance;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dtpstartDate;
         private System.Windows.Forms.TextBox txtlastName;
@@ -431,7 +407,6 @@
         private System.Windows.Forms.TextBox txtfirstName;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblProgram;
-        private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label lblLname;
         private System.Windows.Forms.Label lblFname;
     }

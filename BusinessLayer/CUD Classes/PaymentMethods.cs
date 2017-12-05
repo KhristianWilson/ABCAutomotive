@@ -1,4 +1,5 @@
 ﻿using ABCAutomotive.SQLLayer;
+using System;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -6,7 +7,14 @@ namespace ABCAutomotive.BusinessLayer
     {
         public static bool MakePayment(Payment payment)
         {
-            return PaymentSQL.MakePayment(payment);
+            if (payment.IsClean)
+            {
+                return PaymentSQL.MakePayment(payment);
+            }
+            else
+            {
+                throw new ArgumentException("Payment Missing infomation");
+            }           
         }
     }
 }

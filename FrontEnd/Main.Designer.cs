@@ -137,6 +137,7 @@
             this.addResourceToolStrip.Name = "addResourceToolStrip";
             this.addResourceToolStrip.Size = new System.Drawing.Size(163, 22);
             this.addResourceToolStrip.Text = "&Add Resource";
+            this.addResourceToolStrip.Visible = false;
             this.addResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // studentInfoToolStrip

@@ -23,13 +23,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void MakePayment_Load(object sender, System.EventArgs e)
         {
-            gbpayment.Visible = false;
-            gbStudentsInfo.Visible = false;
-            gbStudentsInfo.Enabled = false;
-            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
-            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
-            student = StudentFactory.Create();
-            payment = PaymentFactory.Create();
+            setupForm();
         }
 
         #endregion
@@ -99,12 +93,22 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region House Keeping
 
+        private void setupForm()
+        {
+            gbpayment.Visible = false;
+            gbStudentsInfo.Visible = false;
+            gbStudentsInfo.Enabled = false;
+            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
+            student = StudentFactory.Create();
+            payment = PaymentFactory.Create();
+        }
+
         private void showInfo(bool mode)
         {
             gbpayment.Enabled = mode;
             gbpayment.Visible = mode;
             gbStudentsInfo.Visible = mode;
-            parent.StatusLabel.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -123,6 +127,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtSearch.ResetText();
             showInfo(false);
             student = StudentFactory.Create();
+            payment = PaymentFactory.Create();
 
         }
 
@@ -137,22 +142,21 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void txtamount_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(decimal.TryParse(txtamount.Text, out decimal amount))
+            try
             {
-                if(amount <= 0)
+                if (decimal.TryParse(txtamount.Text, out decimal amount))
                 {
-                    errorProvider1.SetError(txtamount, "Amount Must Be Greater Than 0.00");
-                    btnmakePayment.Enabled = false;
+                    payment.paymentAmount = amount;
                 }
                 else
                 {
-                    btnmakePayment.Enabled = true;
+                    errorProvider1.SetError(txtamount, "Amount Must an Decimal Amount");
+                    btnmakePayment.Enabled = false;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                errorProvider1.SetError(txtamount, "Amount Must an Decimal Amount");
-                btnmakePayment.Enabled = false;
+                errorProvider1.SetError(txtamount, ex.Message);
             }
         }
 
@@ -164,10 +168,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
-                payment = PaymentFactory.Create();
-                payment.paymentAmount = Convert.ToDecimal(txtamount.Text);
                 payment.paymentDate = DateTime.Now;
                 payment.studentId = student.studentid;
+
                 PaymentMethods.MakePayment(payment);
                 parent.StatusLabel.Text = "Payment Made";
                 btnCancel_Click(null, null);

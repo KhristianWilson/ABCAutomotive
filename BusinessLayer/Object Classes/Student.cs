@@ -72,7 +72,7 @@ namespace ABCAutomotive.BusinessLayer
                 }
                 if (!Validation.checkLength(value.ToString(), 8, SizeOperator.MustBeEqualTo)) 
                 {
-                    throw new ArgumentException("Student ID cannot be empty");
+                    throw new ArgumentException("Invalid Student ID");
                 }
                 _studentid = value;
             }

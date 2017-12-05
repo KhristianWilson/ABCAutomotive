@@ -19,7 +19,7 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
 
         private void LoadTimer_Tick(object sender, EventArgs e)
         {
-            progressBar.Increment(15);
+            progressBar.Increment(20);
             if (progressBar.Value == 100)
             {
                 LoadTimer.Stop();

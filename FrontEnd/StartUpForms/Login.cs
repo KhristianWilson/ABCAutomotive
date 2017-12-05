@@ -19,15 +19,7 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = btnLogin;
-            this.CancelButton = btnCancel;
-            this.Text = Application.ProductName;
-            txtUsername.Text = Environment.UserName;
-            txtPassword.Text = Properties.Settings.Default.password;
-            if (txtPassword.Text != String.Empty)
-            { chkRemember.Checked = true; }
-            txtPassword.MaxLength = 20;
-            txtUsername.MaxLength = 30;
+            setupForm();
         }
 
         #endregion
@@ -78,10 +70,9 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
 
         private void txtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrEmpty(textBox.Text))
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
             {
-                errorProvider.SetError(textBox, "Required");
+                errorProvider.SetError((sender as TextBox), "Required");
             }
         }
 
@@ -92,8 +83,23 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
-            errorProvider.Clear();
+            errorProvider.SetError((sender as TextBox), "");
             (sender as TextBox).SelectAll();
+        }
+
+        private void setupForm()
+        {
+            this.AcceptButton = btnLogin;
+            this.CancelButton = btnCancel;
+            this.Text = Application.ProductName;
+
+            txtUsername.Text = Environment.UserName;
+            txtPassword.Text = Properties.Settings.Default.password;
+
+            if (txtPassword.Text != String.Empty)
+            { chkRemember.Checked = true; }
+            txtPassword.MaxLength = 20;
+            txtUsername.MaxLength = 30;
         }
 
         #endregion

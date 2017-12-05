@@ -20,15 +20,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void CreateStudent_Load(object sender, EventArgs e)
         {
-            txtstudentID.Enabled = false;
-            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
-            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
-
-            student = StudentFactory.Create();
-            student.startDate = DateTime.Now;
-            student.endDate = DateTime.Now.AddDays(1);
-            student.status = (StudentStatus)cbStatus.SelectedItem;
-            student.programType = (ProgramType)cbProgram.SelectedItem;
+            setupForm();
         }
 
         #endregion
@@ -47,7 +39,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 else
                 {
-                    MessageBox.Show("Fields Were Left Blank", "Insert rejected");
+                    parent.StatusLabel.Text = "Fields Were Left Blank" + " , " + "Insert rejected";
                 }
 
             }
@@ -60,7 +52,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #endregion
 
-        #region HouseKeeping
+        #region House Keeping
 
         private bool FormIsClean()
         {
@@ -83,6 +75,26 @@ namespace ABCAutomotive.FrontEnd.MainForms
             return isClean;
         }
 
+        private void setupForm()
+        {
+            student = StudentFactory.Create();
+            txtstudentID.Enabled = false;
+            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
+
+            student.startDate = DateTime.Now;
+            student.endDate = DateTime.Now.AddDays(10);
+            student.status = (StudentStatus)cbStatus.SelectedItem;
+            student.programType = (ProgramType)cbProgram.SelectedItem;
+
+            txtfirstName.MaxLength = 20;
+            txtlastName.MaxLength = 30;
+            txtaddress.MaxLength = 50;
+            txtcity.MaxLength = 50;
+            txtphoneNumber.MaxLength = 12;
+            txtpostalCode.MaxLength = 7;
+        }
+
         private void btnclear_Click(object sender, EventArgs e)
         {
             foreach (Control ctrl in gbStudentsInfo.Controls)
@@ -93,13 +105,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
             }
 
-            dtpendDate.Value = DateTime.Now;
+            student = StudentFactory.Create();
+            dtpendDate.Value = DateTime.Now.AddDays(10);
             dtpstartDate.Value = DateTime.Now;
+            student.startDate = dtpstartDate.Value;
+            student.endDate = dtpendDate.Value;
+
             cbProgram.SelectedIndex = -1;
             cbProgram.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
-            parent.StatusLabel.Text = "";
         }
 
         private void txtstudentID_Enter(object sender, EventArgs e)
@@ -112,6 +127,11 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             (sender as TextBox).SelectAll();
             errorProvider1.SetError((sender as Control), "");
+        }
+
+        private void CreateStudent_Activated(object sender, EventArgs e)
+        {
+            parent.StatusLabel.Text = "";
         }
 
         #endregion
@@ -131,26 +151,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (object.ReferenceEquals(sender, txtaddress))
                 {
                     student.address = txtaddress.Text;
-                }
-                if (object.ReferenceEquals(sender, txtbalance))
-                {
-                    string tempBalance;
-                    if (txtbalance.Text.StartsWith("$"))
-                    {
-                        tempBalance = txtbalance.Text.Remove(0, 1);
-                    }
-                    else
-                    {
-                        tempBalance = txtbalance.Text;
-                    }
-                    if (Double.TryParse(tempBalance, out double balance))
-                    {
-                        student.balanceDue = balance;
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(txtbalance, "Balance Must be a decimal amount");
-                    }
                 }
                 if (object.ReferenceEquals(sender, txtcity))
                 {

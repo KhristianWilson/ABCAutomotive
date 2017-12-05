@@ -25,13 +25,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void ModifyResourceStatus_Load(object sender, System.EventArgs e)
         {
-            List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
-            status.RemoveAt(1);
-            cbStatus.DataSource = status;
-            objRes = ResourceFactory.Create();
-            enableUpdate(false);
-            txtsearchResource.MaxLength = 8;
-            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            setupForm();
         }
 
         #endregion
@@ -80,6 +74,17 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region House Keeping
 
+        private void setupForm()
+        {
+            List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
+            status.RemoveAt(1);
+            cbStatus.DataSource = status;
+            objRes = ResourceFactory.Create();
+            enableUpdate(false);
+            txtsearchResource.MaxLength = 8;
+            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
 
@@ -93,13 +98,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 this.errorProvider1.SetError(x, string.Empty);
             }
 
-            dtpAddDate.Value = System.DateTime.Now;
-            dtpRemovelDate.Value = System.DateTime.Now;
+            dtpAddDate.Value = DateTime.Now;
+            dtpRemovelDate.Value = DateTime.Now;
             cbStatus.SelectedIndex = -1;
             cbStatus.SelectedIndex = -1;
             objRes = ResourceFactory.Create();
             enableUpdate(false);
             txtsearchResource.Enabled = true;
+            txtsearchResource.Focus();
         }
 
         private void enableUpdate(bool mode)
@@ -114,7 +120,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void txtsearchResource_Enter(object sender, EventArgs e)
         {
             errorProvider1.Clear();
-            parent.StatusLabel.Text = "";
         }
         private static Image getImage(byte[] ImageData)
         {
@@ -128,6 +133,11 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 Image = Image.FromStream(ms);
             }
             return Image;
+        }
+
+        private void ModifyResourceStatus_Activated(object sender, EventArgs e)
+        {
+            parent.StatusLabel.Text = "";
         }
 
         #endregion

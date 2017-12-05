@@ -154,7 +154,7 @@
             this.txtreferencenumber.Location = new System.Drawing.Point(331, 258);
             this.txtreferencenumber.Name = "txtreferencenumber";
             this.txtreferencenumber.Size = new System.Drawing.Size(140, 26);
-            this.txtreferencenumber.TabIndex = 44;
+            this.txtreferencenumber.TabIndex = 11;
             // 
             // txtprice
             // 
@@ -163,7 +163,7 @@
             this.txtprice.Location = new System.Drawing.Point(331, 225);
             this.txtprice.Name = "txtprice";
             this.txtprice.Size = new System.Drawing.Size(140, 26);
-            this.txtprice.TabIndex = 43;
+            this.txtprice.TabIndex = 10;
             // 
             // dtpRemovelDate
             // 
@@ -171,7 +171,7 @@
             this.dtpRemovelDate.Location = new System.Drawing.Point(678, 259);
             this.dtpRemovelDate.Name = "dtpRemovelDate";
             this.dtpRemovelDate.Size = new System.Drawing.Size(168, 26);
-            this.dtpRemovelDate.TabIndex = 40;
+            this.dtpRemovelDate.TabIndex = 15;
             // 
             // dtpAddDate
             // 
@@ -179,7 +179,7 @@
             this.dtpAddDate.Location = new System.Drawing.Point(678, 226);
             this.dtpAddDate.Name = "dtpAddDate";
             this.dtpAddDate.Size = new System.Drawing.Size(168, 26);
-            this.dtpAddDate.TabIndex = 39;
+            this.dtpAddDate.TabIndex = 13;
             // 
             // lblDateOfRem
             // 
@@ -216,7 +216,7 @@
             this.txtpublisher.Location = new System.Drawing.Point(331, 192);
             this.txtpublisher.Name = "txtpublisher";
             this.txtpublisher.Size = new System.Drawing.Size(140, 26);
-            this.txtpublisher.TabIndex = 32;
+            this.txtpublisher.TabIndex = 9;
             // 
             // lblpublisher
             // 
@@ -236,7 +236,7 @@
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(297, 104);
-            this.txtDesc.TabIndex = 30;
+            this.txtDesc.TabIndex = 8;
             // 
             // lbldescription
             // 
@@ -265,7 +265,7 @@
             this.txtreserveStatus.Location = new System.Drawing.Point(678, 192);
             this.txtreserveStatus.Name = "txtreserveStatus";
             this.txtreserveStatus.Size = new System.Drawing.Size(168, 26);
-            this.txtreserveStatus.TabIndex = 28;
+            this.txtreserveStatus.TabIndex = 12;
             // 
             // lbltype
             // 
@@ -284,7 +284,7 @@
             this.txttype.Location = new System.Drawing.Point(331, 49);
             this.txttype.Name = "txttype";
             this.txttype.Size = new System.Drawing.Size(140, 26);
-            this.txttype.TabIndex = 27;
+            this.txttype.TabIndex = 7;
             // 
             // lblreserveStatus
             // 
@@ -303,7 +303,7 @@
             this.txttitle.Location = new System.Drawing.Point(331, 16);
             this.txttitle.Name = "txttitle";
             this.txttitle.Size = new System.Drawing.Size(140, 26);
-            this.txttitle.TabIndex = 26;
+            this.txttitle.TabIndex = 6;
             // 
             // lblresourceStatus
             // 
@@ -331,7 +331,7 @@
             this.cbStatus.Location = new System.Drawing.Point(89, 425);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(140, 27);
-            this.cbStatus.TabIndex = 35;
+            this.cbStatus.TabIndex = 16;
             // 
             // btnUpdate
             // 
@@ -339,7 +339,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(248, 425);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 29);
-            this.btnUpdate.TabIndex = 36;
+            this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -350,7 +350,7 @@
             this.btnClear.Location = new System.Drawing.Point(329, 425);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 29);
-            this.btnClear.TabIndex = 37;
+            this.btnClear.TabIndex = 18;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -372,6 +372,7 @@
             this.Controls.Add(this.cbStatus);
             this.Name = "ModifyResourceStatus";
             this.Text = "Modify Resource Status";
+            this.Activated += new System.EventHandler(this.ModifyResourceStatus_Activated);
             this.Load += new System.EventHandler(this.ModifyResourceStatus_Load);
             this.gbSearchResource.ResumeLayout(false);
             this.gbSearchResource.PerformLayout();

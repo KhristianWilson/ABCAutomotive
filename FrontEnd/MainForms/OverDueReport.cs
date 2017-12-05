@@ -18,11 +18,29 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void OverDueLoans_Load(object sender, System.EventArgs e)
         {
-            List<OverDueLookup> overDueLoans = OverDueLookupFactory.Create();
-            dgvoverDueLoans.DataSource = overDueLoans;
+            try
+            {
+                List<OverDueLookup> overDueLoans = OverDueLookupFactory.Create();
+                dgvoverDueLoans.DataSource = overDueLoans;
+                if (overDueLoans.Count < 0)
+                {
+                    lblnoRecords.Text = "No Overdue Loans Found";
+                }
+                lblDate.Text = DateTime.Now.ToLongDateString();
+            }
+            catch (Exception ex)
+            {
+                parent.StatusLabel.Text = ex.Message;
+            }
+        }
 
-            lblDate.Text = DateTime.Now.ToLongDateString();
+        #endregion
 
+        #region House Keeping
+
+        private void OverDueReport_Activated(object sender, EventArgs e)
+        {
+            parent.StatusLabel.Text = "";
         }
 
         #endregion

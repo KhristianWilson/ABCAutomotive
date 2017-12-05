@@ -22,14 +22,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void Student_Load(object sender, EventArgs e)
         {
-            btndelete.Enabled = false;
-            btnupdate.Enabled = false;
-            btnclear.Enabled = false;
-            txtstudentID.Enabled = false;
-            gbStudentsInfo.Enabled = false;
-            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
-            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
-            student = StudentFactory.Create();
+            setupFrom();
         }
 
         #endregion
@@ -147,6 +140,26 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region HouseKeeping
 
+        private void setupFrom()
+        {
+            student = StudentFactory.Create();
+            cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
+
+            btndelete.Enabled = false;
+            btnupdate.Enabled = false;
+            btnclear.Enabled = false;
+            txtstudentID.Enabled = false;
+            gbStudentsInfo.Enabled = false;
+
+            txtfirstName.MaxLength = 20;
+            txtlastName.MaxLength = 30;
+            txtaddress.MaxLength = 50;
+            txtcity.MaxLength = 50;
+            txtphoneNumber.MaxLength = 12;
+            txtpostalCode.MaxLength = 7;
+        }
+
         private void editMode(bool mode)
         {
             btnupdate.Enabled = mode;
@@ -159,7 +172,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void txtSearch_Enter(object sender, EventArgs e)
         {
             errorProvider1.SetError((sender as Control), "");
-            parent.StatusLabel.Text = "";
+            (sender as TextBox).SelectAll();
         }
 
         private void txtfirstName_Click(object sender, EventArgs e)
@@ -201,11 +214,13 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
             dtpendDate.Value = DateTime.Now;
             dtpstartDate.Value = DateTime.Now;
-            cbProgram.SelectedIndex = -1;
-            cbProgram.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
             student = StudentFactory.Create();
+
+            cbProgram.SelectedIndex = -1;
+            cbProgram.SelectedIndex = -1;
+            cbStatus.SelectedIndex = -1;
+            cbStatus.SelectedIndex = -1;
+            
             gbSearch.Enabled = true;
             txtSearch.Focus();
             editMode(false);
@@ -215,6 +230,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         }
 
+        private void ManageStudent_Activated(object sender, EventArgs e)
+        {
+            parent.StatusLabel.Text = "";
+        }
 
         #endregion
 

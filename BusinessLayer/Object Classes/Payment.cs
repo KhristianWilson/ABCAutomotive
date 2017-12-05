@@ -17,26 +17,31 @@ namespace ABCAutomotive.BusinessLayer
 
         #region Local fields
 
-        internal int _paymentId;
         internal DateTime _paymentDate;
         internal decimal _paymentAmount;
         internal int _studentId;
 
         #endregion
 
-        #region Properties
 
-        public int paymentId
+        #region Local Properties
+
+        internal bool IsClean
         {
             get
             {
-                return _paymentId;
-            }
-            set
-            {
-                _paymentId = value;
+                if (_studentId == 0 || _paymentAmount <= 0)
+                {
+                    return false;
+                }
+
+                return true;
             }
         }
+
+        #endregion
+
+        #region Properties
 
         public DateTime paymentDate
         {
@@ -58,6 +63,14 @@ namespace ABCAutomotive.BusinessLayer
             }
             set
             {
+                if (value == _paymentAmount)
+                {
+                    return;
+                }
+                if(value <= 0)
+                {
+                    throw new ArgumentException("Payment Amount Must Be greater than 0.00");
+                }
                 _paymentAmount = value;
             }
         }
@@ -70,6 +83,10 @@ namespace ABCAutomotive.BusinessLayer
             }
             set
             {
+                if (value == _studentId)
+                {
+                    return;
+                }
                 _studentId = value;
             }
         }

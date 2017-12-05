@@ -22,22 +22,7 @@ namespace ABCAutomotive.FrontEnd
 
         private void AddResource_Load(object sender, EventArgs e)
         {
-            txtDesc.MaxLength = 50;
-            txttitle.MaxLength = 30;
-            txtpublisher.MaxLength = 30;
-            txtreferencenumber.MaxLength = 50;
-            txtResourceID.Enabled = false;
-
-            pbImage.BorderStyle = BorderStyle.FixedSingle;
-            cbType.DataSource = Enum.GetValues(typeof(ResourceType));
-            cbStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
-            dtpAddDate.Value = DateTime.Now;
-            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
-            resource = ResourceFactory.Create();
-
-            resource.purchaseDate = DateTime.Now;
-            resource.resourceStatus = (ResourceStatus)cbStatus.SelectedItem;
-            resource.resourceType = (ResourceType)cbType.SelectedItem;
+            setupForm();
         }
 
         #endregion
@@ -121,7 +106,7 @@ namespace ABCAutomotive.FrontEnd
                 }
                 else
                 {
-                    MessageBox.Show("Some Flieds were left blank");
+                    parent.StatusLabel.Text = "Flieds were left blank" + " , " + "Insert Rejected";
                 }
             }
             catch (Exception ex)
@@ -133,6 +118,26 @@ namespace ABCAutomotive.FrontEnd
         #endregion
 
         #region House Keeping
+
+        private void setupForm()
+        {
+            txtDesc.MaxLength = 50;
+            txttitle.MaxLength = 30;
+            txtpublisher.MaxLength = 30;
+            txtreferencenumber.MaxLength = 50;
+            txtResourceID.Enabled = false;
+
+            pbImage.BorderStyle = BorderStyle.FixedSingle;
+            cbType.DataSource = Enum.GetValues(typeof(ResourceType));
+            cbStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
+            dtpAddDate.Value = DateTime.Now;
+            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            resource = ResourceFactory.Create();
+            resource.purchaseDate = DateTime.Now;
+            resource.resourceStatus = (ResourceStatus)cbStatus.SelectedItem;
+            resource.resourceType = (ResourceType)cbType.SelectedItem;
+        }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -184,6 +189,11 @@ namespace ABCAutomotive.FrontEnd
         {
             errorProvider1.SetError((sender as Control), "");
             (sender as TextBox).SelectAll();
+        }
+
+        private void AddResource_Activated(object sender, EventArgs e)
+        {
+            parent.StatusLabel.Text = "";
         }
 
         #endregion

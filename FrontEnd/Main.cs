@@ -35,17 +35,14 @@ namespace ABCAutomotive.FrontEnd
 
             StartUpForms.Login login = new StartUpForms.Login(this);
             login.ShowDialog();
+
             if (login.DialogResult == DialogResult.Cancel)
             {
                 this.Close();
             }
-
-            this.Text = Application.ProductName;
-            SetupStatasStrip();
-            this.WindowState = FormWindowState.Maximized;
-            if(accessLevel == 2)
+            else
             {
-                addResourceToolStrip.Visible = true;
+                setupForm();
             }
         }
 
@@ -67,6 +64,18 @@ namespace ABCAutomotive.FrontEnd
             lblStatus.TextAlign = ContentAlignment.MiddleLeft;
             lblStatus.BorderSides = ToolStripStatusLabelBorderSides.Right;
 
+        }
+
+        private void setupForm()
+        {
+            this.Text = Application.ProductName;
+            SetupStatasStrip();
+            this.WindowState = FormWindowState.Maximized;
+
+            if (accessLevel == 2)
+            {
+                addResourceToolStrip.Visible = true;
+            }
         }
 
         private void timerDisplay_Tick(object sender, EventArgs e)
