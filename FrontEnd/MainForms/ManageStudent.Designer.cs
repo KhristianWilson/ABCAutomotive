@@ -99,14 +99,14 @@
             this.txtSearch.Location = new System.Drawing.Point(15, 25);
             this.txtSearch.MaxLength = 50;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(144, 26);
+            this.txtSearch.Size = new System.Drawing.Size(135, 26);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(165, 25);
+            this.btnSearch.Location = new System.Drawing.Point(181, 25);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 26);
             this.btnSearch.TabIndex = 2;

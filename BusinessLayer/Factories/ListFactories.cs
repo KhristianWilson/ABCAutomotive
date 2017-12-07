@@ -123,7 +123,7 @@ namespace ABCAutomotive.BusinessLayer
                 OverDueLookup.StudentID = Convert.ToInt32(Row["StudentID"]);
                 OverDueLookup.Price = Convert.ToDouble(Row["Price"]);
                 OverDueLookup.FullName = Row["Full Name"].ToString();
-                OverDueLookup.ResourceType = (ResourceType)Row["Type"];
+                OverDueLookup.ResourceType = (ResourceType)Convert.ToInt32(Row["Type"]);
                 OverdueList.Add(OverDueLookup);
             }
 

@@ -38,7 +38,7 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
                     if (user.AccessLevel != 0)
                     {
                         DialogResult = DialogResult.OK;
-                        parent.accessLevel = user.AccessLevel;
+                        Properties.Settings.Default.accessLevel = user.AccessLevel;
                         this.Close();
                     }
                 }

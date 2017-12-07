@@ -81,6 +81,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
             student.startDate = DateTime.Now;
             student.endDate = DateTime.Now.AddDays(10);
+            dtpendDate.Value = DateTime.Now.AddDays(10);
             student.status = (StudentStatus)cbStatus.SelectedItem;
             student.programType = (ProgramType)cbProgram.SelectedItem;
 

@@ -22,15 +22,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void Returns_Load(object sender, EventArgs e)
         {
-            txtsearchResource.MaxLength = 8;
-            gbStudentLoans.Visible = false;
-            gbStudentsInfo.Visible = false;
-            gbReturn.Visible = false;
-            dgvLoans.ReadOnly = true;
-            parent.StatusLabel.Text = "";
-
-            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
-            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
+            setupForm();
         }
 
         #endregion
@@ -86,7 +78,23 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #endregion
 
         #region House Keeping 
+        private void setupForm()
+        {
+            dtpendDate.Enabled = false;
+            dtpstartDate.Enabled = false;
+            cbprogram.Enabled = false;
+            cbstudentStatus.Enabled = false;
 
+            txtsearchResource.MaxLength = 8;
+            gbStudentLoans.Visible = false;
+            gbStudentsInfo.Visible = false;
+            gbReturn.Visible = false;
+            dgvLoans.ReadOnly = true;
+            parent.StatusLabel.Text = "";
+
+            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
+        }
         private void returnMode()
         {
             gbStudentLoans.Visible = true;

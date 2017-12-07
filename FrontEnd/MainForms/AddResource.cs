@@ -58,7 +58,7 @@ namespace ABCAutomotive.FrontEnd
                     }
                     else
                     {
-                        errorProvider1.SetError(txtprice, "Price Must be a decimal amount");
+                        errorProvider1.SetError(txtprice, "Price must be a decimal amount");
                     }
                 }
                 if (object.ReferenceEquals(sender, txtpublisher))

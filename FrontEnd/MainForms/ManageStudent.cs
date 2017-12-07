@@ -70,6 +70,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
                 student = StudentFactory.Create(studentID);
                 loadStudentInfo();
+                editMode(true);
             }
             catch (Exception ex)
             {
@@ -166,7 +167,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             btndelete.Enabled = mode;
             btnclear.Enabled = mode;
             gbStudentsInfo.Enabled = mode;
-            btnSearch.Enabled = !mode;
+            gbSearch.Enabled = !mode;
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -218,10 +219,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbSearch.Enabled = true;
             txtSearch.Focus();
             editMode(false);
-            lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
-            lstSearchResults.DataSource = null;
-            lstSearchResults.Visible = false;
-
         }
 
         private void ManageStudent_FormClosing(object sender, FormClosingEventArgs e)

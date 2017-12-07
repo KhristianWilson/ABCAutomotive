@@ -1,7 +1,6 @@
 ﻿using ABCAutomotive.Types;
 using System;
 using System.Data;
-using System.Drawing;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -275,7 +274,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     return;
                 }
-                if(value == 0)
+                if(value <= 0)
                 {
                     throw new ArgumentException("Price Must be greater than $0.00");
                 }

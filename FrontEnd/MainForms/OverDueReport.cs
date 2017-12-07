@@ -26,7 +26,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     lblnoRecords.Text = "No Overdue Loans Found";
                 }
-                lblDate.Text = DateTime.Now.ToLongDateString();
+                lbldateText.Text = DateTime.Now.ToLongDateString();
             }
             catch (Exception ex)
             {

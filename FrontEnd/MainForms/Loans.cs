@@ -75,7 +75,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 Validation.validStudent(student);
                 loadStudentInfo();
                 loadStudentLoans();
-                CheckOutMode();
+                CheckOutMode(true);
             }
             catch (Exception ex)
             {
@@ -148,48 +148,52 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtsearchResource.MaxLength = 8;
             gbSearch.Visible = true;
             dgvLoans.ReadOnly = true;
-            gbStudentsInfo.Visible = false;
-            gbStudentLoans.Visible = false;
-            gbSearchResource.Visible = false;
-            gbResource.Visible = false;
-            btncancel.Visible = false;
-            btncheckOut.Visible = false;
-            btnRemoveItem.Visible = false;
-            lstCart.Visible = false;
+            dtpendDate.Enabled = false;
+            dtpstartDate.Enabled = false;
+            cbprogram.Enabled = false;
+            cbstudentStatus.Enabled = false;
+            CheckOutMode(false);
             parent.StatusLabel.Text = "";
-
             cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Loans_Load(null, null);
+            clearResourceSearch();
             parent.StatusLabel.Text = "";
-            txtsearchResource.ResetText();
-            txtreserveStatus.ResetText();
-            txtresourceStatus.ResetText();
-            txttitle.ResetText();
-            txttype.ResetText();
+            CheckOutMode(false);
+            errorProvider1.Clear();
             loanItems.Clear();
             StudentList.Clear();
             loansLookup.Clear();
+            student = StudentFactory.Create();
+            resource = ResourceFactory.Create();
             lstSearchResults.DataSource = null;
             lstCart.DataSource = null;
+
         }
 
-        private void CheckOutMode()
+        private void clearResourceSearch()
         {
-            gbSearch.Visible = false;
-            gbStudentsInfo.Visible = true;
-            gbStudentLoans.Visible = true;
-            gbSearchResource.Visible = true;
-            gbResource.Visible = true;
-            btncancel.Visible = true;
-            btncheckOut.Visible = true;
-            btnRemoveItem.Visible = true;
-            lstCart.Visible = true;
-            btnAddtoCart.Enabled = false;
+            foreach (Control x in gbResource.Controls)
+            {
+                if (x is TextBox)
+                {
+                    x.Text = string.Empty;
+                }
+                this.errorProvider1.SetError(x, string.Empty);
+            }
+        }
+
+        private void CheckOutMode(bool mode)
+        {
+            gbSearch.Visible = !mode;
+            gbStudentsInfo.Visible = mode;
+            gbStudentLoans.Visible = mode;
+            gbSearchResource.Visible = mode;
+            gbResource.Visible = mode;
+            plCheckOut.Visible = mode;
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
         }
 
@@ -238,6 +242,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 lstCart.ValueMember = "resourceID";
                 lstCart.DisplayMember = "titleDueDate";
                 lstCart.DataSource = loanItems;
+                errorProvider1.Clear();
             }
         }
 
@@ -269,7 +274,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 dueDate = now.AddDays(2);
             }
             return dueDate;
-
         }
 
         private void btncheckOut_Click(object sender, EventArgs e)
@@ -287,6 +291,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     }
                     loadStudentLoans();
                     loanItems.Clear();
+                    clearResourceSearch();
                     parent.StatusLabel.Text = "Items Added To Student Loans";
                 }
                 else

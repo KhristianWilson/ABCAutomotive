@@ -26,8 +26,6 @@ namespace ABCAutomotive.FrontEnd
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
-        public int accessLevel { get; set; }
-
         private void Main_Load(object sender, EventArgs e)
         {
             StartUpForms.Splash Splash = new StartUpForms.Splash();
@@ -65,6 +63,9 @@ namespace ABCAutomotive.FrontEnd
             lblStatus.BorderSides = ToolStripStatusLabelBorderSides.Right;
             lblStatus.Text = "Welcome";
 
+            lblRole.TextAlign = ContentAlignment.MiddleLeft;
+            lblRole.BorderSides = ToolStripStatusLabelBorderSides.Right;
+
         }
 
         private void setupForm()
@@ -73,9 +74,14 @@ namespace ABCAutomotive.FrontEnd
             SetupStatasStrip();
             this.WindowState = FormWindowState.Maximized;
 
-            if (accessLevel == 2)
+            if (Properties.Settings.Default.accessLevel == 2)
             {
                 addResourceToolStrip.Visible = true;
+                lblRole.Text = "Admin";
+            }
+            else
+            {
+                lblRole.Text = "Instructor";
             }
         }
 
@@ -90,6 +96,11 @@ namespace ABCAutomotive.FrontEnd
 
         private void MenuClick(object sender, EventArgs e)
         {
+            if(sender == aboutToolStripMenuItem)
+            {
+                StartUpForms.AboutBox about = new StartUpForms.AboutBox();
+                about.ShowDialog();
+            }
             if (sender == btnLoans || sender == checkOutToolStrip)
             {
                 if (loans == null || loans.IsDisposed)

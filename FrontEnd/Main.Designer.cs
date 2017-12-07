@@ -42,6 +42,7 @@
             this.manageStudentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.createStudentToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
@@ -54,6 +55,7 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
+            this.lblRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -69,7 +71,8 @@
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loansToolStripMenuItem,
             this.resourceInfoToolStripMenuItem,
-            this.studentInfoToolStrip});
+            this.studentInfoToolStrip,
+            this.aboutToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1246, 24);
@@ -171,6 +174,13 @@
             this.paymentsToolStrip.Text = "&Payments";
             this.paymentsToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "&About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
+            // 
             // toolStripMain
             // 
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -218,6 +228,7 @@
             this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblDateTime,
             this.lblUser,
+            this.lblRole,
             this.lblStatus});
             this.statusMain.Location = new System.Drawing.Point(0, 646);
             this.statusMain.Name = "statusMain";
@@ -288,6 +299,11 @@
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
             // 
+            // lblRole
+            // 
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(0, 17);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +363,7 @@
         private System.Windows.Forms.ToolStripMenuItem checkOutToolStrip;
         private System.Windows.Forms.ToolStripMenuItem overdueChargeToolStrip;
         private System.Windows.Forms.ToolStripMenuItem addResourceToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel lblRole;
     }
 }
