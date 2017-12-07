@@ -23,18 +23,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void Reserve_Load(object sender, EventArgs e)
         {
-            txtsearchResource.MaxLength = 8;
-            gbResource.Visible= false;
-            gbSearch.Visible = false;
-            gbStudentsInfo.Visible = false;
-            btnReserveResource.Visible = false;
-            btnclear.Visible = false;
-
-            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
-            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
-            cbresourceStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
-            cbreserved.DataSource = Enum.GetValues(typeof(ReserveStatus));
-            cbtype.DataSource = Enum.GetValues(typeof(ResourceType));
+            setupForm();
         }
 
         #endregion
@@ -49,19 +38,24 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
                 {
                     resource = ResourceFactory.Create(resouceID);
-                    Validation.validReserve(resource);
-                    loadResourceInfo();
-                    ReserveMode();
+                    if (Validation.validReserve(resource))
+                    {
+                        btnReserveResource.Enabled = true;
+                        loadResourceInfo();
+                        ReserveMode(true);
+                    }
                 }
                 else
                 {
+                    clearResourceInfo();
                     errorProvider1.SetError(txtsearchResource, "Invalid ResourceID");
                 }
             }
             catch (Exception ex)
             {
-                errorProvider1.SetError(txtsearchResource, ex.Message);
+                clearResourceInfo();
                 btnReserveResource.Enabled = false;
+                errorProvider1.SetError(txtsearchResource, ex.Message);
             }
         }
 
@@ -71,6 +65,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbreserved.SelectedItem = resource.reserveStatus;
             txttitle.Text = resource.resourceType.ToString();
             cbresourceStatus.SelectedItem = resource.resourceStatus;
+            cbtype.SelectedItem = resource.resourceType;
             btnReserveResource.Enabled = true;
         }
 
@@ -99,15 +94,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     StudentList = StudentsFactory.Create(txtSearch.Text);
                 }
 
+                lstSearchResults.Visible = true;
                 lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
                 lstSearchResults.ValueMember = "StudentID";
                 lstSearchResults.DisplayMember = "FullName";
                 lstSearchResults.DataSource = StudentList;
-                lstSearchResults.Visible = true;
                 lstSearchResults.SelectedIndexChanged += LstSearchResults_SelectedIndexChanged;
             }
             catch (Exception ex)
             {
+                clearStudentInfo();
                 errorProvider1.SetError(txtSearch, ex.Message);
             }
         }
@@ -118,12 +114,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
                 student = StudentFactory.Create(studentID);
-                Validation.validStudent(student);
-                btnReserveResource.Enabled = true;
-                loadStudentInfo();   
+                if (Validation.validStudent(student))
+                {
+                    btnReserveResource.Enabled = true;
+                    loadStudentInfo();
+                    errorProvider1.Clear();
+                }
             }
             catch (Exception ex)
             {
+                clearStudentInfo();
                 btnReserveResource.Enabled = false;
                 errorProvider1.SetError(txtSearch, ex.Message);
             }
@@ -144,23 +144,41 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region House Keeping
 
-        private void ReserveMode()
+        private void setupForm()
         {
-            gbResource.Visible = true;
-            gbSearch.Visible = true;
-            gbStudentsInfo.Visible = true;
-            btnReserveResource.Visible = true;
-            btnclear.Visible = true;
+            txtsearchResource.MaxLength = 8;
+            ReserveMode(false);
+            gbResource.Enabled = false;
+            gbStudentsInfo.Enabled = false;
+
+            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
+            cbresourceStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
+            cbreserved.DataSource = Enum.GetValues(typeof(ReserveStatus));
+            cbtype.DataSource = Enum.GetValues(typeof(ResourceType));
+        }
+
+        private void ReserveMode(bool mode)
+        {
+            gbResource.Visible = mode;
+            gbSearch.Visible = mode;
+            gbStudentsInfo.Visible = mode;
+            btnReserveResource.Visible = mode;
+            btnclear.Visible = mode;
         }
 
         private void btnclear_Click(object sender, EventArgs e)
         {
-            Reserve_Load(null, null);
             foreach (Control x in gbStudentsInfo.Controls)
             {
-                if (x is TextBox | x is ComboBox)
+                if (x is TextBox)
                 {
                     x.Text = string.Empty;
+                }
+                if (x is ComboBox)
+                {
+                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = -1;
                 }
                 this.errorProvider1.SetError(x, string.Empty);
             }
@@ -168,13 +186,56 @@ namespace ABCAutomotive.FrontEnd.MainForms
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
             txtSearch.ResetText();
+            txtsearchResource.Focus();
+            txtsearchResource.ResetText();
+            errorProvider1.SetError(txtSearch, string.Empty);
+            ReserveMode(false);
             resource = ResourceFactory.Create();
             student = StudentFactory.Create();
         }
 
+        private void clearStudentInfo()
+        {
+            foreach (Control x in gbStudentsInfo.Controls)
+            {
+                if (x is TextBox)
+                {
+                    x.Text = string.Empty;
+                }
+                if(x is ComboBox)
+                {
+                    (x as ComboBox).SelectedIndex = - 1;
+                    (x as ComboBox).SelectedIndex = -1;
+                }
+                this.errorProvider1.SetError(x, string.Empty);
+            }
+        }
+
+        private void clearResourceInfo()
+        {
+            foreach (Control x in gbResource.Controls)
+            {
+                if (x is TextBox | x is ComboBox)
+                {
+                    x.Text = string.Empty;
+                }
+                if (x is ComboBox)
+                {
+                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = -1;
+                }
+                this.errorProvider1.SetError(x, string.Empty);
+            }
+        }
+
         private void txtsearchResource_Enter(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            errorProvider1.SetError((sender as Control), "");
+            (sender as TextBox).SelectAll();
+        }
+
+        private void Reserve_FormClosing(object sender, FormClosingEventArgs e)
+        {
             parent.StatusLabel.Text = "";
         }
 
@@ -186,9 +247,15 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
-                ResourceMethods.ReserveResource(student.studentid, resource.resourceid);
-                parent.StatusLabel.Text = "Resource Reserved";
-                btnclear_Click(null, null);
+                if (!string.IsNullOrEmpty(txtfirstName.Text))
+                {
+                    ResourceMethods.ReserveResource(student.studentid, resource.resourceid);
+                    parent.StatusLabel.Text = "Resource Reserved";
+                }
+                else
+                {
+                    errorProvider1.SetError(txtSearch, "Please search for a student");
+                }
             }
             catch (Exception ex)
             {

@@ -201,7 +201,6 @@
             this.txtreferencenumber.Name = "txtreferencenumber";
             this.txtreferencenumber.Size = new System.Drawing.Size(210, 26);
             this.txtreferencenumber.TabIndex = 6;
-            this.txtreferencenumber.Click += new System.EventHandler(this.txttitle_Click);
             this.txtreferencenumber.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtreferencenumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
@@ -213,7 +212,6 @@
             this.txtprice.Name = "txtprice";
             this.txtprice.Size = new System.Drawing.Size(210, 26);
             this.txtprice.TabIndex = 5;
-            this.txtprice.Click += new System.EventHandler(this.txttitle_Click);
             this.txtprice.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtprice.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
@@ -256,7 +254,6 @@
             this.txtpublisher.Name = "txtpublisher";
             this.txtpublisher.Size = new System.Drawing.Size(210, 26);
             this.txtpublisher.TabIndex = 4;
-            this.txtpublisher.Click += new System.EventHandler(this.txttitle_Click);
             this.txtpublisher.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtpublisher.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
@@ -280,7 +277,6 @@
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(297, 104);
             this.txtDesc.TabIndex = 3;
-            this.txtDesc.Click += new System.EventHandler(this.txttitle_Click);
             this.txtDesc.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txtDesc.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
@@ -336,7 +332,6 @@
             this.txttitle.Name = "txttitle";
             this.txttitle.Size = new System.Drawing.Size(211, 26);
             this.txttitle.TabIndex = 1;
-            this.txttitle.Click += new System.EventHandler(this.txttitle_Click);
             this.txttitle.Enter += new System.EventHandler(this.txttitle_Enter);
             this.txttitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtDesc_Validating);
             // 
@@ -357,7 +352,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "AddResource";
             this.Text = "Add Resource";
-            this.Activated += new System.EventHandler(this.AddResource_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddResource_FormClosing);
             this.Load += new System.EventHandler(this.AddResource_Load);
             this.gbResourceInfo.ResumeLayout(false);
             this.gbResourceInfo.PerformLayout();

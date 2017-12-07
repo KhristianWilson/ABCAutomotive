@@ -19,11 +19,19 @@ namespace ABCAutomotive.BusinessLayer
 
         public static Authentication Create(string username, string password)
         {
-            if (string.IsNullOrEmpty(username) || !Validation.checkLength(username, 30, SizeOperator.CanBeLessThan))
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ConstraintException("Username is required");
+            }
+            if (!Validation.checkLength(username, 30, SizeOperator.CanBeLessThan))
             {
                 throw new ConstraintException("Username must be less than 30 characters");
             }
-            if (string.IsNullOrEmpty(password) || !Validation.checkLength(password, 20, SizeOperator.CanBeLessThan))
+            if (string.IsNullOrEmpty(password))
+            {
+                throw new ConstraintException("Password is required");
+            }
+            if (!Validation.checkLength(password, 20, SizeOperator.CanBeLessThan))
             {
                 throw new ConstraintException("Password must be less than 20 characters");
             }
@@ -155,7 +163,7 @@ namespace ABCAutomotive.BusinessLayer
             }
             else
             {
-                myResource._removealDate = DateTime.Now;
+                myResource._removealDate = default(DateTime);
             }
             myResource._trusted = true;
 

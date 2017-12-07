@@ -1,8 +1,10 @@
 ﻿using ABCAutomotive.BusinessLayer;
 using ABCAutomotive.Types;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ABCAutomotive.FrontEnd
@@ -102,7 +104,7 @@ namespace ABCAutomotive.FrontEnd
                 {
                     ResourceMethods.InsertResource(resource);
                     txtResourceID.Text = resource.resourceid.ToString();
-                    parent.StatusLabel.Text = "Resource Added ID: " + resource.resourceid.ToString();                   
+                    parent.StatusLabel.Text = "Resource Added ID: " + resource.resourceid.ToString();
                 }
                 else
                 {
@@ -111,7 +113,7 @@ namespace ABCAutomotive.FrontEnd
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -121,6 +123,7 @@ namespace ABCAutomotive.FrontEnd
 
         private void setupForm()
         {
+            parent.StatusLabel.Text = "";
             txtDesc.MaxLength = 50;
             txttitle.MaxLength = 30;
             txtpublisher.MaxLength = 30;
@@ -129,7 +132,9 @@ namespace ABCAutomotive.FrontEnd
 
             pbImage.BorderStyle = BorderStyle.FixedSingle;
             cbType.DataSource = Enum.GetValues(typeof(ResourceType));
-            cbStatus.DataSource = Enum.GetValues(typeof(ResourceStatus));
+            List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
+            status.RemoveAt(1);
+            cbStatus.DataSource = status;
             dtpAddDate.Value = DateTime.Now;
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -147,16 +152,19 @@ namespace ABCAutomotive.FrontEnd
                 {
                     ctrl.ResetText();
                 }
+                if (ctrl is ComboBox)
+                {
+                    (ctrl as ComboBox).SelectedIndex = -1;
+                    (ctrl as ComboBox).SelectedIndex = -1;
+                }
             }
 
             resource = ResourceFactory.Create();
             dtpAddDate.Value = DateTime.Now;
-            cbStatus.SelectedIndex = -1;
-            cbType.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
-            cbType.SelectedIndex = -1;
+            resource.purchaseDate = dtpAddDate.Value;
+            pbImage.Image = null;
+            errorProvider1.Clear();
             parent.StatusLabel.Text = "";
-
         }
 
         private bool FormIsClean()
@@ -170,19 +178,18 @@ namespace ABCAutomotive.FrontEnd
                     isClean = false;
                     break;
                 }
-                if (ctrl.Text == string.Empty && ctrl != txtreferencenumber && ctrl != pbImage)
+                if (ctrl.Text == string.Empty && ctrl != txtreferencenumber && ctrl != txtResourceID && ctrl != pbImage)
                 {
                     isClean = false;
                     break;
                 }
             }
+            if (pbImage.Image == null)
+            {
+                isClean = false;
+            }
 
             return isClean;
-        }
-
-        private void txttitle_Click(object sender, EventArgs e)
-        {
-            (sender as TextBox).SelectAll();
         }
 
         private void txttitle_Enter(object sender, EventArgs e)
@@ -191,7 +198,7 @@ namespace ABCAutomotive.FrontEnd
             (sender as TextBox).SelectAll();
         }
 
-        private void AddResource_Activated(object sender, EventArgs e)
+        private void AddResource_FormClosing(object sender, FormClosingEventArgs e)
         {
             parent.StatusLabel.Text = "";
         }
@@ -202,6 +209,7 @@ namespace ABCAutomotive.FrontEnd
 
         private void btnLoadImage_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "Image Files (*.png, *.jpg)|*.png;*.jpg";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pbImage.Image = Image.FromFile(openFileDialog1.FileName);
@@ -211,7 +219,6 @@ namespace ABCAutomotive.FrontEnd
                 resource.image = pic;
             }
         }
-
 
         #endregion
 

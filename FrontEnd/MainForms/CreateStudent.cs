@@ -41,13 +41,11 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     parent.StatusLabel.Text = "Fields Were Left Blank" + " , " + "Insert rejected";
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         #endregion
@@ -71,7 +69,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     break;
                 }
             }
-
             return isClean;
         }
 
@@ -93,6 +90,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtcity.MaxLength = 50;
             txtphoneNumber.MaxLength = 12;
             txtpostalCode.MaxLength = 7;
+            parent.StatusLabel.Text = "";
         }
 
         private void btnclear_Click(object sender, EventArgs e)
@@ -103,6 +101,11 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     ctrl.ResetText();
                 }
+                if(ctrl is ComboBox)
+                {
+                    (ctrl as ComboBox).SelectedIndex = -1;
+                    (ctrl as ComboBox).SelectedIndex = -1;
+                }
             }
 
             student = StudentFactory.Create();
@@ -111,10 +114,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             student.startDate = dtpstartDate.Value;
             student.endDate = dtpendDate.Value;
 
-            cbProgram.SelectedIndex = -1;
-            cbProgram.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
+            parent.StatusLabel.Text = "";
+            errorProvider1.Clear();
         }
 
         private void txtstudentID_Enter(object sender, EventArgs e)
@@ -123,13 +124,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             errorProvider1.SetError((sender as Control), "");
         }
 
-        private void txtfirstName_Click(object sender, EventArgs e)
-        {
-            (sender as TextBox).SelectAll();
-            errorProvider1.SetError((sender as Control), "");
-        }
-
-        private void CreateStudent_Activated(object sender, EventArgs e)
+        private void CreateStudent_FormClosing(object sender, FormClosingEventArgs e)
         {
             parent.StatusLabel.Text = "";
         }
@@ -189,7 +184,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 this.errorProvider1.SetError((Control)sender, ex.Message);
             }
-
         }
 
         #endregion

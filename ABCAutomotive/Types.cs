@@ -70,11 +70,13 @@ namespace ABCAutomotive.Types
     {
         public int resourceID { get; internal set; }
         public string titleDueDate { get; internal set; }
+        public ResourceType resourceType { get; internal set; }
 
-        public LoanItem(int resourceID, string title, DateTime dueDate)
+        public LoanItem(int resourceID, string title, DateTime dueDate, ResourceType resourceType)
         {
             this.resourceID = resourceID;
             this.titleDueDate = title + " Due: " + dueDate.ToShortDateString();
+            this.resourceType = resourceType;
         }
     }
 

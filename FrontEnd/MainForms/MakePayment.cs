@@ -15,7 +15,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             InitializeComponent();
         }
 
-        #region StartUp
+        #region Start Up
 
         List<StudentLookup> StudentList;
         Student student;
@@ -70,6 +70,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
                 student = StudentFactory.Create(studentID);
+                Validation.ownsBalnce(student);
                 loadStudentInfo();
                 showInfo(true);
             }
@@ -87,6 +88,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.SelectedItem = student.startDate.ToString();
             dtpstartDate.Value = student.startDate;
             dtpendDate.Value = student.endDate;
+            errorProvider1.Clear();
         }
 
         #endregion
@@ -95,9 +97,11 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void setupForm()
         {
+            parent.StatusLabel.Text = "";
             gbpayment.Visible = false;
             gbStudentsInfo.Visible = false;
             gbStudentsInfo.Enabled = false;
+            rdoCredit.Checked = true;
             cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
             student = StudentFactory.Create();
@@ -109,15 +113,21 @@ namespace ABCAutomotive.FrontEnd.MainForms
             gbpayment.Enabled = mode;
             gbpayment.Visible = mode;
             gbStudentsInfo.Visible = mode;
+            gbSearch.Enabled = !mode;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             foreach (Control x in gbStudentsInfo.Controls)
             {
-                if (x is TextBox | x is ComboBox)
+                if (x is TextBox)
                 {
                     x.Text = string.Empty;
+                }
+                if(x is ComboBox)
+                {
+                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = -1;
                 }
                 this.errorProvider1.SetError(x, string.Empty);
             }
@@ -133,7 +143,13 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void txtamount_Enter(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            errorProvider1.SetError((sender as Control), "");
+            (sender as TextBox).SelectAll();
+        }
+
+        private void MakePayment_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parent.StatusLabel.Text = "";
         }
 
         #endregion
@@ -170,14 +186,13 @@ namespace ABCAutomotive.FrontEnd.MainForms
             {
                 payment.paymentDate = DateTime.Now;
                 payment.studentId = student.studentid;
-
                 PaymentMethods.MakePayment(payment);
                 parent.StatusLabel.Text = "Payment Made";
-                btnCancel_Click(null, null);
+                LstSearchResults_SelectedIndexChanged(null, null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

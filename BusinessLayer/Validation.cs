@@ -1,6 +1,8 @@
 ﻿using ABCAutomotive.Types;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -40,15 +42,19 @@ namespace ABCAutomotive.BusinessLayer
             return matches.Success;
         }
 
+        #endregion
+
+        #region Object Validating 
+
         public static bool validStudent(Student student)
         {
             if(student.balanceDue > 0)
             {
-                throw new ConstraintException("Student Maintains A Balance Higher Then $0.00");
+                throw new ConstraintException("Student maintains a balance higher then $0.00");
             }
             if(student.status == StudentStatus.Inactive)
             {
-                throw new ConstraintException("Student Is Inactive");
+                throw new ConstraintException("Student is inactive");
             }
             return true;
         }
@@ -57,20 +63,73 @@ namespace ABCAutomotive.BusinessLayer
         {
             if(resource.resourceStatus == ResourceStatus.NotAvailable)
             {
-                throw new ConstraintException("Resource Is Not Available");
+                throw new ConstraintException("Resource is not available");
             }
             if (resource.reserveStatus == ReserveStatus.Reserved)
             {
-                throw new ConstraintException("Resource Is Reserved");
+                throw new ConstraintException("resource is reserved");
             }
             return true;
         }
+
+        #endregion
+
+        #region Status Checks
 
         public static bool validDelete(Student student)
         {
             if (student.balanceDue > 0)
             {
-                throw new ConstraintException("Cannot Delete Student Owning More then 0.00");
+                throw new ConstraintException("Cannot delete student owning more then 0.00");
+            }
+            return true;
+        }
+
+        public static bool ownsBalnce(Student student)
+        {
+            if (student.balanceDue <= 0)
+            {
+                throw new ConstraintException("Student has no outstanding fees");
+            }
+            return true;
+        }
+
+        public static bool activeResource(Resource resource)
+        {
+            if(resource.resourceStatus != ResourceStatus.Available)
+            {
+                throw new ConstraintException("Resource is not available");
+            }
+            return true;
+        }
+
+        public static bool checkreserved(Student student, Resource resource)
+        {
+            if(resource.reserveStatus == ReserveStatus.Reserved)
+            {
+                if(resource.reserveingStudent != student.studentid)
+                {
+                    throw new ConstraintException("Resource is reserved by another student");
+                }
+            }
+            return true;
+        }
+
+        public static bool validResourceCheckout(List<LoansLookup> loans, BindingList<LoanItem> cart, Resource resource)
+        {
+            foreach(LoansLookup loan in loans)
+            {
+                if(loan.ResourceType == resource.resourceType)
+                {
+                    throw new ConstraintException("Student already has loan for type " + resource.resourceType);
+                }
+            }
+            foreach (LoanItem loan in cart)
+            {
+                if (loan.resourceType == resource.resourceType)
+                {
+                    throw new ConstraintException("Cart already contains resource type " + resource.resourceType);
+                }
             }
             return true;
         }

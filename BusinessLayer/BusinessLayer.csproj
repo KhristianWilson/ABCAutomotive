@@ -45,7 +45,6 @@
     <Compile Include="Object Classes\List.cs" />
     <Compile Include="Object Classes\Authentication.cs" />
     <Compile Include="Factories\MainFactories.cs" />
-    <Compile Include="Object Classes\Loan.cs" />
     <Compile Include="Object Classes\Payment.cs" />
     <Compile Include="CUD Classes\PaymentMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

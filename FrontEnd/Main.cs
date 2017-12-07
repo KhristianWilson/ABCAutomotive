@@ -63,6 +63,7 @@ namespace ABCAutomotive.FrontEnd
             lblStatus.ForeColor = Color.Red;
             lblStatus.TextAlign = ContentAlignment.MiddleLeft;
             lblStatus.BorderSides = ToolStripStatusLabelBorderSides.Right;
+            lblStatus.Text = "Welcome";
 
         }
 

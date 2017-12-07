@@ -38,7 +38,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #region House Keeping
 
-        private void OverDueReport_Activated(object sender, EventArgs e)
+        private void OverDueReport_FormClosing(object sender, FormClosingEventArgs e)
         {
             parent.StatusLabel.Text = "";
         }

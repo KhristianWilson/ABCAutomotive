@@ -81,7 +81,7 @@
             this.Controls.Add(this.dgvoverDueLoans);
             this.Name = "OverDueReport";
             this.Text = "Overdue Loans";
-            this.Activated += new System.EventHandler(this.OverDueReport_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OverDueReport_FormClosing);
             this.Load += new System.EventHandler(this.OverDueLoans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvoverDueLoans)).EndInit();
             this.ResumeLayout(false);

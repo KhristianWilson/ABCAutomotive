@@ -101,7 +101,7 @@
             // rdoCredit
             // 
             this.rdoCredit.AutoSize = true;
-            this.rdoCredit.Location = new System.Drawing.Point(362, 62);
+            this.rdoCredit.Location = new System.Drawing.Point(362, 71);
             this.rdoCredit.Name = "rdoCredit";
             this.rdoCredit.Size = new System.Drawing.Size(74, 25);
             this.rdoCredit.TabIndex = 6;
@@ -112,7 +112,7 @@
             // rdoDebit
             // 
             this.rdoDebit.AutoSize = true;
-            this.rdoDebit.Location = new System.Drawing.Point(362, 31);
+            this.rdoDebit.Location = new System.Drawing.Point(362, 40);
             this.rdoDebit.Name = "rdoDebit";
             this.rdoDebit.Size = new System.Drawing.Size(68, 25);
             this.rdoDebit.TabIndex = 5;
@@ -123,7 +123,7 @@
             // txtamount
             // 
             this.txtamount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtamount.Location = new System.Drawing.Point(157, 31);
+            this.txtamount.Location = new System.Drawing.Point(164, 38);
             this.txtamount.Name = "txtamount";
             this.txtamount.Size = new System.Drawing.Size(140, 26);
             this.txtamount.TabIndex = 4;
@@ -134,7 +134,7 @@
             // 
             this.lblAmount.AutoSize = true;
             this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblAmount.Location = new System.Drawing.Point(20, 34);
+            this.lblAmount.Location = new System.Drawing.Point(27, 41);
             this.lblAmount.Name = "lblAmount";
             this.lblAmount.Size = new System.Drawing.Size(131, 24);
             this.lblAmount.TabIndex = 0;
@@ -339,11 +339,12 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(144, 26);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.Enter += new System.EventHandler(this.txtamount_Enter);
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(165, 25);
+            this.btnSearch.Location = new System.Drawing.Point(181, 25);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 26);
             this.btnSearch.TabIndex = 2;
@@ -361,6 +362,7 @@
             this.Controls.Add(this.gbpayment);
             this.Name = "MakePayment";
             this.Text = "MakePayment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MakePayment_FormClosing);
             this.Load += new System.EventHandler(this.MakePayment_Load);
             this.gbpayment.ResumeLayout(false);
             this.gbpayment.PerformLayout();

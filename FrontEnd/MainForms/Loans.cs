@@ -26,23 +26,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void Loans_Load(object sender, System.EventArgs e)
         {
-            txtSearch.MaxLength = 50;
-            txtsearchResource.MaxLength = 8;
-            gbSearch.Visible = true;
-            dgvLoans.ReadOnly = true;
-            gbStudentsInfo.Visible = false;
-            gbStudentLoans.Visible = false;
-            gbSearchResource.Visible = false;
-            gbResource.Visible = false;
-            btncancel.Visible = false;
-            btncheckOut.Visible = false;
-            btnRemoveItem.Visible = false;
-            lstCart.Visible = false;
-            parent.StatusLabel.Text = "";
-
-            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
-            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
-
+            setupForm();
         }
 
         #endregion
@@ -69,12 +53,11 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     StudentList = StudentsFactory.Create(txtSearch.Text);
                 }
-
+                lstSearchResults.Visible = true;
                 lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
                 lstSearchResults.ValueMember = "StudentID";
                 lstSearchResults.DisplayMember = "FullName";
                 lstSearchResults.DataSource = StudentList;
-                lstSearchResults.Visible = true;
                 lstSearchResults.SelectedIndexChanged += LstSearchResults_SelectedIndexChanged;
             }
             catch (Exception ex)
@@ -96,7 +79,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             }
             catch (Exception ex)
             {
-                errorProvider1.SetError(lstSearchResults, ex.Message);
+                errorProvider1.SetError(txtSearch, ex.Message);
             }
         }
 
@@ -129,7 +112,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 int resouceID = 0;
                 if (Int32.TryParse(txtsearchResource.Text, out resouceID) && txtsearchResource.Text.Length == 8)
                 {
-                    resource= ResourceFactory.Create(resouceID);
+                    resource = ResourceFactory.Create(resouceID);
+                    Validation.activeResource(resource);
+                    Validation.checkreserved(student, resource);
                     loadResourceInfo();
                     btnAddtoCart.Enabled = true;
                 }
@@ -156,6 +141,26 @@ namespace ABCAutomotive.FrontEnd.MainForms
         #endregion
 
         #region House Keeping
+
+        private void setupForm()
+        {
+            txtSearch.MaxLength = 50;
+            txtsearchResource.MaxLength = 8;
+            gbSearch.Visible = true;
+            dgvLoans.ReadOnly = true;
+            gbStudentsInfo.Visible = false;
+            gbStudentLoans.Visible = false;
+            gbSearchResource.Visible = false;
+            gbResource.Visible = false;
+            btncancel.Visible = false;
+            btncheckOut.Visible = false;
+            btnRemoveItem.Visible = false;
+            lstCart.Visible = false;
+            parent.StatusLabel.Text = "";
+
+            cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
+            cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -190,7 +195,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void txtsearchResource_Enter(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            errorProvider1.SetError((sender as Control), "");
+            (sender as TextBox).SelectAll();
+        }
+
+        private void Loans_Activated(object sender, EventArgs e)
+        {
             parent.StatusLabel.Text = "";
         }
 
@@ -209,22 +219,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void btnAddtoCart_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
-            DialogResult result = DialogResult.None;
-            if (resource.reserveStatus == ReserveStatus.Reserved)
+            try
             {
-                Student ReserveingStudent = StudentFactory.CreateByResouce(resource.resourceid);
-                string message = "Resource is reserved \n" + "Is The Student \n" + "Student ID: " + ReserveingStudent.studentid + "\nStudent Name: " + ReserveingStudent.firstName + ", " + ReserveingStudent.lastName;
-                result = MessageBox.Show(message, "Reserved", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            }
-
-            if (result == DialogResult.Yes || result == DialogResult.None)
-            {
+                Validation.validResourceCheckout(loansLookup, loanItems, resource);
                 addItem();
             }
-            else
+            catch (Exception ex)
             {
-                parent.StatusLabel.Text = "Unable to Checkout Resource";
+                errorProvider1.SetError(btnAddtoCart, ex.Message);
             }
         }
 
@@ -232,7 +234,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             if (CheckResource())
             {
-                loanItems.Add(new LoanItem(resource.resourceid, txttitle.Text, GetDueDate()));
+                loanItems.Add(new LoanItem(resource.resourceid, txttitle.Text, GetDueDate(), resource.resourceType));
                 lstCart.ValueMember = "resourceID";
                 lstCart.DisplayMember = "titleDueDate";
                 lstCart.DataSource = loanItems;
@@ -280,18 +282,16 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     for (int i = 0; i < lstCart.Items.Count; i++)
                     {
                         lstCart.SelectedIndex = i;
-
                         int resourceID = Convert.ToInt32(lstCart.SelectedValue);
                         ResourceMethods.CheckOutResource(student.studentid, resourceID);
                     }
-
                     loadStudentLoans();
                     loanItems.Clear();
                     parent.StatusLabel.Text = "Items Added To Student Loans";
                 }
                 else
                 {
-                    errorProvider1.SetError(btncheckOut, "Please Select A Resource");
+                    errorProvider1.SetError(txtsearchResource, "Please Select A Resource");
                 }
             }
             catch (Exception ex)

@@ -34,7 +34,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void cmdRetrieve_Click(System.Object eventSender, System.EventArgs eventArgs)
         {
-            btnClear_Click(null, null);
             try
             {
                 if(Int32.TryParse(txtsearchResource.Text, out int id))
@@ -66,8 +65,19 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtreserveStatus.Text = objRes.reserveStatus.ToString();
             dtpAddDate.Value = objRes.purchaseDate;
             pbImage.Image = getImage(objRes.image);
-            dtpRemovelDate.Value = objRes.removealDate;
             cbStatus.SelectedItem = objRes.resourceStatus;
+
+            if(objRes.removealDate  != default(DateTime))
+            {
+                dtpRemovelDate.Value = objRes.removealDate;
+                lblDateOfRem.Visible = true;
+                dtpRemovelDate.Visible = true;
+            }
+            else
+            {
+                lblDateOfRem.Visible = false;
+                dtpRemovelDate.Visible = false;
+            }
         }
 
         #endregion
@@ -76,13 +86,15 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void setupForm()
         {
+            objRes = ResourceFactory.Create();
             List<ResourceStatus> status = Enum.GetValues(typeof(ResourceStatus)).Cast<ResourceStatus>().ToList();
             status.RemoveAt(1);
             cbStatus.DataSource = status;
-            objRes = ResourceFactory.Create();
-            enableUpdate(false);
-            txtsearchResource.MaxLength = 8;
+
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            enableUpdate(false);
+            gbResourceInfo.Enabled = false;
+            txtsearchResource.MaxLength = 8;           
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -90,20 +102,24 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
             foreach (Control x in gbResourceInfo.Controls)
             {
-                if (x is TextBox | x is ComboBox)
+                if (x is TextBox)
                 {
                     x.Text = string.Empty;
+                }
+                if(x is ComboBox)
+                {
+                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = -1;
                 }
 
                 this.errorProvider1.SetError(x, string.Empty);
             }
 
-            dtpAddDate.Value = DateTime.Now;
-            dtpRemovelDate.Value = DateTime.Now;
-            cbStatus.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
             objRes = ResourceFactory.Create();
+            dtpAddDate.Value = DateTime.Now;
+            dtpRemovelDate.Value = DateTime.Now;      
             enableUpdate(false);
+            parent.StatusLabel.Text = "";
             txtsearchResource.Enabled = true;
             txtsearchResource.Focus();
         }
@@ -120,7 +136,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void txtsearchResource_Enter(object sender, EventArgs e)
         {
             errorProvider1.Clear();
+            txtsearchResource.SelectAll();
         }
+
+        private void ModifyResourceStatus_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parent.StatusLabel.Text = "";
+        }
+
         private static Image getImage(byte[] ImageData)
         {
             Image Image;
@@ -135,11 +158,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
             return Image;
         }
 
-        private void ModifyResourceStatus_Activated(object sender, EventArgs e)
-        {
-            parent.StatusLabel.Text = "";
-        }
-
         #endregion
 
         #region Update Status
@@ -151,7 +169,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 objRes.resourceStatus = (ResourceStatus)cbStatus.SelectedItem;
                 ResourceMethods.UpdateStatus(objRes);
                 parent.StatusLabel.Text = "Status Updated";
-                btnClear_Click(null, null);
+                cmdRetrieve_Click(null, null);
             }
             catch (Exception ex)
             {

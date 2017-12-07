@@ -82,7 +82,6 @@
             this.gbSearch.TabIndex = 3;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Search Students";
-            this.gbSearch.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lstSearchResults
             // 
@@ -158,7 +157,7 @@
             this.txtstudentID.Name = "txtstudentID";
             this.txtstudentID.Size = new System.Drawing.Size(148, 26);
             this.txtstudentID.TabIndex = 4;
-            this.txtstudentID.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtstudentID.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtstudentID.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblstudentID
@@ -179,7 +178,7 @@
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 26);
             this.txtphoneNumber.TabIndex = 11;
-            this.txtphoneNumber.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtphoneNumber.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblphone
@@ -199,7 +198,7 @@
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 26);
             this.txtpostalCode.TabIndex = 10;
-            this.txtpostalCode.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtpostalCode.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtcity
@@ -209,7 +208,7 @@
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 26);
             this.txtcity.TabIndex = 9;
-            this.txtcity.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtcity.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtaddress
@@ -219,7 +218,7 @@
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 26);
             this.txtaddress.TabIndex = 8;
-            this.txtaddress.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtaddress.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblpostalCode
@@ -293,7 +292,7 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(148, 26);
             this.txtbalance.TabIndex = 7;
-            this.txtbalance.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtbalance.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
@@ -323,7 +322,7 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(148, 26);
             this.txtlastName.TabIndex = 6;
-            this.txtlastName.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtlastName.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtlastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblEndDate
@@ -343,7 +342,7 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(148, 26);
             this.txtfirstName.TabIndex = 5;
-            this.txtfirstName.Click += new System.EventHandler(this.txtfirstName_Click);
+            this.txtfirstName.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtfirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStatus
@@ -453,9 +452,8 @@
             this.Controls.Add(this.gbSearch);
             this.Name = "ManageStudent";
             this.Text = "Manage Students";
-            this.Activated += new System.EventHandler(this.ManageStudent_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageStudent_FormClosing);
             this.Load += new System.EventHandler(this.Student_Load);
-            this.Click += new System.EventHandler(this.txtfirstName_Click);
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
             this.gbStudentsInfo.ResumeLayout(false);

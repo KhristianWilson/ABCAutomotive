@@ -70,11 +70,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 int studentID = Convert.ToInt32(lstSearchResults.SelectedValue);
                 student = StudentFactory.Create(studentID);
                 loadStudentInfo();
-                editMode(true);
             }
             catch (Exception ex)
             {
-                errorProvider1.SetError(lstSearchResults, ex.Message);
+                errorProvider1.SetError(txtSearch, ex.Message);
             }
         }
 
@@ -109,7 +108,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 else
                 {
-                    MessageBox.Show("Fields Were Left Blank", "Update rejected");
+                    parent.StatusLabel.Text = ("Fields Were Left Blank" + " , " + "Update rejected");
                 }
             }
             catch (Exception ex)
@@ -142,6 +141,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void setupFrom()
         {
+            parent.StatusLabel.Text = "";
             student = StudentFactory.Create();
             cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
@@ -170,12 +170,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
-        {
-            errorProvider1.SetError((sender as Control), "");
-            (sender as TextBox).SelectAll();
-        }
-
-        private void txtfirstName_Click(object sender, EventArgs e)
         {
             errorProvider1.SetError((sender as Control), "");
             (sender as TextBox).SelectAll();
@@ -210,17 +204,17 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     ctrl.ResetText();
                 }
+                if (ctrl is ComboBox)
+                {
+                    (ctrl as ComboBox).SelectedIndex = -1;
+                    (ctrl as ComboBox).SelectedIndex = -1;
+                }
             }
 
             dtpendDate.Value = DateTime.Now;
             dtpstartDate.Value = DateTime.Now;
             student = StudentFactory.Create();
 
-            cbProgram.SelectedIndex = -1;
-            cbProgram.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
-            
             gbSearch.Enabled = true;
             txtSearch.Focus();
             editMode(false);
@@ -230,7 +224,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         }
 
-        private void ManageStudent_Activated(object sender, EventArgs e)
+        private void ManageStudent_FormClosing(object sender, FormClosingEventArgs e)
         {
             parent.StatusLabel.Text = "";
         }
@@ -258,7 +252,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     string tempBalance;
                     if (txtbalance.Text.StartsWith("$"))
                     {
-                        tempBalance = txtbalance.Text.Remove(0,1);
+                        tempBalance = txtbalance.Text.Remove(0, 1);
                     }
                     else
                     {

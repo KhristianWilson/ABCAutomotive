@@ -89,7 +89,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(165, 28);
+            this.btnSearch.Location = new System.Drawing.Point(189, 28);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 26);
             this.btnSearch.TabIndex = 3;
@@ -122,7 +122,7 @@
             this.lstSearchResults.ItemHeight = 19;
             this.lstSearchResults.Location = new System.Drawing.Point(15, 63);
             this.lstSearchResults.Name = "lstSearchResults";
-            this.lstSearchResults.Size = new System.Drawing.Size(225, 80);
+            this.lstSearchResults.Size = new System.Drawing.Size(249, 80);
             this.lstSearchResults.TabIndex = 2;
             // 
             // gbStudentsInfo
@@ -328,7 +328,7 @@
             // 
             // btnSearchResource
             // 
-            this.btnSearchResource.Location = new System.Drawing.Point(165, 27);
+            this.btnSearchResource.Location = new System.Drawing.Point(189, 27);
             this.btnSearchResource.Name = "btnSearchResource";
             this.btnSearchResource.Size = new System.Drawing.Size(75, 27);
             this.btnSearchResource.TabIndex = 5;
@@ -357,7 +357,7 @@
             // 
             // btnAddtoCart
             // 
-            this.btnAddtoCart.Location = new System.Drawing.Point(113, 170);
+            this.btnAddtoCart.Location = new System.Drawing.Point(65, 170);
             this.btnAddtoCart.Name = "btnAddtoCart";
             this.btnAddtoCart.Size = new System.Drawing.Size(140, 29);
             this.btnAddtoCart.TabIndex = 8;
@@ -500,6 +500,7 @@
             this.Controls.Add(this.gbSearch);
             this.Name = "Loans";
             this.Text = "Loans";
+            this.Activated += new System.EventHandler(this.Loans_Activated);
             this.Load += new System.EventHandler(this.Loans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbSearch.ResumeLayout(false);
