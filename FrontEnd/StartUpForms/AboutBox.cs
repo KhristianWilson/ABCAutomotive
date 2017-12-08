@@ -15,6 +15,11 @@ namespace ABCAutomotive.FrontEnd.StartUpForms
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+            this.textBoxDescription.Text += Environment.NewLine;
+            this.textBoxDescription.Text += Environment.NewLine + "Check In Icon made by Icon Pond from www.flaticon.com";
+            this.textBoxDescription.Text += Environment.NewLine + "Check Out Icon made by Icon Pond from www.flaticon.com";
+            this.textBoxDescription.Text += Environment.NewLine + "Reserves Icon made by Icon Pond from www.flaticon.com ";
+            this.textBoxDescription.Text += Environment.NewLine + "Overdue Loans Icon made by Icon Pond from www.flaticon.com ";
         }
 
         #region Assembly Attribute Accessors

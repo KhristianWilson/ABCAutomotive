@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainForms\addNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\addNewUser.Designer.cs">
+      <DependentUpon>addNewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForms\AddResource.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\addNewUser.resx">
+      <DependentUpon>addNewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\AddResource.resx">
       <DependentUpon>AddResource.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +216,7 @@
   <ItemGroup>
     <Content Include="Resources\loans.png" />
     <None Include="Resources\reserve.png" />
+    <None Include="Resources\overdue.png" />
     <Content Include="Resources\returns.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

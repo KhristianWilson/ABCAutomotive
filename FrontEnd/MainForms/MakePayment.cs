@@ -152,6 +152,12 @@ namespace ABCAutomotive.FrontEnd.MainForms
             parent.StatusLabel.Text = "";
         }
 
+        private void refreshStudentInfo()
+        {
+            student = StudentFactory.Create(student.studentid);
+            loadStudentInfo();
+        }
+
         #endregion
 
         #region Validating
@@ -188,7 +194,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 payment.studentId = student.studentid;
                 PaymentMethods.MakePayment(payment);
                 parent.StatusLabel.Text = "Payment Made";
-                LstSearchResults_SelectedIndexChanged(null, null);
+                refreshStudentInfo();
             }
             catch (Exception ex)
             {

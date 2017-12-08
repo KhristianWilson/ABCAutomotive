@@ -47,15 +47,17 @@
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
             this.btnReserves = new System.Windows.Forms.ToolStripButton();
+            this.btnOverdue = new System.Windows.Forms.ToolStripButton();
             this.statusMain = new System.Windows.Forms.StatusStrip();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
-            this.lblRole = new System.Windows.Forms.ToolStripStatusLabel();
+            this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -72,7 +74,8 @@
             this.loansToolStripMenuItem,
             this.resourceInfoToolStripMenuItem,
             this.studentInfoToolStrip,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.newUserToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1246, 24);
@@ -186,7 +189,8 @@
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnLoans,
             this.btnReturns,
-            this.btnReserves});
+            this.btnReserves,
+            this.btnOverdue});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(1246, 25);
@@ -200,7 +204,7 @@
             this.btnLoans.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLoans.Name = "btnLoans";
             this.btnLoans.Size = new System.Drawing.Size(23, 22);
-            this.btnLoans.Text = "Loans";
+            this.btnLoans.Text = "Check Out";
             this.btnLoans.Click += new System.EventHandler(this.MenuClick);
             // 
             // btnReturns
@@ -210,7 +214,7 @@
             this.btnReturns.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReturns.Name = "btnReturns";
             this.btnReturns.Size = new System.Drawing.Size(23, 22);
-            this.btnReturns.Text = "Returns";
+            this.btnReturns.Text = "Check In";
             this.btnReturns.Click += new System.EventHandler(this.MenuClick);
             // 
             // btnReserves
@@ -222,6 +226,16 @@
             this.btnReserves.Size = new System.Drawing.Size(23, 22);
             this.btnReserves.Text = "Reserves";
             this.btnReserves.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // btnOverdue
+            // 
+            this.btnOverdue.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnOverdue.Image = global::ABCAutomotive.FrontEnd.Properties.Resources.overdue;
+            this.btnOverdue.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOverdue.Name = "btnOverdue";
+            this.btnOverdue.Size = new System.Drawing.Size(23, 22);
+            this.btnOverdue.Text = "Overdue Report";
+            this.btnOverdue.Click += new System.EventHandler(this.MenuClick);
             // 
             // statusMain
             // 
@@ -245,6 +259,11 @@
             // 
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblRole
+            // 
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(0, 17);
             // 
             // lblStatus
             // 
@@ -299,10 +318,13 @@
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
             // 
-            // lblRole
+            // newUserToolStripMenuItem
             // 
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(0, 17);
+            this.newUserToolStripMenuItem.Name = "newUserToolStripMenuItem";
+            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.newUserToolStripMenuItem.Text = "&New User";
+            this.newUserToolStripMenuItem.Visible = false;
+            this.newUserToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
             // 
             // Main
             // 
@@ -365,5 +387,7 @@
         private System.Windows.Forms.ToolStripMenuItem addResourceToolStrip;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lblRole;
+        private System.Windows.Forms.ToolStripButton btnOverdue;
+        private System.Windows.Forms.ToolStripMenuItem newUserToolStripMenuItem;
     }
 }

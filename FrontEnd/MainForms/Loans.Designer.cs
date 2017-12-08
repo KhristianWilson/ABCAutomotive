@@ -316,7 +316,7 @@
             this.gbSearchResource.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSearchResource.Location = new System.Drawing.Point(12, 294);
             this.gbSearchResource.Name = "gbSearchResource";
-            this.gbSearchResource.Size = new System.Drawing.Size(270, 74);
+            this.gbSearchResource.Size = new System.Drawing.Size(283, 74);
             this.gbSearchResource.TabIndex = 3;
             this.gbSearchResource.TabStop = false;
             this.gbSearchResource.Text = "Search Resources";
@@ -355,7 +355,7 @@
             this.gbResource.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbResource.Location = new System.Drawing.Point(12, 374);
             this.gbResource.Name = "gbResource";
-            this.gbResource.Size = new System.Drawing.Size(270, 205);
+            this.gbResource.Size = new System.Drawing.Size(283, 205);
             this.gbResource.TabIndex = 5;
             this.gbResource.TabStop = false;
             this.gbResource.Text = "Resource Info";
@@ -364,7 +364,7 @@
             // 
             this.btnAddtoCart.Location = new System.Drawing.Point(65, 170);
             this.btnAddtoCart.Name = "btnAddtoCart";
-            this.btnAddtoCart.Size = new System.Drawing.Size(140, 29);
+            this.btnAddtoCart.Size = new System.Drawing.Size(188, 29);
             this.btnAddtoCart.TabIndex = 8;
             this.btnAddtoCart.Text = "&Add To Borrowings";
             this.btnAddtoCart.UseVisualStyleBackColor = true;
@@ -449,7 +449,7 @@
             // btncancel
             // 
             this.btncancel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(214, 154);
+            this.btncancel.Location = new System.Drawing.Point(312, 53);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(193, 29);
             this.btncancel.TabIndex = 6;
@@ -460,7 +460,7 @@
             // btncheckOut
             // 
             this.btncheckOut.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncheckOut.Location = new System.Drawing.Point(214, 119);
+            this.btncheckOut.Location = new System.Drawing.Point(312, 18);
             this.btncheckOut.Name = "btncheckOut";
             this.btncheckOut.Size = new System.Drawing.Size(193, 29);
             this.btncheckOut.TabIndex = 7;
@@ -475,13 +475,13 @@
             this.lstCart.ItemHeight = 21;
             this.lstCart.Location = new System.Drawing.Point(18, 18);
             this.lstCart.Name = "lstCart";
-            this.lstCart.Size = new System.Drawing.Size(173, 130);
+            this.lstCart.Size = new System.Drawing.Size(260, 130);
             this.lstCart.TabIndex = 4;
             // 
             // btnRemoveItem
             // 
             this.btnRemoveItem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Location = new System.Drawing.Point(18, 154);
+            this.btnRemoveItem.Location = new System.Drawing.Point(18, 153);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(173, 29);
             this.btnRemoveItem.TabIndex = 22;
@@ -497,7 +497,7 @@
             this.plCheckOut.Controls.Add(this.lstCart);
             this.plCheckOut.Location = new System.Drawing.Point(315, 391);
             this.plCheckOut.Name = "plCheckOut";
-            this.plCheckOut.Size = new System.Drawing.Size(480, 188);
+            this.plCheckOut.Size = new System.Drawing.Size(650, 188);
             this.plCheckOut.TabIndex = 23;
             // 
             // Loans
@@ -513,7 +513,7 @@
             this.Controls.Add(this.gbSearch);
             this.Name = "Loans";
             this.Text = "Loans";
-            this.Activated += new System.EventHandler(this.Loans_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Loans_FormClosing);
             this.Load += new System.EventHandler(this.Loans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbSearch.ResumeLayout(false);

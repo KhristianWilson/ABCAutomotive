@@ -56,7 +56,7 @@
             // lbldateText
             // 
             this.lbldateText.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldateText.Location = new System.Drawing.Point(131, 9);
+            this.lbldateText.Location = new System.Drawing.Point(131, 24);
             this.lbldateText.Name = "lbldateText";
             this.lbldateText.Size = new System.Drawing.Size(211, 43);
             this.lbldateText.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             this.lblnoRecords.AutoSize = true;
             this.lblnoRecords.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnoRecords.Location = new System.Drawing.Point(428, 31);
+            this.lblnoRecords.Location = new System.Drawing.Point(433, 26);
             this.lblnoRecords.Name = "lblnoRecords";
             this.lblnoRecords.Size = new System.Drawing.Size(0, 21);
             this.lblnoRecords.TabIndex = 3;

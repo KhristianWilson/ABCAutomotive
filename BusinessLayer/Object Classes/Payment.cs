@@ -23,7 +23,6 @@ namespace ABCAutomotive.BusinessLayer
 
         #endregion
 
-
         #region Local Properties
 
         internal bool IsClean

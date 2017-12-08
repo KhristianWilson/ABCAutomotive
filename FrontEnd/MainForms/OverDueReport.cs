@@ -21,12 +21,15 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 List<OverDueLookup> overDueLoans = OverDueLookupFactory.Create();
-                dgvoverDueLoans.DataSource = overDueLoans;
-                if (overDueLoans.Count < 0)
+                lbldateText.Text = DateTime.Now.ToLongDateString();
+                if (overDueLoans.Count <= 0)
                 {
                     lblnoRecords.Text = "No Overdue Loans Found";
                 }
-                lbldateText.Text = DateTime.Now.ToLongDateString();
+                else
+                {
+                    dgvoverDueLoans.DataSource = overDueLoans;
+                }
             }
             catch (Exception ex)
             {

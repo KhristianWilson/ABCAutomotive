@@ -203,7 +203,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             (sender as TextBox).SelectAll();
         }
 
-        private void Loans_Activated(object sender, EventArgs e)
+        private void Loans_FormClosing(object sender, FormClosingEventArgs e)
         {
             parent.StatusLabel.Text = "";
         }

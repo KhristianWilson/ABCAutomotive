@@ -23,6 +23,7 @@ namespace ABCAutomotive.FrontEnd
         MakePayment makePayment;
         AddResource addResource;
         OverDueReport overDueLoans;
+        addNewUser addNewUser;
 
         public ToolStripStatusLabel StatusLabel { get { return this.lblStatus; } set { this.lblStatus = value; } }
 
@@ -77,6 +78,7 @@ namespace ABCAutomotive.FrontEnd
             if (Properties.Settings.Default.accessLevel == 2)
             {
                 addResourceToolStrip.Visible = true;
+                newUserToolStripMenuItem.Visible = true;
                 lblRole.Text = "Admin";
             }
             else
@@ -127,6 +129,15 @@ namespace ABCAutomotive.FrontEnd
                 DisplayForm(reserves);
             }
 
+            if (sender == btnOverdue || sender == overdueChargeToolStrip)
+            {
+                if (overDueLoans == null || overDueLoans.IsDisposed)
+                {
+                    overDueLoans = new OverDueReport(this);
+                }
+                DisplayForm(overDueLoans);
+            }
+
             if (sender == updateResourceToolStrip)
             {
                 if (modifyResourceStatus == null || modifyResourceStatus.IsDisposed)
@@ -170,13 +181,13 @@ namespace ABCAutomotive.FrontEnd
                 }
                 DisplayForm(addResource);
             }
-            if (sender == overdueChargeToolStrip)
+            if (sender == newUserToolStripMenuItem)
             {
-                if (overDueLoans == null || overDueLoans.IsDisposed)
+                if (addNewUser == null || addNewUser.IsDisposed)
                 {
-                    overDueLoans = new OverDueReport(this);
+                    addNewUser = new addNewUser(this);
                 }
-                DisplayForm(overDueLoans);
+                DisplayForm(addNewUser);
             }
         }
 
