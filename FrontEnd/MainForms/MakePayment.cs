@@ -126,8 +126,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 if(x is ComboBox)
                 {
-                    (x as ComboBox).SelectedIndex = -1;
-                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = 0;
+                    (x as ComboBox).SelectedIndex = 0;
                 }
                 this.errorProvider1.SetError(x, string.Empty);
             }
@@ -145,6 +145,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             errorProvider1.SetError((sender as Control), "");
             (sender as TextBox).SelectAll();
+            btnmakePayment.Enabled = true;
         }
 
         private void MakePayment_FormClosing(object sender, FormClosingEventArgs e)

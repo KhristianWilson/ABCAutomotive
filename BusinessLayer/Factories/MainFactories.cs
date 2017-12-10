@@ -1,9 +1,7 @@
 ﻿using ABCAutomotive.SQLLayer;
 using ABCAutomotive.Types;
-using System.Drawing;
 using System;
 using System.Data;
-using System.IO;
 
 namespace ABCAutomotive.BusinessLayer
 {
@@ -182,6 +180,7 @@ namespace ABCAutomotive.BusinessLayer
             return new Payment();
         }
     }
+
     #endregion
 
 }

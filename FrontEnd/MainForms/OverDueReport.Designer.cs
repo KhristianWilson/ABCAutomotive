@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OverDueReport));
             this.dgvoverDueLoans = new System.Windows.Forms.DataGridView();
             this.lblDate = new System.Windows.Forms.Label();
             this.lbldateText = new System.Windows.Forms.Label();
@@ -79,6 +80,7 @@
             this.Controls.Add(this.lbldateText);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dgvoverDueLoans);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OverDueReport";
             this.Text = "Overdue Loans";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OverDueReport_FormClosing);

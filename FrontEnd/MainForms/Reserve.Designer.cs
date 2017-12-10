@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserve));
             this.gbSearchResource = new System.Windows.Forms.GroupBox();
             this.txtsearchResource = new System.Windows.Forms.TextBox();
             this.btnSearchResource = new System.Windows.Forms.Button();
@@ -79,7 +80,7 @@
             this.gbSearchResource.Location = new System.Drawing.Point(12, 12);
             this.gbSearchResource.Name = "gbSearchResource";
             this.gbSearchResource.Size = new System.Drawing.Size(270, 116);
-            this.gbSearchResource.TabIndex = 5;
+            this.gbSearchResource.TabIndex = 0;
             this.gbSearchResource.TabStop = false;
             this.gbSearchResource.Text = "Search Resources";
             // 
@@ -130,6 +131,7 @@
             this.cbresourceStatus.Name = "cbresourceStatus";
             this.cbresourceStatus.Size = new System.Drawing.Size(204, 27);
             this.cbresourceStatus.TabIndex = 21;
+            this.cbresourceStatus.TabStop = false;
             // 
             // cbreserved
             // 
@@ -140,6 +142,7 @@
             this.cbreserved.Name = "cbreserved";
             this.cbreserved.Size = new System.Drawing.Size(204, 27);
             this.cbreserved.TabIndex = 20;
+            this.cbreserved.TabStop = false;
             // 
             // cbtype
             // 
@@ -150,6 +153,7 @@
             this.cbtype.Name = "cbtype";
             this.cbtype.Size = new System.Drawing.Size(222, 27);
             this.cbtype.TabIndex = 19;
+            this.cbtype.TabStop = false;
             // 
             // lbltitle
             // 
@@ -189,6 +193,7 @@
             this.txttitle.Name = "txttitle";
             this.txttitle.Size = new System.Drawing.Size(222, 27);
             this.txttitle.TabIndex = 18;
+            this.txttitle.TabStop = false;
             // 
             // lblresourceStatus
             // 
@@ -236,6 +241,7 @@
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(204, 26);
             this.dtpendDate.TabIndex = 25;
+            this.dtpendDate.TabStop = false;
             // 
             // dtpstartDate
             // 
@@ -244,6 +250,7 @@
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(204, 26);
             this.dtpstartDate.TabIndex = 24;
+            this.dtpstartDate.TabStop = false;
             // 
             // cbstudentStatus
             // 
@@ -254,6 +261,7 @@
             this.cbstudentStatus.Name = "cbstudentStatus";
             this.cbstudentStatus.Size = new System.Drawing.Size(204, 27);
             this.cbstudentStatus.TabIndex = 23;
+            this.cbstudentStatus.TabStop = false;
             // 
             // cbprogram
             // 
@@ -264,6 +272,7 @@
             this.cbprogram.Name = "cbprogram";
             this.cbprogram.Size = new System.Drawing.Size(204, 27);
             this.cbprogram.TabIndex = 22;
+            this.cbprogram.TabStop = false;
             // 
             // txtbalance
             // 
@@ -273,6 +282,7 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(140, 27);
             this.txtbalance.TabIndex = 9;
+            this.txtbalance.TabStop = false;
             // 
             // txtlastName
             // 
@@ -282,6 +292,7 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(140, 27);
             this.txtlastName.TabIndex = 8;
+            this.txtlastName.TabStop = false;
             // 
             // txtfirstName
             // 
@@ -291,6 +302,7 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(140, 27);
             this.txtfirstName.TabIndex = 7;
+            this.txtfirstName.TabStop = false;
             // 
             // lblStatus
             // 
@@ -372,7 +384,7 @@
             this.gbSearch.Location = new System.Drawing.Point(12, 154);
             this.gbSearch.Name = "gbSearch";
             this.gbSearch.Size = new System.Drawing.Size(270, 169);
-            this.gbSearch.TabIndex = 4;
+            this.gbSearch.TabIndex = 3;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Search Students";
             // 
@@ -413,7 +425,7 @@
             this.btnReserveResource.Location = new System.Drawing.Point(638, 329);
             this.btnReserveResource.Name = "btnReserveResource";
             this.btnReserveResource.Size = new System.Drawing.Size(140, 34);
-            this.btnReserveResource.TabIndex = 6;
+            this.btnReserveResource.TabIndex = 10;
             this.btnReserveResource.Text = "&Reserve";
             this.btnReserveResource.UseVisualStyleBackColor = true;
             this.btnReserveResource.Click += new System.EventHandler(this.btnReserveResource_Click);
@@ -424,7 +436,7 @@
             this.btnclear.Location = new System.Drawing.Point(784, 329);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(140, 34);
-            this.btnclear.TabIndex = 7;
+            this.btnclear.TabIndex = 11;
             this.btnclear.Text = "&Clear";
             this.btnclear.UseVisualStyleBackColor = true;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
@@ -440,6 +452,7 @@
             this.Controls.Add(this.gbSearch);
             this.Controls.Add(this.gbResource);
             this.Controls.Add(this.gbSearchResource);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reserve";
             this.Text = "Reserve";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Reserve_FormClosing);

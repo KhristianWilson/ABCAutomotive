@@ -43,6 +43,7 @@
             this.createStudentToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.btnLoans = new System.Windows.Forms.ToolStripButton();
             this.btnReturns = new System.Windows.Forms.ToolStripButton();
@@ -57,7 +58,6 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new MdiTabControl.TabControl();
             this.timerDisplay = new System.Windows.Forms.Timer(this.components);
-            this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.statusMain.SuspendLayout();
@@ -140,10 +140,10 @@
             // 
             // addResourceToolStrip
             // 
+            this.addResourceToolStrip.Enabled = false;
             this.addResourceToolStrip.Name = "addResourceToolStrip";
             this.addResourceToolStrip.Size = new System.Drawing.Size(163, 22);
             this.addResourceToolStrip.Text = "&Add Resource";
-            this.addResourceToolStrip.Visible = false;
             this.addResourceToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // studentInfoToolStrip
@@ -183,6 +183,14 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
+            // 
+            // newUserToolStripMenuItem
+            // 
+            this.newUserToolStripMenuItem.Enabled = false;
+            this.newUserToolStripMenuItem.Name = "newUserToolStripMenuItem";
+            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.newUserToolStripMenuItem.Text = "&New User";
+            this.newUserToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
             // 
             // toolStripMain
             // 
@@ -317,14 +325,6 @@
             this.timerDisplay.Enabled = true;
             this.timerDisplay.Interval = 1;
             this.timerDisplay.Tick += new System.EventHandler(this.timerDisplay_Tick);
-            // 
-            // newUserToolStripMenuItem
-            // 
-            this.newUserToolStripMenuItem.Name = "newUserToolStripMenuItem";
-            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.newUserToolStripMenuItem.Text = "&New User";
-            this.newUserToolStripMenuItem.Visible = false;
-            this.newUserToolStripMenuItem.Click += new System.EventHandler(this.MenuClick);
             // 
             // Main
             // 

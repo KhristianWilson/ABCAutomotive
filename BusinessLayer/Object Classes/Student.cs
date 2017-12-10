@@ -118,7 +118,7 @@ namespace ABCAutomotive.BusinessLayer
                 {
                     throw new ArgumentException("Required");
                 }
-                if (!Validation.checkLength(value, 3, SizeOperator.CanBeLessThan))
+                if (!Validation.checkLength(value, 30, SizeOperator.CanBeLessThan))
                 {
                     throw new ConstraintException("Student last name must be less than 20 charaters");
                 }

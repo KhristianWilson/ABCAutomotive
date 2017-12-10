@@ -77,8 +77,8 @@ namespace ABCAutomotive.FrontEnd
 
             if (Properties.Settings.Default.accessLevel == 2)
             {
-                addResourceToolStrip.Visible = true;
-                newUserToolStripMenuItem.Visible = true;
+                addResourceToolStrip.Enabled = true;
+                newUserToolStripMenuItem.Enabled = true;
                 lblRole.Text = "Admin";
             }
             else

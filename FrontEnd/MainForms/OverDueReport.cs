@@ -20,6 +20,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             try
             {
+                parent.StatusLabel.Text = "";
                 List<OverDueLookup> overDueLoans = OverDueLookupFactory.Create();
                 lbldateText.Text = DateTime.Now.ToLongDateString();
                 if (overDueLoans.Count <= 0)

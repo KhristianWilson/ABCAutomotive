@@ -127,6 +127,9 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     Validation.validDelete(student);
                     StudentCUD.Delete(student.studentid);
                     parent.StatusLabel.Text = ("Delete Successful");
+                    lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
+                    lstSearchResults.DataSource = null;
+                    lstSearchResults.Visible = false;
                     btnclear_Click(null, null);
                 }
                 catch (Exception ex)
@@ -138,7 +141,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         #endregion
 
-        #region HouseKeeping
+        #region House Keeping
 
         private void setupFrom()
         {
@@ -218,6 +221,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
             gbSearch.Enabled = true;
             txtSearch.Focus();
+            errorProvider1.Clear();
             editMode(false);
         }
 
@@ -243,26 +247,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 if (object.ReferenceEquals(sender, txtaddress))
                 {
                     student.address = txtaddress.Text;
-                }
-                if (object.ReferenceEquals(sender, txtbalance))
-                {
-                    string tempBalance;
-                    if (txtbalance.Text.StartsWith("$"))
-                    {
-                        tempBalance = txtbalance.Text.Remove(0, 1);
-                    }
-                    else
-                    {
-                        tempBalance = txtbalance.Text;
-                    }
-                    if (Double.TryParse(tempBalance, out double balance))
-                    {
-                        student.balanceDue = balance;
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(txtbalance, "Balance Must be a decimal amount");
-                    }
                 }
                 if (object.ReferenceEquals(sender, txtcity))
                 {

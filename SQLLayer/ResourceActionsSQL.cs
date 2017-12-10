@@ -8,6 +8,9 @@ namespace ABCAutomotive.SQLLayer
 {
     public static class ResourceActionsSQL
     {
+
+        #region Resource Actions Methods
+
         public static bool checkOutResource(int resourceID, int studentID)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
@@ -36,6 +39,10 @@ namespace ABCAutomotive.SQLLayer
             return DataAccess.SendData("spreserveResource", parmlist);
         }
 
+        #endregion
+
+        #region CU Resource
+
         public static bool updateStatus(int resourceID, ResourceStatus status)
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
@@ -54,7 +61,7 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@publisher", resource.publisher, ParameterDirection.Input, SqlDbType.VarChar, 30));
             parmlist.Add(new ParmStruct("@dateOfPurchase", resource.purchaseDate, ParameterDirection.Input, SqlDbType.DateTime));
             parmlist.Add(new ParmStruct("@price", resource.price, ParameterDirection.Input, SqlDbType.Decimal));
-            if(resource.referenceNumber != string.Empty)
+            if(!string.IsNullOrEmpty(resource.referenceNumber))
             {
                 parmlist.Add(new ParmStruct("@referenceNum", resource.referenceNumber, ParameterDirection.Input, SqlDbType.VarChar, 50));
             }
@@ -68,5 +75,8 @@ namespace ABCAutomotive.SQLLayer
             resource.resourceid = Convert.ToInt32(parmlist[0].parmValue);
             return true;
         }
+
+        #endregion
+
     }
 }

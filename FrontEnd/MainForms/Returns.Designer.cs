@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Returns));
             this.gbSearchResource = new System.Windows.Forms.GroupBox();
             this.txtsearchResource = new System.Windows.Forms.TextBox();
             this.btnSearchResource = new System.Windows.Forms.Button();
@@ -87,8 +88,7 @@
             this.txtsearchResource.MaxLength = 50;
             this.txtsearchResource.Name = "txtsearchResource";
             this.txtsearchResource.Size = new System.Drawing.Size(144, 26);
-            this.txtsearchResource.TabIndex = 4;
-            this.txtsearchResource.Click += new System.EventHandler(this.txtsearchResource_Click);
+            this.txtsearchResource.TabIndex = 1;
             this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearchResource
@@ -97,7 +97,7 @@
             this.btnSearchResource.Location = new System.Drawing.Point(189, 28);
             this.btnSearchResource.Name = "btnSearchResource";
             this.btnSearchResource.Size = new System.Drawing.Size(75, 26);
-            this.btnSearchResource.TabIndex = 5;
+            this.btnSearchResource.TabIndex = 2;
             this.btnSearchResource.Text = "&Search";
             this.btnSearchResource.UseVisualStyleBackColor = true;
             this.btnSearchResource.Click += new System.EventHandler(this.btnSearchResource_Click);
@@ -269,7 +269,7 @@
             this.btnReturn.Location = new System.Drawing.Point(12, 82);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(102, 23);
-            this.btnReturn.TabIndex = 7;
+            this.btnReturn.TabIndex = 3;
             this.btnReturn.Text = "&Return Resource";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
@@ -302,7 +302,7 @@
             this.rdoDamged.Location = new System.Drawing.Point(17, 67);
             this.rdoDamged.Name = "rdoDamged";
             this.rdoDamged.Size = new System.Drawing.Size(77, 17);
-            this.rdoDamged.TabIndex = 9;
+            this.rdoDamged.TabIndex = 7;
             this.rdoDamged.TabStop = true;
             this.rdoDamged.Text = "Damaged ";
             this.rdoDamged.UseVisualStyleBackColor = true;
@@ -313,7 +313,7 @@
             this.rdoLost.Location = new System.Drawing.Point(17, 44);
             this.rdoLost.Name = "rdoLost";
             this.rdoLost.Size = new System.Drawing.Size(46, 17);
-            this.rdoLost.TabIndex = 10;
+            this.rdoLost.TabIndex = 6;
             this.rdoLost.TabStop = true;
             this.rdoLost.Text = "Lost";
             this.rdoLost.UseVisualStyleBackColor = true;
@@ -338,7 +338,7 @@
             this.btnClear.Location = new System.Drawing.Point(385, 82);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(115, 23);
-            this.btnClear.TabIndex = 13;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "&Cancel";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -361,7 +361,7 @@
             this.rdoNormal.Location = new System.Drawing.Point(17, 21);
             this.rdoNormal.Name = "rdoNormal";
             this.rdoNormal.Size = new System.Drawing.Size(62, 17);
-            this.rdoNormal.TabIndex = 14;
+            this.rdoNormal.TabIndex = 5;
             this.rdoNormal.TabStop = true;
             this.rdoNormal.Text = "Normal";
             this.rdoNormal.UseVisualStyleBackColor = true;
@@ -372,7 +372,7 @@
             this.chkLate.Location = new System.Drawing.Point(137, 42);
             this.chkLate.Name = "chkLate";
             this.chkLate.Size = new System.Drawing.Size(47, 17);
-            this.chkLate.TabIndex = 12;
+            this.chkLate.TabIndex = 4;
             this.chkLate.Text = "Late";
             this.chkLate.UseVisualStyleBackColor = true;
             // 
@@ -393,6 +393,7 @@
             this.Controls.Add(this.gbStudentLoans);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbSearchResource);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Returns";
             this.Text = "Returns";
             this.Load += new System.EventHandler(this.Returns_Load);

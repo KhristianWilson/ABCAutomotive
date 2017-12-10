@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addNewUser));
             this.lblUserName = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtpassword = new System.Windows.Forms.TextBox();
@@ -53,7 +54,7 @@
             this.txtUsername.Location = new System.Drawing.Point(106, 18);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(165, 26);
-            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TabIndex = 0;
             // 
             // txtpassword
             // 
@@ -61,7 +62,7 @@
             this.txtpassword.Location = new System.Drawing.Point(106, 52);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(165, 26);
-            this.txtpassword.TabIndex = 3;
+            this.txtpassword.TabIndex = 1;
             // 
             // lblpassword
             // 
@@ -93,7 +94,7 @@
             this.cbRoles.Location = new System.Drawing.Point(332, 23);
             this.cbRoles.Name = "cbRoles";
             this.cbRoles.Size = new System.Drawing.Size(122, 21);
-            this.cbRoles.TabIndex = 5;
+            this.cbRoles.TabIndex = 2;
             // 
             // btnaddUser
             // 
@@ -101,7 +102,7 @@
             this.btnaddUser.Location = new System.Drawing.Point(106, 107);
             this.btnaddUser.Name = "btnaddUser";
             this.btnaddUser.Size = new System.Drawing.Size(93, 28);
-            this.btnaddUser.TabIndex = 6;
+            this.btnaddUser.TabIndex = 3;
             this.btnaddUser.Text = "Add User";
             this.btnaddUser.UseVisualStyleBackColor = true;
             // 
@@ -117,6 +118,7 @@
             this.Controls.Add(this.lblpassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUserName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addNewUser";
             this.Text = "Add New User";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addNewUser_FormClosing);

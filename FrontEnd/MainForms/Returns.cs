@@ -108,11 +108,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtsearchResource.SelectAll();
         }
 
-        private void txtsearchResource_Click(object sender, EventArgs e)
-        {
-            txtsearchResource.SelectAll();
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             Returns_Load(null, null);

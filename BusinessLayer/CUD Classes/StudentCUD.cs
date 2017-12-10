@@ -8,7 +8,7 @@ namespace ABCAutomotive.BusinessLayer
     {
         public static bool Delete(int studentID)
         {
-            if (Validation.checkLength(studentID.ToString(), 8, SizeOperator.MustBeEqualTo)) 
+            if (Validation.checkLength(studentID.ToString(), 8, SizeOperator.MustBeEqualTo))
             {
                 return StudentSQL.Delete(studentID);
             }

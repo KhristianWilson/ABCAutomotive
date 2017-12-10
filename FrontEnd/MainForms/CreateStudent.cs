@@ -35,7 +35,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     StudentCUD.Insert(student);
                     txtstudentID.Text = student.studentid.ToString();
-                    parent.StatusLabel.Text = "Insert Successful StudentID:" + student.studentid;
+                    parent.StatusLabel.Text = "Insert Successful StudentID: " + student.studentid;
+                    btninsert.Enabled = false;
                 }
                 else
                 {
@@ -79,8 +80,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             cbStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbProgram.DataSource = Enum.GetValues(typeof(ProgramType));
 
-            student.startDate = DateTime.Now;
             student.endDate = DateTime.Now.AddDays(10);
+            student.startDate = DateTime.Now;
             dtpendDate.Value = DateTime.Now.AddDays(10);
             student.status = (StudentStatus)cbStatus.SelectedItem;
             student.programType = (ProgramType)cbProgram.SelectedItem;
@@ -104,8 +105,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 if(ctrl is ComboBox)
                 {
-                    (ctrl as ComboBox).SelectedIndex = -1;
-                    (ctrl as ComboBox).SelectedIndex = -1;
+                    (ctrl as ComboBox).SelectedIndex = 0;
+                    (ctrl as ComboBox).SelectedIndex = 0;
                 }
             }
 
@@ -114,6 +115,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             dtpstartDate.Value = DateTime.Now;
             student.startDate = dtpstartDate.Value;
             student.endDate = dtpendDate.Value;
+            btninsert.Enabled = true;
 
             parent.StatusLabel.Text = "";
             errorProvider1.Clear();

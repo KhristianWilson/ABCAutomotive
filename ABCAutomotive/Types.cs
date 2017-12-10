@@ -122,21 +122,6 @@ namespace ABCAutomotive.Types
         NotReserved
     }
 
-    public enum LoanStatus
-    {
-        OnLoan,
-        Returned,
-        ReturnedDamaged,
-        NotReturned
-    }
-
-    public enum LookupTypes
-    {
-        StudentLookup,
-        LoansLookup,
-        ResourceLookup
-    }
-
     #endregion
 
 }

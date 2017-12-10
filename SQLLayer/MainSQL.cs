@@ -46,8 +46,7 @@ namespace ABCAutomotive.SQLLayer
         {
             List<ParmStruct> parmlist = new List<ParmStruct>();
             parmlist.Add(new ParmStruct("@studentId", stuid, ParameterDirection.Input, SqlDbType.Int));
-            DataAccess.SendData("spdeleteStudent", parmlist);
-            return true;
+            return DataAccess.SendData("spdeleteStudent", parmlist);
         }
 
         public static bool Update(IStudent student)
@@ -61,12 +60,10 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@city", student.city, ParameterDirection.Input, SqlDbType.VarChar, 50));
             parmlist.Add(new ParmStruct("@phone", student.phone, ParameterDirection.Input, SqlDbType.Char, 12));
             parmlist.Add(new ParmStruct("@status", student.status, ParameterDirection.Input, SqlDbType.TinyInt));
-            parmlist.Add(new ParmStruct("@program", student.status, ParameterDirection.Input, SqlDbType.TinyInt));
+            parmlist.Add(new ParmStruct("@program", student.programType, ParameterDirection.Input, SqlDbType.TinyInt));
             parmlist.Add(new ParmStruct("@startDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
-            parmlist.Add(new ParmStruct("@endDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
-
-            DataAccess.SendData("spupdateStudent", parmlist);
-            return true;
+            parmlist.Add(new ParmStruct("@endDate", student.endDate, ParameterDirection.Input, SqlDbType.DateTime));
+            return DataAccess.SendData("spupdateStudent", parmlist);
         }
 
         public static bool Insert(IStudent student)
@@ -80,9 +77,9 @@ namespace ABCAutomotive.SQLLayer
             parmlist.Add(new ParmStruct("@city", student.city, ParameterDirection.Input, SqlDbType.VarChar, 50));
             parmlist.Add(new ParmStruct("@phone", student.phone, ParameterDirection.Input, SqlDbType.Char, 12));
             parmlist.Add(new ParmStruct("@status", student.status, ParameterDirection.Input, SqlDbType.TinyInt));
-            parmlist.Add(new ParmStruct("@program", student.status, ParameterDirection.Input, SqlDbType.TinyInt));
+            parmlist.Add(new ParmStruct("@program", student.programType, ParameterDirection.Input, SqlDbType.TinyInt));
             parmlist.Add(new ParmStruct("@startDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
-            parmlist.Add(new ParmStruct("@endDate", student.startDate, ParameterDirection.Input, SqlDbType.DateTime));
+            parmlist.Add(new ParmStruct("@endDate", student.endDate, ParameterDirection.Input, SqlDbType.DateTime));
 
             DataAccess.SendData("spinsertStudent", parmlist);
             student.studentid = Convert.ToInt32(parmlist[0].parmValue);

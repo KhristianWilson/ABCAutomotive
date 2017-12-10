@@ -6,6 +6,9 @@ namespace ABCAutomotive.BusinessLayer
 {
     public static class ResourceMethods
     {
+
+        #region Resource Action Methods
+
         public static void CheckOutResource(int studentID, int resourceID)
         {
             if(!Validation.checkLength(studentID.ToString(), 8, SizeOperator.MustBeEqualTo))
@@ -42,6 +45,10 @@ namespace ABCAutomotive.BusinessLayer
             return ResourceActionsSQL.reserveResource(studentID, resourceID);
         }
 
+        #endregion
+
+        #region CU 
+
         public static bool UpdateStatus(Resource resource)
         {
             return ResourceActionsSQL.updateStatus(resource.resourceid, resource.resourceStatus);
@@ -58,5 +65,8 @@ namespace ABCAutomotive.BusinessLayer
                 throw new ArgumentException("Resource must have all infomation");
             }
         }
+
+        #endregion
+
     }
 }

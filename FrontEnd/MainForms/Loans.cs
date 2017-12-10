@@ -169,6 +169,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             loansLookup.Clear();
             student = StudentFactory.Create();
             resource = ResourceFactory.Create();
+            dgvLoans.DataSource = null;
             lstSearchResults.DataSource = null;
             lstCart.DataSource = null;
 

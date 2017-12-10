@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MakePayment));
             this.gbpayment = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnmakePayment = new System.Windows.Forms.Button();
@@ -360,6 +361,7 @@
             this.Controls.Add(this.gbSearch);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbpayment);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MakePayment";
             this.Text = "MakePayment";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MakePayment_FormClosing);

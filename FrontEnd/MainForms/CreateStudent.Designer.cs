@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateStudent));
             this.panActions = new System.Windows.Forms.Panel();
             this.btnclear = new System.Windows.Forms.Button();
             this.btninsert = new System.Windows.Forms.Button();
@@ -76,7 +77,7 @@
             this.btnclear.Location = new System.Drawing.Point(183, 27);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(162, 44);
-            this.btnclear.TabIndex = 16;
+            this.btnclear.TabIndex = 13;
             this.btnclear.Text = "&Clear";
             this.btnclear.UseVisualStyleBackColor = true;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
@@ -87,7 +88,7 @@
             this.btninsert.Location = new System.Drawing.Point(15, 27);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(162, 44);
-            this.btninsert.TabIndex = 15;
+            this.btninsert.TabIndex = 12;
             this.btninsert.Text = "&Insert";
             this.btninsert.UseVisualStyleBackColor = true;
             this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
@@ -136,7 +137,7 @@
             this.txtstudentID.Location = new System.Drawing.Point(122, 41);
             this.txtstudentID.Name = "txtstudentID";
             this.txtstudentID.Size = new System.Drawing.Size(148, 26);
-            this.txtstudentID.TabIndex = 4;
+            this.txtstudentID.TabIndex = 1;
             this.txtstudentID.TabStop = false;
             // 
             // lblstudentID
@@ -156,7 +157,7 @@
             this.txtphoneNumber.Location = new System.Drawing.Point(431, 138);
             this.txtphoneNumber.Name = "txtphoneNumber";
             this.txtphoneNumber.Size = new System.Drawing.Size(143, 26);
-            this.txtphoneNumber.TabIndex = 10;
+            this.txtphoneNumber.TabIndex = 7;
             this.txtphoneNumber.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtphoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -176,7 +177,7 @@
             this.txtpostalCode.Location = new System.Drawing.Point(431, 107);
             this.txtpostalCode.Name = "txtpostalCode";
             this.txtpostalCode.Size = new System.Drawing.Size(143, 26);
-            this.txtpostalCode.TabIndex = 9;
+            this.txtpostalCode.TabIndex = 6;
             this.txtpostalCode.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtpostalCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -186,7 +187,7 @@
             this.txtcity.Location = new System.Drawing.Point(431, 74);
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(143, 26);
-            this.txtcity.TabIndex = 8;
+            this.txtcity.TabIndex = 5;
             this.txtcity.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtcity.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -196,7 +197,7 @@
             this.txtaddress.Location = new System.Drawing.Point(431, 41);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(143, 26);
-            this.txtaddress.TabIndex = 7;
+            this.txtaddress.TabIndex = 4;
             this.txtaddress.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtaddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -239,7 +240,7 @@
             this.cbStatus.Location = new System.Drawing.Point(704, 69);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(200, 29);
-            this.cbStatus.TabIndex = 12;
+            this.cbStatus.TabIndex = 9;
             this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // cbProgram
@@ -251,7 +252,7 @@
             this.cbProgram.Location = new System.Drawing.Point(704, 31);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(200, 29);
-            this.cbProgram.TabIndex = 11;
+            this.cbProgram.TabIndex = 8;
             this.cbProgram.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // dtpendDate
@@ -261,7 +262,7 @@
             this.dtpendDate.Location = new System.Drawing.Point(704, 135);
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(200, 29);
-            this.dtpendDate.TabIndex = 14;
+            this.dtpendDate.TabIndex = 11;
             this.dtpendDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
@@ -281,7 +282,7 @@
             this.dtpstartDate.Location = new System.Drawing.Point(704, 104);
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(200, 29);
-            this.dtpstartDate.TabIndex = 13;
+            this.dtpstartDate.TabIndex = 10;
             this.dtpstartDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // txtlastName
@@ -290,7 +291,7 @@
             this.txtlastName.Location = new System.Drawing.Point(122, 107);
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(148, 26);
-            this.txtlastName.TabIndex = 6;
+            this.txtlastName.TabIndex = 3;
             this.txtlastName.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtlastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -310,7 +311,7 @@
             this.txtfirstName.Location = new System.Drawing.Point(122, 74);
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(148, 26);
-            this.txtfirstName.TabIndex = 5;
+            this.txtfirstName.TabIndex = 2;
             this.txtfirstName.Enter += new System.EventHandler(this.txtstudentID_Enter);
             this.txtfirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
@@ -361,6 +362,7 @@
             this.ClientSize = new System.Drawing.Size(983, 621);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.panActions);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateStudent";
             this.Text = "Create Student";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateStudent_FormClosing);

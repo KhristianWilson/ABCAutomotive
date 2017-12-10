@@ -105,6 +105,7 @@ namespace ABCAutomotive.FrontEnd
                     ResourceMethods.InsertResource(resource);
                     txtResourceID.Text = resource.resourceid.ToString();
                     parent.StatusLabel.Text = "Resource Added ID: " + resource.resourceid.ToString();
+                    btninsert.Enabled = false;
                 }
                 else
                 {
@@ -154,8 +155,8 @@ namespace ABCAutomotive.FrontEnd
                 }
                 if (ctrl is ComboBox)
                 {
-                    (ctrl as ComboBox).SelectedIndex = -1;
-                    (ctrl as ComboBox).SelectedIndex = -1;
+                    (ctrl as ComboBox).SelectedIndex = 0;
+                    (ctrl as ComboBox).SelectedIndex = 0;
                 }
             }
 
@@ -163,6 +164,7 @@ namespace ABCAutomotive.FrontEnd
             dtpAddDate.Value = DateTime.Now;
             resource.purchaseDate = dtpAddDate.Value;
             pbImage.Image = null;
+            btninsert.Enabled = true;
             errorProvider1.Clear();
             parent.StatusLabel.Text = "";
         }

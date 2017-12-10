@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageStudent));
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -287,13 +288,12 @@
             // 
             // txtbalance
             // 
+            this.txtbalance.Enabled = false;
             this.txtbalance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbalance.Location = new System.Drawing.Point(122, 138);
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(148, 26);
             this.txtbalance.TabIndex = 7;
-            this.txtbalance.Enter += new System.EventHandler(this.txtSearch_Enter);
-            this.txtbalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtfirstName_Validating);
             // 
             // lblStartDate
             // 
@@ -403,7 +403,7 @@
             this.panActions.Location = new System.Drawing.Point(12, 394);
             this.panActions.Name = "panActions";
             this.panActions.Size = new System.Drawing.Size(959, 86);
-            this.panActions.TabIndex = 7;
+            this.panActions.TabIndex = 19;
             // 
             // btnclear
             // 
@@ -450,6 +450,7 @@
             this.Controls.Add(this.panActions);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageStudent";
             this.Text = "Manage Students";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageStudent_FormClosing);

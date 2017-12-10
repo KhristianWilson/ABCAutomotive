@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyResourceStatus));
             this.gbSearchResource = new System.Windows.Forms.GroupBox();
             this.txtsearchResource = new System.Windows.Forms.TextBox();
             this.btnSearchResource = new System.Windows.Forms.Button();
@@ -326,6 +327,7 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(89, 467);
@@ -370,6 +372,7 @@
             this.Controls.Add(this.gbSearchResource);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.cbStatus);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModifyResourceStatus";
             this.Text = "Modify Resource Status";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifyResourceStatus_FormClosing);

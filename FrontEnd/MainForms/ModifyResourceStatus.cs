@@ -94,7 +94,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
             enableUpdate(false);
             gbResourceInfo.Enabled = false;
-            txtsearchResource.MaxLength = 8;           
+            txtsearchResource.MaxLength = 8;
+            parent.StatusLabel.Text = "";
         }
 
         private void btnClear_Click(object sender, EventArgs e)

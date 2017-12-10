@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ABCLogo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MdiTabControl">
       <HintPath>C:\Users\Owner-PC\Desktop\MdiTabControl.dll</HintPath>
@@ -214,6 +217,7 @@
     <None Include="Resources\ABCLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABCLogo.ico" />
     <Content Include="Resources\loans.png" />
     <None Include="Resources\reserve.png" />
     <None Include="Resources\overdue.png" />

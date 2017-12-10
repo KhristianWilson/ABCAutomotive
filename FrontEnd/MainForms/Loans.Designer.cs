@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loans));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -94,7 +95,7 @@
             this.btnSearch.Location = new System.Drawing.Point(189, 28);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 26);
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -125,7 +126,7 @@
             this.lstSearchResults.Location = new System.Drawing.Point(15, 63);
             this.lstSearchResults.Name = "lstSearchResults";
             this.lstSearchResults.Size = new System.Drawing.Size(249, 80);
-            this.lstSearchResults.TabIndex = 2;
+            this.lstSearchResults.TabIndex = 3;
             // 
             // gbStudentsInfo
             // 
@@ -159,6 +160,7 @@
             this.dtpendDate.Name = "dtpendDate";
             this.dtpendDate.Size = new System.Drawing.Size(204, 26);
             this.dtpendDate.TabIndex = 29;
+            this.dtpendDate.TabStop = false;
             // 
             // dtpstartDate
             // 
@@ -167,6 +169,7 @@
             this.dtpstartDate.Name = "dtpstartDate";
             this.dtpstartDate.Size = new System.Drawing.Size(204, 26);
             this.dtpstartDate.TabIndex = 28;
+            this.dtpstartDate.TabStop = false;
             // 
             // cbstudentStatus
             // 
@@ -177,6 +180,7 @@
             this.cbstudentStatus.Name = "cbstudentStatus";
             this.cbstudentStatus.Size = new System.Drawing.Size(204, 27);
             this.cbstudentStatus.TabIndex = 27;
+            this.cbstudentStatus.TabStop = false;
             // 
             // cbprogram
             // 
@@ -187,6 +191,7 @@
             this.cbprogram.Name = "cbprogram";
             this.cbprogram.Size = new System.Drawing.Size(204, 27);
             this.cbprogram.TabIndex = 26;
+            this.cbprogram.TabStop = false;
             // 
             // txtbalance
             // 
@@ -196,6 +201,7 @@
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Size = new System.Drawing.Size(140, 26);
             this.txtbalance.TabIndex = 9;
+            this.txtbalance.TabStop = false;
             // 
             // txtlastName
             // 
@@ -205,6 +211,7 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(140, 26);
             this.txtlastName.TabIndex = 8;
+            this.txtlastName.TabStop = false;
             // 
             // txtfirstName
             // 
@@ -214,6 +221,7 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(140, 26);
             this.txtfirstName.TabIndex = 7;
+            this.txtfirstName.TabStop = false;
             // 
             // lblStatus
             // 
@@ -308,6 +316,7 @@
             this.dgvLoans.RowTemplate.Height = 100;
             this.dgvLoans.Size = new System.Drawing.Size(650, 162);
             this.dgvLoans.TabIndex = 0;
+            this.dgvLoans.TabStop = false;
             // 
             // gbSearchResource
             // 
@@ -328,7 +337,7 @@
             this.txtsearchResource.MaxLength = 50;
             this.txtsearchResource.Name = "txtsearchResource";
             this.txtsearchResource.Size = new System.Drawing.Size(144, 26);
-            this.txtsearchResource.TabIndex = 4;
+            this.txtsearchResource.TabIndex = 3;
             this.txtsearchResource.Enter += new System.EventHandler(this.txtsearchResource_Enter);
             // 
             // btnSearchResource
@@ -336,7 +345,7 @@
             this.btnSearchResource.Location = new System.Drawing.Point(189, 27);
             this.btnSearchResource.Name = "btnSearchResource";
             this.btnSearchResource.Size = new System.Drawing.Size(75, 27);
-            this.btnSearchResource.TabIndex = 5;
+            this.btnSearchResource.TabIndex = 4;
             this.btnSearchResource.Text = "&Search";
             this.btnSearchResource.UseVisualStyleBackColor = true;
             this.btnSearchResource.Click += new System.EventHandler(this.btnSearchResource_Click);
@@ -365,7 +374,7 @@
             this.btnAddtoCart.Location = new System.Drawing.Point(65, 170);
             this.btnAddtoCart.Name = "btnAddtoCart";
             this.btnAddtoCart.Size = new System.Drawing.Size(188, 29);
-            this.btnAddtoCart.TabIndex = 8;
+            this.btnAddtoCart.TabIndex = 5;
             this.btnAddtoCart.Text = "&Add To Borrowings";
             this.btnAddtoCart.UseVisualStyleBackColor = true;
             this.btnAddtoCart.Click += new System.EventHandler(this.btnAddtoCart_Click);
@@ -378,6 +387,7 @@
             this.txtresourceStatus.Name = "txtresourceStatus";
             this.txtresourceStatus.Size = new System.Drawing.Size(140, 26);
             this.txtresourceStatus.TabIndex = 21;
+            this.txtresourceStatus.TabStop = false;
             // 
             // lbltitle
             // 
@@ -397,6 +407,7 @@
             this.txtreserveStatus.Name = "txtreserveStatus";
             this.txtreserveStatus.Size = new System.Drawing.Size(140, 26);
             this.txtreserveStatus.TabIndex = 20;
+            this.txtreserveStatus.TabStop = false;
             // 
             // lblType
             // 
@@ -416,6 +427,7 @@
             this.txttype.Name = "txttype";
             this.txttype.Size = new System.Drawing.Size(140, 26);
             this.txttype.TabIndex = 19;
+            this.txttype.TabStop = false;
             // 
             // lblreserveStatus
             // 
@@ -435,6 +447,7 @@
             this.txttitle.Name = "txttitle";
             this.txttitle.Size = new System.Drawing.Size(140, 26);
             this.txttitle.TabIndex = 18;
+            this.txttitle.TabStop = false;
             // 
             // lblresourceStatus
             // 
@@ -452,7 +465,7 @@
             this.btncancel.Location = new System.Drawing.Point(312, 53);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(193, 29);
-            this.btncancel.TabIndex = 6;
+            this.btncancel.TabIndex = 8;
             this.btncancel.Text = "&Cancel";
             this.btncancel.UseVisualStyleBackColor = true;
             this.btncancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -484,7 +497,7 @@
             this.btnRemoveItem.Location = new System.Drawing.Point(18, 153);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(173, 29);
-            this.btnRemoveItem.TabIndex = 22;
+            this.btnRemoveItem.TabIndex = 6;
             this.btnRemoveItem.Text = "&Remove Item";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
             this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
@@ -511,6 +524,7 @@
             this.Controls.Add(this.gbStudentLoans);
             this.Controls.Add(this.gbStudentsInfo);
             this.Controls.Add(this.gbSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Loans";
             this.Text = "Loans";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Loans_FormClosing);

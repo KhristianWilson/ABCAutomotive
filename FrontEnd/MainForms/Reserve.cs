@@ -147,6 +147,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
         private void setupForm()
         {
             txtsearchResource.MaxLength = 8;
+            parent.StatusLabel.Text = "";
             ReserveMode(false);
             gbResource.Enabled = false;
             gbStudentsInfo.Enabled = false;
@@ -169,20 +170,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
         private void btnclear_Click(object sender, EventArgs e)
         {
-            foreach (Control x in gbStudentsInfo.Controls)
-            {
-                if (x is TextBox)
-                {
-                    x.Text = string.Empty;
-                }
-                if (x is ComboBox)
-                {
-                    (x as ComboBox).SelectedIndex = -1;
-                    (x as ComboBox).SelectedIndex = -1;
-                }
-                this.errorProvider1.SetError(x, string.Empty);
-            }
-
+            clearStudentInfo();
+            clearResourceInfo();
             lstSearchResults.SelectedIndexChanged -= LstSearchResults_SelectedIndexChanged;
             lstSearchResults.DataSource = null;
             txtSearch.ResetText();
@@ -190,6 +179,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             txtsearchResource.ResetText();
             errorProvider1.SetError(txtSearch, string.Empty);
             ReserveMode(false);
+            parent.StatusLabel.Text = "";
             resource = ResourceFactory.Create();
             student = StudentFactory.Create();
         }

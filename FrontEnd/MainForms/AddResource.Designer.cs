@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddResource));
             this.gbResourceInfo = new System.Windows.Forms.GroupBox();
             this.txtResourceID = new System.Windows.Forms.TextBox();
             this.lblResourceId = new System.Windows.Forms.Label();
@@ -119,7 +120,7 @@
             this.btnLoadImage.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(80, 30);
-            this.btnLoadImage.TabIndex = 11;
+            this.btnLoadImage.TabIndex = 9;
             this.btnLoadImage.Text = "Load Image";
             this.btnLoadImage.UseVisualStyleBackColor = true;
             this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
@@ -155,7 +156,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(118, 30);
-            this.btnClear.TabIndex = 10;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -166,7 +167,7 @@
             this.btninsert.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(118, 30);
-            this.btninsert.TabIndex = 9;
+            this.btninsert.TabIndex = 10;
             this.btninsert.Text = "&Add Resource";
             this.btninsert.UseVisualStyleBackColor = true;
             this.btninsert.Click += new System.EventHandler(this.btninsert_Click);
@@ -349,6 +350,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 620);
             this.Controls.Add(this.gbResourceInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "AddResource";
             this.Text = "Add Resource";
