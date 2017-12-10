@@ -131,6 +131,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
             btnUpdate.Visible = mode;
             cbStatus.Visible = mode;
             lblStatus.Visible = mode;
+            btnSearchResource.Enabled = !mode;
             gbResourceInfo.Visible = mode;
         }
 

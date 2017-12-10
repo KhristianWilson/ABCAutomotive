@@ -185,6 +185,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 this.errorProvider1.SetError(x, string.Empty);
             }
+            txtsearchResource.Clear();
         }
 
         private void CheckOutMode(bool mode)
@@ -202,6 +203,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             errorProvider1.SetError((sender as Control), "");
             (sender as TextBox).SelectAll();
+            if(sender == txtsearchResource)
+            {
+                errorProvider1.SetError(btnAddtoCart, "");
+            }
         }
 
         private void Loans_FormClosing(object sender, FormClosingEventArgs e)
@@ -227,7 +232,10 @@ namespace ABCAutomotive.FrontEnd.MainForms
             try
             {
                 Validation.validResourceCheckout(loansLookup, loanItems, resource);
-                addItem();
+                if(txtresourceStatus.Text != string.Empty)
+                {
+                    addItem();
+                }
             }
             catch (Exception ex)
             {

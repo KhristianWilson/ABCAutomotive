@@ -41,7 +41,7 @@
             this.dgvoverDueLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvoverDueLoans.Location = new System.Drawing.Point(12, 71);
             this.dgvoverDueLoans.Name = "dgvoverDueLoans";
-            this.dgvoverDueLoans.Size = new System.Drawing.Size(892, 417);
+            this.dgvoverDueLoans.Size = new System.Drawing.Size(608, 417);
             this.dgvoverDueLoans.TabIndex = 0;
             // 
             // lblDate

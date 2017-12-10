@@ -13,7 +13,7 @@ namespace ABCAutomotive.BusinessLayer
             }
             else
             {
-                throw new ArgumentException("Payment Missing infomation");
+                throw new ArgumentException("Payment missing infomation");
             }           
         }
     }

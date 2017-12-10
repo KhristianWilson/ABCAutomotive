@@ -63,7 +63,6 @@ namespace ABCAutomotive.FrontEnd.MainForms
         {
             txttitle.Text = resource.title;
             cbreserved.SelectedItem = resource.reserveStatus;
-            txttitle.Text = resource.resourceType.ToString();
             cbresourceStatus.SelectedItem = resource.resourceStatus;
             cbtype.SelectedItem = resource.resourceType;
             btnReserveResource.Enabled = true;
@@ -194,8 +193,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 if(x is ComboBox)
                 {
-                    (x as ComboBox).SelectedIndex = - 1;
-                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = 0;
+                    (x as ComboBox).SelectedIndex = 0;
                 }
                 this.errorProvider1.SetError(x, string.Empty);
             }
@@ -211,8 +210,8 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 }
                 if (x is ComboBox)
                 {
-                    (x as ComboBox).SelectedIndex = -1;
-                    (x as ComboBox).SelectedIndex = -1;
+                    (x as ComboBox).SelectedIndex = 0;
+                    (x as ComboBox).SelectedIndex = 0;
                 }
                 this.errorProvider1.SetError(x, string.Empty);
             }
@@ -241,6 +240,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
                 {
                     ResourceMethods.ReserveResource(student.studentid, resource.resourceid);
                     parent.StatusLabel.Text = "Resource Reserved";
+                    cbreserved.SelectedItem = ReserveStatus.Reserved;
                 }
                 else
                 {

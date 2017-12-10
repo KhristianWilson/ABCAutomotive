@@ -97,7 +97,7 @@
             // 
             this.returnsToolStrip.Name = "returnsToolStrip";
             this.returnsToolStrip.Size = new System.Drawing.Size(165, 22);
-            this.returnsToolStrip.Text = "&Returns";
+            this.returnsToolStrip.Text = "Check &In";
             this.returnsToolStrip.Click += new System.EventHandler(this.MenuClick);
             // 
             // checkOutToolStrip

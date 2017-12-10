@@ -211,12 +211,12 @@ namespace ABCAutomotive.FrontEnd
 
         private void btnLoadImage_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Image Files (*.png, *.jpg)|*.png;*.jpg";
+            openFileDialog1.Filter = "Image Files (*.png)|*.png;";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pbImage.Image = Image.FromFile(openFileDialog1.FileName);
                 MemoryStream stream = new MemoryStream();
-                pbImage.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                pbImage.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
                 byte[] pic = stream.GetBuffer();
                 resource.image = pic;
             }

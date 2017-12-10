@@ -41,6 +41,14 @@ namespace ABCAutomotive.FrontEnd.MainForms
                     loadStudentInfo();
                     loadLoanInfo();
                     returnMode();
+                    foreach (DataGridViewRow row in dgvLoans.Rows)
+                    {
+                        if (row.Cells[0].Value.ToString() == txtsearchResource.Text)
+                        {
+                            row.Selected = true;
+                            txtResourceID.Text = row.Cells[0].Value.ToString();
+                        }
+                    }
                 }
                 else
                 {
@@ -94,6 +102,7 @@ namespace ABCAutomotive.FrontEnd.MainForms
 
             cbstudentStatus.DataSource = Enum.GetValues(typeof(StudentStatus));
             cbprogram.DataSource = Enum.GetValues(typeof(ProgramType));
+            rdoNormal.Checked = true;
         }
         private void returnMode()
         {

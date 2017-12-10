@@ -54,11 +54,11 @@ namespace ABCAutomotive.BusinessLayer
 
         }
 
-        public string Description { get; set; }
+        public string Description { get; internal set; }
         public ResourceType ResourceType { get; internal set; }
         public int StudentID { get; internal set; }
-        public string FullName { get; set; }
-        public double Price { get; set; }
+        public string FullName { get; internal set; }
+        public double Price { get; internal set; }
 
     }
 
